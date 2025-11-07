@@ -96,3 +96,5 @@ Nach jedem Neustart musst du nur:
 1. Docker Desktop öffnen  
 2. `docker-compose up -d` ausführen  
 3. `npm run dev` starten  
+
+neu
