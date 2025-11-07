@@ -1,65 +1,102 @@
-# 🎨 Sketchbook Portfolio
+# Sketchbook
 
-Dieses Projekt ist mein persönliches Portfolio, das **NocoDB** als Datenbank-Backend nutzt und mit **GitHub Pages** gehostet wird.
-
----
-
-## 🚀 Development Setup
+## 0. Lokale Entwicklung
 
 ### Voraussetzungen
-- **Docker Desktop** installiert und gestartet
-- **NocoDB** läuft lokal (siehe unten)
+- Node.js (>= v22)
+- npm (>= v10)
+- Docker Desktop (für NocoDB)
+- Git
+
+### Setup
+
+Repository klonen:
+```bash
+git clone https://github.com/sehetz/sketchbook.github.io.git
+cd sketchbook.github.io
+```
+
+Entwicklungsumgebung starten:
+```bash
+npm install
+npm run dev
+```
+Die Website ist dann unter http://localhost:5173 erreichbar.
 
 ### NocoDB starten
-
 ```bash
 cd ~/nocodb
 docker-compose up -d
-Dann im Browser öffnen:
-👉 http://localhost:8080
+```
+NocoDB-Interface unter http://localhost:8080 öffnen und sicherstellen, dass die Tabellen verfügbar sind.
 
-Website lokal entwickeln
-Falls du an der Website arbeitest (z. B. mit HTML/JS oder React):
+---
 
-bash
-Code kopieren
-git clone https://github.com/sehetz/sketchbook.github.io.git
-cd sketchbook.github.io
-npm install
-npm run dev
-Danach öffnet sich die Website meist unter:
-👉 http://localhost:5173
+## 1. Datenstruktur und Anbindungen
 
-🧱 Datenstruktur (NocoDB)
-Tabelle	Beschreibung	Beziehung
-Projects	Haupttabelle mit allen Projekten (Name, Beschreibung, Jahr, etc.)	🔗 Linked mit Skills, Gear, Teams
-Skills	Fähigkeiten oder Technologien	🔗 Many-to-many mit Projects
-Gear	Tools oder Ausrüstung	🔗 Many-to-many mit Projects
-Teams	Personen oder Partner	🔗 Many-to-many mit Projects
+### Übersicht
+Sketchbook nutzt NocoDB als Headless-Datenbank.
+Die React-App kommuniziert über die REST-API direkt mit der NocoDB-Instanz.
 
-🔑 API & Keys
-Schlüssel	Beschreibung
-NocoDB Base URL	http://localhost:8080/api/v1/Sketchbook
-Projects API	/Projects
-Skills API	/Skills
-Gear API	/Gear
-Teams API	/Teams
-Auth Header	xc-token: <DEIN_API_TOKEN>
+### Tabellen
+
+| Tabelle | Zweck | Verknüpfungen |
+|----------|--------|---------------|
+| Projects | Haupttabelle, enthält alle Projekte (Name, Beschreibung, Jahr, Bild etc.) | linked to Skills, Gear, Teams |
+| Skills | Fähigkeiten oder Technologien | linked to Projects |
+| Gear | Tools oder Ausrüstung | linked to Projects |
+| Teams | Personen, Partner oder Mitwirkende | linked to Projects |
+
+### API-Endpunkte (Beispiele)
+
+Basis-URL:
+```
+http://localhost:8080/api/v1/Sketchbook
+```
+
+Beispiele:
+```
+GET /Projects
+GET /Skills
+GET /Gear
+GET /Teams
+```
+
+Jede Anfrage erfordert einen gültigen NocoDB API-Token im Header:
+```
+xc-token: <DEIN_API_KEY>
+```
 
 Beispiel:
+```bash
+curl -H "xc-token: <DEIN_API_KEY>" http://localhost:8080/api/v1/Sketchbook/Projects
+```
 
-bash
-Code kopieren
-curl -H "xc-token: <DEIN_API_TOKEN>" http://localhost:8080/api/v1/Sketchbook/Projects
-🌍 Weitere wichtige Adressen
-Service	URL / Adresse
-NocoDB (lokal)	http://localhost:8080
-GitHub Repository	https://github.com/sehetz/sketchbook.github.io
-GitHub Pages (Deployment)	https://sehetz.github.io/sketchbook.github.io
-Docker Data Ordner	~/nocodb/nocodb_data/
+---
 
-🔐 Logins & Accounts
-Dienst	Benutzername	Notizen
-Docker Hub	sehetz	Kostenloses Docker-Konto
-NocoDB Admin	(E-Mail, die du beim Setup vergeben hast)	Zugriff auf lokale Instanz
-GitHub	sehetz	Hostet die Website
+## 2. Verwendete Technologien
+
+### Frontend
+- React 18
+- Vite (Build-Tool und Dev-Server)
+- JavaScript (ESNext)
+- Fetch API für HTTP-Requests
+
+### Backend
+- NocoDB (self-hosted via Docker)
+- SQLite (lokale Datenbank für Entwicklung)
+- REST API
+
+### Infrastruktur
+- GitHub (Versionierung)
+- GitHub Pages (Deployment)
+- Docker Desktop (lokale Containerumgebung)
+
+---
+
+## 3. Version Log
+
+| Version | Datum | Beschreibung |
+|----------|--------|---------------|
+| 0.1.0 | 2025-11-07 | Initiales React-Projekt mit Vite erstellt, Verbindung zu NocoDB vorbereitet |
+| 0.0.1 | 2025-11-06 | NocoDB eingerichtet, Tabellen erstellt (Projects, Skills, Gear, Teams) |
