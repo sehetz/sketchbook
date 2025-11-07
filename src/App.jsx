@@ -1,35 +1,37 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { useEffect, useState } from "react";
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [data, setData] = useState(null);
+  const [error, setError] = useState(null);
+
+  const API_URL = import.meta.env.VITE_API_URL;
+  const API_TOKEN = import.meta.env.VITE_API_TOKEN;
+
+  useEffect(() => {
+    async function fetchData() {
+      try {
+        const res = await fetch(API_URL, {
+          headers: { "xc-token": API_TOKEN },
+        });
+        if (!res.ok) throw new Error(`Fehler: ${res.status}`);
+        const json = await res.json();
+        setData(json);
+      } catch (err) {
+        setError(err.message);
+      }
+    }
+    fetchData();
+  }, [API_URL, API_TOKEN]);
+
+  if (error) return <pre>Fehler: {error}</pre>;
+  if (!data) return <pre>Lade Daten...</pre>;
 
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    <div style={{ padding: "2rem", fontFamily: "monospace" }}>
+      <h1>Rohdaten aus NocoDB</h1>
+      <pre>{JSON.stringify(data, null, 2)}</pre>
+    </div>
+  );
 }
 
-export default App
+export default App;
