@@ -1,0 +1,29 @@
+.intro {
+  width: 100%;
+  height: 100%;
+  padding-left: var(--space-6);
+  padding-right: var(--space-6);
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: var(--space-6);
+  box-sizing: border-box;
+}
+
+.intro__text {
+  flex: 1 1 0;
+  padding-right: var(--space-8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.intro__spacer {
+  flex: 1 1 0;
+  align-self: stretch;
+}
+
+/* Textklasse nutzt dein globales System */
+.intro__text .text-2 {
+  max-width: 60ch;
+}

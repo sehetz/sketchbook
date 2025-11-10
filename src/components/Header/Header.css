@@ -1,0 +1,17 @@
+.header {
+  width: 100vw;
+  padding-top: var(--space-6);                 /* 24px */
+  padding-bottom: calc(var(--space-6) + 12px); /* 36px */
+  padding-left: var(--space-6);
+  padding-right: var(--space-6);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-sizing: border-box;
+}
+
+/* Nur minimaler Stil für die Links */
+.header__link {
+  color: var(--color-fg);
+  text-decoration: none;
+}

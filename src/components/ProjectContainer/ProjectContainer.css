@@ -1,0 +1,18 @@
+.project-container {
+  width: 100%;
+  border-top: var(--line-solid);
+  padding: var(--space-2) var(--space-6);
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  box-sizing: border-box;
+  background: var(--color-bg);
+}
+
+.project-container__content {
+  font-family: var(--font-sans);
+  font-size: var(--text-1-size);
+  line-height: var(--text-1-line);
+  font-weight: 400;
+  color: var(--color-fg);
+}

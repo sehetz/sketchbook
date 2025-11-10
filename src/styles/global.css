@@ -1,0 +1,107 @@
+@import "./tokens.css";
+
+/* ==========================
+   Global Styles – Sketchbook
+   ========================== */
+
+@font-face {
+  font-family: "SF Pro Rounded";
+  src: url("/fonts/SF-Pro-Rounded-Regular.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  background: var(--color-bg);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  padding: 0;
+  margin: 0;
+  color: var(--color-fg);
+  font-family: var(--font-sans);
+  font-weight: 400;
+}
+
+/* ==================================
+   TYPOGRAPHY UTILITY CLASSES
+   ================================== */
+
+.text-1 {
+  font-size: var(--text-1-size); /* 48px */
+  line-height: var(--text-1-line);
+  font-family: "SF Pro Rounded"
+}
+
+.text-2 {
+  font-size: var(--text-2-size); /* 32px */
+  line-height: var(--text-2-line);
+  font-family: "SF Pro Rounded"
+}
+
+.text-3 {
+  font-size: var(--text-3-size); /* 24px */
+  line-height: var(--text-3-line);
+  letter-spacing: var(--text-3-letter);
+  font-family: "SF Pro Rounded"
+}
+
+/* =======================================
+   Alignment Utilities – global
+   ======================================= */
+
+/* ---- 1. Container-Achse (Flexbox) ---- */
+.axis-left {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.axis-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.axis-right {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+/* ---- 2. Textausrichtung ---- */
+.text-left {
+  text-align: left;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.text-right {
+  text-align: right;
+}
+
+/* ==========================
+   Text Selection Styling
+   ========================== */
+
+::selection {
+  background: #D4BAFF;
+  color: var(--color-fg);
+}
+
+::-moz-selection {
+  background: #D4BAFF;
+  color: var(--color-fg);
+}

@@ -1,4 +1,10 @@
 import { useEffect, useState } from "react";
+import "./styles/global.css";
+import Header from "./components/Header/Header";
+import Intro from "./components/Intro/Intro";
+import FilterNav from "./components/FilterNav/FilterNav";
+import Footer from "./components/Footer/Footer";
+import ProjectContainer from "./components/ProjectContainer/ProjectContainer";
 
 function App() {
   const [data, setData] = useState(null);
@@ -27,10 +33,30 @@ function App() {
   if (!data) return <pre>Lade Daten...</pre>;
 
   return (
-    <div style={{ padding: "2rem", fontFamily: "monospace" }}>
-      <h1>Rohdaten aus NocoDB</h1>
-      <pre>{JSON.stringify(data, null, 2)}</pre>
-    </div>
+    <>
+      <Header />
+      <Intro />
+      <FilterNav />
+
+      <main>
+        {data.list && data.list.length > 0 ? (
+          data.list.map((item, index) => (
+            <ProjectContainer
+              key={item.Id}
+              projects={[item]}
+              isLast={index === data.list.length - 1}
+            />
+          ))
+        ) : (
+          <p className="text-3">Keine Projekte gefunden.</p>
+        )}
+
+        {/* <h2 className="text-2">Rohdaten</h2>
+        <pre>{JSON.stringify(data, null, 2)}</pre> */}
+      </main>
+
+      <Footer />
+    </>
   );
 }
 

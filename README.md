@@ -15,8 +15,8 @@
 
 Repository klonen:
 ```bash
-git clone https://github.com/sehetz/sketchbook.github.io.git
-cd sketchbook.github.io
+git clone https://github.com/sehetz/sketchbook.git
+cd sketchbook
 ```
 
 Abhängigkeiten installieren:
@@ -68,10 +68,10 @@ nocodb    nocodb/nocodb:latest   Up   0.0.0.0:8080->8080/tcp
 
 ### Schritt 3 – React Development Server starten
 
-In einem neuen Terminalfenster:
+In einem **neuen Terminalfenster**:
 
 ```bash
-cd ~/Documents/sketchbook.github.io
+cd ~/Documents/sketchbook
 npm run dev
 ```
 
@@ -82,10 +82,11 @@ Die Website ist nun erreichbar unter:
 
 ### Optional: .env-Konfiguration
 
-Datei `.env` im Projektverzeichnis (`sketchbook.github.io`) mit folgendem Inhalt:
+Erstelle im Projektverzeichnis (`sketchbook`) eine Datei `.env`  
+mit folgendem Inhalt:
 
 ```
-VITE_API_URL=http://localhost:8080/api/v1/nc/phnl5x9wfff2hj4/Projects
+VITE_API_URL=http://localhost:8080/api/v2/tables/ma2nz1h01whlpni/records
 VITE_API_TOKEN=<DEIN_API_TOKEN>
 ```
 
@@ -97,4 +98,17 @@ Nach jedem Neustart musst du nur:
 2. `docker-compose up -d` ausführen  
 3. `npm run dev` starten  
 
-neu
+---
+
+### Online Deployment (GitHub Pages)
+
+Nach dem Push auf den `main`-Branch wird die Seite bereitgestellt unter:  
+👉 **https://sehetz.github.io/sketchbook/**
+
+---
+
+### TODOS
+
+- NOCO so hosten, dass die page ausserhalb der DEV umgebung aubrufbar ist (render.com)
+- purchase domain
+- 
