@@ -6,7 +6,6 @@
   align-items: center;
   justify-content: flex-start;
   box-sizing: border-box;
-  background: var(--color-bg);
 }
 
 .project-container__content {

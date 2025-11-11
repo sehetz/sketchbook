@@ -5,7 +5,7 @@ export default function Footer() {
     <footer className="footer">
       {/* --- Top Line --- */}
       <div className="footer__top axis-between">
-        <p className="text-3">Produced with faults, errors and lot’s of love.</p>
+        <p className="text-3">Made with faults, errors and lot’s of love.</p>
         <p className="text-3">Sarah Heitz 2026</p>
       </div>
 
@@ -27,7 +27,7 @@ export default function Footer() {
           </div>
           <div className="footer__divider">DM me on Insta</div>
           <div className="footer__divider footer__divider--double">
-            or keep distance on Linkedin
+            Or keep distance on Linkedin
           </div>
         </div>
 

@@ -42,7 +42,7 @@
 /* --- Row (Titelzeile) --- */
 .footer__row {
   width: 100%;
-  padding-bottom: var(--space-3);
+  padding-bottom: var(--space-2);
   display: flex;
   align-items: center;
   min-height: calc(var(--space-6) + var(--space-2)); /* gleiche Höhe wie Dividers */

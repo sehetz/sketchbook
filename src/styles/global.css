@@ -97,11 +97,11 @@ p {
    ========================== */
 
 ::selection {
-  background: #D4BAFF;
+  background: var(--color-surface);
   color: var(--color-fg);
 }
 
 ::-moz-selection {
-  background: #D4BAFF;
+  background: var(--color-surface);
   color: var(--color-fg);
 }

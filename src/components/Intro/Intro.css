@@ -23,7 +23,6 @@
   align-self: stretch;
 }
 
-/* Textklasse nutzt dein globales System */
 .intro__text .text-2 {
   max-width: 60ch;
 }
