@@ -1,0 +1,17 @@
+.case-container {
+  width: 100%;
+  overflow: hidden;
+  box-sizing: border-box;
+  transition: var(--transition-type) var(--transition-duration) var(--transition-style);
+}
+
+.case-header-wrapper {
+  align-items: center;
+  cursor: pointer;
+}
+
+.case-container__divider {
+  width: 100%;
+}
+
+

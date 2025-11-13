@@ -1,10 +1,10 @@
-import { useEffect, useState } from "react";
-import ProjectContainer from "../ProjectContainer/ProjectContainer";
+import { useState, useEffect } from "react";
+import CaseContainer from "./CaseContainer/CaseContainer";
 
 export default function DataView() {
   const [data, setData] = useState(null);
+  const [filter, setFilter] = useState("skills"); // "skills" | "gears" | "teams"
   const [error, setError] = useState(null);
-  const [view, setView] = useState("skills"); // später: "gear" | "teams"
 
   const API_URL = import.meta.env.VITE_API_URL;
   const API_TOKEN = import.meta.env.VITE_API_TOKEN;
@@ -17,7 +17,7 @@ export default function DataView() {
         });
         if (!res.ok) throw new Error(`Fehler: ${res.status}`);
         const json = await res.json();
-        setData(json);
+        setData(json.list);
       } catch (err) {
         setError(err.message);
       }
@@ -28,33 +28,45 @@ export default function DataView() {
   if (error) return <pre>Fehler: {error}</pre>;
   if (!data) return <pre>Lade Daten...</pre>;
 
-  // === Gruppierung nach Skill ===
-  const skillMap = data.list.reduce((acc, project) => {
-    const skills = project.nc_3zu8___nc_m2m_nc_3zu8__Projec_Skills || [];
-    skills.forEach((s) => {
-      const skillName = s.Skills?.Skill || "Unbekannt";
-      if (!acc[skillName]) acc[skillName] = [];
-      acc[skillName].push(project);
-    });
+  // 🔀 Gruppiere nach aktuellem Filter
+  const groupKey =
+    filter === "skills"
+      ? "nc_3zu8___nc_m2m_nc_3zu8__Projec_Skills"
+      : filter === "gears"
+      ? "nc_3zu8___nc_m2m_nc_3zu8__Projec_Gears"
+      : "nc_3zu8___nc_m2m_nc_3zu8__Projec_Teams";
+
+  const grouped = data.reduce((acc, project) => {
+    const rel = project[groupKey];
+    if (rel?.length) {
+      rel.forEach((item) => {
+        const keyName =
+          filter === "skills"
+            ? item.Skills.Skill
+            : filter === "gears"
+            ? item.Gear.Gear
+            : item.Teams.Team;
+
+        acc[keyName] = acc[keyName] || [];
+        acc[keyName].push(project);
+      });
+    }
     return acc;
   }, {});
 
-  const entries = Object.entries(skillMap);
+  const entries = Object.entries(grouped);
 
   return (
-    <>
-      {entries.length > 0 ? (
-        entries.map(([skill, projects], index) => (
-          <ProjectContainer
-            key={skill}
-            skill={skill}
-            projects={projects}
-            isLast={index === entries.length - 1}
-          />
-        ))
-      ) : (
-        <p className="text-3">Keine Projekte gefunden.</p>
-      )}
-    </>
+    <main>
+      {entries.map(([key, projects], index) => (
+        <CaseContainer
+          key={key}
+          type={filter}
+          label={key}
+          projects={projects}
+          isLast={index === entries.length - 1}
+        />
+      ))}
+    </main>
   );
 }

@@ -1,0 +1,23 @@
+.teaser {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: var(--space-6);
+  padding: var(--space-6);
+}
+
+.teaser__text {
+  flex: 1;
+  padding-right: var(--space-8);
+  width: 50%;
+}
+
+.teaser__image {
+  width: 50%;
+  aspect-ratio: 3 / 4;
+  object-fit: cover;
+}
+
+.teaser__image.placeholder {
+  background: var(--color-surface);
+}

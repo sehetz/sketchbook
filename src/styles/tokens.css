@@ -40,4 +40,9 @@
   --line-dotted: var(--line-width) dotted var(--color-fg);
   --line-dot-size: 0.1px;
   --line-dot-gap: 10px;
+
+  /* 💫 Aniamtions */
+  --transition-type: height;
+  --transition-duration: 0.4s ;
+  --transition-style: ease;
 }
