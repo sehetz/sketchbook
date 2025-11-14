@@ -1,5 +1,5 @@
 // ============================================
-// CaseContainer.jsx – Skill-Level Container
+// CaseContainer.jsx – Skill / Gear / Team Container
 // ============================================
 
 import { useState, useEffect } from "react";
@@ -26,22 +26,19 @@ export default function CaseContainer({
     else setOpenProjectIndex(null);
   }, [isOpen]);
 
+  // Height when closed (skills only)
   const closedHeight = 64 + 32 * Math.max(projects.length - 1, 0);
 
-  // ============================================
-  //  NEW: Smart Skill Toggle with smooth close
-  // ============================================
+
+  // Toggle logic
   const handleSkillToggle = () => {
     if (isOpen) {
-      // ⭐ Start closing animation FIRST
-      setTimeout(() => {
-        setOpenProjectIndex(null);
-      }, 50);
-
-      onToggle(); // Close skill
+      // smooth close for skills
+      setTimeout(() => setOpenProjectIndex(null), 50);
+      onToggle();
     } else {
-      onToggle(); // Open skill
-      setOpenProjectIndex(0); // Auto-open first project
+      onToggle();
+      if (type === "skills") setOpenProjectIndex(0);
     }
   };
 
@@ -70,14 +67,16 @@ export default function CaseContainer({
         />
       </div>
 
-      {/* CONTENT BLOCK W/ WIPE */}
+      {/* CONTENT BLOCK */}
       <div className={`wipe ${isOpen ? "open" : ""}`}>
         <div className="case-container__body">
-          {projects.map((project, index) => (
-            <div key={index} className="w-full flex-col">
-              {/* TEASER */}
-              {/* TEASER je nach Filter */}
-              {type === "skills" && (
+          {/* ============================================================
+             SKILLS → full logic with multiple projects
+             ============================================================ */}
+          {type === "skills" &&
+            projects.map((project, index) => (
+              <div key={index} className="w-full flex-col">
+                {/* PROJECT TEASER */}
                 <CaseTeaser
                   project={project}
                   index={index}
@@ -89,18 +88,47 @@ export default function CaseContainer({
                     )
                   }
                 />
+
+                {/* PROJECT DETAIL */}
+                {openProjectIndex === index && <CaseDetail project={project} />}
+              </div>
+            ))}
+
+          {/* ============================================================
+    GEARS → exactly ONE teaser, but dynamic height
+   ============================================================ */}
+          {type === "gears" && (
+            <>
+              <GearTeaser gear={projects[0].__gearData} />
+
+              {/* extra height simulation based on number of projects */}
+              {projects.length > 1 && (
+                <div
+                  style={{
+                    height: `${(projects.length - 1) * 32}px`,
+                  }}
+                />
               )}
+            </>
+          )}
 
-              {type === "gears" && <GearTeaser gear={project.__gearData} />}
+          {/* ============================================================
+    TEAMS → exactly ONE teaser, but dynamic height
+   ============================================================ */}
+          {type === "teams" && (
+            <>
+              <TeamTeaser team={projects[0].__teamData} />
 
-              {type === "teams" && <TeamTeaser team={project.__teamData} />}
-
-              {/* DETAIL */}
-              {type === "skills" && openProjectIndex === index && (
-                <CaseDetail project={project} />
+              {/* extra height simulation based on number of projects */}
+              {projects.length > 1 && (
+                <div
+                  style={{
+                    height: `${(projects.length - 1) * 32}px`,
+                  }}
+                />
               )}
-            </div>
-          ))}
+            </>
+          )}
         </div>
       </div>
     </section>

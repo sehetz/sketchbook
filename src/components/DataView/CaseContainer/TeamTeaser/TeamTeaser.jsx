@@ -1,5 +1,5 @@
 // ============================================
-// TeamTeaser.jsx – Team-Level Teaser
+// TeamTeaser.jsx – Team-Level Body Teaser
 // ============================================
 
 export default function TeamTeaser({ team }) {
@@ -7,18 +7,15 @@ export default function TeamTeaser({ team }) {
 
   const NOCO = import.meta.env.VITE_NOCO_BASE_URL || "http://localhost:8080";
 
-  const teaserFile = team["Teaser-Image"]?.[0];
-  const teaserImage = teaserFile
-    ? `${NOCO}/${teaserFile.signedPath || teaserFile.path}`
+  const file = team["Teaser-Image"]?.[0];
+  const teaserImage = file
+    ? `${NOCO}/${file.signedPath || file.path}`
     : null;
 
   return (
-    <div
-      className="case-line"
-      style={{ height: "var(--space-24)" }} // 96px
-    >
-      {/* DESCRIPTION */}
-      <div className="text-1 flex-1 axis-left">
+    <div className="case-teaser__body teaser">
+      {/* TEXT */}
+      <div className="teaser__text text-2">
         {team["description"] || ""}
       </div>
 

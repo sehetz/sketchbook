@@ -1,5 +1,5 @@
 // ============================================
-// GearTeaser.jsx – Gear-Level Teaser
+// GearTeaser.jsx – Gear-Level Body Teaser
 // ============================================
 
 export default function GearTeaser({ gear }) {
@@ -7,18 +7,15 @@ export default function GearTeaser({ gear }) {
 
   const NOCO = import.meta.env.VITE_NOCO_BASE_URL || "http://localhost:8080";
 
-  const teaserFile = gear["Teaser-Image"]?.[0];
-  const teaserImage = teaserFile
-    ? `${NOCO}/${teaserFile.signedPath || teaserFile.path}`
+  const file = gear["Teaser-Image"]?.[0];
+  const teaserImage = file
+    ? `${NOCO}/${file.signedPath || file.path}`
     : null;
 
   return (
-    <div
-      className="case-line"
-      style={{ height: "var(--space-24)" }} // 96px
-    >
-      {/* DESCRIPTION */}
-      <div className="text-1 flex-1 axis-left">
+    <div className="case-teaser__body teaser">
+      {/* TEXT */}
+      <div className="teaser__text text-2">
         {gear["description"] || ""}
       </div>
 
