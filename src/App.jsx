@@ -4,7 +4,6 @@ import "./styles/global.css";
 // Core Components
 import Header from "./components/Header/Header";
 import Intro from "./components/Intro/Intro";
-import FilterNav from "./components/DataView/FilterNav/FilterNav";
 import Footer from "./components/Footer/Footer";
 
 // Data Logic Layer
@@ -15,7 +14,6 @@ function App() {
     <>
       <Header />
       <Intro />
-      <FilterNav />
       <main>
         <DataView />
       </main>

@@ -1,43 +1,50 @@
-import "./Footer.css";
-
 export default function Footer() {
   return (
-    <footer className="footer">
+    <footer className="flex-col w-full p-6-all">
       {/* --- Top Line --- */}
-      <div className="footer__top axis-between">
-        <p className="text-3">Made with faults, errors and lot’s of love.</p>
-        <p className="text-3">Sarah Heitz 2026</p>
+      <div className="flex  w-full pb-8">
+        <p className="flex-1 text-3">
+          Made with faults, errors and lot’s of love.
+        </p>
+        <p className="flex-1 text-3 axis-right">Sarah Heitz 2026</p>
       </div>
 
       {/* --- Bottom Section --- */}
-      <div className="footer__bottom">
+      <div className="flex w-full gap-6 pt-6">
         {/* Left Column – Contact */}
-        <div className="footer__column text-left">
-          <div className="footer__row axis-left">
-            <p className="text-3">Contact</p>
+        <div className="flex-col flex-1">
+          <p className="text-3 pb-2 axis-left">Contact</p>
+
+          <div className="w-full border-top-thin pt-2 pb-2 flex axis-left text-3">
+            Let’s zoom
           </div>
-          <div className="footer__divider">Let’s zoom</div>
-          <div className="footer__divider footer__divider--double">Or mail me</div>
+          <div className="w-full border-top-thin border-bottom-thin pt-2 pb-2 flex axis-left text-3">
+            Or mail me
+          </div>
         </div>
 
         {/* Middle Column – Social */}
-        <div className="footer__column text-center">
-          <div className="footer__row axis-center">
-            <p className="text-3">Social</p>
+        <div className="flex-col flex-1">
+          <p className="text-3 pb-2 axis-center">Social</p>
+
+          <div className="w-full border-top-thin pt-2 pb-2 flex axis-center text-3">
+            DM me on Insta
           </div>
-          <div className="footer__divider">DM me on Insta</div>
-          <div className="footer__divider footer__divider--double">
+          <div className="w-full border-top-thin border-bottom-thin pt-2 pb-2 flex axis-center text-3">
             Or keep distance on Linkedin
           </div>
         </div>
 
         {/* Right Column – Legal */}
-        <div className="footer__column text-right">
-          <div className="footer__row axis-right">
-            <p className="text-3">Legal</p>
+        <div className="flex-col flex-1">
+          <p className="text-3 pb-2 axis-right">Legal</p>
+
+          <div className="w-full border-top-thin pt-2 pb-2 flex axis-right text-3">
+            Privacy Policy
           </div>
-          <div className="footer__divider">Privacy Policy</div>
-          <div className="footer__divider footer__divider--double">Impressum</div>
+          <div className="w-full border-top-thin border-bottom-thin pt-2 pb-2 flex axis-right text-3">
+            Impressum
+          </div>
         </div>
       </div>
     </footer>

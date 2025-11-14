@@ -12,13 +12,13 @@ export default function CaseHeader({ type, label, projects, isOpen }) {
   return (
     <div className="case-header flex text-1 p-6">
       {/* ALWAYS VISIBLE — Skill / Label */}
-      <div className="case-header__col flex-1 axis-left">{label}</div>
+      <div className="case-header flex-1 axis-left">{label}</div>
 
       {/* ONLY WHEN OPEN — Gear & Team */}
       {isOpen && (
         <>
-          <div className="case-header__col flex-1 axis-center">{gear}</div>
-          <div className="case-header__col flex-1 axis-right">{team}</div>
+          <div className="case-header flex-1 axis-center">{gear}</div>
+          <div className="case-header flex-1 axis-right">{team}</div>
         </>
       )}
     </div>

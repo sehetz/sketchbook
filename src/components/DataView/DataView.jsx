@@ -1,77 +1,85 @@
 // ============================================
 // DataView.jsx
 // --------------------------------------------
-// This component acts as the *Data Logic Layer*
-// for the entire Sketchbook application.
-//
-// Linked files / components:
-// - CaseContainer.jsx  → Receives grouped project data
-// - Teaser.jsx         → Receives fully normalized project objects via CaseContainer
-//
-// Responsibilities:
-// - Fetch raw project data from the NocoDB REST API
-// - Normalize data (e.g., generate image URLs)
-// - Group projects by Skills, Gears, or Teams
-// - Pass structured data downward to presentation components
-//
-// API details:
-// - Uses NocoDB REST API (tables endpoint), protected via `xc-token` header
-// - Expects an env-configured URL such as:
-//   VITE_API_URL = http://localhost:8080/api/v2/tables/<id>/records
+// Data Logic Layer – now with content block extraction
 // ============================================
 
 import { useState, useEffect } from "react";
 import CaseContainer from "./CaseContainer/CaseContainer";
+import "./DataView.css";
+import FilterNav from "./FilterNav/FilterNav";
 
 export default function DataView() {
   // --------------------------------------------
   // STATE: holds normalized project data
-  // Used in: grouping logic + CaseContainer props
   // --------------------------------------------
   const [data, setData] = useState(null);
 
   // --------------------------------------------
-  // STATE: active filter selection
-  // Determines grouping key (skills / gears / teams)
-  // Used in: groupKey resolution + UI structure
+  // FILTER STATE
   // --------------------------------------------
   const [filter, setFilter] = useState("skills");
 
   // --------------------------------------------
-  // STATE: error handling for failed API calls
-  // Used in: conditional error rendering
+  // ERROR / LOADING
   // --------------------------------------------
   const [error, setError] = useState(null);
 
   // --------------------------------------------
-  // STATE: tracks which CaseContainer is open
-  // Used in: controlling open/closed UI state
+  // OPEN STATE FOR SKILL GROUPS
   // --------------------------------------------
   const [openIndex, setOpenIndex] = useState(null);
 
   // --------------------------------------------
-  // ENV VARIABLES: API configuration
-  // Used in: fetch request headers + endpoint URL
+  // API CONFIG
   // --------------------------------------------
   const API_URL = import.meta.env.VITE_API_URL;
   const API_TOKEN = import.meta.env.VITE_API_TOKEN;
 
-  // ============================================
-  // normalizeProject()
   // --------------------------------------------
-  // Purpose:
-  // - Adds derived fields to each project
-  // - Generates a fully qualified teaser image URL
-  //
-  // Used in:
-  // - Data normalization inside fetchData()
-  //
-  // Returned shape:
-  // { ...project, teaserImage: <string|null> }
-  // ============================================
+  // ⭐ NEU — CONTENT MASTER ORDER
+  // --------------------------------------------
+  const CONTENT_MASTER = [
+    "content_01_text",
+    "content_02_image",
+    "content_03_text",
+    "content_04_images",
+    "content_05_text",
+    "content_06_gallery",
+    "content_07_links",
+  ];
+
+  // --------------------------------------------
+  // ⭐ NEU — extract content blocks from a project
+  // --------------------------------------------
+  function buildContentBlocks(project) {
+    return CONTENT_MASTER.filter((field) => {
+      const value = project[field];
+
+      if (!value) return false;
+
+      // text fields → ignore empty strings
+      if (typeof value === "string") {
+        return value.trim() !== "";
+      }
+
+      // image/gallery fields → ignore empty attachment arrays
+      if (Array.isArray(value)) {
+        return value.length > 0;
+      }
+
+      return false;
+    }).map((field) => ({
+      type: field,
+      data: project[field],
+    }));
+  }
+
+  // --------------------------------------------
+  // PROJECT NORMALIZATION
+  // --------------------------------------------
   function normalizeProject(project) {
     const file = project["Teaser-Image"]?.[0];
-
     const NOCO_BASE_URL =
       import.meta.env.VITE_NOCO_BASE_URL || "http://localhost:8080";
 
@@ -79,21 +87,15 @@ export default function DataView() {
       ? `${NOCO_BASE_URL}/${file.signedPath || file.path}`
       : null;
 
-    return { ...project, teaserImage };
+    // ⭐ NEU — attach blocks to project
+    const blocks = buildContentBlocks(project);
+
+    return { ...project, teaserImage, blocks }; // ⭐
   }
 
-  // ============================================
-  // DATA FETCHING — useEffect()
   // --------------------------------------------
-  // - Fetches raw project data from NocoDB
-  // - Injects xc-token authorization header
-  // - Normalizes all projects before storing them
-  // - Handles API/network errors
-  //
-  // Runs:
-  // - Once on mount
-  // - When API_URL or API_TOKEN changes
-  // ============================================
+  // DATA FETCHING
+  // --------------------------------------------
   useEffect(() => {
     async function fetchData() {
       try {
@@ -104,8 +106,7 @@ export default function DataView() {
 
         const json = await res.json();
 
-        // Normalize ALL projects at once
-        const normalized = json.list.map(normalizeProject);
+        const normalized = json.list.map(normalizeProject); // ⭐ includes blocks
         setData(normalized);
       } catch (err) {
         setError(err.message);
@@ -115,21 +116,12 @@ export default function DataView() {
     fetchData();
   }, [API_URL, API_TOKEN]);
 
-  // Render fallback states
   if (error) return <pre>Error: {error}</pre>;
   if (!data) return <pre>Loading data...</pre>;
 
-  // ============================================
-  // GROUPING — based on active filter
   // --------------------------------------------
-  // filter === "skills" → group by Skill name
-  // filter === "gears"  → group by Gear name
-  // filter === "teams"  → group by Team name
-  //
-  // Used in:
-  // - Reduce operation that builds `grouped` object
-  // - CaseContainer receives each grouped project list
-  // ============================================
+  // GROUP KEY
+  // --------------------------------------------
   const groupKey =
     filter === "skills"
       ? "nc_3zu8___nc_m2m_nc_3zu8__Projec_Skills"
@@ -138,16 +130,7 @@ export default function DataView() {
       : "nc_3zu8___nc_m2m_nc_3zu8__Projec_Teams";
 
   // --------------------------------------------
-  // GROUPING LOGIC:
-  // Converts flat project array into a dictionary:
-  // {
-  //   "Figma": [projectA, projectB],
-  //   "Cinema4D": [projectC],
-  //   ...
-  // }
-  //
-  // Used in:
-  // - entries.map() to render <CaseContainer>
+  // GROUPING PROJECTS BY SKILL / GEAR / TEAM
   // --------------------------------------------
   const grouped = data.reduce((acc, project) => {
     const rel = project[groupKey];
@@ -169,8 +152,12 @@ export default function DataView() {
 
   const entries = Object.entries(grouped);
 
+  // --------------------------------------------
+  // RENDER
+  // --------------------------------------------
   return (
-    <main>
+    <main className="data-view">
+      <FilterNav filter={filter} setFilter={setFilter} />
       {entries.map(([key, projects], index) => (
         <CaseContainer
           key={key}

@@ -21,3 +21,45 @@
 .teaser__image.placeholder {
   background: var(--color-surface);
 }
+
+/* caseline open modifier — when a case is expanded, make the line taller */
+.case-line {
+  height: 64px;                     /* Fixe Zeilenhöhe */
+  display: flex;                    /* Für Vertikal-Zentrierung */
+  align-items: center;              /* Vertikal zentriert */
+  border-top: 3px dotted var(--color-fg);  /* Dotted line oben */
+  cursor: pointer;                  /* Gleiches Verhalten wie Header */
+  width: 100%;
+  padding: 0 var(--space-6);
+  transition: height 180ms ease;
+  transition: background-color 0.25s ease;
+}
+.case-line:hover {
+  background-color: var(--color-surface);
+}
+
+
+.case-line--open {
+  height: 120px; /* open state height override */
+}
+
+/* sofort unsichtbar, wenn skill geschlossen wird */
+.case-line--hidden {
+  opacity: 0;
+  transition: none !important; /* keine Animation */
+}
+
+/* Wipe für den Body */
+.teaser-wipe {
+  overflow: hidden;
+  max-height: 0;
+  opacity: 0;
+  transition:
+    max-height 0.35s ease,
+    opacity 0.35s ease;
+}
+
+.teaser-wipe.open {
+  max-height: 2000px;
+  opacity: 1;
+}
