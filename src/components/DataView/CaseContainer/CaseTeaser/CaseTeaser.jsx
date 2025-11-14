@@ -1,4 +1,4 @@
-import "./Teaser.css";
+import "./CaseTeaser.css";
 
 export default function Teaser({ project }) {
   return (

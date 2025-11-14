@@ -44,6 +44,12 @@ export default function DataView() {
   const [error, setError] = useState(null);
 
   // --------------------------------------------
+  // STATE: tracks which CaseContainer is open
+  // Used in: controlling open/closed UI state
+  // --------------------------------------------
+  const [openIndex, setOpenIndex] = useState(null);
+
+  // --------------------------------------------
   // ENV VARIABLES: API configuration
   // Used in: fetch request headers + endpoint URL
   // --------------------------------------------
@@ -163,7 +169,6 @@ export default function DataView() {
 
   const entries = Object.entries(grouped);
 
-
   return (
     <main>
       {entries.map(([key, projects], index) => (
@@ -173,6 +178,8 @@ export default function DataView() {
           label={key}
           projects={projects}
           isLast={index === entries.length - 1}
+          isOpen={openIndex === index}
+          onToggle={() => setOpenIndex(openIndex === index ? null : index)}
         />
       ))}
     </main>

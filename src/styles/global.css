@@ -34,140 +34,74 @@ p {
 }
 
 /* ==================================
-   TYPOGRAPHY – Utilities
+   TYPOGRAPHY UTILITY CLASSES
    ================================== */
 
 .text-1 {
-  font-size: var(--text-1-size);
+  font-size: var(--text-1-size); /* 48px */
   line-height: var(--text-1-line);
-  font-family: "SF Pro Rounded";
+  font-family: "SF Pro Rounded"
 }
 
 .text-2 {
-  font-size: var(--text-2-size);
+  font-size: var(--text-2-size); /* 32px */
   line-height: var(--text-2-line);
-  font-family: "SF Pro Rounded";
+  font-family: "SF Pro Rounded"
 }
 
 .text-3 {
-  font-size: var(--text-3-size);
+  font-size: var(--text-3-size); /* 24px */
   line-height: var(--text-3-line);
   letter-spacing: var(--text-3-letter);
-  font-family: "SF Pro Rounded";
+  font-family: "SF Pro Rounded"
 }
 
 /* =======================================
-   Alignment Utilities – classic naming
+   Alignment Utilities – global
    ======================================= */
 
-/* LEGACY axis-classes (nicht löschen!) */
-.axis-left,
-.axis-center,
-.axis-right {
+/* ---- 1. Container-Achse (Flexbox) ---- */
+.axis-left {
   display: flex;
+  justify-content: flex-start;
   align-items: center;
 }
 
-.axis-left {
-  justify-content: flex-start;
+.axis-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.axis-right {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+/* ---- 2. Textausrichtung ---- */
+.text-left {
   text-align: left;
 }
-.axis-center {
-  justify-content: center;
+
+.text-center {
   text-align: center;
 }
-.axis-right {
-  justify-content: flex-end;
+
+.text-right {
   text-align: right;
 }
 
 /* ==========================
-  Text Selection Styling
+   Text Selection Styling
    ========================== */
 
-::selection,
-::-moz-selection {
+::selection {
   background: var(--color-surface);
   color: var(--color-fg);
 }
 
-/* ==========================
-  Line Utilities
-   ========================== */
-
-.border-top {
-  border-top: var(--line-width) solid var(--color-fg);
-}
-
-.border-top-solid {
-  border-top: 3px solid var(--color-fg);
-}
-
-.border-bottom-solid {
-  border-bottom: 3px solid var(--color-fg);
-}
-
-.border-top-dotted {
-  border-top: 3px dotted var(--color-fg);
-}
-
-/* ==========================
-  Animations
-   ========================== */
-
-.transition {
-  transition: var(--transition-type) var(--transition-duration)
-    var(--transition-style);
-}
-
-.transition-height {
-  transition: var(--transition-type) var(--transition-duration)
-    var(--transition-style);
-}
-
-/* =======================================
-   MINI-TAILWIND — Layout Utilities
-   ======================================= */
-
-.flex {
-  box-sizing: border-box;
-  display: flex;
-}
-
-
-.flex-1 {
-  box-sizing: border-box;
-
-  flex: 1 1 0;
-}
-
-/* Spacing Utilities (Token-basiert) */
-.p-6 {
-  padding: 0 var(--space-6);
-}
-
-.pt-6 {
-  padding-top: var(--space-6);
-}
-.pb-6 {
-  padding-bottom: var(--space-6);
-}
-
-
-/* Width / Height */
-.w-full {
-  width: 100%;
-}
-.h-full {
-  height: 100%;
-}
-
-::selection {
-  background:var(--color-surface);
-  color: var(--color-fg);
-}
-
 ::-moz-selection {
-  background:var(--color-surface);
+  background: var(--color-surface);
   color: var(--color-fg);
 }
