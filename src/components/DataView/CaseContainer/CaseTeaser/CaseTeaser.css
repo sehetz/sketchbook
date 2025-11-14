@@ -32,7 +32,12 @@
   width: 100%;
   padding: 0 var(--space-6);
   transition: height 180ms ease;
+  transition: background-color 0.25s ease;
 }
+.case-line:hover {
+  background-color: var(--color-surface);
+}
+
 
 .case-line--open {
   height: 120px; /* open state height override */

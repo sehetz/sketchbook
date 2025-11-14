@@ -93,7 +93,7 @@ p {
   Spacing
    ========================== */
 .p-text {
-  padding: var(--space-12) var(--space-6);
+  padding: var(--space-14) var(--space-6);
 }
 
 .gap-6 {
@@ -218,7 +218,7 @@ p {
 /* Wrapper */
 .image-block {
   width: 100%;
-  padding: var(--space-6);
+  padding: 0 var(--space-6);
   box-sizing: border-box;
 }
 
@@ -233,17 +233,17 @@ p {
 .image-grid {
   display: flex;
   flex-wrap: wrap;
-  gap: var(--space-6);
-  padding: var(--space-6);
+  gap: var(--space-3);
+
   box-sizing: border-box;
 }
 
 .image-4x5 {
-  max-width: calc(50% - var(--space-3));
+  max-width: calc(50% - var(--space-1-5));
   aspect-ratio: 4 / 5;
   object-fit: cover;
 }
 
 .image-grid-4 .image-4x5 {
- max-width: calc((100% - 3 * var(--space-6)) / 4);
+ max-width: calc((100% - 3 * var(--space-3)) / 4);
 }

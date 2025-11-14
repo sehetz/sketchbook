@@ -1,29 +1,42 @@
 export default function LinkBlock({ text }) {
   if (!text) return null;
 
-  // Split multiline long text into separate links
-  const links = text
+  const lines = text
     .split("\n")
     .map((l) => l.trim())
     .filter(Boolean);
 
+  // Parse Markdown: [label](url)
+  const parseMarkdownLink = (str) => {
+    const match = str.match(/\[([^\]]+)\]\(([^)]+)\)/);
+    if (match) {
+      return { label: match[1], url: match[2] };
+    }
+    // fallback: plain URL
+    return { label: str, url: str };
+  };
+
   return (
     <div className="w-full flex-col p-text gap-6">
-      {links.map((link, i) => (
-        <a
-          key={i}
-          href={link}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="flex axis-left text-2"
-          style={{
-            color: "#0037FF",
-            textDecoration: "none",
-          }}
-        >
-          🔗 {link}
-        </a>
-      ))}
+      {lines.map((line, i) => {
+        const { label, url } = parseMarkdownLink(line);
+
+        return (
+          <a
+            key={i}
+            href={url}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex axis-left text-2"
+            style={{
+              color: "#0037FF",
+              textDecoration: "none",
+            }}
+          >
+            🔗 {label}
+          </a>
+        );
+      })}
     </div>
   );
 }
