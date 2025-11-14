@@ -1,22 +1,11 @@
 // ============================================
 // CaseContainer.jsx – Skill-Level Container
-// --------------------------------------------
-// Handles:
-// - Opening/closing the entire skill group
-// - Listing all projects inside the skill
-// - Ensuring only one project is open at a time
-// - Auto-opening the first project when the
-//   skill expands
-//
-// Layout rules:
-// - One solid top border per skill block
-// - Solid bottom border ONLY on the last block
-// - No borders inside project teasers
 // ============================================
 
 import { useState, useEffect } from "react";
 import CaseHeader from "./CaseHeader/CaseHeader.jsx";
 import CaseTeaser from "./CaseTeaser/CaseTeaser.jsx";
+import CaseDetail from "./CaseDetail/CaseDetail.jsx";
 import "./CaseContainer.css";
 
 export default function CaseContainer({
@@ -27,10 +16,6 @@ export default function CaseContainer({
   isOpen,
   onToggle,
 }) {
-  // --------------------------------------------
-  // PROJECT-LEVEL OPEN STATE
-  // Only one project open per skill group
-  // --------------------------------------------
   const [openProjectIndex, setOpenProjectIndex] = useState(null);
 
   // Auto-open first project when skill opens
@@ -39,36 +24,38 @@ export default function CaseContainer({
     else setOpenProjectIndex(null);
   }, [isOpen]);
 
-  // --------------------------------------------
-  // DYNAMIC CLOSED HEIGHT
-  // Exactly like original design:
-  // 64px + 32px for each additional project
-  // --------------------------------------------
   const closedHeight = 64 + 32 * Math.max(projects.length - 1, 0);
 
-  
+  // ============================================
+  //  NEW: Smart Skill Toggle with smooth close
+  // ============================================
+  const handleSkillToggle = () => {
+    if (isOpen) {
+      // ⭐ Start closing animation FIRST
+      setTimeout(() => {
+        setOpenProjectIndex(null);
+      }, 50);
+
+      onToggle(); // Close skill
+    } else {
+      onToggle(); // Open skill
+      setOpenProjectIndex(0); // Auto-open first project
+    }
+  };
 
   return (
     <section
       className={`case-container ${isOpen ? "open" : "closed"}`}
       style={{
-        // Figma: always a top border per skill section
         borderTop: "3px solid var(--color-fg)",
-
-        // Only last skill block gets a bottom border
         borderBottom: isLast ? "3px solid var(--color-fg)" : "none",
-
-        // Sketchbook rule: dynamic height OK
         height: isOpen ? "auto" : `${closedHeight}px`,
       }}
     >
-      {/* ----------------------------------------
-          SKILL HEADER
-          (Motion, 3D, Photography…)
-         ---------------------------------------- */}
+      {/* HEADER */}
       <div
         className="case-header-wrapper transition-height"
-        onClick={onToggle}
+        onClick={handleSkillToggle}
         style={{
           height: isOpen ? "64px" : `${closedHeight}px`,
         }}
@@ -81,26 +68,28 @@ export default function CaseContainer({
         />
       </div>
 
-      {/* ----------------------------------------
-          PROJECT LIST (visible only when open)
-         ---------------------------------------- */}
-      {isOpen && (
+      {/* CONTENT BLOCK W/ WIPE */}
+      <div className={`wipe ${isOpen ? "open" : ""}`}>
         <div className="case-container__body">
           {projects.map((project, index) => (
-            <CaseTeaser
-              key={index}
-              project={project}
-              index={index}
-              isOpen={openProjectIndex === index}
-              onToggle={() =>
-                setOpenProjectIndex(
-                  openProjectIndex === index ? null : index
-                )
-              }
-            />
+            <div key={index} className="w-full flex-col">
+              {/* TEASER */}
+              <CaseTeaser
+                project={project}
+                index={index}
+                isOpen={openProjectIndex === index}
+                skillIsOpen={isOpen} // ⭐ NEU
+                onToggle={() =>
+                  setOpenProjectIndex(openProjectIndex === index ? null : index)
+                }
+              />
+
+              {/* DETAIL */}
+              {openProjectIndex === index && <CaseDetail project={project} />}
+            </div>
           ))}
         </div>
-      )}
+      </div>
     </section>
   );
 }

@@ -12,6 +12,14 @@
   font-display: swap;
 }
 
+@font-face {
+  font-family: "SF Pro Rounded";
+  src: url("/fonts/SF-Pro-Rounded-Bold.woff2") format("woff2");
+  font-weight: 700;        /* ⭐ wichtig */
+  font-style: normal;
+  font-display: swap;
+}
+
 html,
 body {
   margin: 0;
@@ -84,6 +92,10 @@ p {
 /* ==========================
   Spacing
    ========================== */
+.p-text {
+  padding: var(--space-12) var(--space-6);
+}
+
 .gap-6 {
   gap: var(--space-6);
 }
@@ -181,4 +193,57 @@ p {
 .transition-height {
   transition: var(--transition-type) var(--transition-duration)
     var(--transition-style);
+}
+
+.wipe {
+  overflow: hidden;
+  max-height: 0;
+  opacity: 0;
+  transition:
+    max-height 0.45s ease,
+    opacity 0.45s ease;
+}
+
+.wipe.open {
+  max-height: 5000px;
+  opacity: 1;
+}
+
+.filter--active { font-weight: 700; }
+
+/* ============================================
+   ImageBlock — global utilities
+   ============================================ */
+
+/* Wrapper */
+.image-block {
+  width: 100%;
+  padding: var(--space-6);
+  box-sizing: border-box;
+}
+
+/* Single-image layout (16:9) */
+.image-16x9 {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+}
+
+/* Base grid: 2-per-row */
+.image-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-6);
+  padding: var(--space-6);
+  box-sizing: border-box;
+}
+
+.image-4x5 {
+  max-width: calc(50% - var(--space-3));
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+}
+
+.image-grid-4 .image-4x5 {
+ max-width: calc((100% - 3 * var(--space-6)) / 4);
 }

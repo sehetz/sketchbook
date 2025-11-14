@@ -37,3 +37,24 @@
 .case-line--open {
   height: 120px; /* open state height override */
 }
+
+/* sofort unsichtbar, wenn skill geschlossen wird */
+.case-line--hidden {
+  opacity: 0;
+  transition: none !important; /* keine Animation */
+}
+
+/* Wipe für den Body */
+.teaser-wipe {
+  overflow: hidden;
+  max-height: 0;
+  opacity: 0;
+  transition:
+    max-height 0.35s ease,
+    opacity 0.35s ease;
+}
+
+.teaser-wipe.open {
+  max-height: 2000px;
+  opacity: 1;
+}
