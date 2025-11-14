@@ -34,9 +34,9 @@ export default function CaseContainer({ type, label, projects, isLast }) {
         />
       </div>
 
-      {/* Dotted Linie unter Header */}
-      {isOpen && <div className="case-container__divider border-top" />}
-
+      {/* Linie unter Header */}
+      {isOpen && <div className="case-container__divider border-top-dotted" />}
+      
       {/* Inhalt nur sichtbar, wenn geöffnet */}
       {isOpen && (
         <div className="case-container__body">
