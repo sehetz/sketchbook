@@ -6,6 +6,8 @@ import { useState, useEffect } from "react";
 import CaseHeader from "./CaseHeader/CaseHeader.jsx";
 import CaseTeaser from "./CaseTeaser/CaseTeaser.jsx";
 import CaseDetail from "./CaseDetail/CaseDetail.jsx";
+import GearTeaser from "./GearTeaser/GearTeaser.jsx";
+import TeamTeaser from "./TeamTeaser/TeamTeaser.jsx";
 import "./CaseContainer.css";
 
 export default function CaseContainer({
@@ -74,18 +76,29 @@ export default function CaseContainer({
           {projects.map((project, index) => (
             <div key={index} className="w-full flex-col">
               {/* TEASER */}
-              <CaseTeaser
-                project={project}
-                index={index}
-                isOpen={openProjectIndex === index}
-                skillIsOpen={isOpen} // ⭐ NEU
-                onToggle={() =>
-                  setOpenProjectIndex(openProjectIndex === index ? null : index)
-                }
-              />
+              {/* TEASER je nach Filter */}
+              {type === "skills" && (
+                <CaseTeaser
+                  project={project}
+                  index={index}
+                  isOpen={openProjectIndex === index}
+                  skillIsOpen={isOpen}
+                  onToggle={() =>
+                    setOpenProjectIndex(
+                      openProjectIndex === index ? null : index
+                    )
+                  }
+                />
+              )}
+
+              {type === "gears" && <GearTeaser gear={project.__gearData} />}
+
+              {type === "teams" && <TeamTeaser team={project.__teamData} />}
 
               {/* DETAIL */}
-              {openProjectIndex === index && <CaseDetail project={project} />}
+              {type === "skills" && openProjectIndex === index && (
+                <CaseDetail project={project} />
+              )}
             </div>
           ))}
         </div>

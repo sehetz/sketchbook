@@ -120,35 +120,50 @@ export default function DataView() {
   if (!data) return <pre>Loading data...</pre>;
 
   // --------------------------------------------
-  // GROUP KEY
-  // --------------------------------------------
-  const groupKey =
-    filter === "skills"
-      ? "nc_3zu8___nc_m2m_nc_3zu8__Projec_Skills"
-      : filter === "gears"
-      ? "nc_3zu8___nc_m2m_nc_3zu8__Projec_Gears"
-      : "nc_3zu8___nc_m2m_nc_3zu8__Projec_Teams";
+// GROUP KEY
+// --------------------------------------------
+const groupKey =
+  filter === "skills"
+    ? "nc_3zu8___nc_m2m_nc_3zu8__Projec_Skills"
+    : filter === "gears"
+    ? "nc_3zu8___nc_m2m_nc_3zu8__Projec_Gears"
+    : "nc_3zu8___nc_m2m_nc_3zu8__Projec_Teams";
 
-  // --------------------------------------------
-  // GROUPING PROJECTS BY SKILL / GEAR / TEAM
-  // --------------------------------------------
-  const grouped = data.reduce((acc, project) => {
-    const rel = project[groupKey];
-    if (rel?.length) {
-      rel.forEach((item) => {
-        const keyName =
-          filter === "skills"
-            ? item.Skills.Skill
-            : filter === "gears"
-            ? item.Gear.Gear
-            : item.Teams.Team;
+// --------------------------------------------
+// GROUPING PROJECTS BY SKILL / GEAR / TEAM
+// --------------------------------------------
+const grouped = data.reduce((acc, project) => {
+  const rel = project[groupKey];
 
-        acc[keyName] = acc[keyName] || [];
-        acc[keyName].push(project);
-      });
+  if (!rel?.length) return acc;
+
+  rel.forEach((item) => {
+    // 1) Gruppenschlüssel bestimmen
+    const keyName =
+      filter === "skills"
+        ? item.Skills.Skill
+        : filter === "gears"
+        ? item.Gear.Gear
+        : item.Teams.Team;
+
+    // 2) Basis-Projekt
+    let entry = project;
+
+    // 3) Gear-/Team-Daten als Zusatzobjekt anhängen
+    if (filter === "gears") {
+      entry = { ...project, __gearData: item.Gear };
+    } else if (filter === "teams") {
+      entry = { ...project, __teamData: item.Teams };
     }
-    return acc;
-  }, {});
+
+    // 4) Gruppe befüllen
+    acc[keyName] = acc[keyName] || [];
+    acc[keyName].push(entry);
+  });
+
+  return acc;
+}, {});
+
 
   const entries = Object.entries(grouped);
 
