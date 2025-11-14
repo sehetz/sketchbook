@@ -21,3 +21,19 @@
 .teaser__image.placeholder {
   background: var(--color-surface);
 }
+
+/* caseline open modifier — when a case is expanded, make the line taller */
+.case-line {
+  height: 64px;                     /* Fixe Zeilenhöhe */
+  display: flex;                    /* Für Vertikal-Zentrierung */
+  align-items: center;              /* Vertikal zentriert */
+  border-top: 3px dotted var(--color-fg);  /* Dotted line oben */
+  cursor: pointer;                  /* Gleiches Verhalten wie Header */
+  width: 100%;
+  padding: 0 var(--space-6);
+  transition: height 180ms ease;
+}
+
+.case-line--open {
+  height: 120px; /* open state height override */
+}

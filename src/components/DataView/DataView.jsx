@@ -22,6 +22,7 @@
 
 import { useState, useEffect } from "react";
 import CaseContainer from "./CaseContainer/CaseContainer";
+import "./DataView.css";
 
 export default function DataView() {
   // --------------------------------------------
@@ -170,7 +171,7 @@ export default function DataView() {
   const entries = Object.entries(grouped);
 
   return (
-    <main>
+    <main className="data-view">
       {entries.map(([key, projects], index) => (
         <CaseContainer
           key={key}

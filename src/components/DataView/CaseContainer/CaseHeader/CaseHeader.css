@@ -1,14 +1,12 @@
 .case-header {
-  height: var(--space-16); /* 64px */
   cursor: pointer;
   color: var(--color-fg);
   align-items: center;
   height: 100%;
 }
 
-.case-header__col {
-  font-weight: 400;
-  flex: 1 1 0;
+.case-header-wrapper {
+    align-items: center;      
 }
 
 

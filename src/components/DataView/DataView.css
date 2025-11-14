@@ -1,0 +1,19 @@
+/* DataView.css — disable text selection inside the DataView component and its children */
+
+.data-view,
+.data-view * {
+  -webkit-user-select: none; /* Safari/Chrome */
+  -moz-user-select: none;    /* Firefox */
+  -ms-user-select: none;     /* IE/Edge */
+  user-select: none;
+}
+
+/* Allow user selection for form controls and contenteditable elements to preserve usability */
+.data-view input,
+.data-view textarea,
+.data-view [contenteditable="true"] {
+  -webkit-user-select: text;
+  -moz-user-select: text;
+  -ms-user-select: text;
+  user-select: text;
+}
