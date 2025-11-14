@@ -13,11 +13,7 @@ export default function GearTeaser({ gear }) {
     : null;
 
   return (
-    <div className="case-teaser__body teaser">
-      {/* TEXT */}
-      <div className="teaser__text text-2">
-        {gear["description"] || ""}
-      </div>
+    <div className="flex-col pt-6 w-full axis-center">
 
       {/* IMAGE */}
       {teaserImage ? (
@@ -29,6 +25,14 @@ export default function GearTeaser({ gear }) {
       ) : (
         <div className="teaser__image placeholder" />
       )}
+
+      {/* TEXT in gleicher Breite wie IMAGE */}
+      <div
+        className="p-text text-2 axis-center"
+        style={{ width: "50%" }}   // ⭐ gleiche Breite wie teaser__image
+      >
+        {gear["description"] || ""}
+      </div>
     </div>
   );
 }

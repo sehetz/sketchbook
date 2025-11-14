@@ -13,13 +13,8 @@ export default function TeamTeaser({ team }) {
     : null;
 
   return (
-    <div className="case-teaser__body teaser">
-      {/* TEXT */}
-      <div className="teaser__text text-2">
-        {team["description"] || ""}
-      </div>
-
-      {/* IMAGE */}
+    <div className="teaser">
+      {/* IMAGE LEFT */}
       {teaserImage ? (
         <img
           src={teaserImage}
@@ -29,6 +24,11 @@ export default function TeamTeaser({ team }) {
       ) : (
         <div className="teaser__image placeholder" />
       )}
+
+      {/* TEXT RIGHT */}
+      <div className="teaser__text text-2 axis-right">
+        {team["description"] || ""}
+      </div>
     </div>
   );
 }

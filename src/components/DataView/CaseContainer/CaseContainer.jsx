@@ -29,7 +29,6 @@ export default function CaseContainer({
   // Height when closed (skills only)
   const closedHeight = 64 + 32 * Math.max(projects.length - 1, 0);
 
-
   // Toggle logic
   const handleSkillToggle = () => {
     if (isOpen) {
@@ -102,7 +101,7 @@ export default function CaseContainer({
               <GearTeaser gear={projects[0].__gearData} />
 
               {/* extra height simulation based on number of projects */}
-              {projects.length > 1 && (
+              {!isOpen && projects.length > 1 && (
                 <div
                   style={{
                     height: `${(projects.length - 1) * 32}px`,
@@ -120,7 +119,7 @@ export default function CaseContainer({
               <TeamTeaser team={projects[0].__teamData} />
 
               {/* extra height simulation based on number of projects */}
-              {projects.length > 1 && (
+              {!isOpen && projects.length > 1 && (
                 <div
                   style={{
                     height: `${(projects.length - 1) * 32}px`,
