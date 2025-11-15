@@ -26,7 +26,7 @@ export default function TeamTeaser({ team }) {
       )}
 
       {/* TEXT RIGHT */}
-      <div className="teaser__text text-2 axis-right">
+      <div className=" text-2 axis-right">
         {team["description"] || ""}
       </div>
     </div>
