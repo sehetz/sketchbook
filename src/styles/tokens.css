@@ -22,6 +22,7 @@
   --space-14: 3.5rem; /* 56px */
   --space-16: 4rem; /* 64px */
   --space-24: 6rem; /* 96px */
+  --space-48: 12rem; /* 192px */
 
   /* 🔠 TYPOGRAPHY – SF Pro Rounded */
   --font-sans: "SF Pro Rounded", -apple-system, "Helvetica Neue", Helvetica,

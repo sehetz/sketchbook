@@ -76,9 +76,7 @@ export default function AboutViz() {
   }, [API_URL, API_TOKEN]);
 
   return (
-    <div className="w-full flex-col p-6">
-      <div className="text-1 pb-6">Lebenslauf</div>
-
+    <div className="w-full">
       {/* If timeline empty, show debug info */}
       {teams.length === 0 ? (
         <pre className="text-3">{debug}</pre>
