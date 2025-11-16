@@ -13,8 +13,8 @@ export default function TeamTeaser({ team }) {
     : null;
 
   return (
-    <div className="flex gap-6 p-6-all">
-      {/* IMAGE LEFT */}
+    <div className="flex-col gap-6 p-6-all">
+      {/* IMAGE */}
       {teaserImage ? (
         <img
           src={teaserImage}
@@ -25,8 +25,8 @@ export default function TeamTeaser({ team }) {
         <div className="teaser__image placeholder" />
       )}
 
-      {/* TEXT RIGHT */}
-      <div className="text-2 w-1-2 align-top text-right">
+      {/* TEXT */}
+      <div className="flex-1 text-2 text-right">
         {team["description"] || ""}
       </div>
     </div>

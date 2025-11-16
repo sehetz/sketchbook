@@ -154,7 +154,7 @@ h1, h2, h3, h4, h5, h6, p {
    ========================== */
 .image-block {
   width: 100%;
-  padding: 0 var(--space-3);
+  padding: 0 var(--space-6);
   box-sizing: border-box;
   overflow-x: auto;
   -webkit-overflow-scrolling: touch;
@@ -252,9 +252,9 @@ h1, h2, h3, h4, h5, h6, p {
     gap: var(--space-4);
   }
 
-  /* ImageBlock: Padding auf mobil entfernen für volle Breite */
+  /* ImageBlock: Padding auf mobil anpassen (top/bottom entfernen, left/right behalten) */
   .image-block {
-    padding: 0 !important;
+    padding: 0 var(--space-6) !important;
   }
 
   /* 4er-Grid auf mobil: volle Breite wie 2er-Grid */

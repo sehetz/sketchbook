@@ -13,7 +13,7 @@ export default function GearTeaser({ gear }) {
     : null;
 
   return (
-    <div className="flex-col pt-6 w-full" style={{ alignItems: "center" }}>
+    <div className="flex-col gap-6 p-6-all">
       {/* IMAGE */}
       {teaserImage ? (
         <img
@@ -25,8 +25,8 @@ export default function GearTeaser({ gear }) {
         <div className="teaser__image placeholder" />
       )}
 
-      {/* TEXT in gleicher Breite wie IMAGE, vertikal und horizontal zentriert */}
-      <div className="p-text text-2 w-1-2 flex axis-center">
+      {/* TEXT */}
+      <div className="flex-1 text-2 flex axis-center">
         {gear["description"] || ""}
       </div>
     </div>
