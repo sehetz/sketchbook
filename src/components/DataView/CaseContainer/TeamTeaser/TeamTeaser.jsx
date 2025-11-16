@@ -13,7 +13,7 @@ export default function TeamTeaser({ team }) {
     : null;
 
   return (
-    <div className="flex-col gap-6 p-6-all">
+    <div className="flex gap-6 p-6-all">
       {/* IMAGE */}
       {teaserImage ? (
         <img

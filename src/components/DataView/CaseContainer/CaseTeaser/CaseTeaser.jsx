@@ -19,7 +19,7 @@ export default function CaseTeaser({
       </div>
 
       <div className={`teaser-wipe ${isOpen ? "open" : ""}`}>
-        <div className="flex-col gap-6 p-6-all">
+        <div className="flex gap-6 p-6-all">
           <div className="flex-1 pr-8 text-2">
             {project["description"]}
           </div>

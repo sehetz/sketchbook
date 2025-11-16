@@ -183,6 +183,13 @@ h1, h2, h3, h4, h5, h6, p {
    CaseTeaser & Related
    ========================== */
 .case-teaser { width: 100%; }
+
+/* Center teaser image when inside an axis-center flex-col (e.g., GearTeaser) */
+.flex-col.axis-center .teaser__image,
+.flex-col.axis-center .teaser__image.placeholder {
+  align-self: center;
+}
+
 .teaser__image {
   width: 50%;
   aspect-ratio: 3 / 4;
@@ -219,6 +226,12 @@ h1, h2, h3, h4, h5, h6, p {
   .flex:not(.filter-nav):not(.case-header) {
     flex-direction: column !important;
   }
+
+  .footer-exception{
+    justify-content: left;
+  }
+
+
 
   /* FilterNav bleibt horizontal */
   .filter-nav {

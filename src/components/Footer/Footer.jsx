@@ -4,20 +4,20 @@ export default function Footer() {
       {/* --- Top Line --- */}
       <div className="flex w-full pb-8">
         <p className="flex-1 text-3">
-          Made with faults, errors and lot’s of love.
+          Made with faults, errors and lot's of love.
         </p>
-        <p className="flex-1 text-3 axis-right">Sarah Heitz 2026</p>
+        <p className="flex-1 text-3 axis-right footer-exception">Sarah Heitz 2026</p>
       </div>
 
       {/* --- Bottom Section --- */}
       <div className="flex w-full gap-6 pt-6">
         {/* Left Column – Contact */}
         <div className="flex-col flex-1">
-          <p className="text-3 pb-2 axis-left">Contact</p>
-          <div className="w-full border-top-thin pt-2 pb-2 flex axis-left text-3">
-            Let’s zoom
+          <p className="text-3 pb-2">Contact</p>
+          <div className="w-full border-top-thin pt-2 pb-2 flex text-3">
+            Let's zoom
           </div>
-          <div className="w-full border-top-thin border-bottom-thin pt-2 pb-2 flex axis-left text-3">
+          <div className="w-full border-top-thin border-bottom-thin pt-2 pb-2 flex text-3">
             Or mail me
           </div>
         </div>
