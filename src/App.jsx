@@ -8,14 +8,17 @@ import Footer from "./components/Footer/Footer";
 
 // Data Logic Layer
 import DataView from "./components/DataView/DataView";
+import { useState } from "react";
 
 function App() {
+  const [filter, setFilter] = useState("skills");
+
   return (
     <>
       <Header />
-      <Intro />
+      <Intro filter={filter} /> {/* ⭐ Pass filter */}
       <main>
-        <DataView />
+        <DataView onFilterChange={setFilter} /> {/* ⭐ Pass setter */}
       </main>
       <Footer />
     </>

@@ -9,10 +9,10 @@ import About from "./About.jsx";  // ⭐ neue About Page
 createRoot(document.getElementById("root")).render(
   <StrictMode>
     <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<App />} />
-        <Route path="/about" element={<About />} />  {/* ⭐ neue Route */}
-      </Routes>
-    </BrowserRouter>
+        <Routes>
+          <Route path="/" element={<App />} />
+          <Route path="/about" element={<About />} />  {/* ⭐ neue Route */}
+        </Routes>
+      </BrowserRouter>
   </StrictMode>
 );

@@ -9,7 +9,7 @@ import CaseContainer from "./CaseContainer/CaseContainer";
 import "./DataView.css";
 import FilterNav from "./FilterNav/FilterNav";
 
-export default function DataView() {
+export default function DataView({ onFilterChange }) {
   // --------------------------------------------
   // STATE: holds normalized project data
   // --------------------------------------------
@@ -19,6 +19,13 @@ export default function DataView() {
   // FILTER STATE
   // --------------------------------------------
   const [filter, setFilter] = useState("skills");
+
+  // ⭐ Notify parent when filter changes
+  useEffect(() => {
+    if (onFilterChange) {
+      onFilterChange(filter);
+    }
+  }, [filter, onFilterChange]);
 
   // --------------------------------------------
   // ERROR / LOADING
