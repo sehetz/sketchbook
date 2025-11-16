@@ -1,6 +1,6 @@
 import Header from "./components/Header/Header";
 import Footer from "./components/Footer/Footer";
-import AboutViz from "./components/AboutViz/AboutViz.jsx";
+import TimelineViz from "./components/AboutViz/TimelineViz/TimelineViz.jsx";
 import Intro from "./components/Intro/Intro.jsx";
 
 export default function About() {
@@ -8,7 +8,7 @@ export default function About() {
     <main>
       <Header />
       <Intro />
-      <AboutViz />
+      <TimelineViz />
       <Footer />
     </main>
   );
