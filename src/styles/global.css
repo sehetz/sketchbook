@@ -11,29 +11,21 @@
   font-style: normal;
   font-display: optional;
 }
-
 @font-face {
   font-family: "SF Pro Rounded";
   src: url("/fonts/SF-Pro-Rounded-Bold.woff2") format("woff2");
-  font-weight: 700;        /* ⭐ wichtig */
+  font-weight: 700;
   font-style: normal;
   font-display: optional;
 }
 
-html,
-body {
+html, body {
   margin: 0;
   padding: 0;
   background: var(--color-bg);
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-p {
+h1, h2, h3, h4, h5, h6, p {
   padding: 0;
   margin: 0;
   color: var(--color-fg);
@@ -41,255 +33,148 @@ p {
   font-weight: 400;
 }
 
-/* ==================================
-   TYPOGRAPHY UTILITY CLASSES
-   ================================== */
-
-.text-1 {
-  font-size: var(--text-1-size); /* 48px */
-  line-height: var(--text-1-line);
-  font-family: "SF Pro Rounded";
-}
-
-.text-2 {
-  font-size: var(--text-2-size); /* 32px */
-  line-height: var(--text-2-line);
-  font-family: "SF Pro Rounded";
-}
-
-.text-3 {
-  font-size: var(--text-3-size); /* 24px */
-  line-height: var(--text-3-line);
-  letter-spacing: var(--text-3-letter);
-  font-family: "SF Pro Rounded";
-}
-
-/* =======================================
-   Alignment Utilities – classic naming
-   ======================================= */
-
-/* LEGACY axis-classes (nicht löschen!) */
-.axis-left,
-.axis-center,
-.axis-right {
-  display: flex;
-  align-items: center;
-}
-
-.axis-left {
-  justify-content: flex-start;
-  text-align: left;
-}
-.axis-center {
-  justify-content: center;
-  text-align: center;
-}
-.axis-right {
-  justify-content: flex-end;
-  text-align: right;
-}
-
 /* ==========================
-  Spacing
+   Selection Styling
    ========================== */
-.p-text {
-  padding: var(--space-14) var(--space-6);
-}
-
-.gap-6 {
-  gap: var(--space-6);
-}
-.p-6-all {
-  padding: var(--space-6);
-}
-.p-6 {
-  padding: 0 var(--space-6);
-}
-.pr-8 {
-  padding-right: var(--space-8);
-}
-.pt-6 {
-  padding-top: var(--space-6);
-}
-.pb-6 {
-  padding-bottom: var(--space-6);
-}
-.pb-24 {
-  padding-bottom: var(--space-24);
-}
-.pb-8 {
-  padding-bottom: var(--space-8);
-}
-.pt-2 {
-  padding-top: var(--space-2);
-}
-.pb-2 {
-  padding-bottom: var(--space-2);
-}
-
-/* =======================================
-  MINI-TAILWIND — Layout Utilities
-   ======================================= */
-
-.flex {
-  box-sizing: border-box;
-  display: flex;
-}
-
-.flex-1 {
-  box-sizing: border-box;
-  flex: 1 1 0;
-}
-
-.flex-col {
-  flex: 1 1 0;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  box-sizing: border-box;
-}
-
-.align-end {
-  align-items: flex-end;
-}
-
-/* ==========================
-  Width/height
-   ========================== */
-.w-full {
-  width: 100%;
-}
-.h-full {
-  height: 100%;
-}
-
-/* ==========================
-  Text Selection Styling
-   ========================== */
-
 ::selection,
 ::-moz-selection {
   background: var(--color-surface);
   color: var(--color-fg);
 }
 
-/* ==================================
-  Borders
-   ================================== */
-.border-top-solid {
-  border-top: var(--line-solid);
-}
-.border-bottom-solid {
-  border-bottom: var(--line-solid);
-}
-.border-top-thin {
-  border-top: 1.5px solid var(--color-fg);
-}
-.border-bottom-thin {
-  border-bottom: 1.5px solid var(--color-fg);
-}
-
-.border-bottom-dotted {
-  border-bottom: var(--line-width) dotted var(--color-fg);
-}
-
-.border-top-dotted {
-  border-top: var(--line-width) dotted var(--color-fg);
-}
 /* ==========================
-  Animations
+   Typography Utilities
    ========================== */
-
-.transition {
-  transition: var(--transition-type) var(--transition-duration)
-    var(--transition-style);
+.text-1, .text-2, .text-3 {
+  font-family: "SF Pro Rounded";
+}
+.text-1 {
+  font-size: var(--text-1-size);
+  line-height: var(--text-1-line);
+}
+.text-2 {
+  font-size: var(--text-2-size);
+  line-height: var(--text-2-line);
+}
+.text-3 {
+  font-size: var(--text-3-size);
+  line-height: var(--text-3-line);
+  letter-spacing: var(--text-3-letter);
 }
 
+/* ==========================
+   Flex & Layout Utilities
+   ========================== */
+.flex, .axis-left, .axis-center, .axis-right {
+  display: flex;
+  box-sizing: border-box;
+}
+.flex-col {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  flex: 1 1 0;
+  box-sizing: border-box;
+}
+.flex-1 {
+  flex: 1 1 0;
+  box-sizing: border-box;
+}
+.align-end { align-items: flex-end; }
+.align-top { align-self: flex-start; }
+
+.axis-left   { justify-content: flex-start; text-align: left; }
+.axis-center { justify-content: center;    text-align: center; }
+.axis-right  { justify-content: flex-end;  text-align: right; }
+
+.text-right { text-align: right; }
+
+/* ==========================
+   Spacing Utilities
+   ========================== */
+.p-text    { padding: var(--space-14) var(--space-6); }
+.p-6-all   { padding: var(--space-6); }
+.p-6       { padding: 0 var(--space-6); }
+.pt-6      { padding-top: var(--space-6); }
+.pb-6      { padding-bottom: var(--space-6); }
+.pb-24     { padding-bottom: var(--space-24); }
+.pb-8      { padding-bottom: var(--space-8); }
+.pt-2      { padding-top: var(--space-2); }
+.pb-2      { padding-bottom: var(--space-2); }
+.gap-6     { gap: var(--space-6); }
+.pr-8      { padding-right: var(--space-8); }
+.w-1-2     { width: 50%; }
+.w-full    { width: 100%; }
+.h-full    { height: 100%; }
+
+/* ==========================
+   Borders
+   ========================== */
+.border-top-solid    { border-top: var(--line-solid); }
+.border-bottom-solid { border-bottom: var(--line-solid); }
+.border-top-thin     { border-top: 1.5px solid var(--color-fg); }
+.border-bottom-thin  { border-bottom: 1.5px solid var(--color-fg); }
+.border-bottom-dotted{ border-bottom: var(--line-width) dotted var(--color-fg); }
+.border-top-dotted   { border-top: var(--line-width) dotted var(--color-fg); }
+
+/* ==========================
+   Animations & Transitions
+   ========================== */
+.transition,
 .transition-height {
-  transition: var(--transition-type) var(--transition-duration)
-    var(--transition-style);
+  transition: var(--transition-type) var(--transition-duration) var(--transition-style);
 }
 
-.wipe {
+.wipe, .teaser-wipe {
   overflow: hidden;
   max-height: 0;
   opacity: 0;
-  transition:
-    max-height 0.45s ease,
-    opacity 0.45s ease;
+  transition: max-height 0.45s ease, opacity 0.45s ease;
 }
-
-.wipe.open {
+.wipe.open, .teaser-wipe.open {
   max-height: 5000px;
   opacity: 1;
 }
-
 .filter--active { font-weight: 700; }
 
-/* ============================================
-   ImageBlock — global utilities
-   ============================================ */
-
-/* Wrapper */
+/* ==========================
+   ImageBlock Utilities
+   ========================== */
 .image-block {
   width: 100%;
   padding: 0 var(--space-6);
   box-sizing: border-box;
 }
-
-/* Single-image layout (16:9) */
 .image-16x9 {
   width: 100%;
   aspect-ratio: 16 / 9;
   object-fit: cover;
 }
-
-/* Base grid: 2-per-row */
 .image-grid {
   display: flex;
   flex-wrap: wrap;
   gap: var(--space-3);
-
   box-sizing: border-box;
 }
-
 .image-4x5 {
   max-width: calc(50% - var(--space-1-5));
   aspect-ratio: 4 / 5;
   object-fit: cover;
 }
-
 .image-grid-4 .image-4x5 {
- max-width: calc((100% - 3 * var(--space-3)) / 4);
+  max-width: calc((100% - 3 * var(--space-3)) / 4);
 }
 
-/* ============================================
-   Dataviz Lebenslauf
-   ============================================ */
-
-.YearBlock {
-  height: var(--space-24);
-  width: 100%;
-}
-
-/* ============================================
-   CaseTeaser Component
-   ============================================ */
-
-.case-teaser {
-  width: 100%;
-}
-
+/* ==========================
+   CaseTeaser & Related
+   ========================== */
+.case-teaser { width: 100%; }
 .teaser__image {
   width: 50%;
   aspect-ratio: 3 / 4;
   object-fit: cover;
 }
-
-.teaser__image.placeholder {
-  background: var(--color-surface);
-}
-
+.teaser__image.placeholder { background: var(--color-surface); }
 .case-line {
   height: 64px;
   display: flex;
@@ -300,15 +185,14 @@ p {
   box-sizing: border-box;
   transition: height 180ms ease, background-color 0.25s ease;
 }
+.case-line:hover { background-color: var(--color-surface); }
+.case-line--open { height: 120px; }
+.case-line--hidden { display: none; }
 
-.case-line:hover {
-  background-color: var(--color-surface);
-}
-
-.case-line--open {
-  height: 120px;
-}
-
-.case-line--hidden {
-  display: none;
+/* ==========================
+   Dataviz Lebenslauf
+   ========================== */
+.YearBlock {
+  height: var(--space-24);
+  width: 100%;
 }

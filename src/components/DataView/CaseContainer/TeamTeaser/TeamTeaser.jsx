@@ -13,7 +13,7 @@ export default function TeamTeaser({ team }) {
     : null;
 
   return (
-    <div className="teaser">
+    <div className="flex gap-6 p-6-all">
       {/* IMAGE LEFT */}
       {teaserImage ? (
         <img
@@ -26,7 +26,7 @@ export default function TeamTeaser({ team }) {
       )}
 
       {/* TEXT RIGHT */}
-      <div className=" text-2 axis-right">
+      <div className="text-2 w-1-2 align-top text-right">
         {team["description"] || ""}
       </div>
     </div>
