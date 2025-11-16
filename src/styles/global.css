@@ -36,9 +36,14 @@ h1, h2, h3, h4, h5, h6, p {
 /* ==========================
    Selection Styling
    ========================== */
-::selection,
+
+::selection {
+  background:var(--color-surface);
+  color: var(--color-fg);
+}
+
 ::-moz-selection {
-  background: var(--color-surface);
+  background:var(--color-surface);
   color: var(--color-fg);
 }
 
@@ -90,6 +95,13 @@ h1, h2, h3, h4, h5, h6, p {
 .text-right { text-align: right; }
 
 /* ==========================
+   Hover Effects
+   ========================== */
+.hover-bold:hover {
+  background-color: var(--color-hover);
+}
+
+/* ==========================
    Spacing Utilities
    ========================== */
 .p-text    { padding: var(--space-14) var(--space-6); }
@@ -132,7 +144,7 @@ h1, h2, h3, h4, h5, h6, p {
   transition: max-height 0.45s ease, opacity 0.45s ease;
 }
 .wipe.open, .teaser-wipe.open {
-  max-height: 5000px;
+  max-height: 10000px;
   opacity: 1;
 }
 .filter--active { font-weight: 700; }
@@ -142,8 +154,10 @@ h1, h2, h3, h4, h5, h6, p {
    ========================== */
 .image-block {
   width: 100%;
-  padding: 0 var(--space-6);
+  padding: 0 var(--space-3);
   box-sizing: border-box;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
 }
 .image-16x9 {
   width: 100%;
@@ -157,12 +171,12 @@ h1, h2, h3, h4, h5, h6, p {
   box-sizing: border-box;
 }
 .image-4x5 {
-  max-width: calc(50% - var(--space-1-5));
+  width: calc(50% - var(--space-1-5));
   aspect-ratio: 4 / 5;
   object-fit: cover;
 }
 .image-grid-4 .image-4x5 {
-  max-width: calc((100% - 3 * var(--space-3)) / 4);
+  width: calc((100% - 3 * var(--space-3)) / 4);
 }
 
 /* ==========================
@@ -195,4 +209,63 @@ h1, h2, h3, h4, h5, h6, p {
 .YearBlock {
   height: var(--space-24);
   width: 100%;
+}
+
+/* ==========================
+   Responsive Utilities
+   ========================== */
+@media (max-width: 900px) {
+  /* Alle Flex-Container werden einspaltig, AUSSER .filter-nav und .case-header */
+  .flex:not(.filter-nav):not(.case-header) {
+    flex-direction: column !important;
+  }
+
+  /* FilterNav bleibt horizontal */
+  .filter-nav {
+    flex-direction: row;
+  }
+
+  /* CaseHeader behält seine Alignment-Logik */
+  .case-header {
+    flex-direction: row !important;
+  }
+
+  /* Alle 50%-Breiten werden zu 100% */
+  .w-1-2,
+  .teaser__image,
+  .teaser__image.placeholder,
+  .image-4x5 {
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+
+  /* Bildgrids einspaltig */
+  .image-grid,
+  .image-grid-4 {
+    flex-direction: column !important;
+    gap: var(--space-4);
+  }
+
+  /* Teaser: Bild unter Text */
+  .teaser {
+    flex-direction: column !important;
+    gap: var(--space-4);
+  }
+
+  /* ImageBlock: Padding auf mobil entfernen für volle Breite */
+  .image-block {
+    padding: 0 !important;
+  }
+
+  /* 4er-Grid auf mobil: volle Breite wie 2er-Grid */
+  .image-grid-4 .image-4x5,
+  .image-grid .image-4x5 {
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+
+  /* Padding-Anpassungen */
+  .pr-8 {
+    padding-right: 0 !important;
+  }
 }

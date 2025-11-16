@@ -7,6 +7,7 @@
   --color-bg: #ffffff; /* Weiß */
   --color-fg: #121212; /* Textfarbe */
   --color-surface: #f6f6f6; /* Hellgrau, Flächen / Ränder */
+  --color-hover: #f0f0f0; /* Helleres Grau für Hover */
 
   /* 🧱 SPACING SCALE */
   --space-1: 0.25rem; /* 4px */

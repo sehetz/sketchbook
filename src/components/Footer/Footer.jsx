@@ -1,8 +1,8 @@
 export default function Footer() {
   return (
-    <footer className="flex-col w-full p-6-all">
+    <footer className="footer flex-col w-full p-6-all">
       {/* --- Top Line --- */}
-      <div className="flex  w-full pb-8">
+      <div className="flex w-full pb-8">
         <p className="flex-1 text-3">
           Made with faults, errors and lot’s of love.
         </p>
@@ -14,7 +14,6 @@ export default function Footer() {
         {/* Left Column – Contact */}
         <div className="flex-col flex-1">
           <p className="text-3 pb-2 axis-left">Contact</p>
-
           <div className="w-full border-top-thin pt-2 pb-2 flex axis-left text-3">
             Let’s zoom
           </div>
@@ -22,11 +21,9 @@ export default function Footer() {
             Or mail me
           </div>
         </div>
-
         {/* Middle Column – Social */}
         <div className="flex-col flex-1">
           <p className="text-3 pb-2 axis-center">Social</p>
-
           <div className="w-full border-top-thin pt-2 pb-2 flex axis-center text-3">
             DM me on Insta
           </div>
@@ -34,11 +31,9 @@ export default function Footer() {
             Or keep distance on Linkedin
           </div>
         </div>
-
         {/* Right Column – Legal */}
         <div className="flex-col flex-1">
           <p className="text-3 pb-2 axis-right">Legal</p>
-
           <div className="w-full border-top-thin pt-2 pb-2 flex axis-right text-3">
             Privacy Policy
           </div>
