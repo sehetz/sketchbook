@@ -3,6 +3,7 @@ import Header from "./components/Header/Header";
 import Footer from "./components/Footer/Footer";
 import TimelineViz from "./components/AboutViz/TimelineViz/TimelineViz.jsx";
 import Intro from "./components/Intro/Intro.jsx";
+import SehetzTeaser from "./components/AboutViz/SehetzTeaser/SehetzTeaser.jsx";
 
 export default function About() {
   useEffect(() => {
@@ -45,6 +46,7 @@ export default function About() {
       <Header />
       <Intro page="about" /> {/* ⭐ Pass page prop */}
       <TimelineViz />
+      <SehetzTeaser /> {/* ⭐ NEW */}
       <Footer />
     </main>
   );
