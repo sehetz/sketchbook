@@ -105,6 +105,9 @@ p {
 .p-6 {
   padding: 0 var(--space-6);
 }
+.pr-8 {
+  padding-right: var(--space-8);
+}
 .pt-6 {
   padding-top: var(--space-6);
 }
@@ -189,6 +192,10 @@ p {
 .border-bottom-dotted {
   border-bottom: var(--line-width) dotted var(--color-fg);
 }
+
+.border-top-dotted {
+  border-top: var(--line-width) dotted var(--color-fg);
+}
 /* ==========================
   Animations
    ========================== */
@@ -263,4 +270,45 @@ p {
 .YearBlock {
   height: var(--space-24);
   width: 100%;
+}
+
+/* ============================================
+   CaseTeaser Component
+   ============================================ */
+
+.case-teaser {
+  width: 100%;
+}
+
+.teaser__image {
+  width: 50%;
+  aspect-ratio: 3 / 4;
+  object-fit: cover;
+}
+
+.teaser__image.placeholder {
+  background: var(--color-surface);
+}
+
+.case-line {
+  height: 64px;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  width: 100%;
+  padding: 0 var(--space-6);
+  box-sizing: border-box;
+  transition: height 180ms ease, background-color 0.25s ease;
+}
+
+.case-line:hover {
+  background-color: var(--color-surface);
+}
+
+.case-line--open {
+  height: 120px;
+}
+
+.case-line--hidden {
+  display: none;
 }

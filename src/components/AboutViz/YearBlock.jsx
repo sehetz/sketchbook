@@ -11,8 +11,8 @@ export default function YearBlock({ year, teams }) {
   return (
     <div className=" w-full">
       {/* YEAR LABEL */}
-      <div className="YearBlock p-6-all axis-left align-end">
-        <div className="text-3">{year}</div>
+      <div className="YearBlock  axis-left align-end">
+        <div className="p-6-all text-3">{year}</div>
       </div>
       {/* YEAR DIVIDER */}
       <div className="border-bottom-dotted" />
