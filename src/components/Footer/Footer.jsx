@@ -1,3 +1,5 @@
+import "./Footer.css";
+
 export default function Footer() {
   return (
     <footer className="footer flex-col w-full p-6-all">
@@ -13,33 +15,33 @@ export default function Footer() {
       <div className="flex w-full gap-6 pt-6">
         {/* Left Column – Contact */}
         <div className="flex-col flex-1">
-          <p className="text-3 pb-2">Contact</p>
-          <div className="w-full border-top-thin pt-2 pb-2 flex text-3" link="https://open.spotify.com/playlist/55H70kIwDQhHEBM81WNSbp?si=ee27b1b9144b44da">
+          <p className="text-3 pb-2 footer-title">Contact</p>
+          <a href="https://open.spotify.com/playlist/55H70kIwDQhHEBM81WNSbp?si=ee27b1b9144b44da" target="_blank" rel="noopener noreferrer" className="w-full border-top-thin pt-2 pb-2 flex text-3 footer-link">
             Listen to my Spotify
-          </div>
-          <div className="w-full border-top-thin border-bottom-thin pt-2 pb-2 flex text-3">
+          </a>
+          <a href="mailto:your@email.com" className="w-full border-top-thin border-bottom-thin pt-2 pb-2 flex text-3 footer-link">
             Or mail me
-          </div>
+          </a>
         </div>
         {/* Middle Column – Social */}
         <div className="flex-col flex-1">
-          <p className="text-3 pb-2 axis-center">Social</p>
-          <div className="w-full border-top-thin pt-2 pb-2 flex axis-center text-3">
+          <p className="text-3 pb-2 axis-center footer-title">Social</p>
+          <a href="https://instagram.com/yourhandle" target="_blank" rel="noopener noreferrer" className="w-full border-top-thin pt-2 pb-2 flex axis-center text-3 footer-link">
             DM me on Insta
-          </div>
-          <div className="w-full border-top-thin border-bottom-thin pt-2 pb-2 flex axis-center text-3">
+          </a>
+          <a href="https://linkedin.com/in/yourprofile" target="_blank" rel="noopener noreferrer" className="w-full border-top-thin border-bottom-thin pt-2 pb-2 flex axis-center text-3 footer-link">
             Or keep distance on Linkedin
-          </div>
+          </a>
         </div>
         {/* Right Column – Legal */}
         <div className="flex-col flex-1">
-          <p className="text-3 pb-2 axis-right">Legal</p>
-          <div className="w-full border-top-thin pt-2 pb-2 flex axis-right text-3">
+          <p className="text-3 pb-2 axis-right footer-title">Legal</p>
+          <a href="/privacy" className="w-full border-top-thin pt-2 pb-2 flex axis-right text-3 footer-link">
             Privacy Policy
-          </div>
-          <div className="w-full border-top-thin border-bottom-thin pt-2 pb-2 flex axis-right text-3">
+          </a>
+          <a href="/impressum" className="w-full border-top-thin border-bottom-thin pt-2 pb-2 flex axis-right text-3 footer-link">
             Impressum
-          </div>
+          </a>
         </div>
       </div>
     </footer>

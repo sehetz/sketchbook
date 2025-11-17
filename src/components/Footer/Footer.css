@@ -1,0 +1,27 @@
+/* Make footer links look like text-3 (no blue, no underline) */
+.footer a,
+.footer a:link,
+.footer a:visited,
+.footer a:active,
+.footer .footer-link {
+  color: var(--color-fg) !important;
+  text-decoration: none !important;
+}
+
+/* Only hover effect (same as case header) */
+.footer a:hover,
+.footer .footer-link:hover {
+  background-color: var(--color-surface);
+}
+
+/* Mobile: all text-3 in footer left-aligned (override axis classes too) */
+@media (max-width: 768px) {
+  .footer .text-3,
+  .footer a.text-3,
+  .footer .axis-center,
+  .footer .axis-right {
+    text-align: left !important;
+    justify-content: flex-start !important;
+    align-items: flex-start !important;
+  }
+}
