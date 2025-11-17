@@ -14,8 +14,8 @@ export default function Footer() {
         {/* Left Column – Contact */}
         <div className="flex-col flex-1">
           <p className="text-3 pb-2">Contact</p>
-          <div className="w-full border-top-thin pt-2 pb-2 flex text-3">
-            Let's zoom
+          <div className="w-full border-top-thin pt-2 pb-2 flex text-3" link="https://open.spotify.com/playlist/55H70kIwDQhHEBM81WNSbp?si=ee27b1b9144b44da">
+            Listen to my Spotify
           </div>
           <div className="w-full border-top-thin border-bottom-thin pt-2 pb-2 flex text-3">
             Or mail me

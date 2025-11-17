@@ -20,12 +20,13 @@ export default function About() {
     const personSchema = {
       "@context": "https://schema.org",
       "@type": "Person",
-      name: "Sarah Heitz-Carnault",
-      alternateName: ["Sarah Heitz", "Sarah Carnault", "sehetz"],
-      jobTitle: "Information Designer, Illustrator",
+      name: "Sarah Heitz",
+      alternateName: ["Sarah Heitz", "Sarah", "sehetz"],
+      jobTitle: "Information Designer, Illustrator, Filmmaker, Frontend Developer",
       url: "https://sehetz.info",
       sameAs: [
-        "https://www.linkedin.com/in/sarah-heitz",
+        "https://www.linkedin.com/in/sarah-heitz-7b722b118/",
+        "https://www.instagram.com/sehetz/",
         // Add your socials
       ],
       knowsAbout: ["Product Design", "UX Design", "UI Design", "Design Systems"],

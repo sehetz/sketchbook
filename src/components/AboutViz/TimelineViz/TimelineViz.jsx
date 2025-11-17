@@ -111,10 +111,10 @@ export default function TimelineViz() {
   const SVG_WIDTH = 1000;
   
   // Year Axis
-  const YEAR_SPACING = 120; // Height between year lines
-  const YEAR_LABEL_OFFSET_ABOVE_LINE = 24; // Years appear 24px above line
-  const YEAR_FONT_SIZE = 24;
-  const YEAR_LETTER_SPACING = 0.12;
+  const YEAR_SPACING = 120 // Height between year lines
+  const YEAR_LABEL_OFFSET_ABOVE_LINE = 24 // Years appear 24px above line
+  const YEAR_FONT_SIZE = 24
+  const YEAR_LETTER_SPACING = 0.12
   
   // Year Lines (dotted)
   const LINE_STROKE_WIDTH = 3;
@@ -175,7 +175,20 @@ export default function TimelineViz() {
       {/* Dotted year lines */}
       {Array.from({ length: yearRange + 1 }, (_, i) => maxYear - i).map((year) => {
         const y = yearToY(year);
-        return <line key={`grid-${year}`} x1={0} y1={y} x2={width} y2={y} stroke="#121212" strokeWidth={LINE_STROKE_WIDTH} strokeDasharray={LINE_DASH_ARRAY} strokeLinecap="round" />;
+        return (
+          <line 
+            key={`grid-${year}`} 
+            x1={0} 
+            y1={y} 
+            x2={width} 
+            y2={y} 
+            stroke="#121212" 
+            strokeWidth={LINE_STROKE_WIDTH} 
+            strokeDasharray={LINE_DASH_ARRAY} 
+            strokeLinecap="round"
+            vectorEffect="non-scaling-stroke" // ⭐ Prevents scaling
+          />
+        );
       })}
 
       {/* Timeline bars + labels + circles + PROJECT DOTS */}
@@ -301,6 +314,14 @@ export default function TimelineViz() {
         .team-circle:hover { fill: #FFFB78 !important; }
         .project-dot-group:hover .project-tooltip { opacity: 1 !important; }
         .project-dot-group:hover .project-tooltip-bg { opacity: 1 !important; }
+        
+        /* ⭐ Mobile: Dünnere Linie mit weniger Gap */
+        @media (max-width: 768px) {
+          line[stroke-dasharray] {
+            stroke-width: 1.5px;
+            stroke-dasharray: 0.1 4;
+          }
+        }
       `}</style>
     </svg>
   );
