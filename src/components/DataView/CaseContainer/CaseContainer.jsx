@@ -86,6 +86,7 @@ export default function CaseContainer({
                       openProjectIndex === index ? null : index
                     )
                   }
+                  type={type} // ⭐ MUSS hier übergeben werden!
                 />
 
                 {/* PROJECT DETAIL */}

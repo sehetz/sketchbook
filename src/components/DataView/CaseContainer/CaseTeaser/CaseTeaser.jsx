@@ -7,22 +7,44 @@ export default function CaseTeaser({
   index,
   isOpen,
   skillIsOpen,
-  onToggle
+  onToggle,
+  type // ⭐ ensure parent passes current filter type
 }) {
+  // ⭐ Extract first related gear & team (if present)
+  const firstGear =
+    project["nc_3zu8___nc_m2m_nc_3zu8__Projec_Gears"]?.[0]?.Gear?.Gear || "";
+  const firstTeam =
+    project["nc_3zu8___nc_m2m_nc_3zu8__Projec_Teams"]?.[0]?.Teams?.Team || "";
+
+  // ⭐ Extract first skill name (for skills view)
+  const firstSkill =
+    project["nc_3zu8___nc_m2m_nc_3zu8__Projec_Skills"]?.[0]?.Skills?.Skill || "";
+
+  // ⭐ DEBUG – AFTER definitions
+  console.log("CaseTeaser type:", type, "firstGear:", firstGear, "firstTeam:", firstTeam);
+
   return (
     <div className="case-teaser">
       <div
-        className={`case-line border-top-dotted ${isOpen ? "case-line--open" : ""} ${!skillIsOpen ? "case-line--hidden" : ""}`}
+        className={`case-line border-top-dotted ${isOpen ? "case-line--open" : ""} ${
+          !skillIsOpen ? "case-line--hidden" : ""
+        }`}
         onClick={onToggle}
       >
-        <div className="text-1">{project.Title}</div>
+        {type === "skills" ? (
+          <div className="flex w-full gap-6">
+            <div className="flex-1 axis-left text-1">{firstSkill || project.Title}</div>
+            <div className="flex-1 axis-center text-1">{firstGear}</div>
+            <div className="flex-1 axis-right text-1">{firstTeam}</div>
+          </div>
+        ) : (
+          <div className="text-1">{project.Title}</div>
+        )}
       </div>
 
       <div className={`teaser-wipe ${isOpen ? "open" : ""}`}>
         <div className="flex gap-6 p-6-all">
-          <div className="flex-1 pr-8 text-2">
-            {project["description"]}
-          </div>
+          <div className="flex-1 pr-8 text-2">{project["description"]}</div>
 
           {isOpen ? (
             project.teaserVideo ? (
