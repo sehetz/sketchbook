@@ -28,9 +28,16 @@ export default function ImageBlock({ images }) {
             loop
             muted
             playsInline
+            preload="none"
           />
         ) : (
-          <img className="image-16x9" src={src(item)} alt="image-0" />
+          <img
+            className="image-16x9"
+            src={src(item)}
+            alt="image-0"
+            loading="lazy"
+            decoding="async"
+          />
         )}
       </div>
     );
@@ -58,6 +65,7 @@ export default function ImageBlock({ images }) {
             loop
             muted
             playsInline
+            preload="none"
           />
         ) : (
           <img
@@ -65,6 +73,8 @@ export default function ImageBlock({ images }) {
             className="image-4x5"
             src={src(item)}
             alt={`image-${i}`}
+            loading="lazy"
+            decoding="async"
           />
         )
       )}

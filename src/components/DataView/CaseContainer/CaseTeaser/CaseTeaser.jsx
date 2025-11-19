@@ -24,21 +24,28 @@ export default function CaseTeaser({
             {project["description"]}
           </div>
 
-          {project.teaserVideo ? (
-            <video
-              src={project.teaserVideo}
-              className="teaser__image"
-              autoPlay
-              loop
-              muted
-              playsInline
-            />
-          ) : project.teaserImage ? (
-            <img
-              src={project.teaserImage}
-              alt={project.Title}
-              className="teaser__image"
-            />
+          {isOpen ? (
+            project.teaserVideo ? (
+              <video
+                src={project.teaserVideo}
+                className="teaser__image"
+                autoPlay
+                loop
+                muted
+                playsInline
+                preload="none"
+              />
+            ) : project.teaserImage ? (
+              <img
+                src={project.teaserImage}
+                alt={project.Title}
+                className="teaser__image"
+                loading="lazy"
+                decoding="async"
+              />
+            ) : (
+              <div className="teaser__image placeholder" />
+            )
           ) : (
             <div className="teaser__image placeholder" />
           )}
