@@ -16,20 +16,20 @@ export default function Footer() {
         {/* Left Column – Contact */}
         <div className="flex-col flex-1">
           <p className="text-3 pb-2 footer-title">Contact</p>
-          <a href="https://open.spotify.com/playlist/55H70kIwDQhHEBM81WNSbp?si=ee27b1b9144b44da" target="_blank" rel="noopener noreferrer" className="w-full border-top-thin pt-2 pb-2 flex text-3 footer-link">
+          <a href="https://open.spotify.com/playlist/55H70kIwDQhHEBM81WNSbp?si=85b728e402dc477d" target="_blank" rel="noopener noreferrer" className="w-full border-top-thin pt-2 pb-2 flex text-3 footer-link">
             Listen to my Spotify
           </a>
-          <a href="mailto:your@email.com" className="w-full border-top-thin border-bottom-thin pt-2 pb-2 flex text-3 footer-link">
+          <a href="mailto:sarahelenaheitz@gmail.com" className="w-full border-top-thin border-bottom-thin pt-2 pb-2 flex text-3 footer-link">
             Or mail me
           </a>
         </div>
         {/* Middle Column – Social */}
         <div className="flex-col flex-1">
           <p className="text-3 pb-2 axis-center footer-title">Social</p>
-          <a href="https://instagram.com/yourhandle" target="_blank" rel="noopener noreferrer" className="w-full border-top-thin pt-2 pb-2 flex axis-center text-3 footer-link">
+          <a href="https://instagram.com/sehetz" target="_blank" rel="noopener noreferrer" className="w-full border-top-thin pt-2 pb-2 flex axis-center text-3 footer-link">
             DM me on Insta
           </a>
-          <a href="https://linkedin.com/in/yourprofile" target="_blank" rel="noopener noreferrer" className="w-full border-top-thin border-bottom-thin pt-2 pb-2 flex axis-center text-3 footer-link">
+          <a href="https://www.linkedin.com/in/sarah-heitz-7b722b118/" target="_blank" rel="noopener noreferrer" className="w-full border-top-thin border-bottom-thin pt-2 pb-2 flex axis-center text-3 footer-link">
             Or keep distance on Linkedin
           </a>
         </div>

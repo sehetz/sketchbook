@@ -247,41 +247,71 @@ export default function TimelineViz() {
               );
             })}
 
-            {/* ⭐ Project dots: stacked vertically by 24px */}
+            {/* ⭐ Project dots: erstes Projekt hat Priorität */}
             {Object.entries(projectsByYear).map(([year, projs]) => {
               const dotY = yearToY(parseInt(year));
+
+              // 1) Falls mehrere Projekte: zuerst die sekundären, dann das primäre (Index 0) oben
+              const secondary = projs.slice(1);
+              const primary = projs[0];
+
               return (
                 <g key={`dot-${teamIdx}-${year}`}>
-                  {projs.map((p, pIdx) => (
-                    <g key={`proj-${pIdx}`} className="project-dot-group">
-                      <circle cx={x} cy={dotY + (pIdx * PROJECT_STACK_Y)} r={PROJECT_DOT_RADIUS} fill="#121212" className="project-dot" style={{ cursor: 'pointer' }} />
-                      {/* White background for tooltip */}
-                      <rect 
-                        x={x + PROJECT_TOOLTIP_OFFSET_X - PROJECT_TOOLTIP_BG_PADDING} 
-                        y={dotY + (pIdx * PROJECT_STACK_Y) - (PROJECT_TOOLTIP_HEIGHT / 2 - 2)} 
-                        width={p.title.length * 7 + (PROJECT_TOOLTIP_BG_PADDING * 2)} 
-                        height={PROJECT_TOOLTIP_HEIGHT} 
-                        fill="#ffffff" 
+                  {/* Sekundäre (ohne Tooltip/Hover) */}
+                  {secondary.map((p, sIdx) => {
+                    const posY = dotY + ((sIdx + 1) * PROJECT_STACK_Y);
+                    return (
+                      <g key={`proj-sec-${sIdx}`} className="project-dot-group secondary-dot">
+                        <circle
+                          cx={x}
+                          cy={posY}
+                          r={PROJECT_DOT_RADIUS}
+                          fill="#121212"
+                          className="project-dot"
+                          style={{ cursor: 'default' }}
+                        />
+                        {/* Keine Tooltip-Elemente für sekundäre */}
+                      </g>
+                    );
+                  })}
+
+                  {/* Primär (Index 0) mit Tooltip/Hover */}
+                  {primary && (
+                    <g key={`proj-primary`} className="project-dot-group primary-dot">
+                      <circle
+                        cx={x}
+                        cy={dotY}
+                        r={PROJECT_DOT_RADIUS}
+                        fill="#121212"
+                        className="project-dot"
+                        style={{ cursor: 'pointer' }}
+                      />
+                      <rect
+                        x={x + PROJECT_TOOLTIP_OFFSET_X - PROJECT_TOOLTIP_BG_PADDING}
+                        y={dotY - (PROJECT_TOOLTIP_HEIGHT / 2 - 2)}
+                        width={primary.title.length * 7 + (PROJECT_TOOLTIP_BG_PADDING * 2)}
+                        height={PROJECT_TOOLTIP_HEIGHT}
+                        fill="#ffffff"
                         opacity="0"
                         className="project-tooltip-bg"
                         style={{ pointerEvents: 'none' }}
                       />
-                      <text 
-                        x={x + PROJECT_TOOLTIP_OFFSET_X} 
-                        y={dotY + (pIdx * PROJECT_STACK_Y)} 
+                      <text
+                        x={x + PROJECT_TOOLTIP_OFFSET_X}
+                        y={dotY}
                         fontSize={PROJECT_TOOLTIP_FONT_SIZE}
-                        fontFamily="SF Pro Rounded" 
+                        fontFamily="SF Pro Rounded"
                         fontWeight="700"
-                        textAnchor="start" 
-                        fill="#121212" 
-                        opacity="0" 
-                        className="project-tooltip" 
+                        textAnchor="start"
+                        fill="#121212"
+                        opacity="0"
+                        className="project-tooltip"
                         style={{ pointerEvents: 'none' }}
                       >
-                        {p.title}
+                        {primary.title}
                       </text>
                     </g>
-                  ))}
+                  )}
                 </g>
               );
             })}
@@ -312,8 +342,12 @@ export default function TimelineViz() {
         .team-group:hover .team-label { opacity: 1 !important; }
         .team-circle { transition: fill 0.2s ease; }
         .team-circle:hover { fill: #FFFB78 !important; }
-        .project-dot-group:hover .project-tooltip { opacity: 1 !important; }
-        .project-dot-group:hover .project-tooltip-bg { opacity: 1 !important; }
+        /* Nur der erste (primary) Dot zeigt Tooltip bei Hover */
+        .project-dot-group.primary-dot:hover .project-tooltip { opacity: 1 !important; }
+        .project-dot_group.primary-dot:hover .project-tooltip_bg { opacity: 1 !important; }
+        /* Sekundäre Dots keine Tooltip-Reaktion */
+        .project-dot-group.secondary-dot:hover .project-tooltip,
+        .project-dot-group.secondary-dot:hover .project-tooltip-bg { opacity: 0 !important; }
         
         /* ⭐ Mobile: Dünnere Linie mit weniger Gap */
         @media (max-width: 768px) {
