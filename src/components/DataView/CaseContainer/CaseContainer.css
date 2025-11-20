@@ -8,6 +8,15 @@
 .case-header-wrapper {
   align-items: center;
   cursor: pointer;
+  transition: background-color 0.25s ease;
+}
+
+.case-header-wrapper:hover {
+  background-color: var(--color-surface);
+}
+
+.case-header-wrapper--selected {
+  background-color: var(--color-surface);
 }
 
 .case-container__divider {

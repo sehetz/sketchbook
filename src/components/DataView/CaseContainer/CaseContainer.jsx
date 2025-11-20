@@ -52,7 +52,9 @@ export default function CaseContainer({
     >
       {/* HEADER */}
       <div
-        className="case-header-wrapper transition-height"
+        className={`case-header-wrapper transition-height ${
+          isOpen ? "case-header-wrapper--selected" : ""
+        }`}
         onClick={handleSkillToggle}
         style={{
           height: isOpen ? "64px" : `${closedHeight}px`,
