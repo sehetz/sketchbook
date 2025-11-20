@@ -2,7 +2,7 @@
 // CaseContainer.jsx – Skill / Gear / Team Container
 // ============================================
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import CaseHeader from "./CaseHeader/CaseHeader.jsx";
 import CaseTeaser from "./CaseTeaser/CaseTeaser.jsx";
 import CaseDetail from "./CaseDetail/CaseDetail.jsx";
@@ -19,12 +19,28 @@ export default function CaseContainer({
   onToggle,
 }) {
   const [openProjectIndex, setOpenProjectIndex] = useState(null);
+  const projectRefs = useRef([]); // ⭐ Refs for each project line
 
   // Auto-open first project when skill opens
   useEffect(() => {
     if (isOpen) setOpenProjectIndex(0);
     else setOpenProjectIndex(null);
   }, [isOpen]);
+
+  // ⭐ Scroll to project line when opened (manual calculation)
+  useEffect(() => {
+    if (openProjectIndex !== null && projectRefs.current[openProjectIndex]) {
+      // Immediate scroll after state change (next tick)
+      requestAnimationFrame(() => {
+        const element = projectRefs.current[openProjectIndex];
+        const rect = element.getBoundingClientRect();
+        const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+        const targetY = rect.top + scrollTop - 24; // 24px offset from top
+        
+        window.scrollTo({ top: targetY, behavior: "smooth" });
+      });
+    }
+  }, [openProjectIndex]);
 
   // Height when closed (skills only)
   const closedHeight = 64 + 32 * Math.max(projects.length - 1, 0);
@@ -76,8 +92,11 @@ export default function CaseContainer({
              ============================================================ */}
           {type === "skills" &&
             projects.map((project, index) => (
-              <div key={index} className="w-full flex-col">
-                {/* PROJECT TEASER */}
+              <div 
+                key={index} 
+                className={`w-full flex-col ${openProjectIndex === index ? "project-wrapper--open" : ""}`}
+                ref={(el) => (projectRefs.current[index] = el)}
+              >
                 <CaseTeaser
                   project={project}
                   index={index}
@@ -88,10 +107,9 @@ export default function CaseContainer({
                       openProjectIndex === index ? null : index
                     )
                   }
-                  type={type} // ⭐ MUSS hier übergeben werden!
+                  type={type}
                 />
 
-                {/* PROJECT DETAIL */}
                 {openProjectIndex === index && <CaseDetail project={project} />}
               </div>
             ))}
