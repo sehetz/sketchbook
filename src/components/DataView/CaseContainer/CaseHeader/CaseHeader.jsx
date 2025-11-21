@@ -1,5 +1,3 @@
-import "./CaseHeader.css";
-
 export default function CaseHeader({ type, label, projects, isOpen }) {
   let alignmentClass = "axis-left";
 

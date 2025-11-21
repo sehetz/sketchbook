@@ -8,7 +8,6 @@ import CaseTeaser from "./CaseTeaser/CaseTeaser.jsx";
 import CaseDetail from "./CaseDetail/CaseDetail.jsx";
 import GearTeaser from "./GearTeaser/GearTeaser.jsx";
 import TeamTeaser from "./TeamTeaser/TeamTeaser.jsx";
-import "./CaseContainer.css";
 
 export default function CaseContainer({
   type,

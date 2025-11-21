@@ -339,15 +339,15 @@ export default function TimelineViz() {
       })}
 
       <style>{`
-        .team-group:hover .team-label { opacity: 1 !important; }
+        .team-group:hover .team-label { opacity: 1 ; }
         .team-circle { transition: fill 0.2s ease; }
-        .team-circle:hover { fill: #FFFB78 !important; }
+        .team-circle:hover { fill: #FFFB78 ; }
         /* Nur der erste (primary) Dot zeigt Tooltip bei Hover */
-        .project-dot-group.primary-dot:hover .project-tooltip { opacity: 1 !important; }
-        .project-dot_group.primary-dot:hover .project-tooltip_bg { opacity: 1 !important; }
+        .project-dot-group.primary-dot:hover .project-tooltip { opacity: 1 ; }
+        .project-dot_group.primary-dot:hover .project-tooltip_bg { opacity: 1 ; }
         /* Sekundäre Dots keine Tooltip-Reaktion */
         .project-dot-group.secondary-dot:hover .project-tooltip,
-        .project-dot-group.secondary-dot:hover .project-tooltip-bg { opacity: 0 !important; }
+        .project-dot-group.secondary-dot:hover .project-tooltip-bg { opacity: 0 ; }
         
         /* ⭐ Mobile: Dünnere Linie mit weniger Gap */
         @media (max-width: 768px) {

@@ -4,10 +4,9 @@
 
 :root {
   /* 🎨 COLORS */
-  --color-bg: #ffffff; /* Weiß */
-  --color-fg: #121212; /* Textfarbe */
-  --color-surface: #f6f6f6; /* Hellgrau, Flächen / Ränder */
-  --color-hover: #f0f0f0; /* Helleres Grau für Hover */
+  --color-bg: #fff; /* Weiß , oder best color: #ccccff*/
+  --color-fg: #121212; /* Textfarbe oder #090933*/
+  --color-surface: #F3F3F3; /* Hellgrau, Flächen / Ränder */
 
   /* 🧱 SPACING SCALE */
   --space-1: 0.25rem; /* 4px */

@@ -1,7 +1,7 @@
 .header {
   width: 100vw;
-  padding-top: var(--space-6);                 /* 24px */
-  padding-bottom: calc(var(--space-6) + 12px); /* 36px */
+  padding-top: var(--space-6);                 
+  padding-bottom: calc(var(--space-6) + 12px);
   padding-left: var(--space-6);
   padding-right: var(--space-6);
   display: flex;
@@ -17,5 +17,5 @@
 }
 
 .header__link:hover {
-  background-color: var(--color-hover);
+  background-color: var(--color-surface);
 }

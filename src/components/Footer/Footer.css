@@ -4,8 +4,8 @@
 .footer a:visited,
 .footer a:active,
 .footer .footer-link {
-  color: var(--color-fg) !important;
-  text-decoration: none !important;
+  color: var(--color-fg) ;
+  text-decoration: none ;
 }
 
 /* Only hover effect (same as case header) */
@@ -20,8 +20,8 @@
   .footer a.text-3,
   .footer .axis-center,
   .footer .axis-right {
-    text-align: left !important;
-    justify-content: flex-start !important;
-    align-items: flex-start !important;
+    text-align: left ;
+    justify-content: flex-start ;
+    align-items: flex-start ;
   }
 }
