@@ -41,14 +41,14 @@ export default function CaseTeaser({
   }, [isOpen, project.Title]); // ⭐ Re-trigger wenn isOpen wechselt
 
   const handleToggle = () => {
-    onToggle(); // Just toggle - closing happens automatically
+    onToggle(index); // ⭐ Pass index to parent
   };
 
   return (
     <div className="case-teaser">
       <div
         ref={caseLineRef}
-        className={`case-line ${isOpen ? "case-line--open" : index > 0 ? "border-top-dotted" : ""} ${
+        className={`case-line ${isOpen ? "case-line--open" : ""} ${index > 0 ? "border-top-dotted" : ""} ${
           !skillIsOpen ? "case-line--hidden" : ""
         }`}
         onClick={handleToggle}

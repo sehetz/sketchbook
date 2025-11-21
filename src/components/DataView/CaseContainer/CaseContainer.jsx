@@ -2,12 +2,13 @@
 // CaseContainer.jsx – Skill / Gear / Team Container
 // ============================================
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import CaseHeader from "./CaseHeader/CaseHeader.jsx";
 import CaseTeaser from "./CaseTeaser/CaseTeaser.jsx";
 import CaseDetail from "./CaseDetail/CaseDetail.jsx";
 import GearTeaser from "./GearTeaser/GearTeaser.jsx";
 import TeamTeaser from "./TeamTeaser/TeamTeaser.jsx";
+import "./CaseContainer.css";
 
 export default function CaseContainer({
   type,
@@ -18,7 +19,8 @@ export default function CaseContainer({
   onToggle,
 }) {
   const [openProjectIndex, setOpenProjectIndex] = useState(null);
-  const [nextProjectIndex, setNextProjectIndex] = useState(null); // ⭐ Queue next project
+  const pendingRef = useRef(null); // pending index during transition
+  const openTimerRef = useRef(null);
 
   // Auto-open first project when skill opens
   useEffect(() => {
@@ -26,33 +28,17 @@ export default function CaseContainer({
     else setOpenProjectIndex(null);
   }, [isOpen]);
 
-  // ⭐ FIXED: Sequential close → open flow
+  // Cleanup timers on unmount
   useEffect(() => {
-    if (nextProjectIndex !== null && openProjectIndex !== null) {
-      // Step 1: Close current project (0.4s transition)
-      const closeTimer = setTimeout(() => {
-        setOpenProjectIndex(null);
-        // ⭐ DON'T clear nextProjectIndex here!
-      }, 400); // Match --transition-duration
+    return () => {
+      if (openTimerRef.current) clearTimeout(openTimerRef.current);
+    };
+  }, []);
 
-      return () => clearTimeout(closeTimer);
-    }
-  }, [nextProjectIndex, openProjectIndex]);
+  const CLOSE_MS = 400; // must match CSS transition duration
+  const GAP_MS = 20; // tiny gap to ensure close finished
 
-  // ⭐ FIXED: Open next project after previous closed
-  useEffect(() => {
-    if (nextProjectIndex !== null && openProjectIndex === null) {
-      // Step 2: Open new project
-      setOpenProjectIndex(nextProjectIndex);
-      // ⭐ Clear queue AFTER opening new project
-      setNextProjectIndex(null);
-    }
-  }, [openProjectIndex, nextProjectIndex]);
-
-  // Height when closed (skills only)
-  const closedHeight = 64 + 32 * Math.max(projects.length - 1, 0);
-
-  // Toggle logic
+  // Toggle logic for the whole skill group
   const handleSkillToggle = () => {
     if (isOpen) {
       setTimeout(() => setOpenProjectIndex(null), 50);
@@ -63,19 +49,44 @@ export default function CaseContainer({
     }
   };
 
-  // ⭐ NEW: Handle project selection with queue
+  // NEW: orchestrated toggle -> close current immediately, then open pending after CLOSE_MS
   const handleProjectToggle = (index) => {
+    // clicking same open project -> close it
     if (openProjectIndex === index) {
-      // Closing same project
+      if (openTimerRef.current) {
+        clearTimeout(openTimerRef.current);
+        openTimerRef.current = null;
+        pendingRef.current = null;
+      }
       setOpenProjectIndex(null);
-    } else if (openProjectIndex !== null) {
-      // Another project is open → queue this one
-      setNextProjectIndex(index);
-    } else {
-      // No project open → open directly
-      setOpenProjectIndex(index);
+      return;
     }
+
+    // if some other project is open -> close it now, queue the clicked one
+    if (openProjectIndex !== null) {
+      // ensure any previous timer cleared
+      if (openTimerRef.current) clearTimeout(openTimerRef.current);
+
+      // start close immediately
+      setOpenProjectIndex(null);
+
+      // queue and schedule open after CLOSE_MS + small gap
+      pendingRef.current = index;
+      openTimerRef.current = setTimeout(() => {
+        setOpenProjectIndex(pendingRef.current);
+        pendingRef.current = null;
+        openTimerRef.current = null;
+      }, CLOSE_MS + GAP_MS);
+
+      return;
+    }
+
+    // no project open -> open directly
+    setOpenProjectIndex(index);
   };
+
+  // Height when closed (skills only)
+  const closedHeight = 64 + 32 * Math.max(projects.length - 1, 0);
 
   return (
     <section
@@ -107,18 +118,18 @@ export default function CaseContainer({
       {/* CONTENT BLOCK */}
       <div className={`wipe ${isOpen ? "open" : ""}`}>
         <div className="case-container__body">
-          {/* ============================================================
-             SKILLS → full logic with multiple projects
-             ============================================================ */}
           {type === "skills" &&
             projects.map((project, index) => (
-              <div key={index} className={`w-full flex-col ${openProjectIndex === index ? "project-wrapper--open" : ""}`}>
+              <div
+                key={index}
+                className={`w-full flex-col ${openProjectIndex === index ? "project-wrapper--open" : ""}`}
+              >
                 <CaseTeaser
                   project={project}
                   index={index}
                   isOpen={openProjectIndex === index}
                   skillIsOpen={isOpen}
-                  onToggle={() => handleProjectToggle(index)}
+                  onToggle={handleProjectToggle} // parent handles queuing
                   type={type}
                 />
 
@@ -126,38 +137,20 @@ export default function CaseContainer({
               </div>
             ))}
 
-          {/* ============================================================
-    GEARS → exactly ONE teaser, but dynamic height
-   ============================================================ */}
           {type === "gears" && (
             <>
               <GearTeaser gear={projects[0].__gearData} />
-
-              {/* extra height simulation based on number of projects */}
               {!isOpen && projects.length > 1 && (
-                <div
-                  style={{
-                    height: `${(projects.length - 1) * 32}px`,
-                  }}
-                />
+                <div style={{ height: `${(projects.length - 1) * 32}px` }} />
               )}
             </>
           )}
 
-          {/* ============================================================
-    TEAMS → exactly ONE teaser, but dynamic height
-   ============================================================ */}
           {type === "teams" && (
             <>
               <TeamTeaser team={projects[0].__teamData} />
-
-              {/* extra height simulation based on number of projects */}
               {!isOpen && projects.length > 1 && (
-                <div
-                  style={{
-                    height: `${(projects.length - 1) * 32}px`,
-                  }}
-                />
+                <div style={{ height: `${(projects.length - 1) * 32}px` }} />
               )}
             </>
           )}
