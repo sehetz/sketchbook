@@ -9,6 +9,15 @@
   --color-surface: #f3f3f3; /* Hellgrau, Flächen / Ränder */
   --color-link: #00F ; /* Blau für Links (derzeit nicht genutzt) */
 
+/* Dark mode overrides when .dark is present on the root element */
+.dark {
+  --color-bg: #0a0a0a;
+  --color-fg: #f5f5f5;
+  --color-surface: #111213;
+  --color-link: #9ad1ff;
+}
+
+
   /* 🧱 SPACING SCALE */
   --space-1: 0.25rem; /* 4px */
   --space-1-5: 0.375rem; /* 6px */

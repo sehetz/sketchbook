@@ -1,5 +1,15 @@
-
 export default function Footer() {
+  // client-side internal navigation (prevents full page reload)
+  const handleInternal = (e) => {
+    const href = e.currentTarget.getAttribute("href");
+    if (!href || !href.startsWith("/")) return;
+    e.preventDefault();
+    if (window.location.pathname === href) return;
+    window.history.pushState({}, "", href);
+    // notify App about navigation
+    window.dispatchEvent(new PopStateEvent("popstate"));
+  };
+
   return (
     <footer className="footer flex-col w-full p-6-all">
       {/* --- Top Line --- */}
@@ -35,10 +45,10 @@ export default function Footer() {
         {/* Right Column – Legal */}
         <div className="flex-col flex-1">
           <p className="text-3 pb-2 axis-right footer-title">Legal</p>
-          <a href="/privacy" className="w-full border-top-thin pt-2 pb-2 flex axis-right text-3 footer-link">
+          <a href="/privacy" onClick={handleInternal} className="w-full border-top-thin pt-2 pb-2 flex axis-right text-3 footer-link">
             Privacy Policy
           </a>
-          <a href="/impressum" className="w-full border-top-thin border-bottom-thin pt-2 pb-2 flex axis-right text-3 footer-link">
+          <a href="/impressum" onClick={handleInternal} className="w-full border-top-thin border-bottom-thin pt-2 pb-2 flex axis-right text-3 footer-link">
             Impressum
           </a>
         </div>
