@@ -27,11 +27,7 @@ export default function LinkBlock({ text }) {
             href={url}
             target="_blank"
             rel="noopener noreferrer"
-            className="flex axis-left text-2"
-            style={{
-              color: "#0037FF",
-              textDecoration: "none",
-            }}
+            className="flex axis-left text-2 link-block__link"
           >
             🔗 {label}
           </a>

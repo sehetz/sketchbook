@@ -7,6 +7,7 @@
   --color-bg: #fff; /* Weiß , oder best color: #ccccff*/
   --color-fg: #121212; /* Textfarbe oder #090933*/
   --color-surface: #f3f3f3; /* Hellgrau, Flächen / Ränder */
+  --color-link: #00F ; /* Blau für Links */
 
   /* 🧱 SPACING SCALE */
   --space-1: 0.25rem; /* 4px */

@@ -467,3 +467,12 @@ p {
     padding-right: 0;
   }
 }
+
+
+/* Link Styles (more specific for reliable hover) */
+a.link-block__link {
+  color: var(--color-link);
+  text-decoration: none;
+  cursor: pointer;
+  -webkit-text-decoration-skip-ink: none;
+}

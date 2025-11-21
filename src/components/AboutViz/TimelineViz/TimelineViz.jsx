@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useMemo } from "react";
 
 // ============================================
 // TimelineViz.jsx – SVG-based Team Timeline
@@ -97,8 +97,6 @@ export default function TimelineViz() {
     load();
   }, [TEAMS_API_URL, PROJECTS_API_URL, API_TOKEN]);
 
-  if (teams.length === 0) return null;
-
   // ⭐ TWEAKABLE CONSTANTS
   // Layout & Spacing
   const PADDING_TOP = 80;
@@ -146,6 +144,7 @@ export default function TimelineViz() {
   const PROJECT_TOOLTIP_BG_PADDING = 4;
   const PROJECT_TOOLTIP_HEIGHT = 16;
 
+  // derived dimensions
   const yearRange = maxYear - minYear;
   const padding = { top: PADDING_TOP, right: PADDING_RIGHT, bottom: PADDING_BOTTOM, left: PADDING_LEFT };
   const width = SVG_WIDTH;
@@ -153,14 +152,160 @@ export default function TimelineViz() {
   const teamsStartX = TEAMS_START_X;
   const teamsEndX = width - TEAMS_END_X_OFFSET;
   const plotWidth = teamsEndX - teamsStartX;
-
   const yearToY = (year) => padding.top + ((maxYear - year) * YEAR_SPACING);
 
-  const uniqueTeams = [...new Set(teams.map((t) => t.team))];
-  const teamSpacing = Math.max(TEAM_MIN_GAP, plotWidth / uniqueTeams.length);
-  
+  // memoized derived data (hooks must run on every render)
+  const uniqueTeams = useMemo(() => [...new Set(teams.map((t) => t.team))], [teams]);
+  const teamSpacing = Math.max(TEAM_MIN_GAP, (plotWidth || 1) / Math.max(1, uniqueTeams.length));
   const teamToX = (teamIndex) => teamsStartX + teamIndex * teamSpacing + teamSpacing / 2;
 
+  const projectsByTeam = useMemo(() => {
+    const map = {};
+    projects.forEach((p) => {
+      if (!map[p.team]) map[p.team] = [];
+      map[p.team].push(p);
+    });
+    return map;
+  }, [projects]);
+
+  // now it's safe to early-return (hooks already registered)
+  if (teams.length === 0) return null;
+
+  // ---------- small inner components for clarity ----------
+  function ProjectTooltip({ x, y, title }) {
+    const width = Math.max(80, title.length * 7 + PROJECT_TOOLTIP_BG_PADDING * 2);
+    return (
+      <>
+        <rect
+          x={x}
+          y={y - PROJECT_TOOLTIP_HEIGHT / 2}
+          width={width}
+          height={PROJECT_TOOLTIP_HEIGHT}
+          className="project-tooltip-bg"
+          opacity="0"
+          style={{ pointerEvents: "none" }}
+        />
+        <text
+          x={x + PROJECT_TOOLTIP_BG_PADDING}
+          y={y + 1}
+          fontSize={PROJECT_TOOLTIP_FONT_SIZE}
+          fontFamily="SF Pro Rounded"
+          fontWeight="700"
+          textAnchor="start"
+          className="project-tooltip"
+          opacity="0"
+          style={{ pointerEvents: "none" }}
+        >
+          {title}
+        </text>
+      </>
+    );
+  }
+
+  function ProjectDot({ x, y, title }) {
+    const tx = x + PROJECT_TOOLTIP_OFFSET_X - PROJECT_TOOLTIP_BG_PADDING;
+    return (
+      <g className="project-dot-group">
+        <circle cx={x} cy={y} r={PROJECT_DOT_RADIUS} fill="#121212" className="project-dot" style={{ cursor: "pointer" }} />
+        <ProjectTooltip x={tx} y={y} title={title} />
+      </g>
+    );
+  }
+
+  function TeamGroup({ teamName, teamIdx }) {
+    const x = teamToX(teamIdx);
+    const teamData = teams.filter((t) => t.team === teamName);
+    if (!teamData.length) return null;
+    const firstBar = teamData[0];
+    const firstBarStartY = yearToY(firstBar.start);
+    const firstBarEndY = yearToY(firstBar.end || maxYear);
+    const barTopY = Math.min(firstBarStartY, firstBarEndY);
+    const labelY = barTopY - BAR_OVERSHOOT - LABEL_OFFSET_ABOVE_BAR;
+    const circleOffset = firstBar.designWork ? CIRCLE_OFFSET_DESIGN : CIRCLE_OFFSET_NONDESIGN;
+    const circleY = labelY + circleOffset;
+    const hasLink = Boolean(firstBar.link);
+    const circleRadius = firstBar.designWork ? CIRCLE_RADIUS_DESIGN : CIRCLE_RADIUS_NONDESIGN;
+
+    const teamProjects = projectsByTeam[teamName] || [];
+    const projectsByYear = {};
+    teamProjects.forEach((p) => {
+      if (!projectsByYear[p.year]) projectsByYear[p.year] = [];
+      projectsByYear[p.year].push(p);
+    });
+
+    return (
+      <g className="team-group" key={`team-${teamIdx}`}>
+        {hasLink && (
+          <a href={firstBar.link} target="_blank" rel="noopener noreferrer">
+            <circle cx={x} cy={circleY} r={circleRadius} fill="#EFEFEF" className="team-circle" style={{ cursor: "pointer" }} />
+          </a>
+        )}
+
+        {/* Bars */}
+        {teamData.map((t, i) => {
+          const startY = yearToY(t.start);
+          const endY = yearToY(t.end || maxYear);
+          const barHeight = Math.abs(endY - startY);
+          const barWidth = t.designWork ? BAR_WIDTH_DESIGN : BAR_WIDTH_NONDESIGN;
+          const barRadius = t.designWork ? BAR_RADIUS_DESIGN : BAR_RADIUS_NONDESIGN;
+          return (
+            <rect
+              key={`bar-${teamIdx}-${i}`}
+              x={x - barWidth / 2}
+              y={Math.min(startY, endY) - BAR_OVERSHOOT}
+              width={barWidth}
+              height={barHeight + BAR_OVERSHOOT * 2}
+              fill={`url(#gradient-${teamIdx})`}
+              rx={barRadius}
+            />
+          );
+        })}
+
+        {/* Projects: secondary first, primary last */}
+        {Object.entries(projectsByYear).map(([year, projs]) => {
+          const dotY = yearToY(parseInt(year, 10));
+          const secondary = projs.slice(1);
+          const primary = projs[0];
+          return (
+            <g key={`dots-${teamIdx}-${year}`}>
+              {secondary.map((p, sIdx) => {
+                const posY = dotY + (sIdx + 1) * PROJECT_STACK_Y;
+                return <ProjectDot key={`sec-${sIdx}`} x={x} y={posY} title={p.title} />;
+              })}
+              {primary && <ProjectDot key={`prim`} x={x} y={dotY} title={primary.title} />}
+            </g>
+          );
+        })}
+
+        {/* Label (shown on hover via CSS) */}
+        <text
+          x={x}
+          y={labelY}
+          fontSize={LABEL_FONT_SIZE}
+          fontFamily="SF Pro Rounded"
+          fontWeight="700"
+          textAnchor="middle"
+          fill="#121212"
+          className="team-label"
+          style={{ pointerEvents: "none" }}
+        >
+          {teamName.split(" ").map((w, idx) => (
+            <tspan key={idx} x={x} dy={idx === 0 ? 0 : LABEL_LINE_HEIGHT}>
+              {w}
+            </tspan>
+          ))}
+          {firstBar.role &&
+            firstBar.role.split(" ").map((rw, rIdx) => (
+              <tspan key={`role-${rIdx}`} x={x} dy={LABEL_LINE_HEIGHT} fontSize={LABEL_FONT_SIZE} fontWeight="400">
+                {rw}
+              </tspan>
+            ))}
+        </text>
+      </g>
+    );
+  }
+
+  // ---------- render ----------
   return (
     <svg width="100%" height="100%" viewBox={`0 0 ${width} ${height}`} style={{ maxWidth: "100%", height: "auto" }}>
       <defs>
@@ -172,189 +317,61 @@ export default function TimelineViz() {
         ))}
       </defs>
 
-      {/* Dotted year lines */}
-      {Array.from({ length: yearRange + 1 }, (_, i) => maxYear - i).map((year) => {
+      {/* Year lines */}
+      {Array.from({ length: yearRange + 1 }, (_, i) => {
+        const year = maxYear - i;
         const y = yearToY(year);
         return (
-          <line 
-            key={`grid-${year}`} 
-            x1={0} 
-            y1={y} 
-            x2={width} 
-            y2={y} 
-            stroke="#121212" 
-            strokeWidth={LINE_STROKE_WIDTH} 
-            strokeDasharray={LINE_DASH_ARRAY} 
+          <line
+            key={`grid-${year}`}
+            x1={0}
+            y1={y}
+            x2={width}
+            y2={y}
+            stroke="#121212"
+            strokeWidth={LINE_STROKE_WIDTH}
+            strokeDasharray={LINE_DASH_ARRAY}
             strokeLinecap="round"
-            vectorEffect="non-scaling-stroke" // ⭐ Prevents scaling
+            vectorEffect="non-scaling-stroke"
           />
         );
       })}
 
-      {/* Timeline bars + labels + circles + PROJECT DOTS */}
-      {uniqueTeams.map((teamName, teamIdx) => {
-        const x = teamToX(teamIdx);
-        const teamData = teams.filter((t) => t.team === teamName);
-        if (teamData.length === 0) return null;
-        
-        const firstBar = teamData[0];
-        const firstBarStartY = yearToY(firstBar.start);
-        const firstBarEndY = yearToY(firstBar.end || maxYear);
-        const barTopY = Math.min(firstBarStartY, firstBarEndY);
-        const labelY = barTopY - BAR_OVERSHOOT - LABEL_OFFSET_ABOVE_BAR;
-        
-        const circleOffset = firstBar.designWork ? CIRCLE_OFFSET_DESIGN : CIRCLE_OFFSET_NONDESIGN;
-        const circleY = labelY + circleOffset;
-        const hasLink = firstBar.link !== null && firstBar.link !== "";
-        const circleRadius = firstBar.designWork ? CIRCLE_RADIUS_DESIGN : CIRCLE_RADIUS_NONDESIGN;
+      {/* Teams */}
+      {uniqueTeams.map((teamName, idx) => (
+        <TeamGroup key={teamName} teamName={teamName} teamIdx={idx} />
+      ))}
 
-        const teamWords = teamName.split(' ');
-
-        const teamProjects = projects.filter((p) => p.team === teamName);
-        const projectsByYear = {};
-        teamProjects.forEach((p) => {
-          if (!projectsByYear[p.year]) projectsByYear[p.year] = [];
-          projectsByYear[p.year].push(p);
-        });
-
+      {/* Year labels */}
+      {Array.from({ length: yearRange + 1 }, (_, i) => {
+        const year = maxYear - i;
+        const y = yearToY(year);
         return (
-          <g key={`team-${teamIdx}`} className="team-group">
-            {/* Circle BEHIND bars and labels */}
-            {hasLink && (
-              <a href={firstBar.link} target="_blank" rel="noopener noreferrer">
-                <circle cx={x} cy={circleY} r={circleRadius} fill="#EFEFEF" className="team-circle" style={{ cursor: 'pointer' }} />
-              </a>
-            )}
-
-            {/* Bars */}
-            {teamData.map((team, barIdx) => {
-              const startY = yearToY(team.start);
-              const endY = yearToY(team.end || maxYear);
-              const barHeight = Math.abs(endY - startY);
-              const barWidth = team.designWork ? BAR_WIDTH_DESIGN : BAR_WIDTH_NONDESIGN;
-              const barRadius = team.designWork ? BAR_RADIUS_DESIGN : BAR_RADIUS_NONDESIGN;
-
-              return (
-                <rect
-                  key={`bar-${teamIdx}-${barIdx}`}
-                  x={x - barWidth / 2}
-                  y={Math.min(startY, endY) - BAR_OVERSHOOT}
-                  width={barWidth}
-                  height={barHeight + (BAR_OVERSHOOT * 2)}
-                  fill={`url(#gradient-${teamIdx})`}
-                  rx={barRadius}
-                />
-              );
-            })}
-
-            {/* ⭐ Project dots: erstes Projekt hat Priorität */}
-            {Object.entries(projectsByYear).map(([year, projs]) => {
-              const dotY = yearToY(parseInt(year));
-
-              // 1) Falls mehrere Projekte: zuerst die sekundären, dann das primäre (Index 0) oben
-              const secondary = projs.slice(1);
-              const primary = projs[0];
-
-              return (
-                <g key={`dot-${teamIdx}-${year}`}>
-                  {/* Sekundäre (ohne Tooltip/Hover) */}
-                  {secondary.map((p, sIdx) => {
-                    const posY = dotY + ((sIdx + 1) * PROJECT_STACK_Y);
-                    return (
-                      <g key={`proj-sec-${sIdx}`} className="project-dot-group secondary-dot">
-                        <circle
-                          cx={x}
-                          cy={posY}
-                          r={PROJECT_DOT_RADIUS}
-                          fill="#121212"
-                          className="project-dot"
-                          style={{ cursor: 'default' }}
-                        />
-                        {/* Keine Tooltip-Elemente für sekundäre */}
-                      </g>
-                    );
-                  })}
-
-                  {/* Primär (Index 0) mit Tooltip/Hover */}
-                  {primary && (
-                    <g key={`proj-primary`} className="project-dot-group primary-dot">
-                      <circle
-                        cx={x}
-                        cy={dotY}
-                        r={PROJECT_DOT_RADIUS}
-                        fill="#121212"
-                        className="project-dot"
-                        style={{ cursor: 'pointer' }}
-                      />
-                      <rect
-                        x={x + PROJECT_TOOLTIP_OFFSET_X - PROJECT_TOOLTIP_BG_PADDING}
-                        y={dotY - (PROJECT_TOOLTIP_HEIGHT / 2 - 2)}
-                        width={primary.title.length * 7 + (PROJECT_TOOLTIP_BG_PADDING * 2)}
-                        height={PROJECT_TOOLTIP_HEIGHT}
-                        fill="#ffffff"
-                        opacity="0"
-                        className="project-tooltip-bg"
-                        style={{ pointerEvents: 'none' }}
-                      />
-                      <text
-                        x={x + PROJECT_TOOLTIP_OFFSET_X}
-                        y={dotY}
-                        fontSize={PROJECT_TOOLTIP_FONT_SIZE}
-                        fontFamily="SF Pro Rounded"
-                        fontWeight="700"
-                        textAnchor="start"
-                        fill="#121212"
-                        opacity="0"
-                        className="project-tooltip"
-                        style={{ pointerEvents: 'none' }}
-                      >
-                        {primary.title}
-                      </text>
-                    </g>
-                  )}
-                </g>
-              );
-            })}
-
-            {/* ⭐ Label AFTER everything else (on top) */}
-            <text x={x} y={labelY} fontSize={LABEL_FONT_SIZE} fontFamily="SF Pro Rounded" fontWeight="700" textAnchor="middle" fill="#121212" opacity="0" className="team-label" style={{ pointerEvents: 'none' }}>
-              {teamWords.map((word, wordIdx) => (
-                <tspan key={wordIdx} x={x} dy={wordIdx === 0 ? 0 : LABEL_LINE_HEIGHT}>{word}</tspan>
-              ))}
-              {/* ⭐ Role below team name (multi-line if needed) */}
-              {firstBar.role && firstBar.role.split(' ').map((roleWord, roleIdx) => (
-                <tspan key={`role-${roleIdx}`} x={x} dy={LABEL_LINE_HEIGHT} fontSize={LABEL_FONT_SIZE} fontWeight="400">
-                  {roleWord}
-                </tspan>
-              ))}
-            </text>
-          </g>
+          <text key={`year-${year}`} x={padding.left} y={y - YEAR_LABEL_OFFSET_ABOVE_LINE} fontSize={YEAR_FONT_SIZE} fontFamily="SF Pro Rounded" letterSpacing={`${YEAR_LETTER_SPACING}px`} textAnchor="start" fill="#121212">
+            {year}
+          </text>
         );
       })}
 
-      {/* Y-axis labels (years) */}
-      {Array.from({ length: yearRange + 1 }, (_, i) => maxYear - i).map((year) => {
-        const y = yearToY(year);
-        return <text key={`year-${year}`} x={padding.left} y={y - YEAR_LABEL_OFFSET_ABOVE_LINE} fontSize={YEAR_FONT_SIZE} fontFamily="SF Pro Rounded" letterSpacing={`${YEAR_LETTER_SPACING}px`} textAnchor="start" fill="#121212">{year}</text>;
-      })}
-
       <style>{`
-        .team-group:hover .team-label { opacity: 1 ; }
+        /* labels hidden by default; show when hovering the team group */
+        .team-label { opacity: 0; transition: opacity 160ms ease; fill: #121212; visibility: hidden; }
+        .team-group:hover .team-label { opacity: 1; visibility: visible; }
+
         .team-circle { transition: fill 0.2s ease; }
-        .team-circle:hover { fill: #FFFB78 ; }
-        /* Nur der erste (primary) Dot zeigt Tooltip bei Hover */
-        .project-dot-group.primary-dot:hover .project-tooltip { opacity: 1 ; }
-        .project-dot_group.primary-dot:hover .project-tooltip_bg { opacity: 1 ; }
-        /* Sekundäre Dots keine Tooltip-Reaktion */
-        .project-dot-group.secondary-dot:hover .project-tooltip,
-        .project-dot-group.secondary-dot:hover .project-tooltip-bg { opacity: 0 ; }
-        
-        /* ⭐ Mobile: Dünnere Linie mit weniger Gap */
+        .team-circle:hover { fill: #FFFB78; }
+
+        .project-dot-group .project-tooltip,
+        .project-dot-group .project-tooltip-bg { transition: opacity 0.18s ease, transform 0.18s ease; opacity: 0; transform: translateX(6px); }
+        .project-dot-group:hover .project-tooltip,
+        .project-dot-group:hover .project-tooltip-bg { opacity: 1; transform: translateX(0); }
+
+        .project-tooltip-bg { fill: #ffffff; rx: 6; }
+        .project-tooltip { fill: #121212; font-weight: 700; dominant-baseline: middle; }
+        .project-tooltip, .project-tooltip-bg { pointer-events: none; }
+
         @media (max-width: 768px) {
-          line[stroke-dasharray] {
-            stroke-width: 1.5px;
-            stroke-dasharray: 0.1 4;
-          }
+          line[stroke-dasharray] { stroke-width: 1.5px; stroke-dasharray: 0.1 4; }
         }
       `}</style>
     </svg>
