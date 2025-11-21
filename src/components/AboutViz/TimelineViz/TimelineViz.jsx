@@ -10,6 +10,9 @@ export default function TimelineViz() {
   const [maxYear, setMaxYear] = useState(new Date().getFullYear());
   const [projects, setProjects] = useState([]);
 
+  // 1) STATE: track open tooltip on mobile (add near other useState)
+  const [openTooltip, setOpenTooltip] = useState(null); // { teamIdx, year } or null
+
   const API_TOKEN = import.meta.env.VITE_API_TOKEN;
   const NOCO_BASE = import.meta.env.VITE_NOCO_BASE_URL || "http://localhost:8080";
   const TEAMS_API_URL = `${NOCO_BASE}/api/v2/tables/m9i2b930g5qelnr/records`;
@@ -169,45 +172,58 @@ export default function TimelineViz() {
   }, [projects]);
 
   // now it's safe to early-return (hooks already registered)
-  if (teams.length === 0) return null;
+  // Responsive: detect mobile breakpoint and expose derived values
+  const [isMobile, setIsMobile] = useState(false);
+  useEffect(() => {
+    const onResize = () => setIsMobile(window.innerWidth <= 768);
+    onResize();
+    window.addEventListener("resize", onResize);
+    return () => window.removeEventListener("resize", onResize);
+  }, []);
+
+  // derive responsive values (never call hooks conditionally)
+  const YEAR_SPACING_D = isMobile ? 90 : YEAR_SPACING; // smaller spacing on mobile
+  const PROJECT_STACK_Y_D = isMobile ? 16 : PROJECT_STACK_Y;
+  const PROJECT_DOT_RADIUS_D = isMobile ? 8 : PROJECT_DOT_RADIUS;
+  const LINE_DASH_ARRAY_D = isMobile ? "0.1 4" : LINE_DASH_ARRAY;
+  const PROJECT_TOOLTIP_OFFSET_X_D = isMobile ? 12 : PROJECT_TOOLTIP_OFFSET_X;
+
+  // now it's safe to early-return
+   if (teams.length === 0) return null;
 
   // ---------- small inner components for clarity ----------
-  function ProjectTooltip({ x, y, title }) {
-    const width = Math.max(80, title.length * 7 + PROJECT_TOOLTIP_BG_PADDING * 2);
-    return (
+  function ProjectTooltip({ x, y, title, visible = false }) {
+    const width = Math.max(80, Math.min(220, title.length * 7 + PROJECT_TOOLTIP_BG_PADDING * 2));
+    // Use foreignObject to allow wrapping & padding
+    return visible ? (
       <>
-        <rect
-          x={x}
-          y={y - PROJECT_TOOLTIP_HEIGHT / 2}
-          width={width}
-          height={PROJECT_TOOLTIP_HEIGHT}
-          className="project-tooltip-bg"
-          opacity="0"
-          style={{ pointerEvents: "none" }}
-        />
-        <text
-          x={x + PROJECT_TOOLTIP_BG_PADDING}
-          y={y + 1}
-          fontSize={PROJECT_TOOLTIP_FONT_SIZE}
-          fontFamily="SF Pro Rounded"
-          fontWeight="700"
-          textAnchor="start"
-          className="project-tooltip"
-          opacity="0"
-          style={{ pointerEvents: "none" }}
-        >
-          {title}
-        </text>
+        <rect x={x} y={y - PROJECT_TOOLTIP_HEIGHT/2} width={width} height={PROJECT_TOOLTIP_HEIGHT} className="project-tooltip-bg" />
+        <foreignObject x={x} y={y - PROJECT_TOOLTIP_HEIGHT/2} width={width} height={PROJECT_TOOLTIP_HEIGHT}>
+          <div xmlns="http://www.w3.org/1999/xhtml" style={{ fontSize: PROJECT_TOOLTIP_FONT_SIZE, padding: '2px 6px', color: '#121212', fontWeight: 700 }}>
+            {title}
+          </div>
+        </foreignObject>
       </>
-    );
+    ) : null;
   }
 
-  function ProjectDot({ x, y, title }) {
-    const tx = x + PROJECT_TOOLTIP_OFFSET_X - PROJECT_TOOLTIP_BG_PADDING;
+  function ProjectDot({ x, y, title, teamIdx, yearKey }) {
+    const tx = x + PROJECT_TOOLTIP_OFFSET_X_D - PROJECT_TOOLTIP_BG_PADDING;
+    const handleTap = (e) => {
+      // stop SVG default link behaviour if needed
+      if (isMobile) {
+        const key = `${teamIdx}:${yearKey}`;
+        setOpenTooltip((prev) => (prev === key ? null : key));
+      }
+    };
+
     return (
-      <g className="project-dot-group">
-        <circle cx={x} cy={y} r={PROJECT_DOT_RADIUS} fill="#121212" className="project-dot" style={{ cursor: "pointer" }} />
-        <ProjectTooltip x={tx} y={y} title={title} />
+      <g className="project-dot-group" onClick={handleTap} role="button" tabIndex={0}>
+        {/* invisible larger hit area for touch */}
+        <circle cx={x} cy={y} r={Math.max(PROJECT_DOT_RADIUS_D, 14)} fill="transparent" className="project-dot-hit" />
+        <circle cx={x} cy={y} r={PROJECT_DOT_RADIUS_D} fill="#121212" className="project-dot" />
+        {/* show tooltip if openTooltip matches (inline style or class) */}
+        <ProjectTooltip x={tx} y={y} title={title} visible={openTooltip === `${teamIdx}:${yearKey}`} />
       </g>
     );
   }
@@ -269,8 +285,8 @@ export default function TimelineViz() {
           return (
             <g key={`dots-${teamIdx}-${year}`}>
               {secondary.map((p, sIdx) => {
-                const posY = dotY + (sIdx + 1) * PROJECT_STACK_Y;
-                return <ProjectDot key={`sec-${sIdx}`} x={x} y={posY} title={p.title} />;
+                const posY = dotY + (sIdx + 1) * PROJECT_STACK_Y_D;
+                return <ProjectDot key={`sec-${sIdx}`} x={x} y={posY} title={p.title} teamIdx={teamIdx} yearKey={year} />;
               })}
               {primary && <ProjectDot key={`prim`} x={x} y={dotY} title={primary.title} />}
             </g>
@@ -330,7 +346,7 @@ export default function TimelineViz() {
             y2={y}
             stroke="#121212"
             strokeWidth={LINE_STROKE_WIDTH}
-            strokeDasharray={LINE_DASH_ARRAY}
+            strokeDasharray={LINE_DASH_ARRAY_D}
             strokeLinecap="round"
             vectorEffect="non-scaling-stroke"
           />
@@ -361,6 +377,7 @@ export default function TimelineViz() {
         .team-circle { transition: fill 0.2s ease; }
         .team-circle:hover { fill: #FFFB78; }
 
+        /* tooltip / hover behavior - keep same but better for touch due to larger dots */
         .project-dot-group .project-tooltip,
         .project-dot-group .project-tooltip-bg { transition: opacity 0.18s ease, transform 0.18s ease; opacity: 0; transform: translateX(6px); }
         .project-dot-group:hover .project-tooltip,
@@ -371,7 +388,9 @@ export default function TimelineViz() {
         .project-tooltip, .project-tooltip-bg { pointer-events: none; }
 
         @media (max-width: 768px) {
+          /* smaller visual gaps and ensure touch-friendly dots */
           line[stroke-dasharray] { stroke-width: 1.5px; stroke-dasharray: 0.1 4; }
+          .project-dot { /* larger hit area on mobile */ r: ${PROJECT_DOT_RADIUS_D}px; }
         }
       `}</style>
     </svg>
