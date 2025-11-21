@@ -9,6 +9,23 @@ import CaseDetail from "./CaseDetail/CaseDetail.jsx";
 import GearTeaser from "./GearTeaser/GearTeaser.jsx";
 import TeamTeaser from "./TeamTeaser/TeamTeaser.jsx";
 import "./CaseContainer.css";
+import { CLOSE_MS, TRANSITION_GAP_MS, DEFAULT_FIRST_OPEN_INDEX } from "../../../config/uiConstants.js"; // ⭐ globals
+
+/**
+ * CaseContainer
+ *
+ * Responsibilities:
+ * - Render header + list of projects (teasers + detail).
+ * - Ensure only one project is open at a time.
+ * - Orchestrate exact sequence when switching from open project A -> clicked project B:
+ *     1) close A immediately (start close animation)
+ *     2) after CLOSE_MS + small gap -> open B
+ *     3) CaseTeaser will trigger scroll after it sees isOpen === true
+ *
+ * Notes:
+ * - CaseTeaser calls onToggle(index). Parent handles queueing / timers.
+ * - Timings are driven from src/config/uiConstants.js
+ */
 
 export default function CaseContainer({
   type,
@@ -18,70 +35,90 @@ export default function CaseContainer({
   isOpen,
   onToggle,
 }) {
+  // index of currently opened project (or null)
   const [openProjectIndex, setOpenProjectIndex] = useState(null);
-  const pendingRef = useRef(null); // pending index during transition
-  const openTimerRef = useRef(null);
 
-  // Auto-open first project when skill opens
+  // refs used as instance storage for pending index + active timer id
+  const queuedProjectRef = useRef(null);       // index queued to open after close
+  const transitionTimerRef = useRef(null);     // timer id for scheduled open
+
+  // Auto-open first project when skill group opens
   useEffect(() => {
-    if (isOpen) setOpenProjectIndex(0);
+    if (isOpen) setOpenProjectIndex(DEFAULT_FIRST_OPEN_INDEX);
     else setOpenProjectIndex(null);
   }, [isOpen]);
 
-  // Cleanup timers on unmount
+  // ensure timers cleared on unmount
   useEffect(() => {
     return () => {
-      if (openTimerRef.current) clearTimeout(openTimerRef.current);
+      if (transitionTimerRef.current) {
+        clearTimeout(transitionTimerRef.current);
+        transitionTimerRef.current = null;
+      }
     };
   }, []);
 
-  const CLOSE_MS = 400; // must match CSS transition duration
-  const GAP_MS = 20; // tiny gap to ensure close finished
-
-  // Toggle logic for the whole skill group
+  // Toggle whole skill group header
   const handleSkillToggle = () => {
     if (isOpen) {
+      // close group smoothly
       setTimeout(() => setOpenProjectIndex(null), 50);
       onToggle();
     } else {
       onToggle();
-      if (type === "skills") setOpenProjectIndex(0);
+      if (type === "skills") setOpenProjectIndex(DEFAULT_FIRST_OPEN_INDEX);
     }
   };
 
-  // NEW: orchestrated toggle -> close current immediately, then open pending after CLOSE_MS
+  /**
+   * handleProjectToggle(index)
+   *
+   * Called by CaseTeaser via onToggle(index).
+   *
+   * Cases:
+   * - clicking currently open project -> close it immediately
+   * - clicking another project while one is open -> close current immediately, queue clicked,
+   *   then open queued after CLOSE_MS + small gap (exact sequence required by UX)
+   * - clicking when no project open -> open directly
+   */
   const handleProjectToggle = (index) => {
-    // clicking same open project -> close it
+    // 1) Clicking the currently open project => just close it
     if (openProjectIndex === index) {
-      if (openTimerRef.current) {
-        clearTimeout(openTimerRef.current);
-        openTimerRef.current = null;
-        pendingRef.current = null;
+      // cancel any pending scheduled open
+      if (transitionTimerRef.current) {
+        clearTimeout(transitionTimerRef.current);
+        transitionTimerRef.current = null;
+        queuedProjectRef.current = null;
       }
       setOpenProjectIndex(null);
       return;
     }
 
-    // if some other project is open -> close it now, queue the clicked one
+    // 2) Another project currently open => begin close now, schedule open for queued index
     if (openProjectIndex !== null) {
-      // ensure any previous timer cleared
-      if (openTimerRef.current) clearTimeout(openTimerRef.current);
+      // clear any previous scheduled open
+      if (transitionTimerRef.current) {
+        clearTimeout(transitionTimerRef.current);
+        transitionTimerRef.current = null;
+      }
 
-      // start close immediately
+      // start closing current project immediately (triggers CSS close animation)
       setOpenProjectIndex(null);
 
-      // queue and schedule open after CLOSE_MS + small gap
-      pendingRef.current = index;
-      openTimerRef.current = setTimeout(() => {
-        setOpenProjectIndex(pendingRef.current);
-        pendingRef.current = null;
-        openTimerRef.current = null;
-      }, CLOSE_MS + GAP_MS);
+      // queue the requested index and schedule open after CLOSE_MS + small gap
+      queuedProjectRef.current = index;
+      transitionTimerRef.current = setTimeout(() => {
+        // open queued project
+        setOpenProjectIndex(queuedProjectRef.current);
+        // cleanup refs
+        queuedProjectRef.current = null;
+        transitionTimerRef.current = null;
+      }, CLOSE_MS + TRANSITION_GAP_MS);
 
       return;
     }
 
-    // no project open -> open directly
+    // 3) No project open -> open clicked one immediately
     setOpenProjectIndex(index);
   };
 
@@ -121,15 +158,17 @@ export default function CaseContainer({
           {type === "skills" &&
             projects.map((project, index) => (
               <div
-                key={index}
-                className={`w-full flex-col ${openProjectIndex === index ? "project-wrapper--open" : ""}`}
+                key={project.id || index}
+                className={`w-full flex-col ${
+                  openProjectIndex === index ? "project-wrapper--open" : ""
+                }`}
               >
                 <CaseTeaser
                   project={project}
                   index={index}
                   isOpen={openProjectIndex === index}
                   skillIsOpen={isOpen}
-                  onToggle={handleProjectToggle} // parent handles queuing
+                  onToggle={handleProjectToggle} // parent orchestrates sequence
                   type={type}
                 />
 
