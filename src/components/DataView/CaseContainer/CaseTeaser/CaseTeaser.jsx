@@ -2,6 +2,8 @@
 // CaseTeaser.jsx – Project-Level Collapsible
 // ============================================
 
+import { useRef, useEffect } from "react";
+
 export default function CaseTeaser({
   project,
   index,
@@ -10,6 +12,8 @@ export default function CaseTeaser({
   onToggle,
   type // ⭐ ensure parent passes current filter type
 }) {
+  const caseLineRef = useRef(null);
+
   // ⭐ Extract first related gear & team (if present)
   const firstGear =
     project["nc_3zu8___nc_m2m_nc_3zu8__Projec_Gears"]?.[0]?.Gear?.Gear || "";
@@ -20,16 +24,34 @@ export default function CaseTeaser({
   const firstSkill =
     project["nc_3zu8___nc_m2m_nc_3zu8__Projec_Skills"]?.[0]?.Skills?.Skill || "";
 
-  // ⭐ DEBUG – AFTER definitions
-  console.log("CaseTeaser type:", type, "firstGear:", firstGear, "firstTeam:", firstTeam);
+  // ⭐ Scroll AFTER opening (minimal perceptible delay)
+  useEffect(() => {
+    if (isOpen && caseLineRef.current) {
+      // Only scroll when OPENING (transitioning from closed to open)
+      const timer = setTimeout(() => {
+        const rect = caseLineRef.current.getBoundingClientRect();
+        const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+        const targetY = rect.top + scrollTop;
+
+        window.scrollTo({ top: targetY, behavior: "smooth" });
+      }, 120); // ⭐ Minimal delay (~1/3 of transition) – kaum spürbar
+
+      return () => clearTimeout(timer);
+    }
+  }, [isOpen, project.Title]); // ⭐ Re-trigger wenn isOpen wechselt
+
+  const handleToggle = () => {
+    onToggle(); // Just toggle - closing happens automatically
+  };
 
   return (
-    <div className="case-teaser ">
+    <div className="case-teaser">
       <div
+        ref={caseLineRef}
         className={`case-line ${isOpen ? "case-line--open" : index > 0 ? "border-top-dotted" : ""} ${
           !skillIsOpen ? "case-line--hidden" : ""
         }`}
-        onClick={onToggle}
+        onClick={handleToggle}
       >
         {type === "skills" ? (
           <div className="flex w-full  gap-6">

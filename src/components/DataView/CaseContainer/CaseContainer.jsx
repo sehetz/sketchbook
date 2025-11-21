@@ -2,7 +2,7 @@
 // CaseContainer.jsx – Skill / Gear / Team Container
 // ============================================
 
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect } from "react";
 import CaseHeader from "./CaseHeader/CaseHeader.jsx";
 import CaseTeaser from "./CaseTeaser/CaseTeaser.jsx";
 import CaseDetail from "./CaseDetail/CaseDetail.jsx";
@@ -18,7 +18,7 @@ export default function CaseContainer({
   onToggle,
 }) {
   const [openProjectIndex, setOpenProjectIndex] = useState(null);
-  const projectRefs = useRef([]); // ⭐ Refs for each project line
+  const [nextProjectIndex, setNextProjectIndex] = useState(null); // ⭐ Queue next project
 
   // Auto-open first project when skill opens
   useEffect(() => {
@@ -26,20 +26,28 @@ export default function CaseContainer({
     else setOpenProjectIndex(null);
   }, [isOpen]);
 
-  // ⭐ Scroll to project line when opened (manual calculation)
+  // ⭐ FIXED: Sequential close → open flow
   useEffect(() => {
-    if (openProjectIndex !== null && projectRefs.current[openProjectIndex]) {
-      // Immediate scroll after state change (next tick)
-      requestAnimationFrame(() => {
-        const element = projectRefs.current[openProjectIndex];
-        const rect = element.getBoundingClientRect();
-        const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-        const targetY = rect.top + scrollTop - 24; // 24px offset from top
-        
-        window.scrollTo({ top: targetY, behavior: "smooth" });
-      });
+    if (nextProjectIndex !== null && openProjectIndex !== null) {
+      // Step 1: Close current project (0.4s transition)
+      const closeTimer = setTimeout(() => {
+        setOpenProjectIndex(null);
+        // ⭐ DON'T clear nextProjectIndex here!
+      }, 400); // Match --transition-duration
+
+      return () => clearTimeout(closeTimer);
     }
-  }, [openProjectIndex]);
+  }, [nextProjectIndex, openProjectIndex]);
+
+  // ⭐ FIXED: Open next project after previous closed
+  useEffect(() => {
+    if (nextProjectIndex !== null && openProjectIndex === null) {
+      // Step 2: Open new project
+      setOpenProjectIndex(nextProjectIndex);
+      // ⭐ Clear queue AFTER opening new project
+      setNextProjectIndex(null);
+    }
+  }, [openProjectIndex, nextProjectIndex]);
 
   // Height when closed (skills only)
   const closedHeight = 64 + 32 * Math.max(projects.length - 1, 0);
@@ -47,12 +55,25 @@ export default function CaseContainer({
   // Toggle logic
   const handleSkillToggle = () => {
     if (isOpen) {
-      // smooth close for skills
       setTimeout(() => setOpenProjectIndex(null), 50);
       onToggle();
     } else {
       onToggle();
       if (type === "skills") setOpenProjectIndex(0);
+    }
+  };
+
+  // ⭐ NEW: Handle project selection with queue
+  const handleProjectToggle = (index) => {
+    if (openProjectIndex === index) {
+      // Closing same project
+      setOpenProjectIndex(null);
+    } else if (openProjectIndex !== null) {
+      // Another project is open → queue this one
+      setNextProjectIndex(index);
+    } else {
+      // No project open → open directly
+      setOpenProjectIndex(index);
     }
   };
 
@@ -91,21 +112,13 @@ export default function CaseContainer({
              ============================================================ */}
           {type === "skills" &&
             projects.map((project, index) => (
-              <div 
-                key={index} 
-                className={`w-full flex-col ${openProjectIndex === index ? "project-wrapper--open" : ""}`}
-                ref={(el) => (projectRefs.current[index] = el)}
-              >
+              <div key={index} className={`w-full flex-col ${openProjectIndex === index ? "project-wrapper--open" : ""}`}>
                 <CaseTeaser
                   project={project}
                   index={index}
                   isOpen={openProjectIndex === index}
                   skillIsOpen={isOpen}
-                  onToggle={() =>
-                    setOpenProjectIndex(
-                      openProjectIndex === index ? null : index
-                    )
-                  }
+                  onToggle={() => handleProjectToggle(index)}
                   type={type}
                 />
 
