@@ -6,7 +6,7 @@
   /* 🎨 COLORS */
   --color-bg: #fff; /* Weiß , oder best color: #ccccff*/
   --color-fg: #121212; /* Textfarbe oder #090933*/
-  --color-surface: #F3F3F3; /* Hellgrau, Flächen / Ränder */
+  --color-surface: #f3f3f3; /* Hellgrau, Flächen / Ränder */
 
   /* 🧱 SPACING SCALE */
   --space-1: 0.25rem; /* 4px */
@@ -22,6 +22,8 @@
   --space-14: 3.5rem; /* 56px */
   --space-16: 4rem; /* 64px */
   --space-24: 6rem; /* 96px */
+  --space-32: 8rem; /* 128px */
+  --space-36: 9rem; /* 144px */
   --space-48: 12rem; /* 192px */
 
   /* 🔠 TYPOGRAPHY – SF Pro Rounded */

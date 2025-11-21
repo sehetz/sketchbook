@@ -144,6 +144,10 @@ p {
 .p-text {
   padding: var(--space-14) var(--space-6);
 }
+
+.p-teaser{  
+  padding: var(--space-36) var(--space-6);
+}
 .p-6-all {
   padding: var(--space-6);
 }

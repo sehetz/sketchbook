@@ -24,15 +24,15 @@ export default function CaseTeaser({
   console.log("CaseTeaser type:", type, "firstGear:", firstGear, "firstTeam:", firstTeam);
 
   return (
-    <div className="case-teaser">
+    <div className="case-teaser ">
       <div
-        className={`case-line border-top-dotted ${isOpen ? "case-line--open" : ""} ${
+        className={`case-line ${isOpen ? "case-line--open" : index > 0 ? "border-top-dotted" : ""} ${
           !skillIsOpen ? "case-line--hidden" : ""
         }`}
         onClick={onToggle}
       >
         {type === "skills" ? (
-          <div className="flex w-full gap-6">
+          <div className="flex w-full  gap-6">
             <div className="flex-1 axis-left text-1">{project.Title}</div>
             <div className="flex-1 axis-center text-1 case-line__gear">{firstGear}</div>
             <div className="flex-1 axis-right text-1 case-line__team">{firstTeam}</div>

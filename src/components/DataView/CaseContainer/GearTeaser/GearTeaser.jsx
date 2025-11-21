@@ -13,7 +13,7 @@ export default function GearTeaser({ gear }) {
     : null;
 
   return (
-    <div className="flex-col gap-6 p-6-all axis-center">
+    <div className="flex-col gap-6 p-teaser axis-center">
       {/* IMAGE */}
       {teaserImage ? (
         <img
