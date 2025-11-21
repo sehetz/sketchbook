@@ -75,15 +75,18 @@ p {
 .text-1 {
   font-size: var(--text-1-size);
   line-height: var(--text-1-line);
+  color: var(--color-fg)
 }
 .text-2 {
   font-size: var(--text-2-size);
   line-height: var(--text-2-line);
+  color: var(--color-fg)
 }
 .text-3 {
   font-size: var(--text-3-size);
   line-height: var(--text-3-line);
   letter-spacing: var(--text-3-letter);
+  color: var(--color-fg)
 }
 
 /* ==========================

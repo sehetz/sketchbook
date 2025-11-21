@@ -8,7 +8,7 @@ import Footer from "./components/Footer/Footer";
 
 // Data Logic Layer
 import DataView from "./components/DataView/DataView";
-import AllProjectsMasonry from "./components/AboutViz/AllProjectsMasonry/AllProjectsMasonry";
+// import AllProjectsMasonry from "./components/AboutViz/AllProjectsMasonry/AllProjectsMasonry";
 import { useState } from "react";
 
 function App() {
@@ -20,7 +20,7 @@ function App() {
       <Intro filter={filter} /> {/* ⭐ Pass filter */}
       <main>
         <DataView onFilterChange={setFilter} /> {/* ⭐ Pass setter */}
-        <AllProjectsMasonry />
+        {/* <AllProjectsMasonry /> */}
       </main>
       <Footer />
     </>

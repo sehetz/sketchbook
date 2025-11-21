@@ -4,90 +4,111 @@ import "./AllProjectsMasonry.css";
 export default function AllProjectsMasonry() {
   const [projects, setProjects] = useState([]);
   const API_TOKEN = import.meta.env.VITE_API_TOKEN;
-  const NOCO_BASE =
+  const NOCO_BASE_URL =
     import.meta.env.VITE_NOCO_BASE_URL || "http://localhost:8080";
-  const PROJECTS_API_URL = `${NOCO_BASE}/api/v2/tables/ma2nz1h01whlpni/records`;
+  const PROJECTS_API_URL = `${NOCO_BASE_URL}/api/v2/tables/ma2nz1h01whlpni/records`;
 
-  // Helper: try many common locations for an image URL/object
-  const getImageUrl = (row) => {
-    if (!row) return null;
-
-    const asString = (val) =>
-      typeof val === "string" && val.trim() ? val.trim() : null;
-    const asObjectUrl = (val) =>
-      val && typeof val === "object"
-        ? val.url || val.src || val.image || null
-        : null;
-
-    // direct string fields
-    const candidates = [
-      row.teaserImage,
-      row.teaser_image,
-      row.Image,
-      row.image,
-      row.cover,
-      row.cover_image,
-      row.teaser,
-      row.media,
-      row.image_url,
-      row.url,
-    ];
-
-    for (const c of candidates) {
-      const s = asString(c);
-      if (s) return normalizeUrl(s);
-      const o = asObjectUrl(c);
-      if (o) return normalizeUrl(o);
-    }
-
-    // arrays of images / attachments
-    const arrCandidates = [
-      row.images,
-      row.Images,
-      row.mediaFiles,
-      row._attachments,
-      row.attachments,
-      row.files,
-    ];
-    for (const arr of arrCandidates) {
-      if (Array.isArray(arr) && arr.length) {
-        const first = arr[0];
-        const s = asString(first);
-        if (s) return normalizeUrl(s);
-        const o = asObjectUrl(first);
-        if (o) return normalizeUrl(o);
-      }
-    }
-
-    // nested relation fields (common in NoCode exports)
-    const nested = [
-      row["nc_3zu8___nc_m2m_nc_3zu8__Projec_Media"],
-      row["nc_3zu8___nc_m2m_nc_3zu8__Projec_Images"],
-      row["nc_3zu8___nc_m2m_nc_3zu8__Projec_Gears"],
-    ];
-    for (const n of nested) {
-      if (Array.isArray(n) && n.length) {
-        const maybe = n[0];
-        const o = asObjectUrl(
-          maybe?.image || maybe?.Image || maybe?.teaser || maybe
-        );
-        if (o) return normalizeUrl(o);
-      }
-    }
-
-    return null;
-  };
-
+  // Replace previous getImageUrl / normalizeUrl with a robust deep finder
   const normalizeUrl = (u) => {
     if (!u) return null;
-    // handle objects accidentally passed
-    if (typeof u !== "string") return null;
-    const s = u.trim();
-    if (s.startsWith("//")) return window?.location?.protocol + s;
-    if (s.startsWith("http://") || s.startsWith("https://")) return s;
-    // relative path -> prefix with base
-    if (s.startsWith("/")) return s;
-    return s;
+    const s = String(u).trim();
+    if (!s) return null;
+    // protocol-relative
+    if (s.startsWith("//")) return (window?.location?.protocol || "https:") + s;
+    // absolute URL
+    if (/^https?:\/\//i.test(s)) return s;
+    // treat as relative/signed path -> prefix with our NOCO base
+    const base = NOCO_BASE_URL.replace(/\/$/, "");
+    return `${base}/${s.replace(/^\//, "")}`;
+  };
+
+  const looksLikeImage = (s) =>
+    typeof s === "string" &&
+    /\.(jpe?g|png|gif|webp|avif|svg)(\?.*)?$/i.test(s.trim());
+  const looksLikeVideo = (s) =>
+    typeof s === "string" && /\.(mp4|webm|mov|ogg)(\?.*)?$/i.test(s.trim());
+
+  const deepFindMedia = (obj) => {
+    const seen = new WeakSet();
+    let found = { image: null, video: null };
+
+    const tryString = (val) => {
+      if (found.image && found.video) return;
+      if (typeof val !== "string") return;
+      const str = val.trim();
+      if (!str) return;
+      if (!found.video && looksLikeVideo(str)) found.video = normalizeUrl(str);
+      if (!found.image && looksLikeImage(str)) found.image = normalizeUrl(str);
+      // also accept protocol-relative / absolute URLs without extension as image candidates (best-effort)
+      if (
+        !found.image &&
+        (str.startsWith("/") ||
+          /^https?:\/\//i.test(str) ||
+          str.startsWith("//"))
+      ) {
+        // prefer if has common image ext in query or file name
+        if (/\.(jpg|jpeg|png|gif|webp|avif|svg)/i.test(str))
+          found.image = normalizeUrl(str);
+      }
+    };
+
+    const dfs = (node) => {
+      if (!node || (typeof node !== "object" && typeof node !== "string"))
+        return;
+      if (typeof node === "string") {
+        tryString(node);
+        return;
+      }
+      if (seen.has(node)) return;
+      seen.add(node);
+
+      // common quick-check keys
+      const quickKeys = [
+        "teaserImage",
+        "teaser_image",
+        "teaser",
+        "image",
+        "Image",
+        "cover",
+        "cover_image",
+        "media",
+        "files",
+        "attachments",
+        "images",
+        "url",
+        "src",
+      ];
+      for (const k of quickKeys) {
+        if (node[k]) dfs(node[k]);
+        if (found.image && found.video) return;
+      }
+
+      // handle Strapi-like formats
+      if (node.formats && typeof node.formats === "object") {
+        for (const f of Object.values(node.formats)) {
+          if (f && f.url) dfs(f.url);
+        }
+      }
+
+      // arrays
+      if (Array.isArray(node)) {
+        for (const it of node) {
+          dfs(it);
+          if (found.image && found.video) return;
+        }
+        return;
+      }
+
+      // generic traversal
+      for (const key in node) {
+        if (!Object.prototype.hasOwnProperty.call(node, key)) continue;
+        dfs(node[key]);
+        if (found.image && found.video) return;
+      }
+    };
+
+    dfs(obj);
+    return found;
   };
 
   useEffect(() => {
@@ -101,13 +122,16 @@ export default function AllProjectsMasonry() {
         const json = await res.json();
         const rows = json.list || [];
         const extracted = rows.map((r) => {
-          const image = getImageUrl(r);
+          const media = deepFindMedia(r);
+          // DEV: if you need an example of raw object when no image found, we could console.debug one
+          // if (!media.image) console.debug("No image found for project (id):", r.id ?? r.record_id, r);
           return {
             id: r.id || r.record_id || Math.random().toString(36).slice(2, 9),
             title: r.Title || r.title || "Untitled",
             description:
               r.description || r.Description || r["description"] || "",
-            image,
+            image: media.image,
+            video: media.video,
           };
         });
         if (mounted) setProjects(extracted);
