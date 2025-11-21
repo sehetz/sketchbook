@@ -1,23 +1,40 @@
 @import "./tokens.css";
 
+/* --- Versuche lokale SF Pro (nur local() - keine Dateien verteilen) ---
+   Wenn du SF Pro auf deinem Mac installiert hast, nimmt der Browser sie.
+   Das ist sicher (keine Distribution), erlaubt dir aber SF für Tests.
+-------------------------------------------------------------- */
+@font-face {
+  font-family: "SF Pro Local";
+  src: local("SF Pro Display"), local("SF Pro Text"), local("San Francisco"), local("Helvetica Neue");
+  /* kein remote src — wir nutzen nur lokal installierte Schriftarten */
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Use locally installed SF Pro Rounded when available (local() only — no bundling) */
+@font-face {
+  font-family: "SF Pro Rounded";
+  src: local("SF Pro Rounded"), local("SF Pro Rounded Regular"), local("SF Pro Display"), local("SF Pro Text"), local("San Francisco");
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Ensure local bold is explicitly available (checks common local bold names) */
+@font-face {
+  font-family: "SF Pro Rounded";
+  src: local("SF Pro Rounded Bold"), local("SF Pro Rounded Heavy"), local("SF Pro Display Black"), local("SF Pro Text Bold");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
 /* ==========================
    Global Styles – Sketchbook
    ========================== */
 
-@font-face {
-  font-family: "SF Pro Rounded";
-  src: url("/fonts/SF-Pro-Rounded-Regular.woff2") format("woff2");
-  font-weight: 400;
-  font-style: normal;
-  font-display: optional;
-}
-@font-face {
-  font-family: "SF Pro Rounded";
-  src: url("/fonts/SF-Pro-Rounded-Bold.woff2") format("woff2");
-  font-weight: 700;
-  font-style: normal;
-  font-display: optional;
-}
 
 html,
 body {
@@ -46,7 +63,6 @@ p {
   padding: 0;
   margin: 0;
   color: var(--color-fg);
-  font-family: var(--font-sans);
   font-weight: 400;
 }
 
@@ -69,8 +85,7 @@ p {
 .text-1,
 .text-2,
 .text-3 {
-  font-family: "SF Pro Rounded", -apple-system, BlinkMacSystemFont, "Segoe UI",
-    system-ui, sans-serif;
+  font-family: var(--font-sans);
 }
 .text-1 {
   font-size: var(--text-1-size);
@@ -508,4 +523,21 @@ a.link-block__link {
 .project-tooltip-bg,
 .project-tooltip {
   transition: opacity 120ms ease, transform 120ms ease;
+}
+
+/* Register GT Maru Trial from public/fonts for testing */
+@font-face {
+  font-family: "GT Maru Trial";
+  src: url("/fonts/GTMaruTrial-Regular.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Ensure active filter + strong text render bold even if the font fallback isn't mapping weights */
+.filter--active,
+strong,
+.filter-button strong {
+  font-weight: 700;
+  font-variation-settings: "wght" 700; /* help variable fonts if present */
 }

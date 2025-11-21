@@ -8,7 +8,7 @@ import Footer from "./components/Footer/Footer";
 
 // Data Logic Layer
 import DataView from "./components/DataView/DataView";
-// import AllProjectsMasonry from "./components/AboutViz/AllProjectsMasonry/AllProjectsMasonry";
+import AllProjectsMasonry from "./components/AboutViz/AllProjectsMasonry/AllProjectsMasonry";
 import { useState } from "react";
 
 function App() {

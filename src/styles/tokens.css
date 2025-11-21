@@ -27,9 +27,10 @@
   --space-36: 9rem; /* 144px */
   --space-48: 12rem; /* 192px */
 
-  /* 🔠 TYPOGRAPHY – SF Pro Rounded */
+  /* 🔠 TYPOGRAPHY – primary font variable
+     Prefer SF Pro Rounded (local), then GT Maru / DIN, then system fallbacks */
   --font-sans: "SF Pro Rounded", -apple-system, "Helvetica Neue", Helvetica,
-    "Inter", Arial, sans-serif;
+    "Inter", Roboto, Arial, sans-serif;
 
   /* TEXT STYLES */
   --text-1-size: 3rem; /* 48px */

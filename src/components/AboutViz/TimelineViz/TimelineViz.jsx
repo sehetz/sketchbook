@@ -10,8 +10,7 @@ export default function TimelineViz() {
   const [maxYear, setMaxYear] = useState(new Date().getFullYear());
   const [projects, setProjects] = useState([]);
 
-  // 1) STATE: track open tooltip on mobile (add near other useState)
-  const [openTooltip, setOpenTooltip] = useState(null); // { teamIdx, year } or null
+  // (removed click/tap tooltip state) - tooltips are shown on hover via CSS
 
   const API_TOKEN = import.meta.env.VITE_API_TOKEN;
   const NOCO_BASE = import.meta.env.VITE_NOCO_BASE_URL || "http://localhost:8080";
@@ -140,7 +139,7 @@ export default function TimelineViz() {
   const CIRCLE_RADIUS_NONDESIGN = 12;
   
   // Project Dots
-  const PROJECT_DOT_RADIUS = 5;
+  const PROJECT_DOT_RADIUS = 4;
   const PROJECT_TOOLTIP_OFFSET_X = 24;
   const PROJECT_STACK_Y = 24; // vertical spacing between stacked projects
   const PROJECT_TOOLTIP_FONT_SIZE = 12;
@@ -184,7 +183,7 @@ export default function TimelineViz() {
   // derive responsive values (never call hooks conditionally)
   const YEAR_SPACING_D = isMobile ? 90 : YEAR_SPACING; // smaller spacing on mobile
   const PROJECT_STACK_Y_D = isMobile ? 16 : PROJECT_STACK_Y;
-  const PROJECT_DOT_RADIUS_D = isMobile ? 8 : PROJECT_DOT_RADIUS;
+  const PROJECT_DOT_RADIUS_D = isMobile ? 4 : PROJECT_DOT_RADIUS;
   const LINE_DASH_ARRAY_D = isMobile ? "0.1 4" : LINE_DASH_ARRAY;
   const PROJECT_TOOLTIP_OFFSET_X_D = isMobile ? 12 : PROJECT_TOOLTIP_OFFSET_X;
 
@@ -192,38 +191,46 @@ export default function TimelineViz() {
    if (teams.length === 0) return null;
 
   // ---------- small inner components for clarity ----------
-  function ProjectTooltip({ x, y, title, visible = false }) {
+  function ProjectTooltip({ x, y, title }) {
     const width = Math.max(80, Math.min(220, title.length * 7 + PROJECT_TOOLTIP_BG_PADDING * 2));
-    // Use foreignObject to allow wrapping & padding
-    return visible ? (
-      <>
-        <rect x={x} y={y - PROJECT_TOOLTIP_HEIGHT/2} width={width} height={PROJECT_TOOLTIP_HEIGHT} className="project-tooltip-bg" />
-        <foreignObject x={x} y={y - PROJECT_TOOLTIP_HEIGHT/2} width={width} height={PROJECT_TOOLTIP_HEIGHT}>
-          <div xmlns="http://www.w3.org/1999/xhtml" style={{ fontSize: PROJECT_TOOLTIP_FONT_SIZE, padding: '2px 6px', color: '#121212', fontWeight: 700 }}>
-            {title}
-          </div>
-        </foreignObject>
-      </>
-    ) : null;
+    return (
+      <rect
+        className="project-tooltip-bg"
+        x={x}
+        y={y - PROJECT_TOOLTIP_HEIGHT / 2}
+        width={width}
+        height={PROJECT_TOOLTIP_HEIGHT}
+        opacity="0"
+      />
+    );
   }
 
-  function ProjectDot({ x, y, title, teamIdx, yearKey }) {
+  function ProjectDot({ x, y, title }) {
     const tx = x + PROJECT_TOOLTIP_OFFSET_X_D - PROJECT_TOOLTIP_BG_PADDING;
-    const handleTap = (e) => {
-      // stop SVG default link behaviour if needed
-      if (isMobile) {
-        const key = `${teamIdx}:${yearKey}`;
-        setOpenTooltip((prev) => (prev === key ? null : key));
-      }
-    };
-
+    // NOT clickable — hover shows tooltip via CSS
     return (
-      <g className="project-dot-group" onClick={handleTap} role="button" tabIndex={0}>
-        {/* invisible larger hit area for touch */}
+      <g className="project-dot-group">
+        {/* invisible larger hit area for easier hover, still not clickable */}
         <circle cx={x} cy={y} r={Math.max(PROJECT_DOT_RADIUS_D, 14)} fill="transparent" className="project-dot-hit" />
         <circle cx={x} cy={y} r={PROJECT_DOT_RADIUS_D} fill="#121212" className="project-dot" />
-        {/* show tooltip if openTooltip matches (inline style or class) */}
-        <ProjectTooltip x={tx} y={y} title={title} visible={openTooltip === `${teamIdx}:${yearKey}`} />
+
+        {/* Tooltip background (rendered BEFORE text so it sits behind) */}
+        <ProjectTooltip x={tx} y={y} title={title} />
+
+        {/* Project title: hidden by default, appears on hover */}
+        <text
+          x={tx + PROJECT_TOOLTIP_BG_PADDING}
+          y={y + 1}
+          fontSize={PROJECT_TOOLTIP_FONT_SIZE}
+          fontFamily="SF Pro Rounded"
+          fontWeight="700"
+          textAnchor="start"
+          fill="#121212"
+          className="project-title"
+          style={{ pointerEvents: "none" }}
+        >
+          {title}
+        </text>
       </g>
     );
   }
@@ -286,7 +293,7 @@ export default function TimelineViz() {
             <g key={`dots-${teamIdx}-${year}`}>
               {secondary.map((p, sIdx) => {
                 const posY = dotY + (sIdx + 1) * PROJECT_STACK_Y_D;
-                return <ProjectDot key={`sec-${sIdx}`} x={x} y={posY} title={p.title} teamIdx={teamIdx} yearKey={year} />;
+                return <ProjectDot key={`sec-${sIdx}`} x={x} y={posY} title={p.title} />;
               })}
               {primary && <ProjectDot key={`prim`} x={x} y={dotY} title={primary.title} />}
             </g>
@@ -377,20 +384,40 @@ export default function TimelineViz() {
         .team-circle { transition: fill 0.2s ease; }
         .team-circle:hover { fill: #FFFB78; }
 
-        /* tooltip / hover behavior - keep same but better for touch due to larger dots */
-        .project-dot-group .project-tooltip,
-        .project-dot-group .project-tooltip-bg { transition: opacity 0.18s ease, transform 0.18s ease; opacity: 0; transform: translateX(6px); }
-        .project-dot-group:hover .project-tooltip,
-        .project-dot-group:hover .project-tooltip-bg { opacity: 1; transform: translateX(0); }
+        /* Project title hidden by default; fade/slide in on hover */
+        .project-title {
+          font-weight: 700;
+          font-family: "SF Pro Rounded", -apple-system, "Helvetica Neue", Arial, sans-serif;
+          pointer-events: none;
+          opacity: 0;
+          transform: translateX(6px);
+          transition: opacity 140ms ease, transform 140ms ease;
+        }
+        .project-dot-group:hover .project-title {
+          opacity: 1;
+          transform: translateX(0);
+        }
 
-        .project-tooltip-bg { fill: #ffffff; rx: 6; }
-        .project-tooltip { fill: #121212; font-weight: 700; dominant-baseline: middle; }
-        .project-tooltip, .project-tooltip-bg { pointer-events: none; }
+        /* tooltip background hover behavior (background only; title is always visible) */
+        .project-dot-group .project-tooltip-bg {
+          transition: opacity 0.18s ease, transform 0.18s ease;
+          opacity: 0;
+          transform: translateX(6px);
+          fill: #ffffff;
+          rx: 6;
+          pointer-events: none;
+        }
+        .project-dot-group:hover .project-tooltip-bg {
+          opacity: 1;
+          transform: translateX(0);
+        }
 
         @media (max-width: 768px) {
           /* smaller visual gaps and ensure touch-friendly dots */
           line[stroke-dasharray] { stroke-width: 1.5px; stroke-dasharray: 0.1 4; }
           .project-dot { /* larger hit area on mobile */ r: ${PROJECT_DOT_RADIUS_D}px; }
+          /* ensure project titles wrap/scale on small screens if needed */
+          .project-title { font-size: ${PROJECT_TOOLTIP_FONT_SIZE}px; }
         }
       `}</style>
     </svg>
