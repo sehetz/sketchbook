@@ -19,3 +19,55 @@
 .header__link:hover {
   background-color: var(--color-surface);
 }
+
+
+/* Header disco button (emoji) */
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--space-4) var(--space-6);
+  box-sizing: border-box;
+}
+
+.header__link {
+  color: var(--color-fg);
+}
+
+.header__disco {
+  appearance: none;
+  -webkit-appearance: none;
+  border: none;
+  background: transparent;
+  font-size: 1.6rem;
+  padding: 0px;
+  cursor: pointer;
+  transition: transform 160ms ease, filter 160ms ease;
+}
+
+/* subtle press effect */
+.header__disco:active { transform: scale(0.95); }
+
+/* glowing / spinning when active */
+@keyframes disco-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+.header__disco--on {
+  animation: disco-spin 2s linear infinite;
+  filter: drop-shadow(0 6px 14px rgba(255,255,120,0.25));
+}
+
+/* Dark mode body colors will come from tokens.css (.dark) — ensure background/text use tokens */
+html, body {
+  background: var(--color-bg);
+  color: var(--color-fg);
+  transition: background-color 240ms ease, color 240ms ease;
+}
+
+.dark {
+  --color-bg: #0a0a0a;
+  --color-fg: #f5f5f5;
+  --color-surface: #111213;
+  --color-link: #9ad1ff;
+}

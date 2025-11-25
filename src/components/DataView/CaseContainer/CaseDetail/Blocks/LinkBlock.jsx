@@ -29,7 +29,8 @@ export default function LinkBlock({ text }) {
             rel="noopener noreferrer"
             className="flex axis-left text-2 link-block__link"
           >
-            🔗 {label}
+            <div>🔗</div>
+            <span className="link-block__text">{label}</span>
           </a>
         );
       })}
