@@ -58,6 +58,13 @@ export default function DataView({ onFilterChange }) {
   // 1) Filter: Only online projects (is_online === 1)
   const onlineData = data.filter(project => project.is_online === 1);
 
+  // Helper: get sortable timestamp from "Datum" (YYYY-MM-DD) or fallbacks
+  const getProjectDate = (project) => {
+    const rawDate = project?.Datum || project?.date || project?.created_at || project?.updated_at;
+    const ts = rawDate ? Date.parse(rawDate) : NaN;
+    return Number.isNaN(ts) ? 0 : ts;
+  };
+
   // 2) Get group key based on filter type
   const groupKeyMap = {
     skills: "nc_3zu8___nc_m2m_nc_3zu8__Projec_Skills",
@@ -92,7 +99,7 @@ export default function DataView({ onFilterChange }) {
     .map(([name, projects]) => ({
       type: filter,
       label: name,
-      projects,
+      projects: [...projects].sort((a, b) => getProjectDate(b) - getProjectDate(a)), // newest first
     }))
     .sort((a, b) => b.projects.length - a.projects.length);
 
