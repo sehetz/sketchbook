@@ -35,7 +35,7 @@ function App() {
       <Intro filter={filter} /> {/* ⭐ Pass filter */}
       <main>
         <DataView onFilterChange={setFilter} /> {/* ⭐ Pass setter */}
-        {/* <AllProjectsMasonry /> */}
+        <AllProjectsMasonry />
       </main>
       <Footer />
     </>

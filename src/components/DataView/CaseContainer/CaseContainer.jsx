@@ -9,23 +9,7 @@ import CaseDetail from "./CaseDetail/CaseDetail.jsx";
 import GearTeaser from "./GearTeaser/GearTeaser.jsx";
 import TeamTeaser from "./TeamTeaser/TeamTeaser.jsx";
 import "./CaseContainer.css";
-import { CLOSE_MS, TRANSITION_GAP_MS, DEFAULT_FIRST_OPEN_INDEX } from "../../../config/uiConstants.js"; // ⭐ globals
-
-/**
- * CaseContainer
- *
- * Responsibilities:
- * - Render header + list of projects (teasers + detail).
- * - Ensure only one project is open at a time.
- * - Orchestrate exact sequence when switching from open project A -> clicked project B:
- *     1) close A immediately (start close animation)
- *     2) after CLOSE_MS + small gap -> open B
- *     3) CaseTeaser will trigger scroll after it sees isOpen === true
- *
- * Notes:
- * - CaseTeaser calls onToggle(index). Parent handles queueing / timers.
- * - Timings are driven from src/config/uiConstants.js
- */
+import { CLOSE_MS, TRANSITION_GAP_MS, DEFAULT_FIRST_OPEN_INDEX, clearTimer, scheduleProjectOpen } from "../../../utils/helpers.js";
 
 export default function CaseContainer({
   type,
@@ -35,95 +19,104 @@ export default function CaseContainer({
   isOpen,
   onToggle,
 }) {
-  // index of currently opened project (or null)
   const [openProjectIndex, setOpenProjectIndex] = useState(null);
+  const queuedProjectRef = useRef(null);
+  const transitionTimerRef = useRef(null);
 
-  // refs used as instance storage for pending index + active timer id
-  const queuedProjectRef = useRef(null);       // index queued to open after close
-  const transitionTimerRef = useRef(null);     // timer id for scheduled open
-
-  // Auto-open first project when skill group opens
+  // Auto-open first project when group opens
   useEffect(() => {
-    if (isOpen) setOpenProjectIndex(DEFAULT_FIRST_OPEN_INDEX);
-    else setOpenProjectIndex(null);
+    setOpenProjectIndex(isOpen ? DEFAULT_FIRST_OPEN_INDEX : null);
   }, [isOpen]);
 
-  // ensure timers cleared on unmount
+  // Cleanup timers on unmount
   useEffect(() => {
-    return () => {
-      if (transitionTimerRef.current) {
-        clearTimeout(transitionTimerRef.current);
-        transitionTimerRef.current = null;
-      }
-    };
+    return () => clearTimer(transitionTimerRef, queuedProjectRef);
   }, []);
 
-  // Toggle whole skill group header
   const handleSkillToggle = () => {
     if (isOpen) {
-      // close group smoothly
       setTimeout(() => setOpenProjectIndex(null), 50);
-      onToggle();
-    } else {
-      onToggle();
-      if (type === "skills") setOpenProjectIndex(DEFAULT_FIRST_OPEN_INDEX);
+    } else if (type === "skills") {
+      setOpenProjectIndex(DEFAULT_FIRST_OPEN_INDEX);
     }
+    onToggle();
   };
 
-  /**
-   * handleProjectToggle(index)
-   *
-   * Called by CaseTeaser via onToggle(index).
-   *
-   * Cases:
-   * - clicking currently open project -> close it immediately
-   * - clicking another project while one is open -> close current immediately, queue clicked,
-   *   then open queued after CLOSE_MS + small gap (exact sequence required by UX)
-   * - clicking when no project open -> open directly
-   */
   const handleProjectToggle = (index) => {
-    // 1) Clicking the currently open project => just close it
+    // Same project → close
     if (openProjectIndex === index) {
-      // cancel any pending scheduled open
-      if (transitionTimerRef.current) {
-        clearTimeout(transitionTimerRef.current);
-        transitionTimerRef.current = null;
-        queuedProjectRef.current = null;
-      }
+      clearTimer(transitionTimerRef, queuedProjectRef);
       setOpenProjectIndex(null);
       return;
     }
 
-    // 2) Another project currently open => begin close now, schedule open for queued index
+    // Another project open → close current, queue switch, open after delay
     if (openProjectIndex !== null) {
-      // clear any previous scheduled open
-      if (transitionTimerRef.current) {
-        clearTimeout(transitionTimerRef.current);
-        transitionTimerRef.current = null;
-      }
-
-      // start closing current project immediately (triggers CSS close animation)
       setOpenProjectIndex(null);
-
-      // queue the requested index and schedule open after CLOSE_MS + small gap
-      queuedProjectRef.current = index;
+      clearTimer(transitionTimerRef, queuedProjectRef);
+      scheduleProjectOpen(index, transitionTimerRef, queuedProjectRef, CLOSE_MS + TRANSITION_GAP_MS);
+      
       transitionTimerRef.current = setTimeout(() => {
-        // open queued project
         setOpenProjectIndex(queuedProjectRef.current);
-        // cleanup refs
-        queuedProjectRef.current = null;
-        transitionTimerRef.current = null;
+        clearTimer(transitionTimerRef, queuedProjectRef);
       }, CLOSE_MS + TRANSITION_GAP_MS);
-
       return;
     }
 
-    // 3) No project open -> open clicked one immediately
+    // No project open → open directly
     setOpenProjectIndex(index);
   };
 
-  // Height when closed (skills only)
-  const closedHeight = 64 + 32 * Math.max(projects.length - 1, 0);
+  const displayProjects = type === "teams"
+    ? projects.filter(p => p.__teamData?.Team?.toLowerCase() !== "sehetz")
+    : projects;
+
+  if (displayProjects.length === 0) return null;
+
+  const closedHeight = 64 + 32 * Math.max(displayProjects.length - 1, 0);
+
+  // ============================================
+  // RENDER CONTENT BY TYPE
+  // ============================================
+  const renderContent = () => {
+    if (type === "skills") {
+      return displayProjects.map((project, index) => (
+        <div key={project.id || index} className={`w-full flex-col ${openProjectIndex === index ? "project-wrapper--open" : ""}`}>
+          <CaseTeaser
+            project={project}
+            index={index}
+            isOpen={openProjectIndex === index}
+            skillIsOpen={isOpen}
+            onToggle={handleProjectToggle}
+            type={type}
+          />
+          {openProjectIndex === index && <CaseDetail project={project} />}
+        </div>
+      ));
+    }
+
+    if (type === "gears") {
+      return (
+        <>
+          <GearTeaser gear={displayProjects[0].__gearData} />
+          {!isOpen && displayProjects.length > 1 && (
+            <div style={{ height: `${(displayProjects.length - 1) * 32}px` }} />
+          )}
+        </>
+      );
+    }
+
+    if (type === "teams") {
+      return (
+        <>
+          <TeamTeaser team={displayProjects[0].__teamData} />
+          {!isOpen && displayProjects.length > 1 && (
+            <div style={{ height: `${(displayProjects.length - 1) * 32}px` }} />
+          )}
+        </>
+      );
+    }
+  };
 
   return (
     <section
@@ -134,65 +127,17 @@ export default function CaseContainer({
         height: isOpen ? "auto" : `${closedHeight}px`,
       }}
     >
-      {/* HEADER */}
       <div
-        className={`case-header-wrapper transition-height ${
-          isOpen ? "case-header-wrapper--selected" : ""
-        }`}
+        className={`case-header-wrapper transition-height ${isOpen ? "case-header-wrapper--selected" : ""}`}
         onClick={handleSkillToggle}
-        style={{
-          height: isOpen ? "64px" : `${closedHeight}px`,
-        }}
+        style={{ height: isOpen ? "64px" : `${closedHeight}px` }}
       >
-        <CaseHeader
-          type={type}
-          label={label}
-          projects={projects}
-          isOpen={isOpen}
-        />
+        <CaseHeader type={type} label={label} projects={displayProjects} isOpen={isOpen} />
       </div>
 
-      {/* CONTENT BLOCK */}
       <div className={`wipe ${isOpen ? "open" : ""}`}>
         <div className="case-container__body">
-          {type === "skills" &&
-            projects.map((project, index) => (
-              <div
-                key={project.id || index}
-                className={`w-full flex-col ${
-                  openProjectIndex === index ? "project-wrapper--open" : ""
-                }`}
-              >
-                <CaseTeaser
-                  project={project}
-                  index={index}
-                  isOpen={openProjectIndex === index}
-                  skillIsOpen={isOpen}
-                  onToggle={handleProjectToggle} // parent orchestrates sequence
-                  type={type}
-                />
-
-                {openProjectIndex === index && <CaseDetail project={project} />}
-              </div>
-            ))}
-
-          {type === "gears" && (
-            <>
-              <GearTeaser gear={projects[0].__gearData} />
-              {!isOpen && projects.length > 1 && (
-                <div style={{ height: `${(projects.length - 1) * 32}px` }} />
-              )}
-            </>
-          )}
-
-          {type === "teams" && (
-            <>
-              <TeamTeaser team={projects[0].__teamData} />
-              {!isOpen && projects.length > 1 && (
-                <div style={{ height: `${(projects.length - 1) * 32}px` }} />
-              )}
-            </>
-          )}
+          {renderContent()}
         </div>
       </div>
     </section>

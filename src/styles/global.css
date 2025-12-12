@@ -165,7 +165,7 @@ p {
 }
 
 .p-teaser{  
-  padding: var(--space-36) var(--space-6);
+  padding: var(--space-32) var(--space-6);
 }
 .p-6-all {
   padding: var(--space-6);
@@ -219,6 +219,9 @@ p {
 }
 .pr-8 {
   padding-right: var(--space-8);
+}
+.pt-12 {
+  padding-top: var(--space-12);
 }
 .w-1-2 {
   width: 50%;
@@ -305,7 +308,7 @@ p {
 }
 
 .image-wrapper--4x5 {
-  aspect-ratio: var(--image-ratio-4x5);
+  aspect-ratio: var(--image-ratio-3x4);
 }
 
 /* Image & video elements */
@@ -313,7 +316,7 @@ p {
   display: block;
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: contain;
 }
 
 /* Grid layout */
@@ -393,12 +396,25 @@ p {
   object-fit: cover;
 }
 
+.teaser__image_small{
+  width: 40%;
+  aspect-ratio: 3 / 4;
+  object-fit: cover;
+}
+
 .teaser__image.placeholder {
   background: var(--color-surface);
 }
 
+.teaser__image_small.placeholder {
+  background: var(--color-surface);
+  width: 100%;;
+}
+
 .flex-col.axis-center .teaser__image,
-.flex-col.axis-center .teaser__image.placeholder {
+.flex-col.axis-center .teaser__image_small,
+.flex-col.axis-center .teaser__image.placeholder,
+.flex-col.axis-center .teaser__image_small.placeholder {
   align-self: center;
 }
 
@@ -450,6 +466,7 @@ p {
   /* Alle 50%-Breiten werden zu 100% */
   .w-1-2,
   .teaser__image,
+  .teaser__image_small,
   .teaser__image.placeholder,
   .image-4x5 {
     width: 100%;
@@ -525,6 +542,11 @@ a.link-block__link:hover .link-block__text {
   line[stroke-dasharray] {
     opacity: 0.7;
   }
+  .p-teaser {
+  padding: var(--space-6);
+}
+
+
 }
 
 /* Optional: make tooltips visually distinct on small screens */
