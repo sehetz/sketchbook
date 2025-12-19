@@ -41,13 +41,13 @@ const TWEAK = {
     radiusDesktop: 4,    // Project dot size on desktop
     radiusMobile: 2,     // Project dot size on mobile
     hitAreaRadius: 14,   // Invisible hit area for better clickability
+    spacingMobile: 20,   // Horizontal spacing between dots on mobile
   },
 
   // 🏷 PROJECT LABELS (Projekt-Namen/Titel in Tooltips)
   projectLabels: {
     fontSizeDesktop: 12,     // Font size on desktop
     fontSizeMobile: 11,      // Font size on mobile
-    fontWeight: 700,         // Font weight (400-900)
     bgPadding: 8,            // Padding inside tooltip background
     bgHeight: 24,            // Height of tooltip background rect
     paddingTop: 0,           // Padding above tooltip background
@@ -65,11 +65,15 @@ const TWEAK = {
 
   // 📏 SPACING & DIMENSIONS
   spacing: {
-    padding: { top: 80, right: 96, bottom: 40, left: 24 },
+    padding: { top: 120, right: 96, bottom: 60, left: 24 },
     yearSpacingDesktop: 96,    // Vertical distance between years
     yearSpacingMobile: 120,      // Vertical distance between years on mobile
     projectStackY: 24,          // Vertical stacking distance between multiple project dots per year
-    projectStackYMobile: 16,    // Vertical stacking distance on mobile
+    projectStackYMobile: 64,    // Vertical stacking distance on mobile (more space)
+    projectStackX: 0,           // Horizontal stacking distance between dots (desktop - no offset)
+    projectStackXMobile: 0,     // Horizontal stacking distance on mobile - no offset, only vertical
+    projectVerticalMargin: 16,  // Vertical margin above and below dots from year lines
+    mobileHeaderBottomMargin: 64, // Margin below mobile team header
   },
 
   // 📐 BAR STYLING
@@ -154,16 +158,36 @@ export default function TimelineViz() {
   // Derived dimensions
   const yearRange = maxYear - minYear;
   const width = TWEAK.svgWidth;
-  const height = TWEAK.spacing.padding.top + TWEAK.spacing.padding.bottom + (yearRange * TWEAK.spacing.yearSpacingDesktop);
+  const mobileHeaderOffset = isMobile ? TWEAK.spacing.mobileHeaderBottomMargin : 0;
+  const height = TWEAK.spacing.padding.top + TWEAK.spacing.padding.bottom + (yearRange * TWEAK.spacing.yearSpacingDesktop) + mobileHeaderOffset;
   const teamsStartX = TWEAK.teamsStartX;
   const teamsEndX = width - TWEAK.teamsEndXOffset;
   const plotWidth = teamsEndX - teamsStartX;
-  const yearToY = (year) => TWEAK.spacing.padding.top + ((maxYear - year) * TWEAK.spacing.yearSpacingDesktop);
+  const yearToY = (year) => TWEAK.spacing.padding.top + mobileHeaderOffset + ((maxYear - year) * TWEAK.spacing.yearSpacingDesktop);
 
   // Memoized computed data
   const uniqueTeams = useMemo(() => [...new Set(teams.map((t) => t.team))], [teams]);
-  const teamSpacing = Math.max(TWEAK.teamsMinGap, (plotWidth || 1) / Math.max(1, uniqueTeams.length));
-  const teamToX = (teamIndex) => teamsStartX + teamIndex * teamSpacing + teamSpacing / 2;
+  
+  // On mobile, only consider teams with projects for spacing
+  const teamsWithProjects = useMemo(() => {
+    if (!isMobile) return uniqueTeams;
+    return uniqueTeams.filter(teamName => {
+      const teamProjects = projects.filter(p => p.team === teamName);
+      return teamProjects.length > 0;
+    });
+  }, [uniqueTeams, projects, isMobile]);
+  
+  const teamSpacing = Math.max(TWEAK.teamsMinGap, (plotWidth || 1) / Math.max(1, teamsWithProjects.length));
+  const teamToX = (teamIndex, teamName = null) => {
+    // On mobile, use filtered teams for spacing
+    if (isMobile && teamName) {
+      const filteredIndex = teamsWithProjects.indexOf(teamName);
+      if (filteredIndex === -1) return 0; // Should not happen
+      return teamsStartX + filteredIndex * teamSpacing + teamSpacing / 2;
+    }
+    // Desktop: use original teams list
+    return teamsStartX + teamIndex * teamSpacing + teamSpacing / 2;
+  };
 
   const projectsByTeam = useMemo(() => {
     const map = {};
@@ -177,6 +201,7 @@ export default function TimelineViz() {
   // Responsive config values
   const yearSpacingD = isMobile ? TWEAK.spacing.yearSpacingMobile : TWEAK.spacing.yearSpacingDesktop;
   const projectStackYD = isMobile ? TWEAK.spacing.projectStackYMobile : TWEAK.spacing.projectStackY;
+  const projectStackXD = isMobile ? TWEAK.spacing.projectStackXMobile : TWEAK.spacing.projectStackX;
   const projectDotRadiusD = isMobile ? TWEAK.dots.radiusMobile : TWEAK.dots.radiusDesktop;
   const lineDashArrayD = isMobile ? TWEAK.lines.dashArrayMobile : TWEAK.lines.dashArrayDesktop;
   const tooltipOffsetXD = isMobile ? TWEAK.projectLabels.offsetXMobile : TWEAK.projectLabels.offsetX;
@@ -230,20 +255,25 @@ export default function TimelineViz() {
           className="project-dot-hit"
         />
         <circle cx={x} cy={y} r={projectDotRadiusD} fill={colors.text} className="project-dot" />
-        <ProjectTooltip x={tx} y={y} title={title} colors={colors} />
-        <text
-          x={tx + TWEAK.projectLabels.bgPadding}
-          y={y - TWEAK.projectLabels.paddingTop + 5}
-          fontSize={isMobile ? TWEAK.projectLabels.fontSizeMobile : TWEAK.projectLabels.fontSizeDesktop}
-          fontFamily="SF Pro Rounded"
-          fontWeight={TWEAK.projectLabels.fontWeight}
-          textAnchor="start"
-          fill={colors.projectLabelText}
-          className="project-title"
-          style={{ pointerEvents: "none" }}
-        >
-          {title}
-        </text>
+        {/* Only render tooltip on desktop (on mobile it's in the overlay) */}
+        {!isMobile && (
+          <>
+            <ProjectTooltip x={tx} y={y} title={title} colors={colors} />
+            <text
+              x={tx + TWEAK.projectLabels.bgPadding}
+              y={y - TWEAK.projectLabels.paddingTop + 5}
+              fontSize={isMobile ? TWEAK.projectLabels.fontSizeMobile : TWEAK.projectLabels.fontSizeDesktop}
+              fontFamily="SF Pro Rounded"
+              fontWeight={TWEAK.projectLabels.fontWeight}
+              textAnchor="start"
+              fill={colors.projectLabelText}
+              className="project-title"
+              style={{ pointerEvents: "none" }}
+            >
+              {title}
+            </text>
+          </>
+        )}
       </g>
     );
   }
@@ -258,11 +288,12 @@ export default function TimelineViz() {
     // Render non-hovered secondary projects
     secondary.forEach((p, sIdx) => {
       const posY = dotY + (sIdx + 1) * projectStackYD;
-      const projectId = `${teamIdx}-${teamToX(teamIdx)}-${posY}-${p.title}`;
+      const posX = teamToX(teamIdx) + (sIdx + 1) * projectStackXD;
+      const projectId = `${teamIdx}-${posX}-${posY}-${p.title}`;
       if (hoveredProjectId === projectId) {
-        hoveredDot = <ProjectDot key={`sec-${sIdx}`} x={teamToX(teamIdx)} y={posY} title={p.title} teamIdx={teamIdx} slug={p.slug} skillSlug={p.skillSlug} />;
+        hoveredDot = <ProjectDot key={`sec-${sIdx}`} x={posX} y={posY} title={p.title} teamIdx={teamIdx} slug={p.slug} skillSlug={p.skillSlug} />;
       } else {
-        dots.push(<ProjectDot key={`sec-${sIdx}`} x={teamToX(teamIdx)} y={posY} title={p.title} teamIdx={teamIdx} slug={p.slug} skillSlug={p.skillSlug} />);
+        dots.push(<ProjectDot key={`sec-${sIdx}`} x={posX} y={posY} title={p.title} teamIdx={teamIdx} slug={p.slug} skillSlug={p.skillSlug} />);
       }
     });
 
@@ -353,7 +384,6 @@ export default function TimelineViz() {
           y={labelY}
           fontSize={isMobile ? TWEAK.fonts.labelMobile : TWEAK.fonts.labelDesktop}
           fontFamily="SF Pro Rounded"
-          fontWeight="900"
           textAnchor="middle"
           fill={colors.text}
           className="team-label"
@@ -371,7 +401,6 @@ export default function TimelineViz() {
                 x={x}
                 dy={TWEAK.labels.lineHeight}
                 fontSize={isMobile ? TWEAK.fonts.labelMobile : TWEAK.fonts.labelDesktop}
-                fontWeight="400"
               >
                 {rw}
               </tspan>
@@ -439,19 +468,276 @@ export default function TimelineViz() {
       })}
 
       {/* Team groups (bars + dots + labels) – FOREGROUND */}
-      {/* Render non-hovered teams first */}
-      {uniqueTeams.map((teamName, idx) => {
-        const hasHoveredProject = hoveredProjectId?.startsWith(`${idx}-`);
-        if (hasHoveredProject) return null;
-        return <TeamGroup key={teamName} teamName={teamName} teamIdx={idx} />;
-      })}
-      
-      {/* Render hovered team LAST (on top) */}
-      {uniqueTeams.map((teamName, idx) => {
-        const hasHoveredProject = hoveredProjectId?.startsWith(`${idx}-`);
-        if (!hasHoveredProject) return null;
-        return <TeamGroup key={teamName} teamName={teamName} teamIdx={idx} />;
-      })}
+      {/* On desktop: render teams normally with circles positioned above bars */}
+      {!isMobile && (
+        <>
+          {/* Render non-hovered teams first */}
+          {uniqueTeams.map((teamName, idx) => {
+            const hasHoveredProject = hoveredProjectId?.startsWith(`${idx}-`);
+            if (hasHoveredProject) return null;
+            return <TeamGroup key={teamName} teamName={teamName} teamIdx={idx} />;
+          })}
+          
+          {/* Render hovered team LAST (on top) */}
+          {uniqueTeams.map((teamName, idx) => {
+            const hasHoveredProject = hoveredProjectId?.startsWith(`${idx}-`);
+            if (!hasHoveredProject) return null;
+            return <TeamGroup key={teamName} teamName={teamName} teamIdx={idx} />;
+          })}
+        </>
+      )}
+
+      {/* On mobile: render team circles and labels in header, then main timeline */}
+      {isMobile && (
+        <>
+          {/* Mobile team header - circles and labels in a row at top */}
+          <g className="team-header-mobile" style={{ transform: `translateY(0)` }}>
+            {uniqueTeams.map((teamName, teamIdx) => {
+              const teamData = teams.filter((t) => t.team === teamName);
+              const teamProjects = projectsByTeam[teamName] || [];
+              // Skip teams without projects on mobile
+              if (teamProjects.length === 0) return null;
+              if (!teamData.length) return null;
+              
+              const firstBar = teamData[0];
+              const hasLink = Boolean(firstBar.link);
+              const circleRadius = firstBar.designWork ? TWEAK.circles.radiusDesign : TWEAK.circles.radiusNondesign;
+              const x = teamToX(teamIdx, teamName);
+              const headerY = 100; // Fixed position at top (more space)
+              
+              return (
+                <g key={`header-${teamIdx}`}>
+                  {/* Circle (if has link) */}
+                  {hasLink && (
+                    <a href={firstBar.link} target="_blank" rel="noopener noreferrer">
+                      <circle
+                        cx={x}
+                        cy={headerY}
+                        r={circleRadius}
+                        fill={colors.circle}
+                        className="team-circle"
+                        style={{ cursor: "pointer" }}
+                      />
+                    </a>
+                  )}
+                  
+                  {/* Team label */}
+                  <text
+                    x={x}
+                    y={headerY - 12}
+                    fontSize={TWEAK.fonts.labelMobile}
+                    fontFamily="SF Pro Rounded"
+                    textAnchor="middle"
+                    fill={colors.text}
+                    className="team-label"
+                    style={{ pointerEvents: "none" }}
+                  >
+                    {teamName.split(" ").map((w, idx) => (
+                      <tspan key={idx} x={x} dy={idx === 0 ? 0 : TWEAK.labels.lineHeight}>
+                        {w}
+                      </tspan>
+                    ))}
+                  </text>
+                </g>
+              );
+            })}
+          </g>
+
+          {/* Mobile timeline - render all teams without circles/labels */}
+          {uniqueTeams.map((teamName, idx) => {
+            const hasHoveredProject = hoveredProjectId?.startsWith(`${idx}-`);
+            if (hasHoveredProject) return null;
+            
+            const x = teamToX(idx, teamName);
+            const teamData = teams.filter((t) => t.team === teamName);
+            const teamProjects = projectsByTeam[teamName] || [];
+            // Skip teams without projects on mobile
+            if (teamProjects.length === 0) return null;
+            if (!teamData.length) return null;
+
+            const projectsByYear = {};
+            teamProjects.forEach((p) => {
+              if (!projectsByYear[p.year]) projectsByYear[p.year] = [];
+              projectsByYear[p.year].push(p);
+            });
+
+            return (
+              <g key={`team-${idx}`}>
+                {/* Bars only */}
+                {teamData.map((t, i) => {
+                  const startY = yearToY(t.start);
+                  const endY = yearToY(t.end || maxYear);
+                  const barHeight = Math.abs(endY - startY);
+                  const barWidth = t.designWork ? TWEAK.bars.widthDesign : TWEAK.bars.widthNondesign;
+                  const barRadius = t.designWork ? TWEAK.bars.radiusDesign : TWEAK.bars.radiusNondesign;
+                  return (
+                    <rect
+                      key={`bar-${idx}-${i}`}
+                      x={x - barWidth / 2}
+                      y={Math.min(startY, endY) - TWEAK.bars.overshoot}
+                      width={barWidth}
+                      height={barHeight + TWEAK.bars.overshoot * 2}
+                      fill={`url(#gradient-${idx})`}
+                      rx={barRadius}
+                    />
+                  );
+                })}
+
+                {/* Projects: secondary first, primary last, hovered on top */}
+                {Object.entries(projectsByYear).map(([year, projs]) => {
+                  const dotY = yearToY(parseInt(year, 10));
+                  return (
+                    <g key={`dots-${idx}-${year}`}>
+                      {renderProjectsForYear(year, projs, idx, dotY)}
+                    </g>
+                  );
+                })}
+              </g>
+            );
+          })}
+
+          {/* Render hovered team LAST (on top) */}
+          {/* Render hovered team LAST (on top) */}
+          {uniqueTeams.map((teamName, idx) => {
+            const hasHoveredProject = hoveredProjectId?.startsWith(`${idx}-`);
+            if (!hasHoveredProject) return null;
+            
+            const x = teamToX(idx, teamName);
+            const teamData = teams.filter((t) => t.team === teamName);
+            const teamProjects = projectsByTeam[teamName] || [];
+            // Skip teams without projects on mobile
+            if (teamProjects.length === 0) return null;
+            if (!teamData.length) return null;
+
+            const projectsByYear = {};
+            teamProjects.forEach((p) => {
+              if (!projectsByYear[p.year]) projectsByYear[p.year] = [];
+              projectsByYear[p.year].push(p);
+            });
+
+            return (
+              <g key={`team-hovered-${idx}`}>
+                {/* Bars */}
+                {teamData.map((t, i) => {
+                  const startY = yearToY(t.start);
+                  const endY = yearToY(t.end || maxYear);
+                  const barHeight = Math.abs(endY - startY);
+                  const barWidth = t.designWork ? TWEAK.bars.widthDesign : TWEAK.bars.widthNondesign;
+                  const barRadius = t.designWork ? TWEAK.bars.radiusDesign : TWEAK.bars.radiusNondesign;
+                  return (
+                    <rect
+                      key={`bar-${idx}-${i}`}
+                      x={x - barWidth / 2}
+                      y={Math.min(startY, endY) - TWEAK.bars.overshoot}
+                      width={barWidth}
+                      height={barHeight + TWEAK.bars.overshoot * 2}
+                      fill={`url(#gradient-${idx})`}
+                      rx={barRadius}
+                    />
+                  );
+                })}
+
+                {/* Projects */}
+                {Object.entries(projectsByYear).map(([year, projs]) => {
+                  const dotY = yearToY(parseInt(year, 10));
+                  return (
+                    <g key={`dots-${idx}-${year}`}>
+                      {renderProjectsForYear(year, projs, idx, dotY)}
+                    </g>
+                  );
+                })}
+              </g>
+            );
+          })}
+        </>
+      )}
+
+      {/* On mobile: render all project tooltip backgrounds first, then texts on top */}
+      {isMobile && (
+        <g className="project-labels-overlay">
+          {/* Background rects first */}
+          {uniqueTeams.map((teamName, teamIdx) => {
+            const teamProjects = projectsByTeam[teamName] || [];
+            const projectsByYear = {};
+            teamProjects.forEach((p) => {
+              if (!projectsByYear[p.year]) projectsByYear[p.year] = [];
+              projectsByYear[p.year].push(p);
+            });
+
+            return Object.entries(projectsByYear).map(([year, projs]) => {
+              const dotY = yearToY(parseInt(year, 10));
+              const posX = teamToX(teamIdx, teamName);
+
+              return projs.map((p, idx) => {
+                const posY = dotY + idx * projectStackYD;
+                const fontSize = TWEAK.projectLabels.fontSizeMobile;
+                const charWidth = fontSize * 0.6; // Approximate character width for SF Pro Rounded
+                const tooltipWidth = Math.max(60, p.title.length * charWidth + TWEAK.projectLabels.bgPadding * 2);
+                
+                return (
+                  <rect
+                    key={`bg-${teamIdx}-${year}-${idx}`}
+                    className="project-tooltip-bg"
+                    x={posX - tooltipWidth / 2}
+                    y={posY - TWEAK.projectLabels.bgHeight / 2 - TWEAK.projectLabels.paddingTop}
+                    width={tooltipWidth}
+                    height={TWEAK.projectLabels.bgHeight}
+                    rx={TWEAK.projectLabels.bgHeight / 2}
+                    ry={TWEAK.projectLabels.bgHeight / 2}
+                    fill={colors.tooltipBg}
+                    stroke={colors.tooltipStroke}
+                    opacity={colors.tooltipOpacity}
+                  />
+                );
+              });
+            });
+          }).flat()}
+          
+          {/* Text labels on top */}
+          {uniqueTeams.map((teamName, teamIdx) => {
+            const teamProjects = projectsByTeam[teamName] || [];
+            const projectsByYear = {};
+            teamProjects.forEach((p) => {
+              if (!projectsByYear[p.year]) projectsByYear[p.year] = [];
+              projectsByYear[p.year].push(p);
+            });
+
+            return Object.entries(projectsByYear).map(([year, projs]) => {
+              const dotY = yearToY(parseInt(year, 10));
+              const posX = teamToX(teamIdx, teamName);
+
+              return projs.map((p, idx) => {
+                const posY = dotY + idx * projectStackYD;
+                const tx = posX; // Center the label on the team column
+                
+                const handleClick = (e) => {
+                  e.stopPropagation();
+                  if (p.slug && p.skillSlug) {
+                    window.location.href = `/skills/${p.skillSlug}/${p.slug}`;
+                  }
+                };
+                
+                return (
+                  <text
+                    key={`label-${teamIdx}-${year}-${idx}`}
+                    x={tx}
+                    y={posY + 5}
+                    fontSize={TWEAK.projectLabels.fontSizeMobile}
+                    fontFamily="SF Pro Rounded"
+                    textAnchor="middle"
+                    fill={colors.projectLabelText}
+                    className="project-title"
+                    onClick={handleClick}
+                    style={{ cursor: p.slug ? "pointer" : "default" }}
+                  >
+                    {p.title}
+                  </text>
+                );
+              });
+            });
+          }).flat()}
+        </g>
+      )}
     </svg>
   );
 }

@@ -12,7 +12,6 @@
 .team-label {
   opacity: 0;
   visibility: hidden;
-  font-weight: 900;
   transition: opacity var(--transition-hover), visibility var(--transition-hover);
 }
 
@@ -52,7 +51,6 @@
 
 /* Project Titles (text labels) */
 .project-title {
-  font-weight: 700;
   font-family: "SF Pro Rounded", -apple-system, "Helvetica Neue", Arial, sans-serif;
   pointer-events: none;
   opacity: 0;
@@ -68,12 +66,22 @@
 
 /* Responsive Mobile */
 @media (max-width: 768px) {
+  /* Show team labels always on mobile (no hover needed) */
   .team-label {
+    opacity: 1;
+    visibility: visible;
     font-size: var(--size-team-label-mobile);
+  }
+
+  /* Don't hide on hover on mobile since already visible */
+  .team-group:hover .team-label {
+    opacity: 1;
+    visibility: visible;
   }
 
   .project-dot {
     r: var(--size-project-dot-mobile);
+    display: none;
   }
 
   line[stroke-dasharray] {
@@ -84,5 +92,31 @@
 
   .project-title {
     font-size: var(--size-project-title-mobile);
+  }
+
+  /* Show project tooltips always on mobile */
+  .project-tooltip-bg {
+    opacity: 1;
+    transform: translateX(0);
+  }
+
+  .project-title {
+    opacity: 1;
+    transform: translateX(0);
+    cursor: pointer;
+    pointer-events: auto;
+  }
+
+  /* Mobile project labels overlay - always visible and on top */
+  .project-labels-overlay .project-tooltip-bg {
+    opacity: 1;
+    transform: none;
+  }
+
+  .project-labels-overlay .project-title {
+    opacity: 1;
+    transform: none;
+    cursor: pointer;
+    pointer-events: auto;
   }
 }
