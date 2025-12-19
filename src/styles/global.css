@@ -575,70 +575,10 @@ a.link-block__link:hover .link-block__text {
   background-color: var(--color-hover-bg);
 }
 
-/* Timeline Interactive */
-.project-dot-hit {
-  pointer-events: all;
-  fill: transparent;
-}
-.project-tooltip-bg {
-  fill: #FFFB78;
-  stroke: none;
-}
-.project-tooltip-bg,
-.project-tooltip {
-  transition: opacity 120ms ease, transform 120ms ease;
-}
+/* Timeline SVG Styles – see TimelineViz.css */
 .YearBlock {
   height: var(--space-24);
   width: 100%;
-}
-
-/* 8. TIMELINE SVG STYLES */
-
-.team-label {
-  opacity: 0;
-  transition: opacity var(--transition-hover);
-  fill: var(--color-fg);
-  visibility: hidden;
-}
-.team-group:hover .team-label {
-  opacity: 1;
-  visibility: visible;
-}
-.team-circle {
-  transition: fill var(--transition-svg);
-}
-.team-circle:hover {
-  fill: var(--color-timeline-hover);
-}
-
-.project-title {
-  font-weight: 700;
-  font-family: "SF Pro Rounded", -apple-system, "Helvetica Neue", Arial,
-    sans-serif;
-  pointer-events: none;
-  opacity: 0;
-  transform: translateX(var(--size-svg-translate));
-  transition: opacity var(--transition-svg-text),
-    transform var(--transition-svg-text);
-}
-.project-dot-group:hover .project-title {
-  opacity: 1;
-  transform: translateX(0);
-}
-
-.project-dot-group .project-tooltip-bg {
-  transition: opacity var(--transition-svg-tooltip),
-    transform var(--transition-svg-tooltip);
-  opacity: 0;
-  transform: translateX(var(--size-svg-translate));
-  fill: var(--color-bg-light);
-  rx: var(--size-svg-rx);
-  pointer-events: none;
-}
-.project-dot-group:hover .project-tooltip-bg {
-  opacity: 1;
-  transform: translateX(0);
 }
 
 /* 9. UTILITY & STATE */
@@ -712,22 +652,8 @@ strong,
 }
 
 @media (max-width: 768px) {
-  .team-label {
-    font-size: var(--size-team-label-mobile);
-  }
-  .project-dot {
-    r: var(--size-project-dot-mobile);
-  }
-  line[stroke-dasharray] {
-    opacity: 0.7;
-    stroke-width: var(--stroke-mobile);
-    stroke-dasharray: var(--size-line-dasharray) var(--size-line-gap);
-  }
   .p-teaser {
     padding: var(--space-6);
-  }
-  .project-title {
-    font-size: var(--size-project-title-mobile);
   }
 }
 

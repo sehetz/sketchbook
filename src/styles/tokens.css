@@ -61,6 +61,11 @@
   --color-stroke: var(--color-fg);
   --color-bg-light: #ffffff;
 
+  /* 📊 TIMELINE COLORS */
+  --color-timeline-circle: #EFEFEF;
+  --color-timeline-gradient-start: #DBDBDB;
+  --color-timeline-gradient-end: #F6F6F6;
+
   /* 🔢 TYPOGRAPHY – Mobile Sizes */
   --size-team-label-mobile: 13px;
   --size-project-title-mobile: 12px;
@@ -99,7 +104,12 @@
   --color-fg: #fff;
   --color-surface: #1e1e1e;
   --color-link: #ffffff;
-  --color-bg-light: #1a1a1a;
-  --color-timeline-hover: #FFD700;
-  --color-hover-bg: #2a2a2a;
+  --color-bg-light: #1e1e1e;
+  --color-timeline-hover: #766400;
+  --color-hover-bg: #1e1e1e;
+
+  /* 📊 TIMELINE COLORS – Dark Mode */
+  --color-timeline-circle: #3a3a3a;
+  --color-timeline-gradient-start: #2a2a2a;
+  --color-timeline-gradient-end: #1f1f1f;
 }

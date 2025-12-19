@@ -6,10 +6,7 @@ export default function CaseDetail({ project }) {
   const blocks = project.blocks || [];
   const projectTitle = project.Title || "";
 
-  // Debug: Log blocks to console
-  console.log(`CaseDetail for "${projectTitle}":`, { blocks, project });
   blocks.forEach((b, i) => {
-    console.log(`  Block ${i}: type="${b.type}", data type="${typeof b.data}", is array=${Array.isArray(b.data)}`);
   });
 
   return (

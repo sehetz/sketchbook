@@ -6,9 +6,6 @@ export default function CaseDetail({ project }) {
   const blocks = project.blocks || [];
   const projectTitle = project.Title || "";
 
-  // Debug: Log blocks to console
-  console.log(`CaseDetail for "${projectTitle}":`, { blocks, project });
-
   return (
     <div className="case-detail flex-col w-full">
       {blocks.length === 0 ? (

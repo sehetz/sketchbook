@@ -1,0 +1,88 @@
+/* ============================================
+   TimelineViz.css – SVG Timeline Styles
+   ============================================ */
+
+/* Base SVG Elements */
+.project-dot-hit {
+  pointer-events: all;
+  fill: transparent;
+}
+
+/* Team Labels (shown on hover) */
+.team-label {
+  opacity: 0;
+  visibility: hidden;
+  font-weight: 900;
+  transition: opacity var(--transition-hover), visibility var(--transition-hover);
+}
+
+.team-group:hover .team-label {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Team Circle Links */
+.team-circle {
+  transition: fill var(--transition-svg);
+}
+
+.team-circle:hover {
+  fill: var(--color-timeline-hover);
+}
+
+/* Project Dots */
+.project-dot {
+  pointer-events: none;
+}
+
+/* Project Tooltips (background rect) */
+.project-tooltip-bg {
+  stroke: none;
+  opacity: 0;
+  transform: translateX(var(--size-svg-translate));
+  pointer-events: none;
+  transition: opacity var(--transition-svg-tooltip),
+    transform var(--transition-svg-tooltip);
+}
+
+.project-dot-group:hover .project-tooltip-bg {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* Project Titles (text labels) */
+.project-title {
+  font-weight: 700;
+  font-family: "SF Pro Rounded", -apple-system, "Helvetica Neue", Arial, sans-serif;
+  pointer-events: none;
+  opacity: 0;
+  transform: translateX(var(--size-svg-translate));
+  transition: opacity var(--transition-svg-text),
+    transform var(--transition-svg-text);
+}
+
+.project-dot-group:hover .project-title {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* Responsive Mobile */
+@media (max-width: 768px) {
+  .team-label {
+    font-size: var(--size-team-label-mobile);
+  }
+
+  .project-dot {
+    r: var(--size-project-dot-mobile);
+  }
+
+  line[stroke-dasharray] {
+    opacity: 0.7;
+    stroke-width: var(--stroke-mobile);
+    stroke-dasharray: var(--size-line-dasharray) var(--size-line-gap);
+  }
+
+  .project-title {
+    font-size: var(--size-project-title-mobile);
+  }
+}

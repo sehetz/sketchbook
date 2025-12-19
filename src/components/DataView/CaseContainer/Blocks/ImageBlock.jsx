@@ -5,17 +5,13 @@
 import { alt_generate } from '../../../../utils/seoHelpers.js';
 
 export default function ImageBlock({ images, projectTitle = "" }) {
-  console.log("ImageBlock received:", { images, projectTitle });
-  
   // Defensive: ensure images is an array
   let imageArray = images;
   if (!Array.isArray(images)) {
-    console.warn("ImageBlock: images is not an array", typeof images, images);
     return null;
   }
   
   if (!imageArray?.length) {
-    console.warn("ImageBlock: no images to display");
     return null;
   }
 
