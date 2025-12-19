@@ -1,7 +1,5 @@
 // ============================================
-// DataView.jsx
-// --------------------------------------------
-// Data Logic Layer – now with content block extraction
+// DataView.jsx – URL-Driven State Management
 // ============================================
 
 import { useState, useEffect } from "react";
@@ -9,19 +7,35 @@ import CaseContainer from "./CaseContainer/CaseContainer";
 import "./DataView.css";
 import FilterNav from "./FilterNav/FilterNav";
 import { normalizeProject } from "../../utils/helpers.js";
+import { updateUrl, replaceUrl } from "../../utils/urlRouting.js";
 
-export default function DataView({ onFilterChange }) {
+export default function DataView({ urlState, currentPath }) {
+  // ============================================
+  // ALL HOOKS FIRST (before any conditional returns!)
+  // ============================================
   const [data, setData] = useState(null);
-  const [filter, setFilter] = useState("skills");
   const [error, setError] = useState(null);
-  const [openIndex, setOpenIndex] = useState(null);
+  
+  // Initialize state from URL
+  const [filter, setFilter] = useState(urlState?.filter || "skills");
+  const [openContainerLabel, setOpenContainerLabel] = useState(urlState?.containerLabel || null);
+  const [requestedProjectSlug, setRequestedProjectSlug] = useState(urlState?.projectSlug || null);
 
   const API_URL = import.meta.env.VITE_API_URL;
   const API_TOKEN = import.meta.env.VITE_API_TOKEN;
   const NOCO_BASE_URL = import.meta.env.VITE_NOCO_BASE_URL || "http://localhost:8080";
 
   // ============================================
-  // EFFECT: Fetch data from API (only for current filter)
+  // EFFECT: Sync URL changes to state
+  // ============================================
+  useEffect(() => {
+    setFilter(urlState?.filter || "skills");
+    setOpenContainerLabel(urlState?.containerLabel || null);
+    setRequestedProjectSlug(urlState?.projectSlug || null);
+  }, [currentPath]);
+
+  // ============================================
+  // EFFECT: Fetch data from API
   // ============================================
   useEffect(() => {
     async function fetchData() {
@@ -45,16 +59,7 @@ export default function DataView({ onFilterChange }) {
   }, [API_URL, API_TOKEN, NOCO_BASE_URL]);
 
   // ============================================
-  // EFFECT: Notify parent on filter change
-  // ============================================
-  useEffect(() => {
-    if (onFilterChange) onFilterChange(filter);
-    // Close all open case headers when filter changes
-    setOpenIndex(null);
-  }, [filter, onFilterChange]);
-
-  // ============================================
-  // LOADING / ERROR
+  // EARLY RETURNS (after all hooks!)
   // ============================================
   if (error) return <pre>Error: {error}</pre>;
   if (!data) return <pre>Loading data...</pre>;
@@ -63,10 +68,10 @@ export default function DataView({ onFilterChange }) {
   // DATA PROCESSING
   // ============================================
 
-  // 1) Filter: Only online projects (is_online === 1)
+  // 1) Filter: Only online projects
   const onlineData = data.filter(project => project.is_online === 1);
 
-  // Helper: get sortable timestamp from "Datum" (YYYY-MM-DD) or fallbacks
+  // Helper: get sortable timestamp
   const getProjectDate = (project) => {
     const rawDate = project?.Datum || project?.date || project?.created_at || project?.updated_at;
     const ts = rawDate ? Date.parse(rawDate) : NaN;
@@ -111,12 +116,49 @@ export default function DataView({ onFilterChange }) {
     }))
     .sort((a, b) => b.projects.length - a.projects.length);
 
+  // Find currently open container index (based on URL)
+  const openIndex = openContainerLabel 
+    ? containers.findIndex(c => c.label === openContainerLabel)
+    : -1;
+
+  // ============================================
+  // EVENT HANDLERS
+  // ============================================
+
+  const handleUrlUpdate = (state) => {
+    updateUrl(state);
+  };
+
+  const handleFilterChange = (newFilter) => {
+    setFilter(newFilter);
+    setOpenContainerLabel(null);
+    setRequestedProjectSlug(null);
+    updateUrl({ filter: newFilter });
+  };
+
+  const handleContainerToggle = (index) => {
+    const container = containers[index];
+    
+    if (openIndex === index) {
+      // Closing container
+      setOpenContainerLabel(null);
+      setRequestedProjectSlug(null);
+      updateUrl({ filter });
+    } else {
+      // Opening container
+      const label = container.label;
+      setOpenContainerLabel(label);
+      setRequestedProjectSlug(null);
+      updateUrl({ filter, containerLabel: label });
+    }
+  };
+
   // ============================================
   // RENDER
   // ============================================
   return (
     <main className="data-view">
-      <FilterNav filter={filter} setFilter={setFilter} />
+      <FilterNav filter={filter} setFilter={handleFilterChange} />
       {containers.map((container, index) => (
         <CaseContainer
           key={`${container.type}-${container.label}`}
@@ -125,7 +167,9 @@ export default function DataView({ onFilterChange }) {
           projects={container.projects}
           isLast={index === containers.length - 1}
           isOpen={openIndex === index}
-          onToggle={() => setOpenIndex(openIndex === index ? null : index)}
+          onToggle={() => handleContainerToggle(index)}
+          onUpdateUrl={handleUrlUpdate}
+          requestedProjectSlug={requestedProjectSlug}
         />
       ))}
     </main>

@@ -2,6 +2,7 @@
 import "./styles/global.css";
 import { useHead } from "./utils/useHead.js";
 import { injectSchema, getOrganizationSchema } from "./utils/structuredData.js";
+import { parseUrlPath } from "./utils/urlRouting.js";
 
 // Core Components
 import Header from "./components/Header/Header";
@@ -15,8 +16,6 @@ import { useState, useEffect } from "react";
 import Impressum from "./impressum";
 
 function App() {
-  const [filter, setFilter] = useState("skills");
-
   // Simple client-side page switch (reacts to history / popstate)
   const [currentPath, setCurrentPath] = useState(
     typeof window !== "undefined" ? window.location.pathname : "/"
@@ -26,6 +25,10 @@ function App() {
     window.addEventListener("popstate", onPop);
     return () => window.removeEventListener("popstate", onPop);
   }, []);
+
+  // Parse URL to get initial state
+  const urlState = parseUrlPath(currentPath);
+  const filter = urlState.filter || "skills";
 
   // Set meta tags for homepage
   useHead({
@@ -46,9 +49,9 @@ function App() {
   return (
     <>
       <Header />
-      <Intro filter={filter} /> {/* ⭐ Pass filter */}
+      <Intro filter={filter} />
       <main>
-        <DataView onFilterChange={setFilter} /> {/* ⭐ Pass setter */}
+        <DataView urlState={urlState} currentPath={currentPath} />
         {/* <AllProjectsMasonry /> */}
       </main>
       <Footer />

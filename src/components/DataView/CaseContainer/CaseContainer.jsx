@@ -2,16 +2,33 @@
 // CaseContainer.jsx – Skill / Gear / Team Container
 // ============================================
 
-import { useState, useEffect, useRef, lazy, Suspense } from "react";
+import { useState, useEffect, useRef, lazy, Suspense, useMemo } from "react";
 import CaseHeader from "./CaseHeader/CaseHeader.jsx";
 import CaseTeaser from "./CaseTeaser/CaseTeaser.jsx";
 import GearTeaser from "./GearTeaser/GearTeaser.jsx";
 import TeamTeaser from "./TeamTeaser/TeamTeaser.jsx";
 import "./CaseContainer.css";
+import { labelToSlug } from "../../../utils/urlRouting.js";
 
 // Lazy-load CaseDetail to reduce initial bundle size
 const CaseDetail = lazy(() => import("./CaseDetail/CaseDetail.jsx"));
 import { CLOSE_MS, TRANSITION_GAP_MS, DEFAULT_FIRST_OPEN_INDEX, clearTimer, scheduleProjectOpen } from "../../../utils/helpers.js";
+
+/**
+ * Generate URL-safe slug from project title
+ */
+function makeSlug(text) {
+  if (!text) return "";
+  return text
+    .toLowerCase()
+    .trim()
+    .replace(/ä/g, "ae")
+    .replace(/ö/g, "oe")
+    .replace(/ü/g, "ue")
+    .replace(/ß/g, "ss")
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-|-$/g, "");
+}
 
 export default function CaseContainer({
   type,
@@ -20,15 +37,58 @@ export default function CaseContainer({
   isLast,
   isOpen,
   onToggle,
+  onUpdateUrl,
+  requestedProjectSlug,
 }) {
   const [openProjectIndex, setOpenProjectIndex] = useState(null);
   const queuedProjectRef = useRef(null);
   const transitionTimerRef = useRef(null);
 
+  // Memoize displayProjects BEFORE useEffects that depend on it
+  const displayProjects = useMemo(() => {
+    return type === "teams"
+      ? projects.filter(p => p.__teamData?.Team?.toLowerCase() !== "sehetz")
+      : projects;
+  }, [type, projects]);
+
   // Auto-open first project when group opens
   useEffect(() => {
-    setOpenProjectIndex(isOpen ? DEFAULT_FIRST_OPEN_INDEX : null);
+    if (isOpen && openProjectIndex === null) {
+      // Container just opened → open first project
+      setOpenProjectIndex(DEFAULT_FIRST_OPEN_INDEX);
+    } else if (!isOpen) {
+      // Container closed → clear project
+      setOpenProjectIndex(null);
+    }
   }, [isOpen]);
+
+  // Sync URL when openProjectIndex changes (auto-open or manual toggle)
+  // Only include projectSlug for "skills" type
+  useEffect(() => {
+    if (isOpen && openProjectIndex !== null && openProjectIndex !== undefined) {
+      const project = displayProjects?.[openProjectIndex];
+      if (project && onUpdateUrl) {
+        // Only add projectSlug for skills; gears and teams only have container URL
+        if (type === "skills") {
+          const projectSlug = makeSlug(project.Title || "");
+          onUpdateUrl({ filter: type, containerLabel: label, projectSlug });
+        } else {
+          // For gears/teams: just container, no project slug
+          onUpdateUrl({ filter: type, containerLabel: label });
+        }
+      }
+    }
+  }, [openProjectIndex, isOpen, displayProjects, type, label, onUpdateUrl]);
+
+  // If URL has requestedProjectSlug, find and open matching project
+  useEffect(() => {
+    if (requestedProjectSlug && isOpen) {
+      const matchingIndex = projects.findIndex(p => makeSlug(p.Title) === requestedProjectSlug);
+      if (matchingIndex !== -1 && openProjectIndex !== matchingIndex) {
+        setOpenProjectIndex(matchingIndex);
+      }
+    }
+  }, [requestedProjectSlug, isOpen, projects, openProjectIndex]);
 
   // Cleanup timers on unmount
   useEffect(() => {
@@ -49,6 +109,11 @@ export default function CaseContainer({
     if (openProjectIndex === index) {
       clearTimer(transitionTimerRef, queuedProjectRef);
       setOpenProjectIndex(null);
+      
+      // Update URL: remove project slug (only container)
+      if (onUpdateUrl) {
+        onUpdateUrl({ filter: type, containerLabel: label });
+      }
       return;
     }
 
@@ -61,17 +126,15 @@ export default function CaseContainer({
       transitionTimerRef.current = setTimeout(() => {
         setOpenProjectIndex(queuedProjectRef.current);
         clearTimer(transitionTimerRef, queuedProjectRef);
+        // URL will be synced by useEffect when openProjectIndex changes
       }, CLOSE_MS + TRANSITION_GAP_MS);
       return;
     }
 
     // No project open → open directly
     setOpenProjectIndex(index);
+    // URL will be synced by useEffect when openProjectIndex changes
   };
-
-  const displayProjects = type === "teams"
-    ? projects.filter(p => p.__teamData?.Team?.toLowerCase() !== "sehetz")
-    : projects;
 
   if (displayProjects.length === 0) return null;
 
