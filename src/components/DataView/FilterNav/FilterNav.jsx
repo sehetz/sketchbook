@@ -2,8 +2,6 @@
 // FilterNav.jsx
 // ============================================
 
-import "./FilterNav.css";
-
 export default function FilterNav({ filter, setFilter }) {
   return (
     <nav className="filter-nav flex text-2">

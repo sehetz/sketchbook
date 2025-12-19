@@ -1,19 +1,45 @@
 @import "./tokens.css";
 
-/* --- Versuche lokale SF Pro (nur local() - keine Dateien verteilen) ---
-   Wenn du SF Pro auf deinem Mac installiert hast, nimmt der Browser sie.
-   Das ist sicher (keine Distribution), erlaubt dir aber SF für Tests.
--------------------------------------------------------------- */
+/* ============================================
+   SKETCHBOOK GLOBAL STYLES v2
+   ============================================
+   
+   STRUCTURE:
+   1. Foundation (Fonts, Reset)
+   2. Base Elements (HTML, body, headings)
+   3. Selection & Interactions
+   4. Typography Utilities (text-1, text-2, text-3)
+   5. Layout Utilities (flex, grid, spacing)
+   6. Borders & Lines
+   7. Animations & Transitions
+   8. Component Styles (Header, Footer, Filter, etc.)
+   9. Image & Media
+   10. Responsive Breakpoints
+   
+   NAMING CONVENTION:
+   - Utilities: .{property}-{value} (e.g. .p-6, .mb-8, .flex-col)
+   - Components: .{component}__{element} (e.g. .header__link, .case-header-wrapper)
+   - States: .{component}--{state} (e.g. .case-line--open, .filter--active)
+   - Modifiers: .[class].[modifier] (e.g. .teaser__image.placeholder)
+   
+   TOKENS USAGE:
+   All values use CSS custom properties from tokens.css
+   NO hardcoded values except in rare cases marked with ⭐
+   
+   ============================================ */
+
+/* ============================================
+   1. FOUNDATION – Fonts & Web Defaults
+   ============================================ */
+
 @font-face {
   font-family: "SF Pro Local";
   src: local("SF Pro Display"), local("SF Pro Text"), local("San Francisco"), local("Helvetica Neue");
-  /* kein remote src — wir nutzen nur lokal installierte Schriftarten */
   font-weight: 100 900;
   font-style: normal;
   font-display: swap;
 }
 
-/* Use locally installed SF Pro Rounded when available (local() only — no bundling) */
 @font-face {
   font-family: "SF Pro Rounded";
   src: local("SF Pro Rounded"), local("SF Pro Rounded Regular"), local("SF Pro Display"), local("SF Pro Text"), local("San Francisco");
@@ -22,7 +48,6 @@
   font-display: swap;
 }
 
-/* Ensure local bold is explicitly available (checks common local bold names) */
 @font-face {
   font-family: "SF Pro Rounded";
   src: local("SF Pro Rounded Bold"), local("SF Pro Rounded Heavy"), local("SF Pro Display Black"), local("SF Pro Text Bold");
@@ -31,27 +56,26 @@
   font-display: swap;
 }
 
-/* ==========================
-   Global Styles – Sketchbook
-   ========================== */
+/* ============================================
+   2. BASE ELEMENTS – Reset & Defaults
+   ============================================ */
 
+* {
+  box-sizing: border-box;
+}
 
 html,
 body {
   margin: 0;
   padding: 0;
   background: var(--color-bg);
+  color: var(--color-fg);
 }
 
-a {
-  color: inherit;
-  text-decoration: none;
-  transition: background-color 0.25s ease;
+#root {
+  padding: 0;
+  margin: 0;
 }
-.footer-link:hover {
-  background-color: var(--color-surface);
-}
-
 
 h1,
 h2,
@@ -66,9 +90,15 @@ p {
   font-weight: 400;
 }
 
-/* ==========================
-   Selection Styling
-   ========================== */
+a {
+  color: inherit;
+  text-decoration: none;
+  transition: background-color 0.25s ease;
+}
+
+/* ============================================
+   3. SELECTION & INTERACTIONS
+   ============================================ */
 
 ::selection {
   background: var(--color-surface);
@@ -79,42 +109,50 @@ p {
   background: var(--color-surface);
   color: var(--color-fg);
 }
-/* ==========================
-   Typography Utilities
-   ========================== */
+
+/* ============================================
+   4. TYPOGRAPHY UTILITIES
+   ============================================ */
+
 .text-1,
 .text-2,
 .text-3 {
   font-family: var(--font-sans);
 }
+
 .text-1 {
   font-size: var(--text-1-size);
   line-height: var(--text-1-line);
-  color: var(--color-fg)
+  color: var(--color-fg);
 }
+
 .text-2 {
   font-size: var(--text-2-size);
   line-height: var(--text-2-line);
-  color: var(--color-fg)
+  color: var(--color-fg);
 }
+
 .text-3 {
   font-size: var(--text-3-size);
   line-height: var(--text-3-line);
   letter-spacing: var(--text-3-letter);
-  color: var(--color-fg)
+  color: var(--color-fg);
 }
 
-/* ==========================
-   Flex & Layout Utilities
-   ========================== */
+/* ============================================
+   5. LAYOUT UTILITIES – Flex, Grid, Spacing
+   ============================================ */
+
+/* --- Flex Containers --- */
 .flex,
 .axis-left,
 .axis-center,
 .axis-right {
   display: flex;
   box-sizing: border-box;
-  width: 100%
+  width: 100%;
 }
+
 .flex-col {
   display: flex;
   flex-direction: column;
@@ -122,13 +160,17 @@ p {
   flex: 1 1 0;
   box-sizing: border-box;
 }
+
 .flex-1 {
   flex: 1 1 0;
   box-sizing: border-box;
 }
+
+/* --- Alignment --- */
 .align-end {
   align-items: flex-end;
 }
+
 .align-top {
   align-self: flex-start;
 }
@@ -137,10 +179,12 @@ p {
   justify-content: flex-start;
   text-align: left;
 }
+
 .axis-center {
   justify-content: center;
   text-align: center;
 }
+
 .axis-right {
   justify-content: flex-end;
   text-align: right;
@@ -153,11 +197,9 @@ p {
 .center {
   justify-content: center;
   align-items: center;
-  color: red;
-  height:100%;
+  height: 100%;
 }
 
-/* Text on same baseline */
 .text-baseline {
   display: flex;
   align-items: flex-end;
@@ -165,118 +207,143 @@ p {
   line-height: var(--text-1-line);
 }
 
-/* ==========================
-   Hover Effects
-   ========================== */
-.hover-bold:hover {
-  background-color: var(--color-surface);
+/* --- Gap/Spacing --- */
+.gap-2 {
+  gap: var(--space-2);
 }
 
-/* ==========================
-   Spacing Utilities
-   ========================== */
+.gap-3 {
+  gap: var(--space-3);
+}
+
+.gap-4 {
+  gap: var(--space-4);
+}
+
+.gap-6 {
+  gap: var(--space-6);
+}
+
+.gap-8 {
+  gap: var(--space-8);
+}
+
+/* --- Padding Utilities --- */
 .p-text {
   padding: var(--space-14) var(--space-6);
 }
 
-.p-teaser{  
+.p-teaser {
   padding: var(--space-32) var(--space-6);
 }
+
 .p-6-all {
   padding: var(--space-6);
 }
+
 .p-6 {
   padding: 0 var(--space-6);
 }
+
 .px-6 {
   padding-left: var(--space-6);
   padding-right: var(--space-6);
 }
+
 .py-6 {
   padding-top: var(--space-6);
   padding-bottom: var(--space-6);
 }
+
 .pl-6 {
   padding-left: var(--space-6);
 }
+
 .pr-6 {
   padding-right: var(--space-6);
 }
-.pt-6 {
-  padding-top: var(--space-6);
+
+.pr-8,
+.padding-right {
+  padding-right: var(--space-8);
 }
-.pb-6 {
-  padding-bottom: var(--space-6);
-}
-.pb-24 {
-  padding-bottom: var(--space-24);
-}
-.pb-8 {
-  padding-bottom: var(--space-8);
-}
+
 .pt-2 {
   padding-top: var(--space-2);
 }
+
 .pb-2 {
   padding-bottom: var(--space-2);
 }
-.gap-3 {
-  gap: var(--space-3);
+
+.pt-6 {
+  padding-top: var(--space-6);
 }
-.gap-4 {
-  gap: var(--space-4);
+
+.pb-6 {
+  padding-bottom: var(--space-6);
 }
-.gap-6 {
-  gap: var(--space-6);
+
+.pb-8 {
+  padding-bottom: var(--space-8);
 }
-.gap-8 {
-  gap: var(--space-8);
+
+.pb-24 {
+  padding-bottom: var(--space-24);
 }
-.pr-8 {
-  padding-right: var(--space-8);
-}
+
 .pt-12 {
   padding-top: var(--space-12);
 }
+
+/* --- Width Utilities --- */
 .w-1-2 {
   width: 50%;
 }
+
 .w-full {
   width: 100%;
 }
+
 .h-full {
   height: 100%;
 }
 
-/* ==========================
-   Borders
-   ========================== */
+/* ============================================
+   6. BORDERS & LINES
+   ============================================ */
+
 .border-top-solid {
   border-top: var(--line-solid);
 }
+
 .border-bottom-solid {
   border-bottom: var(--line-solid);
 }
+
 .border-top-thin {
   border-top: 1.5px solid var(--color-fg);
 }
+
 .border-bottom-thin {
   border-bottom: 1.5px solid var(--color-fg);
 }
-.border-bottom-dotted {
-  border-bottom: var(--line-width) dotted var(--color-fg);
-}
+
 .border-top-dotted {
   border-top: var(--line-width) dotted var(--color-fg);
 }
 
-/* ==========================
-   Animations & Transitions
-   ========================== */
+.border-bottom-dotted {
+  border-bottom: var(--line-width) dotted var(--color-fg);
+}
+
+/* ============================================
+   7. ANIMATIONS & TRANSITIONS
+   ============================================ */
+
 .transition,
 .transition-height {
-  transition: var(--transition-type) var(--transition-duration)
-    var(--transition-style);
+  transition: var(--transition-type) var(--transition-duration) var(--transition-style);
 }
 
 .wipe,
@@ -286,81 +353,110 @@ p {
   opacity: 0;
   transition: max-height 0.45s ease, opacity 0.45s ease;
 }
+
 .wipe.open,
 .teaser-wipe.open {
   max-height: 10000px;
   opacity: 1;
 }
-.filter--active {
-  font-weight: 700;
+
+/* ============================================
+   8. COMPONENT STYLES
+   ============================================ */
+
+/* --- Header Component --- */
+.header {
+  width: 100vw;
+  padding-top: var(--space-6);
+  padding-bottom: calc(var(--space-6) + 12px);
+  padding-left: var(--space-6);
+  padding-right: var(--space-6);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-sizing: border-box;
 }
 
-/* ==========================
-   Image Block – Unified Styles
-   ========================== */
-
-/* Image aspect ratios */
-:root {
-  --image-ratio-16x9: 16 / 9;
-  --image-ratio-4x5: 4 / 5;
-  --image-gap: var(--space-3);
+.header__link {
+  color: var(--color-fg);
+  text-decoration: none;
 }
 
-.image-block {
-  padding: 0 var(--space-6);
-}
-
-.image-wrapper {
-  display: block;
-  width: 100%;
-  overflow: hidden;
+.header__link:hover {
   background-color: var(--color-surface);
 }
 
-/* Aspect ratio wrappers */
-.image-wrapper--16x9 {
-  aspect-ratio: var(--image-ratio-16x9);
+.header__disco {
+  appearance: none;
+  -webkit-appearance: none;
+  border: none;
+  background: transparent;
+  font-size: 1.6rem;
+  padding: 0;
+  cursor: pointer;
+  transition: transform 160ms ease, filter 160ms ease;
 }
 
-.image-wrapper--4x5 {
-  aspect-ratio: var(--image-ratio-3x4);
+.header__disco:active {
+  transform: scale(0.95);
 }
 
-/* Image & video elements */
-.image-media {
-  display: block;
+/* --- Filter/Navigation Component --- */
+.filter-nav {
+  padding-top: var(--space-24);
+  padding-bottom: var(--space-6);
+  padding-left: var(--space-6);
+  padding-right: var(--space-6);
+}
+
+.filter-button {
+  background: none;
+  border: none;
+  padding: 0;
+  margin: 0;
+  cursor: pointer;
+  color: var(--color-fg);
+  font-family: inherit;
+}
+
+.filter--active {
+  font-weight: 700;
+  font-variation-settings: "wght" 700;
+}
+
+/* --- Data View / Content Container --- */
+.data-view,
+.data-view * {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.data-view input,
+.data-view textarea,
+.data-view [contenteditable="true"] {
+  -webkit-user-select: text;
+  -moz-user-select: text;
+  -ms-user-select: text;
+  user-select: text;
+}
+
+/* --- Case/Container Components --- */
+.case-container {
   width: 100%;
-  height: 100%;
-  object-fit: contain;
+  overflow: hidden;
+  box-sizing: border-box;
+  transition: var(--transition-type) var(--transition-duration) var(--transition-style);
 }
 
-/* Grid layout */
-.image-grid {
-  display: grid;
-  gap: var(--image-gap);
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+.case-container__body {
+  box-sizing: border-box;
 }
 
-.image-grid--4col {
-  grid-template-columns: repeat(3, 1fr);
+.case-container__divider {
+  width: 100%;
 }
-
-/* ==========================
-   Responsive – Image Block
-   ========================== */
-
-@media (max-width: 900px) {
-  /* All images stack vertically */
-  .image-grid,
-  .image-grid--4col {
-    grid-template-columns: 1fr;
-    gap: var(--image-gap);
-  }
-}
-
-/* ==========================
-   Case & Related
-   ========================== */
 
 .case-header,
 .case-header-wrapper {
@@ -370,12 +466,15 @@ p {
   height: 100%;
 }
 
-
-
 .case-header:hover,
 .case-header-wrapper:hover,
 .case-header-wrapper--selected {
   background-color: var(--color-surface);
+}
+
+.case-header-wrapper--selected {
+  border-bottom: var(--line-width) dotted var(--color-fg);
+  box-sizing: border-box;
 }
 
 .case-line {
@@ -401,29 +500,41 @@ p {
   display: none;
 }
 
+.case-line.border-top-dotted {
+  border-top: var(--line-width) dotted var(--color-fg);
+}
+
 .case-teaser {
   width: 100%;
 }
 
+.project-wrapper--open {
+  /* marker class for open project state */
+}
+
+/* --- Teaser Components --- */
+.teaser__image,
+.teaser__image_small {
+  aspect-ratio: 3 / 4;
+  object-fit: cover;
+  flex-shrink: 0;
+}
+
 .teaser__image {
   width: 50%;
-  aspect-ratio: 3 / 4;
-  object-fit: cover;
 }
 
-.teaser__image_small{
+.teaser__image_small {
   width: 40%;
-  aspect-ratio: 3 / 4;
-  object-fit: cover;
 }
 
-.teaser__image.placeholder {
+.teaser__image.placeholder,
+.teaser__image_small.placeholder {
   background: var(--color-surface);
 }
 
 .teaser__image_small.placeholder {
-  background: var(--color-surface);
-  width: 100%;;
+  width: 100%;
 }
 
 .flex-col.axis-center .teaser__image,
@@ -433,52 +544,207 @@ p {
   align-self: center;
 }
 
-.case-container {
+/* --- Sehetz Teaser (About Page) --- */
+.sehetz-teaser {
+  /* inherits from case-teaser structure */
+}
+
+.sehetz-teaser__header {
+  margin-bottom: var(--space-6);
+}
+
+.sehetz-teaser__title {
+  padding: var(--space-6);
+  margin: 0;
+}
+
+.sehetz-teaser__image {
+  width: 50%;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  flex-shrink: 0;
+}
+
+.sehetz-teaser__image.placeholder {
+  background-color: var(--color-surface);
+}
+
+.sehetz-teaser__description {
+  margin: 0;
+  font-weight: 400;
+  letter-spacing: var(--text-3-letter);
+}
+
+/* --- Footer Component --- */
+.footer a,
+.footer a:link,
+.footer a:visited,
+.footer a:active,
+.footer .footer-link {
+  color: var(--color-fg);
+  text-decoration: none;
+}
+
+.footer a:hover,
+.footer .footer-link:hover {
+  background-color: var(--color-surface);
+}
+
+/* --- All Projects Masonry (About Page) --- */
+.all-projects-masonry {
+  padding: 0 var(--space-6) var(--space-6) var(--space-6);
+  box-sizing: border-box;
+}
+
+.masonry-title {
+  height: 120px;
+  align-items: center;
+  display: flex;
+  justify-content: center;
+}
+
+.masonry {
+  column-count: 4;
+  column-gap: var(--space-3);
+}
+
+.masonry-item {
+  break-inside: avoid;
+  margin-bottom: var(--space-6);
+  box-sizing: border-box;
+}
+
+.masonry-item__title {
+  padding-bottom: var(--space-3);
+}
+
+.masonry-image-wrapper {
   width: 100%;
   overflow: hidden;
-  box-sizing: border-box;
-  transition: var(--transition-type) var(--transition-duration)
-    var(--transition-style);
+  margin-bottom: var(--space-4);
+  background: var(--color-surface);
+  aspect-ratio: 3 / 4;
+  display: block;
 }
 
-.case-container__divider {
+.masonry-image {
+  display: block;
   width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
 }
 
-/* ==========================
-   Dataviz Lebenslauf
-   ========================== */
+.masonry-image--placeholder {
+  background: var(--color-surface);
+  min-height: 120px;
+}
+
+/* ============================================
+   9. IMAGE & MEDIA
+   ============================================ */
+
+.image-block {
+  padding: 0 var(--space-6);
+}
+
+.image-wrapper {
+  display: block;
+  width: 100%;
+  overflow: hidden;
+  background-color: var(--color-surface);
+}
+
+.image-wrapper--16x9 {
+  aspect-ratio: 16 / 9;
+}
+
+.image-wrapper--4x5 {
+  aspect-ratio: 4 / 5;
+}
+
+.image-media {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.image-grid {
+  display: grid;
+  gap: var(--space-3);
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+}
+
+.image-grid--4col {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+/* Link Block */
+a.link-block__link {
+  color: var(--color-link);
+  text-decoration: none;
+  cursor: pointer;
+  text-decoration-skip-ink: auto;
+  transition: all 0.25s ease;
+  gap: var(--space-2);
+}
+
+a.link-block__link:hover .link-block__text {
+  background-color: var(--color-surface);
+}
+
+/* --- Interactive Elements --- */
+.project-dot-hit {
+  pointer-events: all;
+  fill: transparent;
+}
+
+.project-tooltip-bg {
+  fill: #fff;
+  stroke: none;
+}
+
+.project-tooltip-bg,
+.project-tooltip {
+  transition: opacity 120ms ease, transform 120ms ease;
+}
+
+/* --- Year Block (Timeline) --- */
 .YearBlock {
   height: var(--space-24);
   width: 100%;
 }
 
-/* ==========================
-   Responsive Utilities
-   ========================== */
+/* ============================================
+   10. RESPONSIVE BREAKPOINTS
+   ============================================ */
+
+@media (max-width: 1200px) {
+  .masonry {
+    column-count: 3;
+  }
+}
+
 @media (max-width: 900px) {
+  /* General flex stacking */
   .flex:not(.filter-nav):not(.case-header) {
     flex-direction: column;
   }
 
-  .footer .text-3 {
-    text-align: left ;
-    justify-content: flex-start ;
-    align-items: flex-start;
-  }
-
+  /* Filter & case header stay row */
   .filter-nav,
   .case-header {
     flex-direction: row;
   }
 
-  /* ⭐ Hide gear + team columns on tablet */
+  /* Hide gear + team columns on tablet */
   .case-line__gear,
   .case-line__team {
     display: none;
   }
 
-  /* Alle 50%-Breiten werden zu 100% */
+  /* 50% widths → 100% */
   .w-1-2,
   .teaser__image,
   .teaser__image_small,
@@ -488,93 +754,171 @@ p {
     max-width: 100%;
   }
 
-  /* Bildgrids einspaltig */
+  /* Image grids stack vertically */
   .image-grid,
   .image-grid-4 {
     flex-direction: column;
     gap: var(--space-4);
   }
 
-  /* Teaser: Bild unter Text */
+  /* Teaser: image below text */
   .teaser {
     flex-direction: column;
     gap: var(--space-4);
   }
 
-  /* ImageBlock: Padding auf mobil anpassen (top/bottom entfernen, left/right behalten) */
+  /* 4-column grid → 1 column on mobile */
+  .masonry {
+    column-count: 2;
+  }
+
+  /* Padding adjustments */
+  .pr-8 {
+    padding-right: 0;
+  }
+
+  /* Footer mobile layout */
+  .footer .text-3 {
+    text-align: left;
+    justify-content: flex-start;
+    align-items: flex-start;
+  }
+
+  /* Image block responsive */
   .image-block {
     padding: 0 var(--space-6);
   }
 
-  /* 4er-Grid auf mobil: volle Breite wie 2er-Grid */
   .image-grid-4 .image-4x5,
   .image-grid .image-4x5 {
     width: 100%;
     max-width: 100%;
   }
 
-  /* Padding-Anpassungen */
-  .pr-8 {
-    padding-right: 0;
+  /* Image grids single column */
+  .image-grid,
+  .image-grid--4col {
+    grid-template-columns: 1fr;
+    gap: var(--space-3);
   }
 }
 
-
-/* Link Styles (more specific for reliable hover) */
-a.link-block__link {
-  color: var(--color-link);
-  text-decoration: none;
-  cursor: pointer;
-  -webkit-text-decoration-skip-ink: none;
-  transition: all 0.25s ease;
-  gap: var(--space-2);
-}
-
-a.link-block__link:hover .link-block__text {
-  background-color: var(--color-surface);
-}
-
-
-/* Touch hit-area for project dots */
-.project-dot-hit {
-  pointer-events: all;
-  fill: transparent;
-}
-
-/* Tooltip visual on mobile when using foreignObject / HTML inside SVG */
-.project-tooltip-bg {
-  /* keep white background */
-  fill: #fff;
-  /* remove stroke for cleaner look */
-  stroke: none;
-}
-
-/* Mobile-specific adjustments */
 @media (max-width: 768px) {
-  .team-label { font-size: 13px; } /* slightly larger for readability */
-  .project-dot { r: 8px; } /* visual baseline - actual r in JSX should also use PROJECT_DOT_RADIUS_D */
-  /* reduce number of visible year grid lines: use CSS to reduce visibility */
+  /* Mobile-specific tweaks */
+  .team-label {
+    font-size: 13px;
+  }
+
+  .project-dot {
+    r: 8px;
+  }
+
   line[stroke-dasharray] {
     opacity: 0.7;
   }
+
+  /* Teaser padding on mobile */
   .p-teaser {
-  padding: var(--space-6);
+    padding: var(--space-6);
+  }
 }
 
+@media (max-width: 600px) {
+  /* Single column masonry on mobile */
+  .masonry {
+    column-count: 1;
+  }
 
+  .masonry-item {
+    padding: var(--space-3);
+  }
 }
 
-/* Optional: make tooltips visually distinct on small screens */
-.project-tooltip-bg,
-.project-tooltip {
-  transition: opacity 120ms ease, transform 120ms ease;
+/* ============================================
+   11. UTILITY & STATE CLASSES
+   ============================================ */
+
+.hover-bold:hover {
+  background-color: var(--color-surface);
 }
 
-
-/* Ensure active filter + strong text render bold even if the font fallback isn't mapping weights */
-.filter--active,
 strong,
 .filter-button strong {
   font-weight: 700;
-  font-variation-settings: "wght" 700; /* help variable fonts if present */
+  font-variation-settings: "wght" 700;
+}
+
+/* ============================================
+   Timeline SVG Styles
+   ============================================ */
+
+/* Team labels: hidden by default, shown on hover */
+.team-label {
+  opacity: 0;
+  transition: opacity 160ms ease;
+  fill: var(--color-fg);
+  visibility: hidden;
+}
+
+.team-group:hover .team-label {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Team circle: hover effect */
+.team-circle {
+  transition: fill 0.2s ease;
+}
+
+.team-circle:hover {
+  fill: #FFFB78;
+}
+
+/* Project title: fade/slide in on hover */
+.project-title {
+  font-weight: 700;
+  font-family: "SF Pro Rounded", -apple-system, "Helvetica Neue", Arial, sans-serif;
+  pointer-events: none;
+  opacity: 0;
+  transform: translateX(6px);
+  transition: opacity 140ms ease, transform 140ms ease;
+}
+
+.project-dot-group:hover .project-title {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* Project tooltip background */
+.project-dot-group .project-tooltip-bg {
+  transition: opacity 0.18s ease, transform 0.18s ease;
+  opacity: 0;
+  transform: translateX(6px);
+  fill: #ffffff;
+  rx: 6;
+  pointer-events: none;
+}
+
+.project-dot-group:hover .project-tooltip-bg {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* Mobile timeline adjustments */
+@media (max-width: 768px) {
+  /* Smaller dots, dashed lines */
+  line[stroke-dasharray] {
+    stroke-width: 1.5px;
+    stroke-dasharray: 0.1 4;
+  }
+
+  /* Touch-friendly dot size */
+  .project-dot {
+    r: 4px;
+  }
+
+  /* Project title scaling */
+  .project-title {
+    font-size: 12px;
+  }
 }

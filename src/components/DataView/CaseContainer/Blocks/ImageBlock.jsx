@@ -2,7 +2,7 @@
 // ImageBlock.jsx – unified grid + 4-per-row with proper aspect ratios
 // ============================================
 
-import { alt_generate } from '../../../../../utils/seoHelpers.js';
+import { alt_generate } from '../../../../utils/seoHelpers.js';
 
 export default function ImageBlock({ images, projectTitle = "" }) {
   if (!images?.length) return null;

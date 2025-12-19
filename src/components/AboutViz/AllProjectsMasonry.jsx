@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import "./AllProjectsMasonry.css";
 
 export default function AllProjectsMasonry() {
   const [projects, setProjects] = useState([]);

@@ -1,5 +1,4 @@
 import { useState, useEffect } from "react";
-import "./Intro.css";
 
 export default function Intro({ filter = "skills", page = "home" }) {
   const [introText, setIntroText] = useState(

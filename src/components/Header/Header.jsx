@@ -3,7 +3,6 @@
 // Soundtrack schreiben
 
 
-import "./Header.css";
 import { useEffect } from "react";
 import useStrudel from "./useStrudel";
 

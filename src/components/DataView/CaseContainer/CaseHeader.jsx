@@ -21,4 +21,3 @@ export default function CaseHeader({ type, label, projects, isOpen }) {
     </div>
   );
 }
-

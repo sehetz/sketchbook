@@ -11,7 +11,9 @@ import Footer from "./components/Footer/Footer";
 
 // Data Logic Layer
 import DataView from "./components/DataView/DataView";
-import AllProjectsMasonry from "./components/AboutViz/AllProjectsMasonry/AllProjectsMasonry";
+import AllProjectsMasonry from "./components/AboutViz/AllProjectsMasonry";
+import TimelineViz from "./components/AboutViz/TimelineViz";
+import SehetzTeaser from "./components/AboutViz/SehetzTeaser";
 import { useState, useEffect } from "react";
 import Impressum from "./impressum";
 import About from "./About";

@@ -1,5 +1,4 @@
 import { useState, useEffect } from "react";
-import "./SehetzTeaser.css";
 
 export default function SehetzTeaser() {
   const [sehetz, setSehetz] = useState(null);
