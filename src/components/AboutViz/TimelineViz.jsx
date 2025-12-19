@@ -206,7 +206,6 @@ export default function TimelineViz() {
   function ProjectDot({ x, y, title, teamIdx, slug, skillSlug }) {
     const tx = x + tooltipOffsetXD - TWEAK.projectLabels.bgPadding;
     const projectId = `${teamIdx}-${x}-${y}-${title}`;
-    const isHovered = hoveredProjectId === projectId;
     
     const handleClick = (e) => {
       e.stopPropagation();
@@ -247,6 +246,38 @@ export default function TimelineViz() {
         </text>
       </g>
     );
+  }
+
+  // Helper: render projects for a given year (non-hovered and hovered separately)
+  function renderProjectsForYear(year, projs, teamIdx, dotY) {
+    const secondary = projs.slice(1);
+    const primary = projs[0];
+    const dots = [];
+    let hoveredDot = null;
+
+    // Render non-hovered secondary projects
+    secondary.forEach((p, sIdx) => {
+      const posY = dotY + (sIdx + 1) * projectStackYD;
+      const projectId = `${teamIdx}-${teamToX(teamIdx)}-${posY}-${p.title}`;
+      if (hoveredProjectId === projectId) {
+        hoveredDot = <ProjectDot key={`sec-${sIdx}`} x={teamToX(teamIdx)} y={posY} title={p.title} teamIdx={teamIdx} slug={p.slug} skillSlug={p.skillSlug} />;
+      } else {
+        dots.push(<ProjectDot key={`sec-${sIdx}`} x={teamToX(teamIdx)} y={posY} title={p.title} teamIdx={teamIdx} slug={p.slug} skillSlug={p.skillSlug} />);
+      }
+    });
+
+    // Render non-hovered primary project
+    if (primary) {
+      const projectId = `${teamIdx}-${teamToX(teamIdx)}-${dotY}-${primary.title}`;
+      if (hoveredProjectId === projectId) {
+        hoveredDot = <ProjectDot key={`prim`} x={teamToX(teamIdx)} y={dotY} title={primary.title} teamIdx={teamIdx} slug={primary.slug} skillSlug={primary.skillSlug} />;
+      } else {
+        dots.push(<ProjectDot key={`prim`} x={teamToX(teamIdx)} y={dotY} title={primary.title} teamIdx={teamIdx} slug={primary.slug} skillSlug={primary.skillSlug} />);
+      }
+    }
+
+    // Return non-hovered first, then hovered on top
+    return [...dots, hoveredDot].filter(Boolean);
   }
 
   function TeamGroup({ teamName, teamIdx }) {
@@ -309,52 +340,9 @@ export default function TimelineViz() {
         {/* Projects: secondary first, primary last, hovered on top */}
         {Object.entries(projectsByYear).map(([year, projs]) => {
           const dotY = yearToY(parseInt(year, 10));
-          const secondary = projs.slice(1);
-          const primary = projs[0];
-          
-          // Render non-hovered projects first
-          const nonHoveredDots = [];
-          
-          secondary.forEach((p, sIdx) => {
-            const posY = dotY + (sIdx + 1) * projectStackYD;
-            const projectId = `${teamIdx}-${teamToX(teamIdx)}-${posY}-${p.title}`;
-            if (hoveredProjectId !== projectId) {
-              nonHoveredDots.push(
-                <ProjectDot key={`sec-${sIdx}`} x={teamToX(teamIdx)} y={posY} title={p.title} teamIdx={teamIdx} slug={p.slug} skillSlug={p.skillSlug} />
-              );
-            }
-          });
-          
-          if (primary) {
-            const projectId = `${teamIdx}-${teamToX(teamIdx)}-${dotY}-${primary.title}`;
-            if (hoveredProjectId !== projectId) {
-              nonHoveredDots.push(
-                <ProjectDot key={`prim`} x={teamToX(teamIdx)} y={dotY} title={primary.title} teamIdx={teamIdx} slug={primary.slug} skillSlug={primary.skillSlug} />
-              );
-            }
-          }
-          
-          // Render hovered project LAST (on top)
-          let hoveredDotElement = null;
-          secondary.forEach((p, sIdx) => {
-            const posY = dotY + (sIdx + 1) * projectStackYD;
-            const projectId = `${teamIdx}-${teamToX(teamIdx)}-${posY}-${p.title}`;
-            if (hoveredProjectId === projectId) {
-              hoveredDotElement = <ProjectDot key={`sec-${sIdx}`} x={teamToX(teamIdx)} y={posY} title={p.title} teamIdx={teamIdx} slug={p.slug} skillSlug={p.skillSlug} />;
-            }
-          });
-          
-          if (!hoveredDotElement && primary) {
-            const projectId = `${teamIdx}-${teamToX(teamIdx)}-${dotY}-${primary.title}`;
-            if (hoveredProjectId === projectId) {
-              hoveredDotElement = <ProjectDot key={`prim`} x={teamToX(teamIdx)} y={dotY} title={primary.title} teamIdx={teamIdx} slug={primary.slug} skillSlug={primary.skillSlug} />;
-            }
-          }
-          
           return (
             <g key={`dots-${teamIdx}-${year}`}>
-              {nonHoveredDots}
-              {hoveredDotElement}
+              {renderProjectsForYear(year, projs, teamIdx, dotY)}
             </g>
           );
         })}
@@ -453,7 +441,6 @@ export default function TimelineViz() {
       {/* Team groups (bars + dots + labels) – FOREGROUND */}
       {/* Render non-hovered teams first */}
       {uniqueTeams.map((teamName, idx) => {
-        // Check if any project in this team is hovered
         const hasHoveredProject = hoveredProjectId?.startsWith(`${idx}-`);
         if (hasHoveredProject) return null;
         return <TeamGroup key={teamName} teamName={teamName} teamIdx={idx} />;
