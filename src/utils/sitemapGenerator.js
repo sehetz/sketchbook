@@ -1,12 +1,28 @@
 // ============================================
-// sitemapGenerator.js – Generate XML Sitemap
+// SITEMAP GENERATION UTILITIES
 // ============================================
+// 
+// NAMING CONVENTION:
+//   sitemap_*()   → Sitemap XML generation
+//   xml_*()       → XML utility functions (escape, etc)
+//
+// All functions documented with:
+//   - Where they're used
+//   - What they do (1 sentence)
+//   - Parameters & return value
+// ============================================
+
+import { text_labelToSlug } from "./urlRouting.js";
 
 /**
  * Generate XML sitemap from projects data
- * Returns XML string that can be written to public/sitemap.xml
+ * Used in: scripts/generate-sitemap.js (run during build to create public/sitemap.xml)
+ * What: Creates XML sitemap with all project URLs, priorities, and lastmod dates
+ * 
+ * @param {Array} projects - Array of projects from NocoDB
+ * @returns {String} XML sitemap content ready to write to file
  */
-export function generateSitemapXML(projects = []) {
+export function sitemap_generate(projects = []) {
   const baseUrl = "https://sehetz.ch";
   
   // Start with base URLs (homepage, etc)
@@ -20,7 +36,7 @@ export function generateSitemapXML(projects = []) {
   
   onlineProjects.forEach(project => {
     const title = project.Title || "";
-    const slug = makeSlug(title);
+    const slug = text_labelToSlug(title);
     const datum = project.Datum || new Date().toISOString().split('T')[0];
     
     // Add skill URLs (if has skills)
@@ -28,7 +44,7 @@ export function generateSitemapXML(projects = []) {
     skills.forEach(skill => {
       const skillLabel = skill.Skills?.Skill || "";
       if (skillLabel) {
-        const skillSlug = makeSlug(skillLabel);
+        const skillSlug = text_labelToSlug(skillLabel);
         urls.push({
           loc: `${baseUrl}/skills/${skillSlug}/${slug}`,
           lastmod: datum,
@@ -42,9 +58,9 @@ export function generateSitemapXML(projects = []) {
     gears.forEach(gear => {
       const gearLabel = gear.Gear?.Gear || "";
       if (gearLabel) {
-        const gearSlug = makeSlug(gearLabel);
+        const gearSlug = text_labelToSlug(gearLabel);
         urls.push({
-          loc: `${baseUrl}/gears/${gearSlug}/${slug}`,
+          loc: `${baseUrl}/gears/${gearSlug}`,
           lastmod: datum,
           priority: "0.7"
         });
@@ -56,9 +72,9 @@ export function generateSitemapXML(projects = []) {
     teams.forEach(team => {
       const teamLabel = team.Teams?.Team || "";
       if (teamLabel) {
-        const teamSlug = makeSlug(teamLabel);
+        const teamSlug = text_labelToSlug(teamLabel);
         urls.push({
-          loc: `${baseUrl}/teams/${teamSlug}/${slug}`,
+          loc: `${baseUrl}/teams/${teamSlug}`,
           lastmod: datum,
           priority: "0.6"
         });
@@ -73,7 +89,7 @@ export function generateSitemapXML(projects = []) {
   const xml = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 ${uniqueUrls.map(url => `  <url>
-    <loc>${escapeXml(url.loc)}</loc>
+    <loc>${xml_escape(url.loc)}</loc>
     <lastmod>${url.lastmod}</lastmod>
     <priority>${url.priority}</priority>
   </url>`).join('\n')}
@@ -83,29 +99,18 @@ ${uniqueUrls.map(url => `  <url>
 }
 
 /**
- * Escape XML special characters
+ * Escape XML special characters for safe XML output
+ * Used in: sitemap_generate()
+ * What: Replaces &, <, >, ", ' with XML entities
+ * 
+ * @param {String} unsafe - Raw text with potential XML special chars
+ * @returns {String} XML-safe escaped string
  */
-function escapeXml(unsafe) {
+function xml_escape(unsafe) {
   return unsafe
     .replace(/&/g, "&amp;")
     .replace(/</g, "&lt;")
     .replace(/>/g, "&gt;")
     .replace(/"/g, "&quot;")
     .replace(/'/g, "&apos;");
-}
-
-/**
- * Convert title to URL slug (used for project URLs)
- */
-function makeSlug(text) {
-  if (!text) return "";
-  return text
-    .toLowerCase()
-    .trim()
-    .replace(/ä/g, "ae")
-    .replace(/ö/g, "oe")
-    .replace(/ü/g, "ue")
-    .replace(/ß/g, "ss")
-    .replace(/[^a-z0-9]+/g, "-")
-    .replace(/^-|-$/g, "");
 }

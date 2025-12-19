@@ -6,8 +6,8 @@ import { useState, useEffect } from "react";
 import CaseContainer from "./CaseContainer/CaseContainer";
 import "./DataView.css";
 import FilterNav from "./FilterNav/FilterNav";
-import { normalizeProject } from "../../utils/helpers.js";
-import { updateUrl, replaceUrl } from "../../utils/urlRouting.js";
+import { project_normalize } from "../../utils/helpers.js";
+import { url_push, url_replace } from "../../utils/urlRouting.js";
 
 export default function DataView({ urlState, currentPath }) {
   // ============================================
@@ -43,7 +43,7 @@ export default function DataView({ urlState, currentPath }) {
         const res = await fetch(API_URL, { headers: { "xc-token": API_TOKEN } });
         if (!res.ok) throw new Error(`Error: ${res.status}`);
         const json = await res.json();
-        const normalized = json.list.map(p => normalizeProject(p, NOCO_BASE_URL));
+        const normalized = json.list.map(p => project_normalize(p, NOCO_BASE_URL));
         setData(normalized);
       } catch (err) {
         setError(err.message);
@@ -126,14 +126,14 @@ export default function DataView({ urlState, currentPath }) {
   // ============================================
 
   const handleUrlUpdate = (state) => {
-    updateUrl(state);
+    url_push(state);
   };
 
   const handleFilterChange = (newFilter) => {
     setFilter(newFilter);
     setOpenContainerLabel(null);
     setRequestedProjectSlug(null);
-    updateUrl({ filter: newFilter });
+    url_push({ filter: newFilter });
   };
 
   const handleContainerToggle = (index) => {
@@ -143,13 +143,13 @@ export default function DataView({ urlState, currentPath }) {
       // Closing container
       setOpenContainerLabel(null);
       setRequestedProjectSlug(null);
-      updateUrl({ filter });
+      url_push({ filter });
     } else {
       // Opening container
       const label = container.label;
       setOpenContainerLabel(label);
       setRequestedProjectSlug(null);
-      updateUrl({ filter, containerLabel: label });
+      url_push({ filter, containerLabel: label });
     }
   };
 

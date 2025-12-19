@@ -1,11 +1,25 @@
 // ============================================
-// structuredData.js – JSON-LD Schema for SEO
+// STRUCTURED DATA (JSON-LD) UTILITIES – SEO
+// ============================================
+// 
+// NAMING CONVENTION:
+//   schema_get*()  → Generate JSON-LD schema objects
+//   schema_inject() → Inject schema into DOM
+//
+// All functions documented with:
+//   - Where they're used
+//   - What they do (1 sentence)
+//   - Parameters & return value
 // ============================================
 
 /**
  * Generate Organization schema for homepage
+ * Used in: App.jsx (useEffect on mount)
+ * What: Creates JSON-LD Organization schema for SEO (homepage brand info)
+ * 
+ * @returns {Object} Schema object with name, URL, description, socials
  */
-export function getOrganizationSchema() {
+export function schema_getOrganization() {
   return {
     "@context": "https://schema.org",
     "@type": "Organization",
@@ -26,8 +40,13 @@ export function getOrganizationSchema() {
 
 /**
  * Generate CreativeWork schema for individual projects
+ * Used in: useHead.js (for project detail pages)
+ * What: Creates JSON-LD CreativeWork schema with project metadata, skills, images
+ * 
+ * @param {Object} project - Normalized project object
+ * @returns {Object} Schema object with title, description, image, author, keywords
  */
-export function getCreativeWorkSchema(project) {
+export function schema_getCreativeWork(project) {
   const {
     Title = "Untitled Project",
     description = "",
@@ -56,9 +75,14 @@ export function getCreativeWorkSchema(project) {
 }
 
 /**
- * Inject JSON-LD script into document head
+ * Inject JSON-LD schema script into document head
+ * Used in: App.jsx, useHead.js (injectSchema() calls this)
+ * What: Removes existing schema script, creates new one, appends to <head>
+ * 
+ * @param {Object} schema - JSON-LD schema object to inject
+ * @side-effect Modifies document.head
  */
-export function injectSchema(schema) {
+export function schema_inject(schema) {
   if (typeof document === 'undefined') return;
 
   // Remove existing schema script if present

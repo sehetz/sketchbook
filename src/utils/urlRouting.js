@@ -1,17 +1,28 @@
 // ============================================
-// urlRouting.js – URL State Management
+// URL ROUTING UTILITIES
+// ============================================
+// 
+// NAMING CONVENTION:
+//   url_*()    → URL parsing/building/history
+//   text_*()   → Text transformation (slug ↔ label)
+//   
+// FORMAT:
+//   /skills/illustration/project-slug (3 levels)
+//   /gears/camera                      (2 levels, no project)
+//   /teams/team-name                   (2 levels, no project)
 // ============================================
 
 /**
  * Parse URL pathname into structured state
+ * Used in: App.jsx (initial URL parsing)
+ * Returns: { filter, containerLabel, projectSlug }
+ * 
  * Patterns:
- *   /                                    → { filter: "skills" }
- *   /skills                              → { filter: "skills" }
- *   /gears                               → { filter: "gears" }
- *   /skills/illustration                 → { filter: "skills", containerLabel: "Illustration" }
- *   /skills/illustration/my-project      → { filter: "skills", containerLabel: "Illustration", projectSlug: "my-project" }
+ *   /                              → { filter: "skills" }
+ *   /skills/illustration           → { filter: "skills", containerLabel: "Illustration" }
+ *   /skills/illustration/my-project → { filter, containerLabel, projectSlug }
  */
-export function parseUrlPath(pathname) {
+export function url_parse(pathname) {
   const normalized = pathname.replace(/\/$/, "").toLowerCase() || "/";
   const parts = normalized.split("/").filter(Boolean);
 
@@ -32,7 +43,7 @@ export function parseUrlPath(pathname) {
   }
 
   // Convert slug back to label (kebab-case → Title Case)
-  const containerLabel = slugToLabel(second);
+  const containerLabel = text_slugToLabel(second);
 
   // No third part → filter + container
   if (!third) {
@@ -44,19 +55,22 @@ export function parseUrlPath(pathname) {
 }
 
 /**
- * Build URL from state
+ * Build URL from state object
+ * Used in: CaseContainer.jsx (onUpdateUrl), url_push(), url_replace()
+ * Returns: URL path string
+ * 
  * Examples:
  *   { filter: "skills" } → /skills
  *   { filter: "skills", containerLabel: "Illustration" } → /skills/illustration
  *   { filter: "skills", containerLabel: "Illustration", projectSlug: "my-project" } → /skills/illustration/my-project
  */
-export function buildUrl(state) {
+export function url_build(state) {
   const { filter = "skills", containerLabel = null, projectSlug = null } = state;
 
   let url = `/${filter}`;
 
   if (containerLabel) {
-    const slug = labelToSlug(containerLabel);
+    const slug = text_labelToSlug(containerLabel);
     url += `/${slug}`;
   }
 
@@ -68,11 +82,16 @@ export function buildUrl(state) {
 }
 
 /**
- * Convert label to URL slug
- * "Web Illustration" → "web-illustration"
- * "My Awesome Project" → "my-awesome-project"
+ * Convert text to URL slug format
+ * Used in: DataView.jsx (project title), CaseTeaser.jsx, url_build()
+ * Returns: kebab-case string
+ * 
+ * Examples:
+ *   "Web Illustration" → "web-illustration"
+ *   "My Awesome Project" → "my-awesome-project"
+ *   "Café" → "cafe"
  */
-export function labelToSlug(label) {
+export function text_labelToSlug(label) {
   if (!label) return "";
   return label
     .toLowerCase()
@@ -87,9 +106,14 @@ export function labelToSlug(label) {
 
 /**
  * Convert slug back to label (best guess)
- * "web-illustration" → "Web Illustration"
+ * Used in: url_parse()
+ * Returns: Title Case string
+ * 
+ * Examples:
+ *   "web-illustration" → "Web Illustration"
+ *   "my-awesome-project" → "My Awesome Project"
  */
-export function slugToLabel(slug) {
+export function text_slugToLabel(slug) {
   if (!slug) return "";
   return slug
     .split("-")
@@ -99,18 +123,22 @@ export function slugToLabel(slug) {
 
 /**
  * Push new URL state to browser history
+ * Used in: CaseContainer.jsx (handleProjectToggle, auto-open)
+ * Side effect: Updates window.history + URL bar
  */
-export function updateUrl(state) {
+export function url_push(state) {
   if (typeof window === "undefined") return;
-  const url = buildUrl(state);
+  const url = url_build(state);
   window.history.pushState(null, "", url);
 }
 
 /**
- * Replace URL state without adding to history (for initial sync)
+ * Replace URL state without adding to history
+ * Used in: App.jsx initialization (don't create extra history entry)
+ * Side effect: Updates window.history + URL bar
  */
-export function replaceUrl(state) {
+export function url_replace(state) {
   if (typeof window === "undefined") return;
-  const url = buildUrl(state);
+  const url = url_build(state);
   window.history.replaceState(null, "", url);
 }

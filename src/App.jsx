@@ -1,8 +1,8 @@
 // src/App.jsx
 import "./styles/global.css";
 import { useHead } from "./utils/useHead.js";
-import { injectSchema, getOrganizationSchema } from "./utils/structuredData.js";
-import { parseUrlPath } from "./utils/urlRouting.js";
+import { schema_inject, schema_getOrganization } from "./utils/structuredData.js";
+import { url_parse } from "./utils/urlRouting.js";
 
 // Core Components
 import Header from "./components/Header/Header";
@@ -29,7 +29,7 @@ function App() {
   }, []);
 
   // Parse URL to get initial state
-  const urlState = parseUrlPath(currentPath);
+  const urlState = url_parse(currentPath);
   const filter = urlState.filter || "skills";
 
   // Set meta tags for homepage
@@ -41,7 +41,7 @@ function App() {
 
   // Inject Organization schema
   useEffect(() => {
-    injectSchema(getOrganizationSchema());
+    schema_inject(schema_getOrganization());
   }, []);
 
   // normalize trailing slash, then route

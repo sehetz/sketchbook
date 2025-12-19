@@ -8,27 +8,12 @@ import CaseTeaser from "./CaseTeaser/CaseTeaser.jsx";
 import GearTeaser from "./GearTeaser/GearTeaser.jsx";
 import TeamTeaser from "./TeamTeaser/TeamTeaser.jsx";
 import "./CaseContainer.css";
-import { labelToSlug } from "../../../utils/urlRouting.js";
+import { text_labelToSlug } from "../../../utils/urlRouting.js";
+
+import { CLOSE_MS, TRANSITION_GAP_MS, DEFAULT_FIRST_OPEN_INDEX, timer_clear, timer_schedule } from "../../../utils/helpers.js";
 
 // Lazy-load CaseDetail to reduce initial bundle size
 const CaseDetail = lazy(() => import("./CaseDetail/CaseDetail.jsx"));
-import { CLOSE_MS, TRANSITION_GAP_MS, DEFAULT_FIRST_OPEN_INDEX, clearTimer, scheduleProjectOpen } from "../../../utils/helpers.js";
-
-/**
- * Generate URL-safe slug from project title
- */
-function makeSlug(text) {
-  if (!text) return "";
-  return text
-    .toLowerCase()
-    .trim()
-    .replace(/ä/g, "ae")
-    .replace(/ö/g, "oe")
-    .replace(/ü/g, "ue")
-    .replace(/ß/g, "ss")
-    .replace(/[^a-z0-9]+/g, "-")
-    .replace(/^-|-$/g, "");
-}
 
 export default function CaseContainer({
   type,
@@ -70,7 +55,7 @@ export default function CaseContainer({
       if (project && onUpdateUrl) {
         // Only add projectSlug for skills; gears and teams only have container URL
         if (type === "skills") {
-          const projectSlug = makeSlug(project.Title || "");
+          const projectSlug = text_labelToSlug(project.Title || "");
           onUpdateUrl({ filter: type, containerLabel: label, projectSlug });
         } else {
           // For gears/teams: just container, no project slug
@@ -83,7 +68,7 @@ export default function CaseContainer({
   // If URL has requestedProjectSlug, find and open matching project
   useEffect(() => {
     if (requestedProjectSlug && isOpen) {
-      const matchingIndex = projects.findIndex(p => makeSlug(p.Title) === requestedProjectSlug);
+      const matchingIndex = projects.findIndex(p => text_labelToSlug(p.Title) === requestedProjectSlug);
       if (matchingIndex !== -1 && openProjectIndex !== matchingIndex) {
         setOpenProjectIndex(matchingIndex);
       }
@@ -92,7 +77,7 @@ export default function CaseContainer({
 
   // Cleanup timers on unmount
   useEffect(() => {
-    return () => clearTimer(transitionTimerRef, queuedProjectRef);
+    return () => timer_clear(transitionTimerRef, queuedProjectRef);
   }, []);
 
   const handleSkillToggle = () => {
@@ -107,7 +92,7 @@ export default function CaseContainer({
   const handleProjectToggle = (index) => {
     // Same project → close
     if (openProjectIndex === index) {
-      clearTimer(transitionTimerRef, queuedProjectRef);
+      timer_clear(transitionTimerRef, queuedProjectRef);
       setOpenProjectIndex(null);
       
       // Update URL: remove project slug (only container)
@@ -120,12 +105,12 @@ export default function CaseContainer({
     // Another project open → close current, queue switch, open after delay
     if (openProjectIndex !== null) {
       setOpenProjectIndex(null);
-      clearTimer(transitionTimerRef, queuedProjectRef);
-      scheduleProjectOpen(index, transitionTimerRef, queuedProjectRef, CLOSE_MS + TRANSITION_GAP_MS);
+      timer_clear(transitionTimerRef, queuedProjectRef);
+      timer_schedule(index, transitionTimerRef, queuedProjectRef, CLOSE_MS + TRANSITION_GAP_MS);
       
       transitionTimerRef.current = setTimeout(() => {
         setOpenProjectIndex(queuedProjectRef.current);
-        clearTimer(transitionTimerRef, queuedProjectRef);
+        timer_clear(transitionTimerRef, queuedProjectRef);
         // URL will be synced by useEffect when openProjectIndex changes
       }, CLOSE_MS + TRANSITION_GAP_MS);
       return;

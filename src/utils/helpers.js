@@ -1,21 +1,35 @@
 // ============================================
-// Helpers – Project Logic + UI Constants
+// UTILITY FUNCTIONS – Core Helpers
+// ============================================
+// 
+// NAMING CONVENTION:
+//   content_*()  → Content/block manipulation
+//   project_*()  → Project data normalization
+//   timer_*()    → Async timer management
+//   CONSTANT_*   → Configuration constants
+//
+// All functions documented with:
+//   - Where they're used
+//   - What they do (1 sentence)
+//   - Parameters & return value
 // ============================================
 
 // ============================================
-// UI CONSTANTS
+// CONSTANTS
 // ============================================
-// Used in: CaseContainer.jsx
+
+// Used in: CaseContainer.jsx (animation timing)
+// Controls when project panel closes/transitions/opens
 export const CLOSE_MS = 400;
 export const TRANSITION_GAP_MS = 20;
 export const DEFAULT_FIRST_OPEN_INDEX = 0;
 
 // ============================================
-// PROJECT HELPERS
+// CONTENT BLOCK HELPERS
 // ============================================
 
-// Used in: DataView.jsx, helpers.js (normalizeProject)
-const CONTENT_MASTER = [
+// Content field names in NocoDB (order matters for render)
+const CONTENT_FIELD_ORDER = [
   "content_01_text",
   "content_02_image",
   "content_03_text",
@@ -25,9 +39,16 @@ const CONTENT_MASTER = [
   "content_07_links",
 ];
 
-// Used in: normalizeProject()
-export function buildContentBlocks(project) {
-  return CONTENT_MASTER.filter((field) => {
+/**
+ * Extract and structure content blocks from project data
+ * Used in: project_normalize()
+ * What: Filters NocoDB fields, removes empty content, returns array of { type, data } objects
+ * 
+ * @param {Object} project - NocoDB project record
+ * @returns {Array} Array of { type: "content_XX_YY", data: ... } objects
+ */
+export function content_build(project) {
+  return CONTENT_FIELD_ORDER.filter((field) => {
     const value = project[field];
     if (!value) return false;
     if (typeof value === "string") return value.trim() !== "";
@@ -36,8 +57,20 @@ export function buildContentBlocks(project) {
   }).map((field) => ({ type: field, data: project[field] }));
 }
 
-// Used in: DataView.jsx (in fetchData)
-export function normalizeProject(project, NOCO_BASE_URL) {
+// ============================================
+// PROJECT DATA HELPERS
+// ============================================
+
+/**
+ * Transform raw NocoDB project into frontend format
+ * Used in: DataView.jsx (in fetchData loop for each project)
+ * What: Parses teaser image/video URLs, converts content blocks, resolves file paths
+ * 
+ * @param {Object} project - Raw NocoDB project record
+ * @param {String} NOCO_BASE_URL - NocoDB API base URL for asset paths
+ * @returns {Object} Normalized project with { teaserImage, teaserVideo, blocks, ... }
+ */
+export function project_normalize(project, NOCO_BASE_URL) {
   const file = project["Teaser-Image"]?.[0];
   let teaserImage = null;
   let teaserVideo = null;
@@ -53,7 +86,7 @@ export function normalizeProject(project, NOCO_BASE_URL) {
     }
   }
 
-  const blocks = buildContentBlocks(project).map((b) => {
+  const blocks = content_build(project).map((b) => {
     if (Array.isArray(b.data)) {
       return {
         ...b,
@@ -85,19 +118,37 @@ export function normalizeProject(project, NOCO_BASE_URL) {
 // TIMER HELPERS
 // ============================================
 
-// Used in: CaseContainer.jsx (handleProjectToggle)
-export function scheduleProjectOpen(index, timerRef, queuedRef, delay) {
+/**
+ * Schedule async project open with delay
+ * Used in: CaseContainer.jsx (handleProjectToggle when switching projects)
+ * What: Sets up a timeout queue ref for delayed project open
+ * 
+ * @param {Number} index - Project index to open
+ * @param {Object} timerRef - useRef object for setTimeout ID
+ * @param {Object} queuedRef - useRef object for queued index
+ * @param {Number} delay - Milliseconds before opening
+ */
+export function timer_schedule(index, timerRef, queuedRef, delay) {
   queuedRef.current = index;
   timerRef.current = setTimeout(() => {
-    // Diese Funktion wird von außen abgerufen — return nicht nötig
+    // Timer runs, actual state update handled by useEffect
   }, delay);
 }
 
-// Used in: CaseContainer.jsx (handleProjectToggle, handleSkillToggle, cleanup)
-export function clearTimer(timerRef, queuedRef) {
+/**
+ * Clear and reset timer refs
+ * Used in: CaseContainer.jsx (handleSkillToggle, handleProjectToggle, cleanup useEffect)
+ * What: Clears timeout and resets both timer and queued refs
+ * 
+ * @param {Object} timerRef - useRef object from setTimeout
+ * @param {Object} queuedRef - useRef object storing queued index
+ */
+export function timer_clear(timerRef, queuedRef) {
   if (timerRef.current) {
     clearTimeout(timerRef.current);
     timerRef.current = null;
   }
-  if (queuedRef) queuedRef.current = null;
+  if (queuedRef.current !== null) {
+    queuedRef.current = null;
+  }
 }

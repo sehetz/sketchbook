@@ -2,7 +2,7 @@
 // ImageBlock.jsx – unified grid + 4-per-row with proper aspect ratios
 // ============================================
 
-import { generateAltText } from '../../../../../utils/seoHelpers.js';
+import { alt_generate } from '../../../../../utils/seoHelpers.js';
 
 export default function ImageBlock({ images, projectTitle = "" }) {
   if (!images?.length) return null;
@@ -18,7 +18,7 @@ export default function ImageBlock({ images, projectTitle = "" }) {
   // CASE 1: Single image (16:9 fullwidth)
   if (images.length === 1) {
     const item = images[0];
-    const altText = generateAltText(item.name, projectTitle, 0);
+    const altText = alt_generate(item.name, projectTitle, 0);
     return (
       <div className="image-block">
         <div className="image-wrapper image-wrapper--16x9">
@@ -52,7 +52,7 @@ export default function ImageBlock({ images, projectTitle = "" }) {
     <div className="image-block">
       <div className={`image-grid ${isFourGrid ? "image-grid--4col" : ""}`}>
         {images.map((item, i) => {
-          const altText = generateAltText(item.name, projectTitle, i);
+          const altText = alt_generate(item.name, projectTitle, i);
           return (
             <div key={i} className="image-wrapper image-wrapper--4x5">
               {isVideo(item) ? (

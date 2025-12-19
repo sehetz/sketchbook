@@ -13,7 +13,7 @@
 
 import fs from 'fs';
 import path from 'path';
-import { generateSitemapXML } from '../src/utils/sitemapGenerator.js';
+import { sitemap_generate } from '../src/utils/sitemapGenerator.js';
 
 // Get environment variables
 const API_URL = process.env.VITE_API_URL;
@@ -44,7 +44,7 @@ async function generateSitemap() {
     }
 
     // Generate XML
-    const sitemapXml = generateSitemapXML(projects);
+    const sitemapXml = sitemap_generate(projects);
 
     // Ensure dist folder exists
     const distPath = path.join(process.cwd(), 'dist');
