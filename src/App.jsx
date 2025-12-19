@@ -14,6 +14,8 @@ import DataView from "./components/DataView/DataView";
 import AllProjectsMasonry from "./components/AboutViz/AllProjectsMasonry/AllProjectsMasonry";
 import { useState, useEffect } from "react";
 import Impressum from "./impressum";
+import About from "./About";
+import Privacy from "./privacy";
 
 function App() {
   // Simple client-side page switch (reacts to history / popstate)
@@ -45,6 +47,8 @@ function App() {
   // normalize trailing slash, then route
   const normalized = currentPath.replace(/\/$/, "");
   if (normalized === "/impressum") return <Impressum />;
+  if (normalized === "/about") return <About />;
+  if (normalized === "/privacy") return <Privacy />;
 
   return (
     <>
