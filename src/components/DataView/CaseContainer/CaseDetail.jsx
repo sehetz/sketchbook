@@ -6,17 +6,26 @@ export default function CaseDetail({ project }) {
   const blocks = project.blocks || [];
   const projectTitle = project.Title || "";
 
+  // Debug: Log blocks to console
+  console.log(`CaseDetail for "${projectTitle}":`, { blocks, project });
+
   return (
     <div className="case-detail flex-col w-full">
-      {blocks.map((block, index) => (
-        <div key={index} className="block-wrapper">
-          {block.type === "text" && <TextBlock block={block} />}
-          {block.type === "image" && (
-            <ImageBlock block={block} projectTitle={projectTitle} blockIndex={index} />
-          )}
-          {block.type === "link" && <LinkBlock block={block} />}
+      {blocks.length === 0 ? (
+        <div style={{ padding: "var(--space-6)", color: "var(--color-fg)" }}>
+          Keine Inhalte für dieses Projekt verfügbar.
         </div>
-      ))}
+      ) : (
+        blocks.map((block, index) => (
+          <div key={index} className="block-wrapper">
+            {block.type.includes("text") && <TextBlock block={block} />}
+            {block.type.includes("image") && (
+              <ImageBlock block={block} projectTitle={projectTitle} blockIndex={index} />
+            )}
+            {block.type.includes("link") && <LinkBlock block={block} />}
+          </div>
+        ))
+      )}
     </div>
   );
 }

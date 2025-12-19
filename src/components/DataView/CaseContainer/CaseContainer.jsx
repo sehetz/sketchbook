@@ -3,16 +3,16 @@
 // ============================================
 
 import { useState, useEffect, useRef, lazy, Suspense, useMemo } from "react";
-import CaseHeader from "./CaseHeader.jsx";
-import CaseTeaser from "./CaseTeaser.jsx";
-import GearTeaser from "./GearTeaser.jsx";
-import TeamTeaser from "./TeamTeaser.jsx";
+import CaseHeader from "./CaseComponents/CaseHeader.jsx";
+import CaseTeaser from "./CaseComponents/CaseTeaser.jsx";
+import GearTeaser from "./CaseComponents/GearTeaser.jsx";
+import TeamTeaser from "./CaseComponents/TeamTeaser.jsx";
 import { text_labelToSlug } from "../../../utils/urlRouting.js";
 
 import { CLOSE_MS, TRANSITION_GAP_MS, DEFAULT_FIRST_OPEN_INDEX, timer_clear, timer_schedule } from "../../../utils/helpers.js";
 
 // Lazy-load CaseDetail to reduce initial bundle size
-const CaseDetail = lazy(() => import("./CaseDetail.jsx"));
+const CaseDetail = lazy(() => import("./CaseComponents/CaseDetail.jsx"));
 
 export default function CaseContainer({
   type,

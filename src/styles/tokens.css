@@ -4,13 +4,10 @@
 
 :root {
   /* 🎨 COLORS */
-  --color-bg: #fff; /* Weiß , oder best color: #ccccff*/
-  --color-fg: #121212; /* Textfarbe oder #090933*/
-  --color-surface: #f3f3f3; /* Hellgrau, Flächen / Ränder */
-  --color-link: #121212 ; /* Blau für Links (derzeit nicht genutzt) */
-
-/* Dark mode overrides when .dark is present on the root element */
-
+  --color-bg: #fff;
+  --color-fg: #121212;
+  --color-surface: #f3f3f3;
+  --color-link: #121212;
 
   /* 🧱 SPACING SCALE */
   --space-1: 0.25rem; /* 4px */
@@ -20,28 +17,29 @@
   --space-4: 1rem; /* 16px */
   --space-5: 1.25rem; /* 20px */
   --space-6: 1.5rem; /* 24px */
+  --space-7: 1.6rem; /* 26px */
   --space-8: 2rem; /* 32px */
   --space-10: 2.5rem; /* 40px */
   --space-12: 3rem; /* 48px */
   --space-14: 3.5rem; /* 56px */
   --space-16: 4rem; /* 64px */
   --space-24: 6rem; /* 96px */
+  --space-30: 7.5rem; /* 120px */
   --space-32: 8rem; /* 128px */
   --space-36: 9rem; /* 144px */
   --space-48: 12rem; /* 192px */
 
-  /* 🔠 TYPOGRAPHY – primary font variable
-     Prefer SF Pro Rounded (local), then GT Maru / DIN, then system fallbacks */
+  /* 🔠 TYPOGRAPHY */
   --font-sans: "SF Pro Rounded", -apple-system, "Helvetica Neue", Helvetica,
     "Inter", Roboto, Arial, sans-serif;
 
   /* TEXT STYLES */
-  --text-1-size: 3rem; /* 48px */
-  --text-1-line: 1.05; /* 105% */
-  --text-2-size: 2rem; /* 32px */
-  --text-2-line: 1.15; /* 115% */
-  --text-3-size: 1.5rem; /* 24px */
-  --text-3-line: 1.15; /* 115% */
+  --text-1-size: 3rem;
+  --text-1-line: 1.05;
+  --text-2-size: 2rem;
+  --text-2-line: 1.15;
+  --text-3-size: 1.5rem;
+  --text-3-line: 1.15;
   --text-3-letter: 0.12px;
 
   /* 🧩 LINE STYLES */
@@ -50,9 +48,53 @@
   --line-dotted: var(--line-width) dotted var(--color-fg);
   --line-dot-size: 0.1px;
   --line-dot-gap: 10px;
+  --size-border-thin: 1.5px;
 
-  /* 💫 Aniamtions */
-  --transition-type: height;
-  --transition-duration: 0.4s ;
-  --transition-style: ease;
+  /* 💫 ANIMATIONS & TRANSITIONS */
+  --transition-fast: 0.125s ease;
+  --transition-smooth: 0.25s ease;
+  --transition-wipe: 0.45s ease;
+
+  /* 🎨 INTERACTION COLORS */
+  --color-hover-bg: var(--color-surface);
+  --color-timeline-hover: #FFFB78;
+  --color-stroke: var(--color-fg);
+  --color-bg-light: #ffffff;
+
+  /* 🔢 TYPOGRAPHY – Mobile Sizes */
+  --size-team-label-mobile: 13px;
+  --size-project-title-mobile: 12px;
+
+  /* 🔴 STROKE & BORDER WIDTHS */
+  --stroke-thin: 1.5px;
+  --stroke-mobile: 1.5px;
+
+  /* 🎯 SVG & INTERACTION VALUES */
+  --size-project-dot-mobile: 8px;
+  --size-svg-rx: 6;
+  --size-line-dasharray: 0.1;
+  --size-line-gap: 4;
+
+  /* 📐 LAYOUT DIMENSIONS */
+  --layout-image-grid-minmax: 200px;
+  --layout-masonry-3col: 3;
+  --layout-masonry-2col: 2;
+  --layout-masonry-1col: 1;
+
+  /* 📏 BREAKPOINTS */
+  --breakpoint-lg: 1200px;
+  --breakpoint-md: 900px;
+  --breakpoint-sm: 768px;
+  --breakpoint-xs: 600px;
+}
+
+/* Dark mode overrides */
+:root.dark {
+  --color-bg: #121212;
+  --color-fg: #fff;
+  --color-surface: #1e1e1e;
+  --color-link: #ffffff;
+  --color-bg-light: #1a1a1a;
+  --color-timeline-hover: #FFD700;
+  --color-hover-bg: #2a2a2a;
 }
