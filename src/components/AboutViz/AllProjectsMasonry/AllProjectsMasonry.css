@@ -20,7 +20,6 @@
 .masonry-item {
     break-inside: avoid;
     margin-bottom: var(--space-6);
-    background: #fff;
     box-sizing: border-box;
 }
 

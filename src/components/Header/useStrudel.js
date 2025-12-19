@@ -3,90 +3,136 @@ import { useEffect, useRef, useState } from "react";
 export default function useStrudel() {
   const [rave, setRave] = useState(false);
   const audioCtxRef = useRef(null);
-  const kickIntervalRef = useRef(null);
+  const beatIntervalRef = useRef(null);
   const masterGainRef = useRef(null);
-  const dropTimeoutRef = useRef(null);
-  const dropPlayingRef = useRef(false);
+
+  // ⚙️ BEAT KONSTANTEN
+  const BEAT_CONFIG = {
+    bpm: 240,
+    masterVolume: 0.12,
+  };
+
+  // 🎵 SOUND LIBRARY – einfach copy/paste
+  const SOUNDS = {
+    // DRUMS
+    kick_deep: { type: "sine", freq: 150, freqEnd: 50, duration: 0.35, attack: 0.01, decay: 0.3, volume: 0.9 },
+    kick_fat: { type: "sine", freq: 180, freqEnd: 60, duration: 0.4, attack: 0.01, decay: 0.35, volume: 0.85 },
+    kick_tight: { type: "sine", freq: 120, freqEnd: 40, duration: 0.25, attack: 0.005, decay: 0.2, volume: 0.8 },
+    
+    // HI-HATS
+    hh_bright: { type: "square", freq: 1000, duration: 0.08, attack: 0.001, decay: 0.06, volume: 0.3 },
+    hh_soft: { type: "square", freq: 800, duration: 0.06, attack: 0.002, decay: 0.04, volume: 0.2 },
+    hh_crisp: { type: "triangle", freq: 1200, duration: 0.05, attack: 0.001, decay: 0.04, volume: 0.35 },
+    
+    // PERCUSSION
+    rim_sharp: { type: "triangle", freq: 4000, duration: 0.08, attack: 0.001, decay: 0.07, volume: 0.6 },
+    rim_click: { type: "square", freq: 3000, duration: 0.06, attack: 0.001, decay: 0.05, volume: 0.5 },
+    
+    // SYNTH BASE (Vorlage für Noten)
+    synth: { type: "triangle", duration: 0.5, attack: 0.25, decay: 0.75, volume: 0.4 },
+  };
+
+  // 🎵 SYNTH NOTEN – nur Frequenzen
+  const SYNTH_NOTES = [120, 72, 48, 96]; // A2, D2, E1, G3 (Hz)
 
   const clearScheduled = () => {
-    if (kickIntervalRef.current) {
-      clearInterval(kickIntervalRef.current);
-      kickIntervalRef.current = null;
-    }
-    if (dropTimeoutRef.current) {
-      clearTimeout(dropTimeoutRef.current);
-      dropTimeoutRef.current = null;
+    if (beatIntervalRef.current) {
+      clearInterval(beatIntervalRef.current);
+      beatIntervalRef.current = null;
     }
   };
 
-  // ⭐ Simple, solid kick
-  const playKick = (ctx, master) => {
+  // 🔊 UNIVERSAL SOUND PLAYER
+  const playSound = (ctx, master, soundName) => {
+    const sound = SOUNDS[soundName];
+    if (!sound) {
+      console.warn(`Sound "${soundName}" not found`);
+      return;
+    }
+
     const now = ctx.currentTime;
-    const o = ctx.createOscillator();
-    const g = ctx.createGain();
+    const osc = ctx.createOscillator();
+    const gain = ctx.createGain();
 
-    o.type = "sine";
-    o.frequency.setValueAtTime(150, now);
-    o.frequency.exponentialRampToValueAtTime(50, now + 0.08);
+    osc.type = sound.type;
+    osc.frequency.setValueAtTime(sound.freq, now);
+    if (sound.freqEnd) {
+      osc.frequency.exponentialRampToValueAtTime(sound.freqEnd, now + sound.attack + sound.decay);
+    }
 
-    g.gain.setValueAtTime(0.0001, now);
-    g.gain.exponentialRampToValueAtTime(1.0, now + 0.01);
-    g.gain.exponentialRampToValueAtTime(0.001, now + 0.28);
+    gain.gain.setValueAtTime(0.0001, now);
+    gain.gain.exponentialRampToValueAtTime(sound.volume, now + sound.attack);
+    gain.gain.exponentialRampToValueAtTime(0.001, now + sound.attack + sound.decay);
 
-    o.connect(g);
-    g.connect(master);
-    o.start(now);
-    o.stop(now + 0.35);
+    osc.connect(gain);
+    gain.connect(master);
+    osc.start(now);
+    osc.stop(now + sound.duration);
   };
 
-  // ⭐ Drop: Sub bass thump
-  const playDrop = () => {
-    const ctx = audioCtxRef.current;
-    if (!ctx || dropPlayingRef.current) return;
-    dropPlayingRef.current = true;
-    const now = ctx.currentTime;
+  // 🎼 BEAT PATTERN – einfach anpassen
+  const playBeat = (ctx, master, beatPhase = 0) => {
+    const phase = beatPhase % 8;
 
-    const sub = ctx.createOscillator();
-    sub.type = "sine";
-    sub.frequency.setValueAtTime(60, now);
-    const subG = ctx.createGain();
-    subG.gain.setValueAtTime(0.0001, now);
-    subG.gain.exponentialRampToValueAtTime(1.2, now + 0.02);
-    subG.gain.exponentialRampToValueAtTime(0.001, now + 0.7);
-    sub.connect(subG);
-    subG.connect(masterGainRef.current);
-    sub.start(now);
-    sub.stop(now + 0.8);
+    // Drums (was spielen wir WANN)
+    if (phase === 0 || phase === 4 || phase === 0 || phase === 8) {
+      playSound(ctx, master, "kick_deep");
+    }
+    if (phase === 2 || phase === 0 || phase === 6 || phase === 0) {
+      playSound(ctx, master, "kick_fat");
+    }
+    if (phase === 2 || phase === 6) {
+      playSound(ctx, master, "kick_tight");
+    }
 
-    setTimeout(() => {
-      dropPlayingRef.current = false;
-    }, 1400);
+    // Synth 
+    if (beatPhase % 1 === 0) {
+      const noteIndex = Math.floor(beatPhase / 4) % SYNTH_NOTES.length;
+      const freq = SYNTH_NOTES[noteIndex];
+      playSynthNote(ctx, master, freq);
+    }
   };
 
-  const startRave = async (opts = {}) => {
+  // 🎹 SYNTH NOTE PLAYER (mit Frequenz)
+  const playSynthNote = (ctx, master, freq) => {
+    const sound = SOUNDS.synth;
+    const now = ctx.currentTime;
+    const osc = ctx.createOscillator();
+    const gain = ctx.createGain();
+
+    osc.type = sound.type;
+    osc.frequency.value = freq;
+
+    gain.gain.setValueAtTime(0.0001, now);
+    gain.gain.exponentialRampToValueAtTime(sound.volume, now + sound.attack);
+    gain.gain.exponentialRampToValueAtTime(0.001, now + sound.attack + sound.decay);
+
+    osc.connect(gain);
+    gain.connect(master);
+    osc.start(now);
+    osc.stop(now + sound.duration);
+  };
+
+  const startRave = async () => {
     try {
-      const bpm = opts.bpm || 128;
       const Ctx = window.AudioContext || window.webkitAudioContext;
       const ctx = new Ctx();
       audioCtxRef.current = ctx;
 
       const master = ctx.createGain();
-      master.gain.value = 0.15;
+      master.gain.value = BEAT_CONFIG.masterVolume;
       master.connect(ctx.destination);
       masterGainRef.current = master;
 
-      const interval = (60 / bpm) * 1000;
+      const interval = (60 / BEAT_CONFIG.bpm) * 1000;
 
-      playKick(ctx, master);
-      kickIntervalRef.current = setInterval(() => {
-        playKick(ctx, master);
+      let beatPhase = 0;
+      playBeat(ctx, master, beatPhase);
+
+      beatIntervalRef.current = setInterval(() => {
+        beatPhase++;
+        playBeat(ctx, master, beatPhase);
       }, interval);
-
-      // Drop after 32 beats
-      if (dropTimeoutRef.current) clearTimeout(dropTimeoutRef.current);
-      dropTimeoutRef.current = setTimeout(() => {
-        playDrop();
-      }, interval * 32);
     } catch (err) {
       console.error("Audio start failed", err);
     }
@@ -122,3 +168,4 @@ export default function useStrudel() {
 
   return [rave, toggleRave];
 }
+
