@@ -76,6 +76,7 @@ export default function TimelineViz() {
   const [maxYear, setMaxYear] = useState(new Date().getFullYear());
   const [projects, setProjects] = useState([]);
   const [isMobile, setIsMobile] = useState(false);
+  const [hoveredProjectId, setHoveredProjectId] = useState(null);
 
   // Fetch data from NocoDB
   useEffect(() => {
@@ -139,10 +140,29 @@ export default function TimelineViz() {
     );
   }
 
-  function ProjectDot({ x, y, title }) {
+  function ProjectDot({ x, y, title, teamIdx, slug, skillSlug }) {
     const tx = x + tooltipOffsetXD - TIMELINE_CONFIG.projects.tooltipBgPadding;
+    const projectId = `${teamIdx}-${x}-${y}-${title}`;
+    const isHovered = hoveredProjectId === projectId;
+    
+    const handleClick = (e) => {
+      e.stopPropagation();
+      console.log("ProjectDot clicked:", { title, slug, skillSlug });
+      if (slug && skillSlug) {
+        window.location.href = `/skills/${skillSlug}/${slug}`;
+      } else {
+        console.warn("No slug available for project:", title);
+      }
+    };
+    
     return (
-      <g className="project-dot-group">
+      <g 
+        className="project-dot-group"
+        onMouseEnter={() => setHoveredProjectId(projectId)}
+        onMouseLeave={() => setHoveredProjectId(null)}
+        onClick={handleClick}
+        style={{ pointerEvents: "auto", cursor: slug ? "pointer" : "default" }}
+      >
         <circle
           cx={x}
           cy={y}
@@ -226,18 +246,55 @@ export default function TimelineViz() {
           );
         })}
 
-        {/* Projects: secondary first, primary last */}
+        {/* Projects: secondary first, primary last, hovered on top */}
         {Object.entries(projectsByYear).map(([year, projs]) => {
           const dotY = yearToY(parseInt(year, 10));
           const secondary = projs.slice(1);
           const primary = projs[0];
+          
+          // Render non-hovered projects first
+          const nonHoveredDots = [];
+          
+          secondary.forEach((p, sIdx) => {
+            const posY = dotY + (sIdx + 1) * projectStackYD;
+            const projectId = `${teamIdx}-${teamToX(teamIdx)}-${posY}-${p.title}`;
+            if (hoveredProjectId !== projectId) {
+              nonHoveredDots.push(
+                <ProjectDot key={`sec-${sIdx}`} x={teamToX(teamIdx)} y={posY} title={p.title} teamIdx={teamIdx} slug={p.slug} skillSlug={p.skillSlug} />
+              );
+            }
+          });
+          
+          if (primary) {
+            const projectId = `${teamIdx}-${teamToX(teamIdx)}-${dotY}-${primary.title}`;
+            if (hoveredProjectId !== projectId) {
+              nonHoveredDots.push(
+                <ProjectDot key={`prim`} x={teamToX(teamIdx)} y={dotY} title={primary.title} teamIdx={teamIdx} slug={primary.slug} skillSlug={primary.skillSlug} />
+              );
+            }
+          }
+          
+          // Render hovered project LAST (on top)
+          let hoveredDotElement = null;
+          secondary.forEach((p, sIdx) => {
+            const posY = dotY + (sIdx + 1) * projectStackYD;
+            const projectId = `${teamIdx}-${teamToX(teamIdx)}-${posY}-${p.title}`;
+            if (hoveredProjectId === projectId) {
+              hoveredDotElement = <ProjectDot key={`sec-${sIdx}`} x={teamToX(teamIdx)} y={posY} title={p.title} teamIdx={teamIdx} slug={p.slug} skillSlug={p.skillSlug} />;
+            }
+          });
+          
+          if (!hoveredDotElement && primary) {
+            const projectId = `${teamIdx}-${teamToX(teamIdx)}-${dotY}-${primary.title}`;
+            if (hoveredProjectId === projectId) {
+              hoveredDotElement = <ProjectDot key={`prim`} x={teamToX(teamIdx)} y={dotY} title={primary.title} teamIdx={teamIdx} slug={primary.slug} skillSlug={primary.skillSlug} />;
+            }
+          }
+          
           return (
             <g key={`dots-${teamIdx}-${year}`}>
-              {secondary.map((p, sIdx) => {
-                const posY = dotY + (sIdx + 1) * projectStackYD;
-                return <ProjectDot key={`sec-${sIdx}`} x={x} y={posY} title={p.title} />;
-              })}
-              {primary && <ProjectDot key={`prim`} x={x} y={dotY} title={primary.title} />}
+              {nonHoveredDots}
+              {hoveredDotElement}
             </g>
           );
         })}
@@ -293,7 +350,7 @@ export default function TimelineViz() {
         ))}
       </defs>
 
-      {/* Year lines (dotted grid) */}
+      {/* Year lines (dotted grid) – BACKGROUND */}
       {Array.from({ length: yearRange + 1 }, (_, i) => {
         const year = maxYear - i;
         const y = yearToY(year);
@@ -313,12 +370,7 @@ export default function TimelineViz() {
         );
       })}
 
-      {/* Team groups (bars + dots + labels) */}
-      {uniqueTeams.map((teamName, idx) => (
-        <TeamGroup key={teamName} teamName={teamName} teamIdx={idx} />
-      ))}
-
-      {/* Year labels */}
+      {/* Year labels – BACKGROUND */}
       {Array.from({ length: yearRange + 1 }, (_, i) => {
         const year = maxYear - i;
         const y = yearToY(year);
@@ -336,6 +388,22 @@ export default function TimelineViz() {
             {year}
           </text>
         );
+      })}
+
+      {/* Team groups (bars + dots + labels) – FOREGROUND */}
+      {/* Render non-hovered teams first */}
+      {uniqueTeams.map((teamName, idx) => {
+        // Check if any project in this team is hovered
+        const hasHoveredProject = hoveredProjectId?.startsWith(`${idx}-`);
+        if (hasHoveredProject) return null;
+        return <TeamGroup key={teamName} teamName={teamName} teamIdx={idx} />;
+      })}
+      
+      {/* Render hovered team LAST (on top) */}
+      {uniqueTeams.map((teamName, idx) => {
+        const hasHoveredProject = hoveredProjectId?.startsWith(`${idx}-`);
+        if (!hasHoveredProject) return null;
+        return <TeamGroup key={teamName} teamName={teamName} teamIdx={idx} />;
       })}
     </svg>
   );

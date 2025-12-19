@@ -13,12 +13,12 @@ export default function Header() {
 
   return (
     <header className="header">
-      <a href="/" className=" w-full text-3 axis-left">
+      <a href="/" className="flex-1 text-3 axis-left">
         <div className="header__link">Sketchbook</div>
       </a>
 
       {/* Disco button in the middle */}
-      <div className="header__spacer w-full axis-center">
+      <div className="header__spacer flex-1 axis-center">
         <button
           ref={buttonRef}
           className="header__disco"
@@ -33,7 +33,7 @@ export default function Header() {
 
       <a
         href="/about"
-        className=" w-full text-3 axis-right"
+        className="flex-1 text-3 axis-right"
       >
         <div className="header__link">who dis?</div>
       </a>

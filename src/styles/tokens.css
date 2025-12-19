@@ -81,6 +81,11 @@
   --layout-masonry-2col: 2;
   --layout-masonry-1col: 1;
 
+  /* 📋 CASE CONTAINER SIZES */
+  --size-case-line-height: 3.5rem;
+  --size-case-line-height-open: 7.5rem;
+  --size-masonry-title-height: 6rem;
+
   /* 📏 BREAKPOINTS */
   --breakpoint-lg: 1200px;
   --breakpoint-md: 900px;

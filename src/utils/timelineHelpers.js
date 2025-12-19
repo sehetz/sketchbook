@@ -6,6 +6,19 @@
  */
 
 /**
+ * Generate slug from title
+ * @private
+ */
+function timeline_generateSlug(title) {
+  return title
+    .toLowerCase()
+    .trim()
+    .replace(/\s+/g, "-")
+    .replace(/[^\w\-]/g, "")
+    .replace(/\-+/g, "-");
+}
+
+/**
  * Parse year from various formats
  * @private
  */
@@ -86,9 +99,14 @@ export async function timeline_fetch(setTeams, setMinYear, setProjects) {
       const projectRows = projectsJson.list || [];
 
       const projectsExtracted = [];
-      projectRows.forEach((proj) => {
+      projectRows.forEach((proj, projIdx) => {
         const year = timeline_parseYear(proj.Datum);
         if (!year) return;
+
+        // Get the first related skill
+        const relSkills = proj["nc_3zu8___nc_m2m_nc_3zu8__Projec_Skills"] || [];
+        const skillObj = relSkills[0]?.Skills;
+        const skillSlug = skillObj?.Skill ? timeline_generateSlug(skillObj.Skill) : "all";
 
         const relTeams = proj["nc_3zu8___nc_m2m_nc_3zu8__Projec_Teams"] || [];
         relTeams.forEach((rel) => {
@@ -98,6 +116,8 @@ export async function timeline_fetch(setTeams, setMinYear, setProjects) {
             team: teamObj.Team,
             year,
             title: proj.Title || "Untitled",
+            slug: timeline_generateSlug(proj.Title),
+            skillSlug: skillSlug,
           });
         });
       });
