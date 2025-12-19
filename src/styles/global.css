@@ -150,6 +150,21 @@ p {
   text-align: right;
 }
 
+.center {
+  justify-content: center;
+  align-items: center;
+  color: red;
+  height:100%;
+}
+
+/* Text on same baseline */
+.text-baseline {
+  display: flex;
+  align-items: flex-end;
+  padding-bottom: 4px;
+  line-height: var(--text-1-line);
+}
+
 /* ==========================
    Hover Effects
    ========================== */
