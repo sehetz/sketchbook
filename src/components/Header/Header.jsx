@@ -1,13 +1,15 @@
-// TODO: State über mehrere Pages hinweg speichern
-// Visualization auf dark mode anpassen
-// Soundtrack schreiben
-
-
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
+import { useRotationAnimation } from "../../utils/helpers";
 import useStrudel from "./useStrudel";
 
 export default function Header() {
   const [rave, toggleRave] = useStrudel();
+  const buttonRef = useRef(null);
+
+  useEffect(() => {
+    if (!buttonRef.current) return;
+    return useRotationAnimation(buttonRef.current, rave);
+  }, [rave]);
 
   return (
     <header className="header">
@@ -18,7 +20,8 @@ export default function Header() {
       {/* Disco button in the middle */}
       <div className="header__spacer w-full axis-center">
         <button
-          className={`header__disco ${rave ? "header__disco--on" : ""}`}
+          ref={buttonRef}
+          className="header__disco"
           onClick={toggleRave}
           aria-pressed={rave}
           aria-label={rave ? "Stop disco" : "Start disco"}

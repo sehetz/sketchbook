@@ -6,6 +6,7 @@
 //   content_*()  → Content/block manipulation
 //   project_*()  → Project data normalization
 //   timer_*()    → Async timer management
+//   animation_*() → Animation utilities
 //   CONSTANT_*   → Configuration constants
 //
 // All functions documented with:
@@ -23,6 +24,46 @@
 export const CLOSE_MS = 400;
 export const TRANSITION_GAP_MS = 20;
 export const DEFAULT_FIRST_OPEN_INDEX = 0;
+
+// ============================================
+// ANIMATION HELPERS
+// ============================================
+
+/**
+ * Rotate animation loop for DOM elements
+ * Used in: Header.jsx (disco button rotation)
+ * What: Continuously rotates element via requestAnimationFrame with 2deg increments. Snaps to last full 360° rotation on stop.
+ *
+ * @param {HTMLElement} element - DOM element to rotate
+ * @param {Boolean} isActive - Whether animation should run
+ * @returns {Function} Cleanup function to stop animation
+ */
+export function useRotationAnimation(element, isActive) {
+  let animationId;
+  let rotation = 0;
+
+  const getRotationFromTransform = () => {
+    const transform = element.style.transform;
+    const match = transform.match(/rotate\((-?\d+(?:\.\d+)?)deg\)/);
+    return match ? parseFloat(match[1]) : 0;
+  };
+
+  const rotate = () => {
+    element.style.transform = `rotate(${(rotation += 2)}deg)`;
+    animationId = requestAnimationFrame(rotate);
+  };
+
+  if (isActive) {
+    rotation = getRotationFromTransform();
+    animationId = requestAnimationFrame(rotate);
+  } else {
+    const currentRotation = getRotationFromTransform();
+    const lastFullRotation = Math.floor(currentRotation / 360) * 360;
+    element.style.transform = `rotate(${lastFullRotation}deg)`;
+  }
+
+  return () => animationId && cancelAnimationFrame(animationId);
+}
 
 // ============================================
 // CONTENT BLOCK HELPERS

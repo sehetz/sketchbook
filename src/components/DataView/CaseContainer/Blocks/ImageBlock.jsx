@@ -66,7 +66,7 @@ export default function ImageBlock({ images, projectTitle = "" }) {
         {images.map((item, i) => {
           const altText = alt_generate(item.name, projectTitle, i);
           return (
-            <div key={i} className="image-wrapper image-wrapper--4x5">
+            <div key={i} className="image-wrapper image-wrapper--3x4">
               {isVideo(item) ? (
                 <video
                   className="image-media"
