@@ -20,6 +20,8 @@ export default function TeamTeaser({ team }) {
           src={teaserImage}
           alt=""
           className="teaser__image"
+          loading="lazy"
+          decoding="async"
         />
       ) : (
         <div className="teaser__image placeholder" />

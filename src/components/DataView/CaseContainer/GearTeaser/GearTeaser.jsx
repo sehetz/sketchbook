@@ -23,6 +23,8 @@ export default function GearTeaser({ gear }) {
             alt=""
             className="teaser__image_small"
             style={{ width: "100%", height: "100%", objectFit: "cover" }}
+            loading="lazy"
+            decoding="async"
           />
         ) : (
           <div className="teaser__image_small placeholder" />

@@ -1,0 +1,13 @@
+User-agent: *
+Allow: /
+
+# Sitemaps
+Sitemap: https://sehetz.ch/sitemap.xml
+
+# Crawl-delay (optional, um Server nicht zu überlasten)
+Crawl-delay: 1
+
+# Disallow specific crawlers if needed
+# User-agent: AhrefsBot
+# User-agent: SemrushBot
+# Disallow: /

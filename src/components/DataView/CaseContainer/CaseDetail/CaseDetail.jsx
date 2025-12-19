@@ -4,6 +4,7 @@ import LinkBlock from "./Blocks/LinkBlock.jsx";
 
 export default function CaseDetail({ project }) {
   const blocks = project.blocks || [];
+  const projectTitle = project.Title || "";
 
   return (
     <div className="case-detail flex-col w-full">
@@ -17,7 +18,7 @@ export default function CaseDetail({ project }) {
           block.type.includes("_images") ||
           block.type.includes("_gallery")
         ) {
-          return <ImageBlock key={i} images={block.data} />;
+          return <ImageBlock key={i} images={block.data} projectTitle={projectTitle} />;
         }
 
         if (block.type.includes("_links")) {

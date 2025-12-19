@@ -1,5 +1,7 @@
 // src/App.jsx
 import "./styles/global.css";
+import { useHead } from "./utils/useHead.js";
+import { injectSchema, getOrganizationSchema } from "./utils/structuredData.js";
 
 // Core Components
 import Header from "./components/Header/Header";
@@ -23,6 +25,18 @@ function App() {
     const onPop = () => setCurrentPath(window.location.pathname);
     window.addEventListener("popstate", onPop);
     return () => window.removeEventListener("popstate", onPop);
+  }, []);
+
+  // Set meta tags for homepage
+  useHead({
+    title: "Sehetz Sketchbook – Creative Portfolio",
+    description: "Explore a curated portfolio of design, illustration, and digital art projects. Discover skills, gears, and creative teams.",
+    url: "https://sehetz.ch",
+  });
+
+  // Inject Organization schema
+  useEffect(() => {
+    injectSchema(getOrganizationSchema());
   }, []);
 
   // normalize trailing slash, then route

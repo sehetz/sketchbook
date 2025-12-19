@@ -2,7 +2,9 @@
 // ImageBlock.jsx – unified grid + 4-per-row with proper aspect ratios
 // ============================================
 
-export default function ImageBlock({ images }) {
+import { generateAltText } from '../../../../../utils/seoHelpers.js';
+
+export default function ImageBlock({ images, projectTitle = "" }) {
   if (!images?.length) return null;
 
   const NOCO = import.meta.env.VITE_NOCO_BASE_URL || "http://localhost:8080";
@@ -16,6 +18,7 @@ export default function ImageBlock({ images }) {
   // CASE 1: Single image (16:9 fullwidth)
   if (images.length === 1) {
     const item = images[0];
+    const altText = generateAltText(item.name, projectTitle, 0);
     return (
       <div className="image-block">
         <div className="image-wrapper image-wrapper--16x9">
@@ -32,7 +35,7 @@ export default function ImageBlock({ images }) {
             <img
               className="image-media"
               src={src(item)}
-              alt="image"
+              alt={altText}
               loading="lazy"
               decoding="async"
             />
@@ -48,28 +51,31 @@ export default function ImageBlock({ images }) {
   return (
     <div className="image-block">
       <div className={`image-grid ${isFourGrid ? "image-grid--4col" : ""}`}>
-        {images.map((item, i) => (
-          <div key={i} className="image-wrapper image-wrapper--4x5">
-            {isVideo(item) ? (
-              <video
-                className="image-media"
-                src={src(item)}
-                autoPlay
-                loop
-                muted
-                playsInline
-              />
-            ) : (
-              <img
-                className="image-media"
-                src={src(item)}
-                alt={`image-${i}`}
-                loading="lazy"
-                decoding="async"
-              />
-            )}
-          </div>
-        ))}
+        {images.map((item, i) => {
+          const altText = generateAltText(item.name, projectTitle, i);
+          return (
+            <div key={i} className="image-wrapper image-wrapper--4x5">
+              {isVideo(item) ? (
+                <video
+                  className="image-media"
+                  src={src(item)}
+                  autoPlay
+                  loop
+                  muted
+                  playsInline
+                />
+              ) : (
+                <img
+                  className="image-media"
+                  src={src(item)}
+                  alt={altText}
+                  loading="lazy"
+                  decoding="async"
+                />
+              )}
+            </div>
+          );
+        })}
       </div>
     </div>
   );

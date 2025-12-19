@@ -21,7 +21,7 @@ export default function DataView({ onFilterChange }) {
   const NOCO_BASE_URL = import.meta.env.VITE_NOCO_BASE_URL || "http://localhost:8080";
 
   // ============================================
-  // EFFECT: Fetch data from API
+  // EFFECT: Fetch data from API (only for current filter)
   // ============================================
   useEffect(() => {
     async function fetchData() {
@@ -35,7 +35,13 @@ export default function DataView({ onFilterChange }) {
         setError(err.message);
       }
     }
+
     fetchData();
+
+    // Auto-refresh every 30 seconds for live CMS updates
+    const refreshInterval = setInterval(fetchData, 30000);
+
+    return () => clearInterval(refreshInterval);
   }, [API_URL, API_TOKEN, NOCO_BASE_URL]);
 
   // ============================================
@@ -43,6 +49,8 @@ export default function DataView({ onFilterChange }) {
   // ============================================
   useEffect(() => {
     if (onFilterChange) onFilterChange(filter);
+    // Close all open case headers when filter changes
+    setOpenIndex(null);
   }, [filter, onFilterChange]);
 
   // ============================================
