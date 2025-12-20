@@ -7,8 +7,8 @@ export default function Intro({ filter = "skills", page = "home" }) {
 
   const API_TOKEN = import.meta.env.VITE_API_TOKEN;
   const NOCO_BASE = import.meta.env.VITE_NOCO_BASE_URL || "http://localhost:8080";
-  const INTRO_VIEW_ID = "vw8evlxwj1fpd1qw";
-  const INTRO_API_URL = `${NOCO_BASE}/api/v2/views/${INTRO_VIEW_ID}/records`;
+  const INTRO_TABLE_ID = "m1usrhdmzjt7qo8";
+  const INTRO_API_URL = `${NOCO_BASE}/api/v2/tables/${INTRO_TABLE_ID}/records`;
 
   useEffect(() => {
     async function fetchIntroText() {

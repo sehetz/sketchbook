@@ -5,8 +5,8 @@ export default function AllProjectsMasonry() {
   const API_TOKEN = import.meta.env.VITE_API_TOKEN;
   const NOCO_BASE_URL =
     import.meta.env.VITE_NOCO_BASE_URL || "http://localhost:8080";
-  const PROJECTS_VIEW_ID = "vw9n29p51rs5maj4";
-  const PROJECTS_API_URL = `${NOCO_BASE_URL}/api/v2/views/${PROJECTS_VIEW_ID}/records`;
+  const PROJECTS_TABLE_ID = "mieh9d1y7a7ls74";
+  const PROJECTS_API_URL = `${NOCO_BASE_URL}/api/v2/tables/${PROJECTS_TABLE_ID}/records`;
 
   // Replace previous getImageUrl / normalizeUrl with a robust deep finder
   const normalizeUrl = (u) => {

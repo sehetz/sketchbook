@@ -47,10 +47,10 @@ export async function timeline_fetch(setTeams, setMinYear, setProjects) {
   try {
     const API_TOKEN = import.meta.env.VITE_API_TOKEN;
     const NOCO_BASE = import.meta.env.VITE_NOCO_BASE_URL || "http://localhost:8080";
-    const TEAMS_VIEW_ID = "vwq1bb9edqp3oq27";
-    const PROJECTS_VIEW_ID = "vw9n29p51rs5maj4";
-    const TEAMS_API_URL = `${NOCO_BASE}/api/v2/views/${TEAMS_VIEW_ID}/records`;
-    const PROJECTS_API_URL = `${NOCO_BASE}/api/v2/views/${PROJECTS_VIEW_ID}/records`;
+    const TEAMS_TABLE_ID = "mpz7ywybfxm3isa";
+    const PROJECTS_TABLE_ID = "mieh9d1y7a7ls74";
+    const TEAMS_API_URL = `${NOCO_BASE}/api/v2/tables/${TEAMS_TABLE_ID}/records`;
+    const PROJECTS_API_URL = `${NOCO_BASE}/api/v2/tables/${PROJECTS_TABLE_ID}/records`;
 
     // Fetch teams
     const teamsRes = await fetch(TEAMS_API_URL, {
