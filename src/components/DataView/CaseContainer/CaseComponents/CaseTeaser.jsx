@@ -55,12 +55,12 @@ export default function CaseTeaser({
       >
         {type === "skills" ? (
           <div className="flex w-full  gap-6">
-            <div className="flex-1 axis-left text-1">{project.Title}</div>
+            <div className="flex-1 axis-left text-1 case-line__title">{project.Title}</div>
             <div className="flex-1 axis-center text-1 case-line__gear">{firstGear}</div>
             <div className="flex-1 axis-right text-1 case-line__team">{firstTeam}</div>
           </div>
         ) : (
-          <div className="text-1">{project.Title}</div>
+          <div className="text-1 case-line__title">{project.Title}</div>
         )}
       </div>
 

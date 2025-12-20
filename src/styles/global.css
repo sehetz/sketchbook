@@ -257,8 +257,9 @@ a {
 }
 .wipe.open,
 .teaser-wipe.open {
-  max-height: 10000px;
+  max-height: 99999px;
   opacity: 1;
+  overflow: visible;
 }
 
 /* Header Disco Animation */
@@ -342,6 +343,9 @@ a {
   box-sizing: border-box;
   transition: var(--transition-smooth);
 }
+.case-container.open {
+  overflow: visible;
+}
 .case-container__body {
   box-sizing: border-box;
 }
@@ -355,6 +359,10 @@ a {
   cursor: pointer;
   transition: var(--transition-smooth);
   height: 100%;
+  padding-top: 2px;
+  padding-bottom: 2px;
+  border-bottom: var(--line-width) dotted transparent;
+  box-sizing: border-box;
 }
 .case-header:hover,
 .case-header-wrapper:hover,
@@ -363,7 +371,6 @@ a {
 }
 .case-header-wrapper--selected {
   border-bottom: var(--line-width) dotted var(--color-fg);
-  box-sizing: border-box;
 }
 
 .case-line {
@@ -376,6 +383,16 @@ a {
   box-sizing: border-box;
   transition: height var(--transition-interact),
     background-color var(--transition-fast);
+}
+.case-line__title {
+  display: block;
+  min-width: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.case-line .flex > .flex-1 {
+  min-width: 0;
 }
 .case-line:hover {
   background-color: var(--color-hover-bg);
@@ -401,6 +418,9 @@ a {
 .block-wrapper {
   width: 100%;
   box-sizing: border-box;
+}
+.block-wrapper--final-no-links {
+  padding-bottom: var(--space-24);
 }
 
 /* Teasers */
@@ -553,6 +573,18 @@ a.link-block__link {
   text-decoration-skip-ink: auto;
   transition: var(--transition-smooth);
   gap: var(--space-2);
+  align-items: center;
+  flex-wrap: nowrap;
+  white-space: nowrap;
+}
+.link-block__icon {
+  display: inline-flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+.link-block__text {
+  display: inline-flex;
+  align-items: center;
 }
 a.link-block__link:hover .link-block__text {
   background-color: var(--color-hover-bg);
@@ -627,6 +659,11 @@ strong,
   .teaser {
     flex-direction: column;
     gap: var(--space-4);
+  }
+  .case-detail .link-block__link.flex {
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
   }
   .masonry {
     column-count: 2;

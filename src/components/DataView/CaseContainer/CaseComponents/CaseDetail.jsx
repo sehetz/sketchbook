@@ -6,6 +6,8 @@ export default function CaseDetail({ project }) {
   const blocks = project.blocks || [];
   const projectTitle = project.Title || "";
 
+  const hasLinkBlock = blocks.some((block) => block.type.includes("link"));
+
   blocks.forEach((b, i) => {
   });
 
@@ -17,7 +19,10 @@ export default function CaseDetail({ project }) {
           const blockData = block.data;
           
           return (
-            <div key={index} className="block-wrapper">
+            <div
+              key={index}
+              className={`block-wrapper ${!hasLinkBlock && index === blocks.length - 1 ? "block-wrapper--final-no-links" : ""}`}
+            >
               {(block.type.includes("text")) && <TextBlock text={blockData} />}
               {(block.type.includes("image") || block.type.includes("gallery")) && (
                 <ImageBlock images={blockData} projectTitle={projectTitle} blockIndex={index} />

@@ -733,7 +733,7 @@ export default function TimelineViz() {
                       height={TWEAK.projectLabels.bgHeightMobile}
                       rx={TWEAK.projectLabels.bgHeightMobile / 2}
                       ry={TWEAK.projectLabels.bgHeightMobile / 2}
-                      fill={colors.tooltipBg}
+                      fill={colors.circle}
                       stroke={colors.tooltipStroke}
                       opacity={colors.tooltipOpacity}
                     />

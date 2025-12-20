@@ -122,7 +122,8 @@ export default function CaseContainer({
 
   if (displayProjects.length === 0) return null;
 
-  const closedHeight = 64 + 32 * Math.max(displayProjects.length - 1, 0);
+  const headerBaseHeight = 66; // 64px base + 2px bottom padding
+  const closedHeight = headerBaseHeight + 32 * Math.max(displayProjects.length - 1, 0);
 
   // ============================================
   // RENDER CONTENT BY TYPE
@@ -183,7 +184,7 @@ export default function CaseContainer({
       <div
         className={`case-header-wrapper transition-height ${isOpen ? "case-header-wrapper--selected" : ""}`}
         onClick={handleSkillToggle}
-        style={{ height: isOpen ? "64px" : `${closedHeight}px` }}
+        style={{ height: isOpen ? `${headerBaseHeight}px` : `${closedHeight}px` }}
       >
         <CaseHeader type={type} label={label} projects={displayProjects} isOpen={isOpen} />
       </div>
