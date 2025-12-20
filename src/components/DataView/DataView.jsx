@@ -68,7 +68,9 @@ export default function DataView({ urlState, currentPath }) {
   // ============================================
 
   // 1) Filter: Only online projects
-  const onlineData = data.filter(project => project.is_online === 1);
+  const onlineData = data.filter((project) =>
+    project.is_online === 1 || project.is_online === true || project.is_online === "1"
+  );
 
   // Helper: get sortable timestamp
   const getProjectDate = (project) => {
