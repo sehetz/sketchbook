@@ -39,10 +39,12 @@ export default function DataView({ urlState, currentPath }) {
   useEffect(() => {
     async function fetchData() {
       try {
-        const res = await fetch(API_URL, { headers: { "xc-token": API_TOKEN } });
+        const include = "include=nc_3zu8___nc_m2m_nc_3zu8__Projec_Skills,nc_3zu8___nc_m2m_nc_3zu8__Projec_Gears,nc_3zu8___nc_m2m_nc_3zu8__Projec_Teams&limit=200";
+        const urlWithInclude = API_URL.includes("?") ? `${API_URL}&${include}` : `${API_URL}?${include}`;
+        const res = await fetch(urlWithInclude, { headers: { "xc-token": API_TOKEN } });
         if (!res.ok) throw new Error(`Error: ${res.status}`);
         const json = await res.json();
-        const normalized = json.list.map(p => project_normalize(p, NOCO_BASE_URL));
+        const normalized = (json.list || []).map((p) => project_normalize(p, NOCO_BASE_URL));
         setData(normalized);
       } catch (err) {
         setError(err.message);
