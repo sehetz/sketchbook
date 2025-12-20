@@ -51,7 +51,7 @@ const TWEAK = {
     bgPadding: 8,            // Padding inside tooltip background
     bgHeight: 24,            // Height of tooltip background rect on desktop
     bgHeightMobile: 52,      // Height of tooltip background rect on mobile (increased)
-    paddingTop: 4,           // Padding above tooltip background
+    paddingTop: 6,           // Padding above tooltip background
     offsetX: 24,             // Horizontal distance from dot to label
     offsetXMobile: 12,       // Horizontal distance from dot to label on mobile
   },
@@ -97,7 +97,8 @@ const TWEAK = {
   // 🎯 TEAM LABELS
   labels: {
     offsetAboveBar: 32,    // Distance above bar to show team name
-    lineHeight: 14,        // Line height between team name lines
+    lineHeight: 14,        // Line height between team name lines (desktop)
+    lineHeightMobile: 24,  // Line height between team name lines (mobile)
   },
 
   // 📊 GRID LINES
@@ -115,6 +116,7 @@ const TWEAK = {
 
   // 🔤 YEAR LABEL LETTER SPACING
   yearLetterSpacing: 0.12,  // Letter spacing for year labels
+  letterSpacingMobile: 1.0, // Extra letter spacing for all text on mobile
 };
 
 export default function TimelineViz() {
@@ -206,6 +208,30 @@ export default function TimelineViz() {
   const projectDotRadiusD = isMobile ? TWEAK.dots.radiusMobile : TWEAK.dots.radiusDesktop;
   const lineDashArrayD = isMobile ? TWEAK.lines.dashArrayMobile : TWEAK.lines.dashArrayDesktop;
   const tooltipOffsetXD = isMobile ? TWEAK.projectLabels.offsetXMobile : TWEAK.projectLabels.offsetX;
+  const labelLineHeight = isMobile ? TWEAK.labels.lineHeightMobile : TWEAK.labels.lineHeight;
+  const letterSpacingMobile = `${TWEAK.letterSpacingMobile}px`;
+  const letterSpacingD = isMobile ? letterSpacingMobile : undefined;
+  const yearLetterSpacingD = isMobile ? letterSpacingMobile : `${TWEAK.yearLetterSpacing}px`;
+  const teamLabelWeight = isMobile ? "400" : "800";
+
+  // Measure mobile label width to keep exact padding (8px per side)
+  const measureMobileLabelWidth = useMemo(() => {
+    if (!isMobile) return () => 0;
+    const canvas = document.createElement("canvas");
+    const ctx = canvas.getContext("2d");
+    if (!ctx) return () => 0;
+    const cache = new Map();
+    const fontSize = TWEAK.projectLabels.fontSizeMobile;
+    const letterSpacing = TWEAK.letterSpacingMobile;
+    ctx.font = `${fontSize}px SF Pro Rounded`;
+    return (text = "") => {
+      if (cache.has(text)) return cache.get(text);
+      const baseWidth = ctx.measureText(text).width;
+      const width = baseWidth + Math.max(0, text.length - 1) * letterSpacing;
+      cache.set(text, width);
+      return width;
+    };
+  }, [isMobile]);
 
   if (teams.length === 0) return null;
 
@@ -386,13 +412,15 @@ export default function TimelineViz() {
           y={labelY}
           fontSize={isMobile ? TWEAK.fonts.labelMobile : TWEAK.fonts.labelDesktop}
           fontFamily="SF Pro Rounded"
+          fontWeight={teamLabelWeight}
           textAnchor="middle"
           fill={colors.text}
           className="team-label"
+          letterSpacing={letterSpacingD}
           style={{ pointerEvents: "none" }}
         >
           {teamName.split(" ").map((w, idx) => (
-            <tspan key={idx} x={x} dy={idx === 0 ? 0 : TWEAK.labels.lineHeight}>
+              <tspan key={idx} x={x} dy={idx === 0 ? 0 : labelLineHeight}>
               {w}
             </tspan>
           ))}
@@ -401,8 +429,9 @@ export default function TimelineViz() {
               <tspan
                 key={`role-${rIdx}`}
                 x={x}
-                dy={TWEAK.labels.lineHeight}
+                dy={labelLineHeight}
                 fontSize={isMobile ? TWEAK.fonts.labelMobile : TWEAK.fonts.labelDesktop}
+                fontWeight="400"
               >
                 {rw}
               </tspan>
@@ -460,7 +489,7 @@ export default function TimelineViz() {
             y={y - TWEAK.spacing.yearSpacingDesktop / 5}
             fontSize={isMobile ? TWEAK.fonts.yearMobile : TWEAK.fonts.yearDesktop}
             fontFamily="SF Pro Rounded"
-            letterSpacing={`${TWEAK.yearLetterSpacing}px`}
+            letterSpacing={yearLetterSpacingD}
             textAnchor="start"
             fill={colors.text}
           >
@@ -529,13 +558,15 @@ export default function TimelineViz() {
                     y={headerY - 12}
                     fontSize={TWEAK.fonts.labelMobile}
                     fontFamily="SF Pro Rounded"
+                    fontWeight={teamLabelWeight}
                     textAnchor="middle"
                     fill={colors.text}
                     className="team-label"
+                    letterSpacing={letterSpacingMobile}
                     style={{ pointerEvents: "none" }}
                   >
                     {teamName.split(" ").map((w, idx) => (
-                      <tspan key={idx} x={x} dy={idx === 0 ? 0 : TWEAK.labels.lineHeight}>
+                      <tspan key={idx} x={x} dy={idx === 0 ? 0 : labelLineHeight}>
                         {w}
                       </tspan>
                     ))}
@@ -658,43 +689,7 @@ export default function TimelineViz() {
       {isMobile && (
         <g className="project-labels-overlay">
           {/* Background rects first */}
-          {uniqueTeams.map((teamName, teamIdx) => {
-            const teamProjects = projectsByTeam[teamName] || [];
-            const projectsByYear = {};
-            teamProjects.forEach((p) => {
-              if (!projectsByYear[p.year]) projectsByYear[p.year] = [];
-              projectsByYear[p.year].push(p);
-            });
-
-            return Object.entries(projectsByYear).map(([year, projs]) => {
-              const dotY = yearToY(parseInt(year, 10));
-              const posX = teamToX(teamIdx, teamName);
-
-              return projs.map((p, idx) => {
-                const posY = dotY + idx * projectStackYD;
-                const fontSize = TWEAK.projectLabels.fontSizeMobile;
-                const charWidth = fontSize * 0.6; // Approximate character width for SF Pro Rounded
-                const tooltipWidth = Math.max(60, p.title.length * charWidth + TWEAK.projectLabels.bgPadding * 2);
-                const bgHeightD = TWEAK.projectLabels.bgHeightMobile;
-                
-                return (
-                  <rect
-                    key={`bg-${teamIdx}-${year}-${idx}`}
-                    className="project-tooltip-bg"
-                    x={posX - tooltipWidth / 2}
-                    y={posY - bgHeightD / 2 - TWEAK.projectLabels.paddingTop}
-                    width={tooltipWidth}
-                    height={bgHeightD}
-                    rx={bgHeightD / 2}
-                    ry={bgHeightD / 2}
-                    fill={colors.tooltipBg}
-                    stroke={colors.tooltipStroke}
-                    opacity={colors.tooltipOpacity}
-                  />
-                );
-              });
-            });
-          }).flat()}
+          {null}
           
           {/* Text labels on top */}
           {uniqueTeams.map((teamName, teamIdx) => {
@@ -712,6 +707,9 @@ export default function TimelineViz() {
               return projs.map((p, idx) => {
                 const posY = dotY + idx * projectStackYD;
                 const tx = posX; // Center the label on the team column
+                const labelPadding = 16;
+                const textWidth = isMobile ? measureMobileLabelWidth(p.title) : 0;
+                const tooltipWidth = isMobile ? textWidth + labelPadding * 2 : 0;
                 
                 const handleClick = (e) => {
                   e.stopPropagation();
@@ -721,20 +719,37 @@ export default function TimelineViz() {
                 };
                 
                 return (
-                  <text
+                  <g
                     key={`label-${teamIdx}-${year}-${idx}`}
-                    x={tx}
-                    y={posY + 5}
-                    fontSize={TWEAK.projectLabels.fontSizeMobile}
-                    fontFamily="SF Pro Rounded"
-                    textAnchor="middle"
-                    fill={colors.projectLabelText}
-                    className="project-title"
+                    className="project-label"
                     onClick={handleClick}
                     style={{ cursor: p.slug ? "pointer" : "default" }}
                   >
-                    {p.title}
-                  </text>
+                    <rect
+                      className="project-tooltip-bg"
+                      x={posX - tooltipWidth / 2}
+                      y={posY - TWEAK.projectLabels.bgHeightMobile / 2 - TWEAK.projectLabels.paddingTop}
+                      width={tooltipWidth}
+                      height={TWEAK.projectLabels.bgHeightMobile}
+                      rx={TWEAK.projectLabels.bgHeightMobile / 2}
+                      ry={TWEAK.projectLabels.bgHeightMobile / 2}
+                      fill={colors.tooltipBg}
+                      stroke={colors.tooltipStroke}
+                      opacity={colors.tooltipOpacity}
+                    />
+                    <text
+                      x={tx}
+                      y={posY + 5}
+                      fontSize={TWEAK.projectLabels.fontSizeMobile}
+                      fontFamily="SF Pro Rounded"
+                      textAnchor="middle"
+                      fill={colors.projectLabelText}
+                      className="project-title"
+                      letterSpacing={letterSpacingMobile}
+                    >
+                      {p.title}
+                    </text>
+                  </g>
                 );
               });
             });

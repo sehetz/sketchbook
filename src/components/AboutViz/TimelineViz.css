@@ -103,21 +103,20 @@
   }
 
   /* Mobile project labels overlay - always visible and on top */
-  .project-labels-overlay .project-tooltip-bg {
-    opacity: 1;
-    transform: none;
-  }
+    .project-labels-overlay .project-tooltip-bg {
+      opacity: 1;
+      transform: none;
+    }
 
-  .project-labels-overlay .project-title {
-    opacity: 1;
-    transform: none;
-    cursor: pointer;
-    pointer-events: auto;
-  }
+    .project-labels-overlay .project-title {
+      opacity: 1;
+      transform: none;
+      cursor: pointer;
+      pointer-events: auto;
+    }
 
-  /* Yellow hover/active state for mobile label backgrounds (like external links) */
-  .project-labels-overlay .project-title:hover ~ .project-tooltip-bg,
-  .project-labels-overlay .project-title:active ~ .project-tooltip-bg {
-    fill: #FFD700;
-  }
+    .project-label:hover .project-tooltip-bg,
+    .project-label:active .project-tooltip-bg {
+      fill: var(--color-timeline-hover);
+    }
 }
