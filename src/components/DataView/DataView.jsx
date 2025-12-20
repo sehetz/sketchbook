@@ -24,6 +24,29 @@ export default function DataView({ urlState, currentPath }) {
   const API_TOKEN = import.meta.env.VITE_API_TOKEN;
   const NOCO_BASE_URL = import.meta.env.VITE_NOCO_BASE_URL || "http://localhost:8080";
 
+  // Hydrate quickly from pre-rendered JSON (public/data/projects.json) if present
+  useEffect(() => {
+    let cancelled = false;
+    async function hydrateFromStatic() {
+      try {
+        const res = await fetch("/data/projects.json", { cache: "force-cache" });
+        if (!res.ok) return;
+        const json = await res.json();
+        const normalized = (json.list || []).map((p) => project_normalize(p, NOCO_BASE_URL));
+        if (!cancelled && normalized.length) {
+          setData((prev) => (prev && prev.length ? prev : normalized));
+        }
+      } catch (err) {
+        // ignore
+      }
+    }
+
+    hydrateFromStatic();
+    return () => {
+      cancelled = true;
+    };
+  }, [NOCO_BASE_URL]);
+
   // ============================================
   // EFFECT: Sync URL changes to state
   // ============================================
@@ -41,16 +64,12 @@ export default function DataView({ urlState, currentPath }) {
       try {
         const include = "include=nc_3zu8___nc_m2m_nc_3zu8__Projec_Skills,nc_3zu8___nc_m2m_nc_3zu8__Projec_Gears,nc_3zu8___nc_m2m_nc_3zu8__Projec_Teams&limit=200";
         const urlWithInclude = API_URL.includes("?") ? `${API_URL}&${include}` : `${API_URL}?${include}`;
-        console.log("[DataView] fetch", urlWithInclude);
         const res = await fetch(urlWithInclude, { headers: { "xc-token": API_TOKEN } });
         if (!res.ok) throw new Error(`Error: ${res.status}`);
         const json = await res.json();
-        console.log("[DataView] raw list length", json.list?.length || 0);
         const normalized = (json.list || []).map((p) => project_normalize(p, NOCO_BASE_URL));
-        console.log("[DataView] normalized length", normalized.length);
         setData(normalized);
       } catch (err) {
-        console.error("[DataView] fetch error", err);
         setError(err.message);
       }
     }
@@ -95,16 +114,14 @@ export default function DataView({ urlState, currentPath }) {
   const groupKey = groupKeyMap[filter];
 
   // 3) Group projects by skill/gear/team
-  console.log("[DataView] online projects", onlineData.length, "filter", filter);
-
   const grouped = onlineData.reduce((acc, project) => {
     const rel = project[groupKey];
     if (!rel?.length) return acc;
 
-    rel.forEach((item) => {
-      const keyName = filter === "skills" ? item.skill?.Skill
-        : filter === "gears" ? item.gear?.Gear
-        : item.team?.Team;
+      rel.forEach((item) => {
+        const keyName = filter === "skills" ? item.skill?.Skill
+          : filter === "gears" ? item.gear?.Gear
+          : item.team?.Team;
 
       let entry = project;
       if (filter === "gears") entry = { ...project, __gearData: item.Gear };
@@ -116,8 +133,6 @@ export default function DataView({ urlState, currentPath }) {
 
     return acc;
   }, {});
-
-  console.log("[DataView] container count", Object.keys(grouped).length);
 
   // 4) Convert to containers + sort by project count
   const containers = Object.entries(grouped)

@@ -14,15 +14,12 @@ export default function CaseTeaser({
 }) {
   const caseLineRef = useRef(null);
 
-  // ⭐ Extract first related gear & team (if present)
-  const firstGear =
-    project["nc_3zu8___nc_m2m_nc_3zu8__Projec_Gears"]?.[0]?.Gear?.Gear || "";
-  const firstTeam =
-    project["nc_3zu8___nc_m2m_nc_3zu8__Projec_Teams"]?.[0]?.Teams?.Team || "";
+  // ⭐ Extract first related gear & team (current NocoDB keys)
+  const firstGear = project._nc_m2m_sehetz_gears?.[0]?.gear?.Gear || "";
+  const firstTeam = project._nc_m2m_sehetz_teams?.[0]?.team?.Team || "";
 
   // ⭐ Extract first skill name (for skills view)
-  const firstSkill =
-    project["nc_3zu8___nc_m2m_nc_3zu8__Projec_Skills"]?.[0]?.Skills?.Skill || "";
+  const firstSkill = project._nc_m2m_sehetz_skills?.[0]?.skill?.Skill || "";
 
   // ⭐ Scroll AFTER opening (minimal perceptible delay)
   useEffect(() => {

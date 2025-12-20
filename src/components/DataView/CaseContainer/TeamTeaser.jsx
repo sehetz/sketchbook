@@ -8,9 +8,9 @@ export default function TeamTeaser({ team }) {
   const NOCO = import.meta.env.VITE_NOCO_BASE_URL || "http://localhost:8080";
 
   const file = team["Teaser-Image"]?.[0];
-  const teaserImage = file
-    ? `${NOCO}/${file.signedPath || file.path}`
-    : null;
+  const filePath = file?.signedPath || file?.thumbnails?.card_cover?.signedPath || file?.path;
+  const teaserImage = filePath ? `${NOCO}/${filePath}` : null;
+
 
   return (
     <div className="flex gap-6 p-teaser">

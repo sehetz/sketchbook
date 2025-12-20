@@ -32,9 +32,11 @@ export default function CaseContainer({
 
   // Memoize displayProjects BEFORE useEffects that depend on it
   const displayProjects = useMemo(() => {
-    return type === "teams"
-      ? projects.filter(p => p.__teamData?.Team?.toLowerCase() !== "sehetz")
-      : projects;
+    if (type !== "teams") return projects;
+    return projects.filter((p) => {
+      const name = (p.__teamData?.Team || p._nc_m2m_sehetz_teams?.[0]?.team?.Team || "").toLowerCase();
+      return name !== "sehetz";
+    });
   }, [type, projects]);
 
   // Auto-open first project when group opens
@@ -171,9 +173,11 @@ export default function CaseContainer({
     }
 
     if (type === "gears") {
+      const primary = displayProjects[0] || {};
+      const gearData = primary.__gearData || primary._nc_m2m_sehetz_gears?.[0]?.gear || null;
       return (
         <>
-          <GearTeaser gear={displayProjects[0].__gearData} />
+          <GearTeaser gear={gearData} />
           {!isOpen && displayProjects.length > 1 && (
             <div style={{ height: `${(displayProjects.length - 1) * 32}px` }} />
           )}
@@ -182,9 +186,11 @@ export default function CaseContainer({
     }
 
     if (type === "teams") {
+      const primary = displayProjects[0] || {};
+      const teamData = primary.__teamData || primary._nc_m2m_sehetz_teams?.[0]?.team || null;
       return (
         <>
-          <TeamTeaser team={displayProjects[0].__teamData} />
+          <TeamTeaser team={teamData} />
           {!isOpen && displayProjects.length > 1 && (
             <div style={{ height: `${(displayProjects.length - 1) * 32}px` }} />
           )}
