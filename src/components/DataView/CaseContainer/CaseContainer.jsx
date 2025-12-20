@@ -27,6 +27,8 @@ export default function CaseContainer({
   const [openProjectIndex, setOpenProjectIndex] = useState(null);
   const queuedProjectRef = useRef(null);
   const transitionTimerRef = useRef(null);
+  const containerRef = useRef(null);
+  const userClearedRequestedRef = useRef(false);
 
   // Memoize displayProjects BEFORE useEffects that depend on it
   const displayProjects = useMemo(() => {
@@ -66,7 +68,7 @@ export default function CaseContainer({
 
   // If URL has requestedProjectSlug, find and open matching project
   useEffect(() => {
-    if (requestedProjectSlug && isOpen) {
+    if (requestedProjectSlug && isOpen && !userClearedRequestedRef.current) {
       const matchingIndex = projects.findIndex(p => text_labelToSlug(p.Title) === requestedProjectSlug);
       if (matchingIndex !== -1 && openProjectIndex !== matchingIndex) {
         setOpenProjectIndex(matchingIndex);
@@ -79,8 +81,26 @@ export default function CaseContainer({
     return () => timer_clear(transitionTimerRef, queuedProjectRef);
   }, []);
 
+  // Reset manual-clear flag when URL slug changes
+  useEffect(() => {
+    userClearedRequestedRef.current = false;
+  }, [requestedProjectSlug, label]);
+
+  // Scroll gears/teams into view when opened (skills already scroll per project)
+  useEffect(() => {
+    if (!isOpen) return;
+    if (type === "skills") return;
+    const node = containerRef.current;
+    if (!node) return;
+    const rect = node.getBoundingClientRect();
+    const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+    const targetY = rect.top + scrollTop;
+    window.scrollTo({ top: targetY, behavior: "smooth" });
+  }, [isOpen, type]);
+
   const handleSkillToggle = () => {
     if (isOpen) {
+      userClearedRequestedRef.current = true;
       setTimeout(() => setOpenProjectIndex(null), 50);
     } else if (type === "skills") {
       setOpenProjectIndex(DEFAULT_FIRST_OPEN_INDEX);
@@ -91,6 +111,7 @@ export default function CaseContainer({
   const handleProjectToggle = (index) => {
     // Same project → close
     if (openProjectIndex === index) {
+      userClearedRequestedRef.current = true;
       timer_clear(transitionTimerRef, queuedProjectRef);
       setOpenProjectIndex(null);
       
@@ -174,6 +195,7 @@ export default function CaseContainer({
 
   return (
     <section
+      ref={containerRef}
       className={`case-container ${isOpen ? "open" : "closed"}`}
       style={{
         borderTop: "3px solid var(--color-fg)",
