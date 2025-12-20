@@ -2,22 +2,19 @@
 // TeamTeaser.jsx – Team-Level Body Teaser
 // ============================================
 
+import MasterMediaImage from "../../../common/MasterMediaImage.jsx";
+
 export default function TeamTeaser({ team }) {
   if (!team) return null;
 
-  const NOCO = import.meta.env.VITE_NOCO_BASE_URL || "http://localhost:8080";
-
   const file = team["Teaser-Image"]?.[0];
-  const teaserImage = file
-    ? `${NOCO}/${file.signedPath || file.path}`
-    : null;
 
   return (
     <div className="flex gap-6 p-teaser">
       {/* IMAGE */}
-      {teaserImage ? (
-        <img
-          src={teaserImage}
+      {file ? (
+        <MasterMediaImage
+          file={file}
           alt=""
           className="teaser__image"
           loading="lazy"

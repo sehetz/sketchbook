@@ -1,0 +1,455 @@
+{
+  "found": [
+    {
+      "recordId": 1,
+      "recordTitle": "Harbourwalk",
+      "field": "Teaser-Image[0]",
+      "filename": "3x4_sehetz_sarah_heitz_sketchbook_Harbourwalk_05.webp",
+      "normalized": "3x4_sehetz_sarah_heitz_sketchbook_Harbourwalk_05.webp",
+      "localPath": "/media/Harbourwalk/3x4_sehetz_sarah_heitz_sketchbook_Harbourwalk_05.webp"
+    },
+    {
+      "recordId": 1,
+      "recordTitle": "Harbourwalk",
+      "field": "content_04_images[0]",
+      "filename": "3x4_sehetz_sarah_heitz_sketchbook_Harbourwalk_06.webp",
+      "normalized": "3x4_sehetz_sarah_heitz_sketchbook_Harbourwalk_06.webp",
+      "localPath": "/media/Harbourwalk/3x4_sehetz_sarah_heitz_sketchbook_Harbourwalk_06.webp"
+    },
+    {
+      "recordId": 1,
+      "recordTitle": "Harbourwalk",
+      "field": "content_04_images[1]",
+      "filename": "3x4_sehetz_sarah_heitz_sketchbook_Harbourwalk_07.webp",
+      "normalized": "3x4_sehetz_sarah_heitz_sketchbook_Harbourwalk_07.webp",
+      "localPath": "/media/Harbourwalk/3x4_sehetz_sarah_heitz_sketchbook_Harbourwalk_07.webp"
+    },
+    {
+      "recordId": 1,
+      "recordTitle": "Harbourwalk",
+      "field": "content_06_gallery[0]",
+      "filename": "3x4_sehetz_sarah_heitz_sketchbook_Harbourwalk_01.webp",
+      "normalized": "3x4_sehetz_sarah_heitz_sketchbook_Harbourwalk_01.webp",
+      "localPath": "/media/Harbourwalk/3x4_sehetz_sarah_heitz_sketchbook_Harbourwalk_01.webp"
+    },
+    {
+      "recordId": 1,
+      "recordTitle": "Harbourwalk",
+      "field": "content_06_gallery[1]",
+      "filename": "3x4_sehetz_sarah_heitz_sketchbook_Harbourwalk_02.webp",
+      "normalized": "3x4_sehetz_sarah_heitz_sketchbook_Harbourwalk_02.webp",
+      "localPath": "/media/Harbourwalk/3x4_sehetz_sarah_heitz_sketchbook_Harbourwalk_02.webp"
+    },
+    {
+      "recordId": 1,
+      "recordTitle": "Harbourwalk",
+      "field": "content_06_gallery[2]",
+      "filename": "3x4_sehetz_sarah_heitz_sketchbook_Harbourwalk_03.webp",
+      "normalized": "3x4_sehetz_sarah_heitz_sketchbook_Harbourwalk_03.webp",
+      "localPath": "/media/Harbourwalk/3x4_sehetz_sarah_heitz_sketchbook_Harbourwalk_03.webp"
+    },
+    {
+      "recordId": 2,
+      "recordTitle": "Mission Iris",
+      "field": "Teaser-Image[0]",
+      "filename": "P011 Mission Iris 003.png",
+      "normalized": "P011 Mission Iris 003.png",
+      "localPath": "/media/Mission Iris/P011 Mission Iris 003.png"
+    },
+    {
+      "recordId": 3,
+      "recordTitle": "Chebby Chic",
+      "field": "Teaser-Image[0]",
+      "filename": "3x4_sehetz_sarah_heitz_sketchbook_chebby_chic_01.webp",
+      "normalized": "3x4_sehetz_sarah_heitz_sketchbook_chebby_chic_01.webp",
+      "localPath": "/media/Chebby Chic/3x4_sehetz_sarah_heitz_sketchbook_chebby_chic_01.webp"
+    },
+    {
+      "recordId": 3,
+      "recordTitle": "Chebby Chic",
+      "field": "content_02_image[0]",
+      "filename": "16x9_sehetz_sarah_heitz_sketchbook_chebby_chic_05.webp",
+      "normalized": "16x9_sehetz_sarah_heitz_sketchbook_chebby_chic_05.webp",
+      "localPath": "/media/Chebby Chic/16x9_sehetz_sarah_heitz_sketchbook_chebby_chic_05.webp"
+    },
+    {
+      "recordId": 3,
+      "recordTitle": "Chebby Chic",
+      "field": "content_06_gallery[0]",
+      "filename": "3x4_sehetz_sarah_heitz_sketchbook_chebby_chic_01.webp",
+      "normalized": "3x4_sehetz_sarah_heitz_sketchbook_chebby_chic_01.webp",
+      "localPath": "/media/Chebby Chic/3x4_sehetz_sarah_heitz_sketchbook_chebby_chic_01.webp"
+    },
+    {
+      "recordId": 3,
+      "recordTitle": "Chebby Chic",
+      "field": "content_06_gallery[1]",
+      "filename": "3x4_sehetz_sarah_heitz_sketchbook_chebby_chic_02.webp",
+      "normalized": "3x4_sehetz_sarah_heitz_sketchbook_chebby_chic_02.webp",
+      "localPath": "/media/Chebby Chic/3x4_sehetz_sarah_heitz_sketchbook_chebby_chic_02.webp"
+    },
+    {
+      "recordId": 3,
+      "recordTitle": "Chebby Chic",
+      "field": "content_06_gallery[2]",
+      "filename": "3x4_sehetz_sarah_heitz_sketchbook_chebby_chic_03.webp",
+      "normalized": "3x4_sehetz_sarah_heitz_sketchbook_chebby_chic_03.webp",
+      "localPath": "/media/Chebby Chic/3x4_sehetz_sarah_heitz_sketchbook_chebby_chic_03.webp"
+    },
+    {
+      "recordId": 3,
+      "recordTitle": "Chebby Chic",
+      "field": "content_06_gallery[3]",
+      "filename": "3x4_sehetz_sarah_heitz_sketchbook_chebby_chic_04.webp",
+      "normalized": "3x4_sehetz_sarah_heitz_sketchbook_chebby_chic_04.webp",
+      "localPath": "/media/Chebby Chic/3x4_sehetz_sarah_heitz_sketchbook_chebby_chic_04.webp"
+    },
+    {
+      "recordId": 3,
+      "recordTitle": "Chebby Chic",
+      "field": "content_06_gallery[4]",
+      "filename": "3x4_sehetz_sarah_heitz_sketchbook_chebby_chic_05.webp",
+      "normalized": "3x4_sehetz_sarah_heitz_sketchbook_chebby_chic_05.webp",
+      "localPath": "/media/Chebby Chic/3x4_sehetz_sarah_heitz_sketchbook_chebby_chic_05.webp"
+    },
+    {
+      "recordId": 3,
+      "recordTitle": "Chebby Chic",
+      "field": "content_06_gallery[5]",
+      "filename": "3x4_sehetz_sarah_heitz_sketchbook_chebby_chic_06.webp",
+      "normalized": "3x4_sehetz_sarah_heitz_sketchbook_chebby_chic_06.webp",
+      "localPath": "/media/Chebby Chic/3x4_sehetz_sarah_heitz_sketchbook_chebby_chic_06.webp"
+    },
+    {
+      "recordId": 3,
+      "recordTitle": "Chebby Chic",
+      "field": "content_06_gallery[6]",
+      "filename": "3x4_sehetz_sarah_heitz_sketchbook_chebby_chic_07.webp",
+      "normalized": "3x4_sehetz_sarah_heitz_sketchbook_chebby_chic_07.webp",
+      "localPath": "/media/Chebby Chic/3x4_sehetz_sarah_heitz_sketchbook_chebby_chic_07.webp"
+    },
+    {
+      "recordId": 3,
+      "recordTitle": "Chebby Chic",
+      "field": "content_06_gallery[7]",
+      "filename": "3x4_sehetz_sarah_heitz_sketchbook_chebby_chic_08.webp",
+      "normalized": "3x4_sehetz_sarah_heitz_sketchbook_chebby_chic_08.webp",
+      "localPath": "/media/Chebby Chic/3x4_sehetz_sarah_heitz_sketchbook_chebby_chic_08.webp"
+    },
+    {
+      "recordId": 3,
+      "recordTitle": "Chebby Chic",
+      "field": "content_06_gallery[8]",
+      "filename": "3x4_sehetz_sarah_heitz_sketchbook_chebby_chic_09.webp",
+      "normalized": "3x4_sehetz_sarah_heitz_sketchbook_chebby_chic_09.webp",
+      "localPath": "/media/Chebby Chic/3x4_sehetz_sarah_heitz_sketchbook_chebby_chic_09.webp"
+    },
+    {
+      "recordId": 4,
+      "recordTitle": "Als Gott Schlief",
+      "field": "Teaser-Image[0]",
+      "filename": "sehetz Sarah Heitz teaser Video 01_1.webm",
+      "normalized": "sehetz Sarah Heitz teaser Video 01_1.webm",
+      "localPath": "/media/Als Gott Schlief/sehetz Sarah Heitz teaser Video 01_1.webm"
+    },
+    {
+      "recordId": 4,
+      "recordTitle": "Als Gott Schlief",
+      "field": "content_02_image[0]",
+      "filename": "16x9_sehetz_sarah_heitz_sketchbook_als-gott-schlief_01.webp",
+      "normalized": "16x9_sehetz_sarah_heitz_sketchbook_als-gott-schlief_01.webp",
+      "localPath": "/media/Als Gott Schlief/16x9_sehetz_sarah_heitz_sketchbook_als-gott-schlief_01.webp"
+    },
+    {
+      "recordId": 4,
+      "recordTitle": "Als Gott Schlief",
+      "field": "content_06_gallery[0]",
+      "filename": "3x4_sehetz_sarah_heitz_sketchbook_als-gott-schlief_10.webp",
+      "normalized": "3x4_sehetz_sarah_heitz_sketchbook_als-gott-schlief_10.webp",
+      "localPath": "/media/Als Gott Schlief/3x4_sehetz_sarah_heitz_sketchbook_als-gott-schlief_10.webp"
+    },
+    {
+      "recordId": 4,
+      "recordTitle": "Als Gott Schlief",
+      "field": "content_06_gallery[1]",
+      "filename": "3x4_sehetz_sarah_heitz_sketchbook_als-gott-schlief_11.webp",
+      "normalized": "3x4_sehetz_sarah_heitz_sketchbook_als-gott-schlief_11.webp",
+      "localPath": "/media/Als Gott Schlief/3x4_sehetz_sarah_heitz_sketchbook_als-gott-schlief_11.webp"
+    },
+    {
+      "recordId": 4,
+      "recordTitle": "Als Gott Schlief",
+      "field": "content_06_gallery[2]",
+      "filename": "3x4_sehetz_sarah_heitz_sketchbook_als-gott-schlief_12.webp",
+      "normalized": "3x4_sehetz_sarah_heitz_sketchbook_als-gott-schlief_12.webp",
+      "localPath": "/media/Als Gott Schlief/3x4_sehetz_sarah_heitz_sketchbook_als-gott-schlief_12.webp"
+    },
+    {
+      "recordId": 4,
+      "recordTitle": "Als Gott Schlief",
+      "field": "content_06_gallery[3]",
+      "filename": "3x4_sehetz_sarah_heitz_sketchbook_als-gott-schlief_13.webp",
+      "normalized": "3x4_sehetz_sarah_heitz_sketchbook_als-gott-schlief_13.webp",
+      "localPath": "/media/Als Gott Schlief/3x4_sehetz_sarah_heitz_sketchbook_als-gott-schlief_13.webp"
+    },
+    {
+      "recordId": 4,
+      "recordTitle": "Als Gott Schlief",
+      "field": "content_06_gallery[4]",
+      "filename": "3x4_sehetz_sarah_heitz_sketchbook_als-gott-schlief_14.webp",
+      "normalized": "3x4_sehetz_sarah_heitz_sketchbook_als-gott-schlief_14.webp",
+      "localPath": "/media/Als Gott Schlief/3x4_sehetz_sarah_heitz_sketchbook_als-gott-schlief_14.webp"
+    },
+    {
+      "recordId": 4,
+      "recordTitle": "Als Gott Schlief",
+      "field": "content_06_gallery[5]",
+      "filename": "3x4_sehetz_sarah_heitz_sketchbook_als-gott-schlief_15.webp",
+      "normalized": "3x4_sehetz_sarah_heitz_sketchbook_als-gott-schlief_15.webp",
+      "localPath": "/media/Als Gott Schlief/3x4_sehetz_sarah_heitz_sketchbook_als-gott-schlief_15.webp"
+    },
+    {
+      "recordId": 4,
+      "recordTitle": "Als Gott Schlief",
+      "field": "content_06_gallery[6]",
+      "filename": "3x4_sehetz_sarah_heitz_sketchbook_als-gott-schlief_16.webp",
+      "normalized": "3x4_sehetz_sarah_heitz_sketchbook_als-gott-schlief_16.webp",
+      "localPath": "/media/Als Gott Schlief/3x4_sehetz_sarah_heitz_sketchbook_als-gott-schlief_16.webp"
+    },
+    {
+      "recordId": 4,
+      "recordTitle": "Als Gott Schlief",
+      "field": "content_06_gallery[7]",
+      "filename": "3x4_sehetz_sarah_heitz_sketchbook_als-gott-schlief_17.webp",
+      "normalized": "3x4_sehetz_sarah_heitz_sketchbook_als-gott-schlief_17.webp",
+      "localPath": "/media/Als Gott Schlief/3x4_sehetz_sarah_heitz_sketchbook_als-gott-schlief_17.webp"
+    },
+    {
+      "recordId": 4,
+      "recordTitle": "Als Gott Schlief",
+      "field": "content_06_gallery[8]",
+      "filename": "3x4_sehetz_sarah_heitz_sketchbook_als-gott-schlief_18.webp",
+      "normalized": "3x4_sehetz_sarah_heitz_sketchbook_als-gott-schlief_18.webp",
+      "localPath": "/media/Als Gott Schlief/3x4_sehetz_sarah_heitz_sketchbook_als-gott-schlief_18.webp"
+    },
+    {
+      "recordId": 5,
+      "recordTitle": "BFS Rosling",
+      "field": "Teaser-Image[0]",
+      "filename": "Rosling_20230106_014-7.png",
+      "normalized": "Rosling_20230106_014-7.png",
+      "localPath": "/media/BFSRosling/Rosling_20230106_014-7.png"
+    },
+    {
+      "recordId": 6,
+      "recordTitle": "SDGraphical",
+      "field": "Teaser-Image[0]",
+      "filename": "aC8eUSdWJ-7kScVD_P187.1100Teaser4x5.avif",
+      "normalized": "aC8eUSdWJ-7kScVD_P187.1100Teaser4x5.avif",
+      "localPath": "/media/SDGraphical/aC8eUSdWJ-7kScVD_P187.1100Teaser4x5.avif"
+    },
+    {
+      "recordId": 8,
+      "recordTitle": "Dreamscape",
+      "field": "Teaser-Image[0]",
+      "filename": "Carnault-No1-Carnault-152826635.webp",
+      "normalized": "Carnault-No1-Carnault-152826635.webp",
+      "localPath": "/media/Dreamscape/Carnault-No1-Carnault-152826635.webp"
+    },
+    {
+      "recordId": 9,
+      "recordTitle": "Web Illustrations",
+      "field": "Teaser-Image[0]",
+      "filename": "Sehetz Sarah Heitz Gear Blender@8x.webp",
+      "normalized": "Sehetz Sarah Heitz Gear Blender@8x.webp",
+      "localPath": "/media/Web Illustrations/Sehetz Sarah Heitz Gear Blender@8x.webp"
+    },
+    {
+      "recordId": 9,
+      "recordTitle": "Web Illustrations",
+      "field": "content_02_image[0]",
+      "filename": "Sehetz Sarah Heitz Gear Gruppe@8x.webp",
+      "normalized": "Sehetz Sarah Heitz Gear Gruppe@8x.webp",
+      "localPath": "/media/Web Illustrations/Sehetz Sarah Heitz Gear Gruppe@8x.webp"
+    },
+    {
+      "recordId": 9,
+      "recordTitle": "Web Illustrations",
+      "field": "content_04_images[0]",
+      "filename": "Sehetz Sarah Heitz Gear Ipad Crop@8x.webp",
+      "normalized": "Sehetz Sarah Heitz Gear Ipad Crop@8x.webp",
+      "localPath": "/media/Web Illustrations/Sehetz Sarah Heitz Gear Ipad Crop@8x.webp"
+    },
+    {
+      "recordId": 9,
+      "recordTitle": "Web Illustrations",
+      "field": "content_04_images[1]",
+      "filename": "Sehetz Sarah Heitz Gear Blender@8x.webp",
+      "normalized": "Sehetz Sarah Heitz Gear Blender@8x.webp",
+      "localPath": "/media/Web Illustrations/Sehetz Sarah Heitz Gear Blender@8x.webp"
+    },
+    {
+      "recordId": 9,
+      "recordTitle": "Web Illustrations",
+      "field": "content_06_gallery[0]",
+      "filename": "Sehetz Sarah Heitz Gear Blender@8x.webp",
+      "normalized": "Sehetz Sarah Heitz Gear Blender@8x.webp",
+      "localPath": "/media/Web Illustrations/Sehetz Sarah Heitz Gear Blender@8x.webp"
+    },
+    {
+      "recordId": 9,
+      "recordTitle": "Web Illustrations",
+      "field": "content_06_gallery[1]",
+      "filename": "Sehetz Sarah Heitz Gear Canon 70 D@8x.webp",
+      "normalized": "Sehetz Sarah Heitz Gear Canon 70 D@8x.webp",
+      "localPath": "/media/Web Illustrations/Sehetz Sarah Heitz Gear Canon 70 D@8x.webp"
+    },
+    {
+      "recordId": 9,
+      "recordTitle": "Web Illustrations",
+      "field": "content_06_gallery[2]",
+      "filename": "Sehetz Sarah Heitz Gear Creative Cloud Crop@8x.webp",
+      "normalized": "Sehetz Sarah Heitz Gear Creative Cloud Crop@8x.webp",
+      "localPath": "/media/Web Illustrations/Sehetz Sarah Heitz Gear Creative Cloud Crop@8x.webp"
+    },
+    {
+      "recordId": 9,
+      "recordTitle": "Web Illustrations",
+      "field": "content_06_gallery[3]",
+      "filename": "Sehetz Sarah Heitz Gear Ipad Crop@8x.webp",
+      "normalized": "Sehetz Sarah Heitz Gear Ipad Crop@8x.webp",
+      "localPath": "/media/Web Illustrations/Sehetz Sarah Heitz Gear Ipad Crop@8x.webp"
+    },
+    {
+      "recordId": 9,
+      "recordTitle": "Web Illustrations",
+      "field": "content_06_gallery[4]",
+      "filename": "Sehetz Sarah Heitz Gear Pen & Paper@8x.webp",
+      "normalized": "Sehetz Sarah Heitz Gear Pen & Paper@8x.webp",
+      "localPath": "/media/Web Illustrations/Sehetz Sarah Heitz Gear Pen & Paper@8x.webp"
+    },
+    {
+      "recordId": 9,
+      "recordTitle": "Web Illustrations",
+      "field": "content_06_gallery[5]",
+      "filename": "Sehetz Sarah Heitz Gear Sony A6100 Crop@8x.webp",
+      "normalized": "Sehetz Sarah Heitz Gear Sony A6100 Crop@8x.webp",
+      "localPath": "/media/Web Illustrations/Sehetz Sarah Heitz Gear Sony A6100 Crop@8x.webp"
+    }
+  ],
+  "missing": [
+    {
+      "recordId": 1,
+      "recordTitle": "Harbourwalk",
+      "field": "_nc_m2m_sehetz_gears[0].gear.Teaser-Image[0]",
+      "filename": "Sehetz Sarah Heitz Gear Sony A6100 Crop.svg",
+      "normalized": "Sehetz Sarah Heitz Gear Sony A6100 Crop.svg",
+      "remotePath": "dltemp/rRdXSSCbDKVUX6QC/1766281200000/noco/pv3c5ekh1fjoihu/mb2io0hhb8mzae6/cqax9ua61uqjooh/Sehetz Sarah Heitz Gear Sony A6100 Crop__5Kmf.svg"
+    },
+    {
+      "recordId": 2,
+      "recordTitle": "Mission Iris",
+      "field": "_nc_m2m_sehetz_gears[0].gear.Teaser-Image[0]",
+      "filename": "Sehetz Sarah Heitz Gear Ipad Crop.svg",
+      "normalized": "Sehetz Sarah Heitz Gear Ipad Crop.svg",
+      "remotePath": "dltemp/rbjuBWaROb8k-o39/1766281200000/noco/pv3c5ekh1fjoihu/mb2io0hhb8mzae6/cqax9ua61uqjooh/Sehetz Sarah Heitz Gear Ipad Crop_p1Tho.svg"
+    },
+    {
+      "recordId": 3,
+      "recordTitle": "Chebby Chic",
+      "field": "_nc_m2m_sehetz_gears[0].gear.Teaser-Image[0]",
+      "filename": "Sehetz Sarah Heitz Gear Canon 70 D.svg",
+      "normalized": "Sehetz Sarah Heitz Gear Canon 70 D.svg",
+      "remotePath": "dltemp/FECl3WWyVoEARHSv/1766281200000/noco/pv3c5ekh1fjoihu/mb2io0hhb8mzae6/cqax9ua61uqjooh/Sehetz Sarah Heitz Gear Canon 70 D_AQqa7.svg"
+    },
+    {
+      "recordId": 3,
+      "recordTitle": "Chebby Chic",
+      "field": "_nc_m2m_sehetz_teams[0].team.Teaser-Image[0]",
+      "filename": "Sehetz-Team-Hochschule-Trier-3.jpg",
+      "normalized": "Sehetz-Team-Hochschule-Trier-3.jpg",
+      "remotePath": "dltemp/gNQJrT0499xHxrUR/1766281200000/noco/pv3c5ekh1fjoihu/mpz7ywybfxm3isa/cjpjpyar26z9u70/Sehetz-Team-Hochschule-Trier-3_hqbuA.jpg"
+    },
+    {
+      "recordId": 4,
+      "recordTitle": "Als Gott Schlief",
+      "field": "_nc_m2m_sehetz_gears[0].gear.Teaser-Image[0]",
+      "filename": "Sehetz Sarah Heitz Gear Pen & Paper.svg",
+      "normalized": "Sehetz Sarah Heitz Gear Pen & Paper.svg",
+      "remotePath": "dltemp/-qgPAgjaFeLdMJ5U/1766281200000/noco/pv3c5ekh1fjoihu/mb2io0hhb8mzae6/cqax9ua61uqjooh/Sehetz Sarah Heitz Gear Pen & Paper_KuxBN.svg"
+    },
+    {
+      "recordId": 4,
+      "recordTitle": "Als Gott Schlief",
+      "field": "_nc_m2m_sehetz_teams[0].team.Teaser-Image[0]",
+      "filename": "Sehetz-team-Endlich-Tacheles-2.jpg",
+      "normalized": "Sehetz-team-Endlich-Tacheles-2.jpg",
+      "remotePath": "dltemp/YcqKTpzfTWXpaW5b/1766281200000/noco/pv3c5ekh1fjoihu/mpz7ywybfxm3isa/cjpjpyar26z9u70/Sehetz-team-Endlich-Tacheles-2_LeHd6.jpg"
+    },
+    {
+      "recordId": 5,
+      "recordTitle": "BFS Rosling",
+      "field": "_nc_m2m_sehetz_gears[0].gear.Teaser-Image[0]",
+      "filename": "Sehetz Sarah Heitz Gear Blender.svg",
+      "normalized": "Sehetz Sarah Heitz Gear Blender.svg",
+      "remotePath": "dltemp/ZsnqV5I8myxZ3FkI/1766281200000/noco/pv3c5ekh1fjoihu/mb2io0hhb8mzae6/cqax9ua61uqjooh/Sehetz Sarah Heitz Gear Blender_ymjy-.svg"
+    },
+    {
+      "recordId": 5,
+      "recordTitle": "BFS Rosling",
+      "field": "_nc_m2m_sehetz_teams[0].team.Teaser-Image[0]",
+      "filename": "Sehetz-Team-Superdot.webp",
+      "normalized": "Sehetz-Team-Superdot.webp",
+      "remotePath": "dltemp/RKOQtDqfq8Ubh1a8/1766281200000/noco/pv3c5ekh1fjoihu/mpz7ywybfxm3isa/cjpjpyar26z9u70/Sehetz-Team-Superdot__3NTb.webp"
+    },
+    {
+      "recordId": 6,
+      "recordTitle": "SDGraphical",
+      "field": "_nc_m2m_sehetz_gears[0].gear.Teaser-Image[0]",
+      "filename": "Sehetz Sarah Heitz Gear Creative Cloud Crop.svg",
+      "normalized": "Sehetz Sarah Heitz Gear Creative Cloud Crop.svg",
+      "remotePath": "dltemp/dXCp1SdzuAgsAZm-/1766281200000/noco/pv3c5ekh1fjoihu/mb2io0hhb8mzae6/cqax9ua61uqjooh/Sehetz Sarah Heitz Gear Creative Cloud Crop_HcVgW.svg"
+    },
+    {
+      "recordId": 6,
+      "recordTitle": "SDGraphical",
+      "field": "_nc_m2m_sehetz_teams[0].team.Teaser-Image[0]",
+      "filename": "Sehetz-Team-Superdot.webp",
+      "normalized": "Sehetz-Team-Superdot.webp",
+      "remotePath": "dltemp/RKOQtDqfq8Ubh1a8/1766281200000/noco/pv3c5ekh1fjoihu/mpz7ywybfxm3isa/cjpjpyar26z9u70/Sehetz-Team-Superdot__3NTb.webp"
+    },
+    {
+      "recordId": 7,
+      "recordTitle": "Nightwalker",
+      "field": "_nc_m2m_sehetz_gears[0].gear.Teaser-Image[0]",
+      "filename": "Sehetz Sarah Heitz Gear Sony A6100 Crop.svg",
+      "normalized": "Sehetz Sarah Heitz Gear Sony A6100 Crop.svg",
+      "remotePath": "dltemp/rRdXSSCbDKVUX6QC/1766281200000/noco/pv3c5ekh1fjoihu/mb2io0hhb8mzae6/cqax9ua61uqjooh/Sehetz Sarah Heitz Gear Sony A6100 Crop__5Kmf.svg"
+    },
+    {
+      "recordId": 8,
+      "recordTitle": "Dreamscape",
+      "field": "_nc_m2m_sehetz_gears[0].gear.Teaser-Image[0]",
+      "filename": "Sehetz Sarah Heitz Gear Ipad Crop.svg",
+      "normalized": "Sehetz Sarah Heitz Gear Ipad Crop.svg",
+      "remotePath": "dltemp/rbjuBWaROb8k-o39/1766281200000/noco/pv3c5ekh1fjoihu/mb2io0hhb8mzae6/cqax9ua61uqjooh/Sehetz Sarah Heitz Gear Ipad Crop_p1Tho.svg"
+    },
+    {
+      "recordId": 8,
+      "recordTitle": "Dreamscape",
+      "field": "_nc_m2m_sehetz_teams[0].team.Teaser-Image[0]",
+      "filename": "Sehetz-Team-carnault.webp",
+      "normalized": "Sehetz-Team-carnault.webp",
+      "remotePath": "dltemp/D027CGz7ELSR-Ius/1766281200000/noco/pv3c5ekh1fjoihu/mpz7ywybfxm3isa/cjpjpyar26z9u70/Sehetz-Team-carnault_qmVCH.webp"
+    },
+    {
+      "recordId": 9,
+      "recordTitle": "Web Illustrations",
+      "field": "_nc_m2m_sehetz_gears[0].gear.Teaser-Image[0]",
+      "filename": "Sehetz Sarah Heitz Gear Creative Cloud Crop.svg",
+      "normalized": "Sehetz Sarah Heitz Gear Creative Cloud Crop.svg",
+      "remotePath": "dltemp/dXCp1SdzuAgsAZm-/1766281200000/noco/pv3c5ekh1fjoihu/mb2io0hhb8mzae6/cqax9ua61uqjooh/Sehetz Sarah Heitz Gear Creative Cloud Crop_HcVgW.svg"
+    }
+  ],
+  "noFilename": []
+}

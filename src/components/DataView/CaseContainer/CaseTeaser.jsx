@@ -3,6 +3,7 @@
 // ============================================
 
 import { useRef, useEffect } from "react";
+import MasterMediaImage from "../../common/MasterMediaImage.jsx";
 
 export default function CaseTeaser({
   project,
@@ -66,7 +67,7 @@ export default function CaseTeaser({
           <div className="flex-1 pr-8 text-2">{project["description"]}</div>
 
           {isOpen ? (
-            project.teaserVideo ? (
+            project.teaserVideoFile ? (
               <video
                 src={project.teaserVideo}
                 className="teaser__image"
@@ -76,9 +77,9 @@ export default function CaseTeaser({
                 playsInline
                 preload="none"
               />
-            ) : project.teaserImage ? (
-              <img
-                src={project.teaserImage}
+            ) : project.teaserImageFile ? (
+              <MasterMediaImage
+                file={project.teaserImageFile}
                 alt={project.Title}
                 className="teaser__image"
                 loading="lazy"

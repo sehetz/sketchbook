@@ -105,25 +105,28 @@ export function content_build(project) {
 /**
  * Transform raw NocoDB project into frontend format
  * Used in: DataView.jsx (in fetchData loop for each project)
- * What: Parses teaser image/video URLs, converts content blocks, resolves file paths
+ * What: Extracts teaser file objects and builds content blocks
  * 
  * @param {Object} project - Raw NocoDB project record
- * @param {String} NOCO_BASE_URL - NocoDB API base URL for asset paths
- * @returns {Object} Normalized project with { teaserImage, teaserVideo, blocks, ... }
+ * @param {String} NOCO_BASE_URL - NocoDB API base URL (for video URLs)
+ * @returns {Object} Normalized project with { teaserImageFile, teaserVideoFile, blocks, ... }
  */
 export function project_normalize(project, NOCO_BASE_URL) {
   const file = project["Teaser-Image"]?.[0];
-  let teaserImage = null;
+  let teaserImageFile = null;
+  let teaserVideoFile = null;
   let teaserVideo = null;
 
   if (file) {
-    const fullPath = `${NOCO_BASE_URL}/${file.signedPath || file.path}`;
     const mime = file.mimetype || file.type || "";
     const ext = (file.name || "").toLowerCase();
-    if (mime.startsWith("video/") || /\.(mp4|webm|mov|m4v)$/i.test(ext)) {
-      teaserVideo = fullPath;
+    const isVideo = mime.startsWith("video/") || /\.(mp4|webm|mov|m4v)$/i.test(ext);
+    
+    if (isVideo) {
+      teaserVideoFile = file;
+      teaserVideo = `${NOCO_BASE_URL}/${file.signedPath || file.path}`;
     } else {
-      teaserImage = fullPath;
+      teaserImageFile = file;
     }
   }
 
@@ -152,7 +155,7 @@ export function project_normalize(project, NOCO_BASE_URL) {
     return b;
   });
 
-  return { ...project, teaserImage, teaserVideo, blocks };
+  return { ...project, teaserImageFile, teaserVideoFile, teaserVideo, blocks };
 }
 
 // ============================================

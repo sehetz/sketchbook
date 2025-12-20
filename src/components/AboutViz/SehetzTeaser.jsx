@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import MasterMediaImage from "../common/MasterMediaImage.jsx";
 
 export default function SehetzTeaser() {
   const [sehetz, setSehetz] = useState(null);
@@ -23,14 +24,11 @@ export default function SehetzTeaser() {
 
         if (row) {
           const imageFile = row.image?.[0];
-          // Prefer path (stable), then signedPath, then thumbnail
-          const filePath = imageFile?.path || imageFile?.signedPath || imageFile?.thumbnails?.card_cover?.signedPath;
-          const teaserImage = filePath ? `${NOCO_BASE}/${filePath}` : null;
 
           setSehetz({
             title: row.title || "sehetz",
             description: row.description || "",
-            image: teaserImage,
+            imageFile: imageFile,
           });
         }
       } catch (err) {
@@ -39,11 +37,11 @@ export default function SehetzTeaser() {
     }
 
     fetchSehetz();
-  }, [SEHETZ_API_URL, API_TOKEN, NOCO_BASE]);
+  }, [SEHETZ_API_URL, API_TOKEN]);
 
   useEffect(() => {
     setFillFullWidth(false);
-  }, [sehetz?.image]);
+  }, [sehetz?.imageFile]);
 
   const handleImageLoad = (event) => {
     const { naturalWidth, naturalHeight } = event.target;
@@ -69,9 +67,9 @@ export default function SehetzTeaser() {
           {sehetz.description}
         </div>
 
-        {sehetz.image ? (
-          <img
-            src={sehetz.image}
+        {sehetz.imageFile ? (
+          <MasterMediaImage
+            file={sehetz.imageFile}
             alt={sehetz.title}
             className={`teaser__image sehetz-teaser__image${fillFullWidth ? " teaser__image--full sehetz-teaser__image--full" : ""}`}
             onLoad={handleImageLoad}

@@ -2,13 +2,12 @@
 // GearTeaser.jsx – Gear-Level Body Teaser
 // ============================================
 
+import MasterMediaImage from "../../../common/MasterMediaImage.jsx";
+
 export default function GearTeaser({ gear }) {
   if (!gear) return null;
 
-  const NOCO = import.meta.env.VITE_NOCO_BASE_URL || "http://localhost:8080";
-
   const file = gear["Teaser-Image"]?.[0];
-  const teaserImage = file ? `${NOCO}/${file.signedPath || file.path}` : null;
 
   return (
     <div className="flex gap-6 p-6-all pt-12">
@@ -17,9 +16,9 @@ export default function GearTeaser({ gear }) {
 
       {/* COL 2–3 – IMAGE (2 flex-units, fixed aspect ratio) */}
       <div style={{ flex: 2, aspectRatio: "3 / 4" }} className="axis-center">
-        {teaserImage ? (
-          <img
-            src={teaserImage}
+        {file ? (
+          <MasterMediaImage
+            file={file}
             alt=""
             className="teaser__image_small"
             style={{ width: "100%", height: "100%", objectFit: "cover" }}
