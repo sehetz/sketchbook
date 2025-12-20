@@ -47,10 +47,11 @@ const TWEAK = {
   // 🏷 PROJECT LABELS (Projekt-Namen/Titel in Tooltips)
   projectLabels: {
     fontSizeDesktop: 12,     // Font size on desktop
-    fontSizeMobile: 11,      // Font size on mobile
+    fontSizeMobile: 32,      // Font size on mobile
     bgPadding: 8,            // Padding inside tooltip background
-    bgHeight: 24,            // Height of tooltip background rect
-    paddingTop: 0,           // Padding above tooltip background
+    bgHeight: 24,            // Height of tooltip background rect on desktop
+    bgHeightMobile: 52,      // Height of tooltip background rect on mobile (increased)
+    paddingTop: 4,           // Padding above tooltip background
     offsetX: 24,             // Horizontal distance from dot to label
     offsetXMobile: 12,       // Horizontal distance from dot to label on mobile
   },
@@ -60,7 +61,7 @@ const TWEAK = {
     yearDesktop: 24,     // Year label size
     yearMobile: 20,      // Year label size mobile (if needed)
     labelDesktop: 12,    // Team label font size
-    labelMobile: 11,     // Team label font size mobile
+    labelMobile: 24,     // Team label font size mobile
   },
 
   // 📏 SPACING & DIMENSIONS
@@ -212,15 +213,16 @@ export default function TimelineViz() {
 
   function ProjectTooltip({ x, y, title, colors }) {
     const tooltipWidth = Math.max(80, Math.min(220, title.length * 7 + TWEAK.projectLabels.bgPadding * 2));
+    const bgHeightD = isMobile ? TWEAK.projectLabels.bgHeightMobile : TWEAK.projectLabels.bgHeight;
     return (
       <rect
         className="project-tooltip-bg"
         x={x}
-        y={y - TWEAK.projectLabels.bgHeight / 2 - TWEAK.projectLabels.paddingTop}
+        y={y - bgHeightD / 2 - TWEAK.projectLabels.paddingTop}
         width={tooltipWidth}
-        height={TWEAK.projectLabels.bgHeight}
-        rx={TWEAK.projectLabels.bgHeight / 2}
-        ry={TWEAK.projectLabels.bgHeight / 2}
+        height={bgHeightD}
+        rx={bgHeightD / 2}
+        ry={bgHeightD / 2}
         fill={colors.tooltipBg}
         stroke={colors.tooltipStroke}
         opacity={colors.tooltipOpacity}
@@ -673,17 +675,18 @@ export default function TimelineViz() {
                 const fontSize = TWEAK.projectLabels.fontSizeMobile;
                 const charWidth = fontSize * 0.6; // Approximate character width for SF Pro Rounded
                 const tooltipWidth = Math.max(60, p.title.length * charWidth + TWEAK.projectLabels.bgPadding * 2);
+                const bgHeightD = TWEAK.projectLabels.bgHeightMobile;
                 
                 return (
                   <rect
                     key={`bg-${teamIdx}-${year}-${idx}`}
                     className="project-tooltip-bg"
                     x={posX - tooltipWidth / 2}
-                    y={posY - TWEAK.projectLabels.bgHeight / 2 - TWEAK.projectLabels.paddingTop}
+                    y={posY - bgHeightD / 2 - TWEAK.projectLabels.paddingTop}
                     width={tooltipWidth}
-                    height={TWEAK.projectLabels.bgHeight}
-                    rx={TWEAK.projectLabels.bgHeight / 2}
-                    ry={TWEAK.projectLabels.bgHeight / 2}
+                    height={bgHeightD}
+                    rx={bgHeightD / 2}
+                    ry={bgHeightD / 2}
                     fill={colors.tooltipBg}
                     stroke={colors.tooltipStroke}
                     opacity={colors.tooltipOpacity}
