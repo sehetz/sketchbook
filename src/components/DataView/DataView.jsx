@@ -41,12 +41,16 @@ export default function DataView({ urlState, currentPath }) {
       try {
         const include = "include=nc_3zu8___nc_m2m_nc_3zu8__Projec_Skills,nc_3zu8___nc_m2m_nc_3zu8__Projec_Gears,nc_3zu8___nc_m2m_nc_3zu8__Projec_Teams&limit=200";
         const urlWithInclude = API_URL.includes("?") ? `${API_URL}&${include}` : `${API_URL}?${include}`;
+        console.log("[DataView] fetch", urlWithInclude);
         const res = await fetch(urlWithInclude, { headers: { "xc-token": API_TOKEN } });
         if (!res.ok) throw new Error(`Error: ${res.status}`);
         const json = await res.json();
+        console.log("[DataView] raw list length", json.list?.length || 0);
         const normalized = (json.list || []).map((p) => project_normalize(p, NOCO_BASE_URL));
+        console.log("[DataView] normalized length", normalized.length);
         setData(normalized);
       } catch (err) {
+        console.error("[DataView] fetch error", err);
         setError(err.message);
       }
     }
@@ -82,22 +86,25 @@ export default function DataView({ urlState, currentPath }) {
   };
 
   // 2) Get group key based on filter type
+  // NocoDB M2M relation keys (current base uses these names)
   const groupKeyMap = {
-    skills: "nc_3zu8___nc_m2m_nc_3zu8__Projec_Skills",
-    gears: "nc_3zu8___nc_m2m_nc_3zu8__Projec_Gears",
-    teams: "nc_3zu8___nc_m2m_nc_3zu8__Projec_Teams",
+    skills: "_nc_m2m_sehetz_skills",
+    gears: "_nc_m2m_sehetz_gears",
+    teams: "_nc_m2m_sehetz_teams",
   };
   const groupKey = groupKeyMap[filter];
 
   // 3) Group projects by skill/gear/team
+  console.log("[DataView] online projects", onlineData.length, "filter", filter);
+
   const grouped = onlineData.reduce((acc, project) => {
     const rel = project[groupKey];
     if (!rel?.length) return acc;
 
     rel.forEach((item) => {
-      const keyName = filter === "skills" ? item.Skills.Skill
-        : filter === "gears" ? item.Gear.Gear
-        : item.Teams.Team;
+      const keyName = filter === "skills" ? item.skill?.Skill
+        : filter === "gears" ? item.gear?.Gear
+        : item.team?.Team;
 
       let entry = project;
       if (filter === "gears") entry = { ...project, __gearData: item.Gear };
@@ -109,6 +116,8 @@ export default function DataView({ urlState, currentPath }) {
 
     return acc;
   }, {});
+
+  console.log("[DataView] container count", Object.keys(grouped).length);
 
   // 4) Convert to containers + sort by project count
   const containers = Object.entries(grouped)
