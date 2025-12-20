@@ -50,7 +50,7 @@ export async function timeline_fetch(setTeams, setMinYear, setProjects) {
     const TEAMS_TABLE_ID = "mpz7ywybfxm3isa";
     const PROJECTS_TABLE_ID = "mieh9d1y7a7ls74";
     const TEAMS_API_URL = `${NOCO_BASE}/api/v2/tables/${TEAMS_TABLE_ID}/records`;
-    const PROJECTS_API_URL = `${NOCO_BASE}/api/v2/tables/${PROJECTS_TABLE_ID}/records`;
+    const PROJECTS_API_URL = `${NOCO_BASE}/api/v2/tables/${PROJECTS_TABLE_ID}/records?include=_nc_m2m_sehetz_skills,_nc_m2m_sehetz_teams&limit=200`;
 
     // Fetch teams
     const teamsRes = await fetch(TEAMS_API_URL, {
@@ -106,13 +106,13 @@ export async function timeline_fetch(setTeams, setMinYear, setProjects) {
         if (!year) return;
 
         // Get the first related skill
-        const relSkills = proj["nc_3zu8___nc_m2m_nc_3zu8__Projec_Skills"] || [];
-        const skillObj = relSkills[0]?.Skills;
+        const relSkills = proj._nc_m2m_sehetz_skills || [];
+        const skillObj = relSkills[0]?.skill;
         const skillSlug = skillObj?.Skill ? timeline_generateSlug(skillObj.Skill) : "all";
 
-        const relTeams = proj["nc_3zu8___nc_m2m_nc_3zu8__Projec_Teams"] || [];
+        const relTeams = proj._nc_m2m_sehetz_teams || [];
         relTeams.forEach((rel) => {
-          const teamObj = rel.Teams;
+          const teamObj = rel.team;
           if (!teamObj) return;
           projectsExtracted.push({
             team: teamObj.Team,

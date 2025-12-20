@@ -23,9 +23,9 @@ export default function SehetzTeaser() {
 
         if (row) {
           const imageFile = row.image?.[0];
-          const teaserImage = imageFile
-            ? `${NOCO_BASE}/${imageFile.signedPath || imageFile.path}`
-            : null;
+          // Prefer path (stable), then signedPath, then thumbnail
+          const filePath = imageFile?.path || imageFile?.signedPath || imageFile?.thumbnails?.card_cover?.signedPath;
+          const teaserImage = filePath ? `${NOCO_BASE}/${filePath}` : null;
 
           setSehetz({
             title: row.title || "sehetz",
