@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 
 export default function SehetzTeaser() {
   const [sehetz, setSehetz] = useState(null);
+  const [fillFullWidth, setFillFullWidth] = useState(false);
 
   const API_TOKEN = import.meta.env.VITE_API_TOKEN;
   const NOCO_BASE = import.meta.env.VITE_NOCO_BASE_URL || "http://localhost:8080";
@@ -40,14 +41,31 @@ export default function SehetzTeaser() {
     fetchSehetz();
   }, [SEHETZ_API_URL, API_TOKEN, NOCO_BASE]);
 
+  useEffect(() => {
+    setFillFullWidth(false);
+  }, [sehetz?.image]);
+
+  const handleImageLoad = (event) => {
+    const { naturalWidth, naturalHeight } = event.target;
+    if (!naturalWidth || !naturalHeight) return;
+
+    const ratio = naturalWidth / naturalHeight;
+    const targetRatio = 3 / 4;
+    const tolerance = 0.08;
+
+    if (Math.abs(ratio - targetRatio) > tolerance) {
+      setFillFullWidth(true);
+    }
+  };
+
   if (!sehetz) return null;
 
   return (
     <div className="sehetz-teaser">
       <div className="sehetz-teaser__title text-1">{sehetz.title}</div>
       
-      <div className="flex gap-6 p-6-all">
-        <div className="flex-1 pr-8 text-2">
+      <div className={`flex gap-6 p-6-all${fillFullWidth ? " sehetz-teaser__layout--full" : ""}`}>
+        <div className="sehetz-teaser__description flex-1 pr-8 text-2">
           {sehetz.description}
         </div>
 
@@ -55,10 +73,11 @@ export default function SehetzTeaser() {
           <img
             src={sehetz.image}
             alt={sehetz.title}
-            className="teaser__image"
+            className={`teaser__image sehetz-teaser__image${fillFullWidth ? " teaser__image--full sehetz-teaser__image--full" : ""}`}
+            onLoad={handleImageLoad}
           />
         ) : (
-          <div className="teaser__image placeholder" />
+          <div className="teaser__image sehetz-teaser__image placeholder" />
         )}
       </div>
     </div>

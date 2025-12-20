@@ -61,6 +61,7 @@ export default function ImageBlock({ images, projectTitle = "" }) {
       <div className={`image-grid ${isFourGrid ? "image-grid--4col" : ""}`}>
         {images.map((item, i) => {
           const altText = alt_generate(item.name, projectTitle, i);
+
           return (
             <div key={i} className="image-wrapper image-wrapper--3x4">
               {isVideo(item) ? (

@@ -36,8 +36,8 @@ a {
 }
 ::selection,
 ::-moz-selection {
-  background: var(--color-surface);
-  color: var(--color-fg);
+  background: var(--color-surface) !important;
+  color: var(--color-fg) !important;
 }
 
 /* 2. TYPOGRAPHY */
@@ -364,6 +364,9 @@ a {
   border-bottom: var(--line-width) dotted transparent;
   box-sizing: border-box;
 }
+.case-header {
+  line-height: 1.2;
+}
 .case-header:hover,
 .case-header-wrapper:hover,
 .case-header-wrapper--selected {
@@ -390,6 +393,10 @@ a {
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+  line-height: 1.2;
+}
+.case-line .text-1 {
+  line-height: 1.2;
 }
 .case-line .flex > .flex-1 {
   min-width: 0;
