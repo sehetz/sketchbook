@@ -14,6 +14,7 @@ export default function DataView({ urlState, currentPath }) {
   // ============================================
   const [data, setData] = useState(null);
   const [error, setError] = useState(null);
+  const CACHE_KEY = "sehetz-projects-cache-v1";
   
   // Initialize state from URL
   const [filter, setFilter] = useState(urlState?.filter || "skills");
@@ -24,9 +25,23 @@ export default function DataView({ urlState, currentPath }) {
   const API_TOKEN = import.meta.env.VITE_API_TOKEN;
   const NOCO_BASE_URL = import.meta.env.VITE_NOCO_BASE_URL || "http://localhost:8080";
 
-  // Hydrate quickly from pre-rendered JSON (public/data/projects.json) if present
+  // Hydrate quickly from session cache (same tab) or pre-rendered JSON
   useEffect(() => {
     let cancelled = false;
+    // 1) sessionStorage cache
+    try {
+      const cached = sessionStorage.getItem(CACHE_KEY);
+      if (cached) {
+        const parsed = JSON.parse(cached);
+        if (Array.isArray(parsed)) {
+          setData((prev) => (prev && prev.length ? prev : parsed));
+        }
+      }
+    } catch (err) {
+      // ignore
+    }
+
+    // 2) static prerender JSON
     async function hydrateFromStatic() {
       try {
         const res = await fetch("/data/projects.json", { cache: "force-cache" });
@@ -69,6 +84,11 @@ export default function DataView({ urlState, currentPath }) {
         const json = await res.json();
         const normalized = (json.list || []).map((p) => project_normalize(p, NOCO_BASE_URL));
         setData(normalized);
+        try {
+          sessionStorage.setItem(CACHE_KEY, JSON.stringify(normalized));
+        } catch (err) {
+          // ignore
+        }
       } catch (err) {
         setError(err.message);
       }
