@@ -1,6 +1,7 @@
 {
   "name": "sketchbook.github.io",
   "private": true,
+  "homepage": "https://sehetz.ch",
   "version": "0.0.0",
   "type": "module",
   "scripts": {
