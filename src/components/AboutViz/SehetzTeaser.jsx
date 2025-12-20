@@ -14,7 +14,7 @@ export default function SehetzTeaser() {
       try {
         const res = await fetch(SEHETZ_API_URL, {
           headers: { "xc-token": API_TOKEN },
-        });
+        }); 
         
         if (!res.ok) return;
 
