@@ -49,8 +49,8 @@ export async function timeline_fetch(setTeams, setMinYear, setProjects) {
     const NOCO_BASE = import.meta.env.VITE_NOCO_BASE_URL || "http://localhost:8080";
     const TEAMS_VIEW_ID = "vwq1bb9edqp3oq27";
     const PROJECTS_VIEW_ID = "vw9n29p51rs5maj4";
-    const TEAMS_API_URL = `${NOCO_BASE}/api/v2/views/${TEAMS_VIEW_ID}/data`;
-    const PROJECTS_API_URL = `${NOCO_BASE}/api/v2/views/${PROJECTS_VIEW_ID}/data`;
+    const TEAMS_API_URL = `${NOCO_BASE}/api/v2/views/${TEAMS_VIEW_ID}/records`;
+    const PROJECTS_API_URL = `${NOCO_BASE}/api/v2/views/${PROJECTS_VIEW_ID}/records`;
 
     // Fetch teams
     const teamsRes = await fetch(TEAMS_API_URL, {
