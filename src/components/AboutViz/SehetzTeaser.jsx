@@ -8,7 +8,7 @@ export default function SehetzTeaser() {
   const NOCO_BASE = import.meta.env.VITE_NOCO_BASE_URL || "http://localhost:8080";
   const SEHETZ_VIEW_ID = "vwlk1n02rp1gexxx";
   const SEHETZ_API_URL = `${NOCO_BASE}/api/v2/views/${SEHETZ_VIEW_ID}/records`;
-
+ 
   useEffect(() => {
     async function fetchSehetz() {
       try {
