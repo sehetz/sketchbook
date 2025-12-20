@@ -28,17 +28,21 @@ async function generateSitemap() {
     // If API credentials available, fetch live data
     if (API_URL && API_TOKEN) {
       console.log('📡 Fetching project data from NocoDB...');
-      const res = await fetch(API_URL, {
-        headers: { "xc-token": API_TOKEN }
-      });
-      
-      if (!res.ok) {
-        throw new Error(`API Error: ${res.status}`);
+      try {
+        const res = await fetch(API_URL, {
+          headers: { "xc-token": API_TOKEN }
+        });
+
+        if (!res.ok) {
+          console.warn(`⚠️  API responded ${res.status}. Using minimal sitemap instead.`);
+        } else {
+          const json = await res.json();
+          projects = json.list || [];
+          console.log(`✅ Fetched ${projects.length} projects`);
+        }
+      } catch (fetchErr) {
+        console.warn(`⚠️  API fetch failed (${fetchErr.message}). Using minimal sitemap.`);
       }
-      
-      const json = await res.json();
-      projects = json.list || [];
-      console.log(`✅ Fetched ${projects.length} projects`);
     } else {
       console.log('⚠️  No API credentials. Using minimal sitemap.');
     }
@@ -61,7 +65,14 @@ async function generateSitemap() {
 
   } catch (err) {
     console.error('❌ Error generating sitemap:', err.message);
-    process.exit(1);
+    // Do not fail the CI build on sitemap issues; produce minimal sitemap and continue
+    const distPath = path.join(process.cwd(), 'dist');
+    if (!fs.existsSync(distPath)) {
+      fs.mkdirSync(distPath, { recursive: true });
+    }
+    const sitemapPath = path.join(distPath, 'sitemap.xml');
+    fs.writeFileSync(sitemapPath, sitemap_generate([]), 'utf8');
+    console.log(`✨ Wrote minimal sitemap to ${sitemapPath}`);
   }
 }
 
