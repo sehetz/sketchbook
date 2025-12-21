@@ -6,7 +6,7 @@ import { fileURLToPath } from "node:url";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
-const mediaRoot = path.resolve(__dirname, "../media");
+const mediaRoot = path.resolve(__dirname, "../public/media");
 const outPath = path.resolve(__dirname, "../public/media-manifest.json");
 
 async function walk(dir, prefix = "") {
@@ -36,8 +36,9 @@ async function main() {
     const manifest = {};
     for (const rel of files) {
       const base = path.basename(rel);
+      // Now we have a flat structure: just filename -> /media/filename
       if (!manifest[base]) {
-        manifest[base] = `/media/${rel}`;
+        manifest[base] = `/media/${base}`;
       }
     }
     await fs.mkdir(path.dirname(outPath), { recursive: true });
