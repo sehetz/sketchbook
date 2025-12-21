@@ -33,6 +33,7 @@
   --font-sans: "SF Pro Rounded", "SF Pro", "Helvetica Neue", Helvetica, "Roboto", Arial, sans-serif;
 
   /* TEXT STYLES */
+  --text-scale-mobile: 0.8;
   --text-1-size: 3rem;
   --text-1-line: 1.05;
   --text-2-size: 2rem;
