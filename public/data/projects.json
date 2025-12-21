@@ -1,0 +1,1872 @@
+{
+  "list": [
+    {
+      "Id": 1,
+      "CreatedAt": "2025-12-20 13:24:53+00:00",
+      "UpdatedAt": "2025-12-20 19:35:44+00:00",
+      "Title": "Harbourwalk",
+      "description": "What happens when you look at something familiar for a longer period and from a different perspective? The port in Basel has been my workplace since 2019; every day I see the structures, warehouses, cranes, and ships. Industry has scaled back, but it still exists, and it has the feel of a somewhat vibrant ghost town.",
+      "Datum": "2025-10-23",
+      "skill": 1,
+      "Gear": 1,
+      "Team": 1,
+      "Teaser-Image": [
+        {
+          "path": "download/noco/pv3c5ekh1fjoihu/mieh9d1y7a7ls74/c18fm6jyb2wfvqr/3x4_sehetz_sarah_heitz_sketchbook_Harbourwalk_05_SUZOV.webp",
+          "title": "3x4_sehetz_sarah_heitz_sketchbook_Harbourwalk_05.webp",
+          "mimetype": "image/webp",
+          "size": 241270,
+          "width": 1080,
+          "height": 1440,
+          "id": "atgyabk87h8gruet",
+          "thumbnails": {
+            "tiny": {
+              "signedPath": "dltemp/v8Tb4CeIKF1b9955/1766331000000/thumbnails/noco/pv3c5ekh1fjoihu/mieh9d1y7a7ls74/c18fm6jyb2wfvqr/3x4_sehetz_sarah_heitz_sketchbook_Harbourwalk_05_SUZOV.webp/tiny.jpg"
+            },
+            "small": {
+              "signedPath": "dltemp/7E3g4gKb0_FSrRBM/1766331000000/thumbnails/noco/pv3c5ekh1fjoihu/mieh9d1y7a7ls74/c18fm6jyb2wfvqr/3x4_sehetz_sarah_heitz_sketchbook_Harbourwalk_05_SUZOV.webp/small.jpg"
+            },
+            "card_cover": {
+              "signedPath": "dltemp/vGYccdmja2CO-yr1/1766331000000/thumbnails/noco/pv3c5ekh1fjoihu/mieh9d1y7a7ls74/c18fm6jyb2wfvqr/3x4_sehetz_sarah_heitz_sketchbook_Harbourwalk_05_SUZOV.webp/card_cover.jpg"
+            }
+          },
+          "signedPath": "dltemp/YaEti2VSYSpaEh4p/1766331000000/noco/pv3c5ekh1fjoihu/mieh9d1y7a7ls74/c18fm6jyb2wfvqr/3x4_sehetz_sarah_heitz_sketchbook_Harbourwalk_05_SUZOV.webp"
+        }
+      ],
+      "content_01_text": "Sometimes you see something every day, but if you take the time to look more closely, it looks completely different. And by sometimes, I actually mean almost every time. The superdot office is located in Basel's Rhine harbor, and even though I cycle between the harbor basins practically every day, you still notice new structures when you look more closely.",
+      "content_02_image": null,
+      "content_03_text": null,
+      "content_04_images": [
+        {
+          "id": "atubuhf7c8w1ctuy",
+          "path": "download/noco/pv3c5ekh1fjoihu/mieh9d1y7a7ls74/cj599155ucoggob/3x4_sehetz_sarah_heitz_sketchbook_Harbourwalk_06_J5BeZ.webp",
+          "title": "3x4_sehetz_sarah_heitz_sketchbook_Harbourwalk_06.webp",
+          "mimetype": "image/webp",
+          "size": 210912,
+          "width": 1080,
+          "height": 1440,
+          "thumbnails": {
+            "tiny": {
+              "signedPath": "dltemp/akHCg0YPg3qJODue/1766331000000/thumbnails/noco/pv3c5ekh1fjoihu/mieh9d1y7a7ls74/cj599155ucoggob/3x4_sehetz_sarah_heitz_sketchbook_Harbourwalk_06_J5BeZ.webp/tiny.jpg"
+            },
+            "small": {
+              "signedPath": "dltemp/gmLG_gvqRPw_hZkx/1766331000000/thumbnails/noco/pv3c5ekh1fjoihu/mieh9d1y7a7ls74/cj599155ucoggob/3x4_sehetz_sarah_heitz_sketchbook_Harbourwalk_06_J5BeZ.webp/small.jpg"
+            },
+            "card_cover": {
+              "signedPath": "dltemp/UujMJgRAjZGbTfxI/1766331000000/thumbnails/noco/pv3c5ekh1fjoihu/mieh9d1y7a7ls74/cj599155ucoggob/3x4_sehetz_sarah_heitz_sketchbook_Harbourwalk_06_J5BeZ.webp/card_cover.jpg"
+            }
+          },
+          "signedPath": "dltemp/SqHHRT2Bsen6reR_/1766331000000/noco/pv3c5ekh1fjoihu/mieh9d1y7a7ls74/cj599155ucoggob/3x4_sehetz_sarah_heitz_sketchbook_Harbourwalk_06_J5BeZ.webp"
+        },
+        {
+          "path": "download/noco/pv3c5ekh1fjoihu/mieh9d1y7a7ls74/cj599155ucoggob/3x4_sehetz_sarah_heitz_sketchbook_Harbourwalk_07_lY6e1.webp",
+          "title": "3x4_sehetz_sarah_heitz_sketchbook_Harbourwalk_07.webp",
+          "mimetype": "image/webp",
+          "size": 130504,
+          "width": 1080,
+          "height": 1440,
+          "id": "at538afkee8vk09v",
+          "thumbnails": {
+            "tiny": {
+              "signedPath": "dltemp/0B43qTEuChsme1dL/1766331000000/thumbnails/noco/pv3c5ekh1fjoihu/mieh9d1y7a7ls74/cj599155ucoggob/3x4_sehetz_sarah_heitz_sketchbook_Harbourwalk_07_lY6e1.webp/tiny.jpg"
+            },
+            "small": {
+              "signedPath": "dltemp/PG-vgpoLJE4lwkDM/1766331000000/thumbnails/noco/pv3c5ekh1fjoihu/mieh9d1y7a7ls74/cj599155ucoggob/3x4_sehetz_sarah_heitz_sketchbook_Harbourwalk_07_lY6e1.webp/small.jpg"
+            },
+            "card_cover": {
+              "signedPath": "dltemp/f4V1vRiJu-5Hyld4/1766331000000/thumbnails/noco/pv3c5ekh1fjoihu/mieh9d1y7a7ls74/cj599155ucoggob/3x4_sehetz_sarah_heitz_sketchbook_Harbourwalk_07_lY6e1.webp/card_cover.jpg"
+            }
+          },
+          "signedPath": "dltemp/QC_Vy0_uC-lQ0aAm/1766331000000/noco/pv3c5ekh1fjoihu/mieh9d1y7a7ls74/cj599155ucoggob/3x4_sehetz_sarah_heitz_sketchbook_Harbourwalk_07_lY6e1.webp"
+        }
+      ],
+      "content_05_text": "This photo series was my first trial run with the Sony A6100, which I now keep as a staple in my fanny pack. I'm amazed at how APS-C cameras now allow for such compact, portable quality.",
+      "content_06_gallery": [
+        {
+          "path": "download/noco/pv3c5ekh1fjoihu/mieh9d1y7a7ls74/c2r1kl5m90m6ple/3x4_sehetz_sarah_heitz_sketchbook_Harbourwalk_01_2_PnV.webp",
+          "title": "3x4_sehetz_sarah_heitz_sketchbook_Harbourwalk_01.webp",
+          "mimetype": "image/webp",
+          "size": 778184,
+          "width": 1080,
+          "height": 1440,
+          "id": "at4okmby9cdc5xl2",
+          "thumbnails": {
+            "tiny": {
+              "signedPath": "dltemp/VvDsGkoz3A39WvkX/1766331000000/thumbnails/noco/pv3c5ekh1fjoihu/mieh9d1y7a7ls74/c2r1kl5m90m6ple/3x4_sehetz_sarah_heitz_sketchbook_Harbourwalk_01_2_PnV.webp/tiny.jpg"
+            },
+            "small": {
+              "signedPath": "dltemp/WK3tpt44AC5pK_J9/1766331000000/thumbnails/noco/pv3c5ekh1fjoihu/mieh9d1y7a7ls74/c2r1kl5m90m6ple/3x4_sehetz_sarah_heitz_sketchbook_Harbourwalk_01_2_PnV.webp/small.jpg"
+            },
+            "card_cover": {
+              "signedPath": "dltemp/oQw4e40WkWL6aXT-/1766331000000/thumbnails/noco/pv3c5ekh1fjoihu/mieh9d1y7a7ls74/c2r1kl5m90m6ple/3x4_sehetz_sarah_heitz_sketchbook_Harbourwalk_01_2_PnV.webp/card_cover.jpg"
+            }
+          },
+          "signedPath": "dltemp/K1E6GQ41W-H4xHRC/1766331000000/noco/pv3c5ekh1fjoihu/mieh9d1y7a7ls74/c2r1kl5m90m6ple/3x4_sehetz_sarah_heitz_sketchbook_Harbourwalk_01_2_PnV.webp"
+        },
+        {
+          "path": "download/noco/pv3c5ekh1fjoihu/mieh9d1y7a7ls74/c2r1kl5m90m6ple/3x4_sehetz_sarah_heitz_sketchbook_Harbourwalk_02_PoRwv.webp",
+          "title": "3x4_sehetz_sarah_heitz_sketchbook_Harbourwalk_02.webp",
+          "mimetype": "image/webp",
+          "size": 363604,
+          "width": 1080,
+          "height": 1440,
+          "id": "atvpphgurp0gjohn",
+          "thumbnails": {
+            "tiny": {
+              "signedPath": "dltemp/Q_zb-4mzWXj1fCF9/1766331000000/thumbnails/noco/pv3c5ekh1fjoihu/mieh9d1y7a7ls74/c2r1kl5m90m6ple/3x4_sehetz_sarah_heitz_sketchbook_Harbourwalk_02_PoRwv.webp/tiny.jpg"
+            },
+            "small": {
+              "signedPath": "dltemp/5xyq83C3Ht53nKAL/1766331000000/thumbnails/noco/pv3c5ekh1fjoihu/mieh9d1y7a7ls74/c2r1kl5m90m6ple/3x4_sehetz_sarah_heitz_sketchbook_Harbourwalk_02_PoRwv.webp/small.jpg"
+            },
+            "card_cover": {
+              "signedPath": "dltemp/Se8yqscpqGhsy0w_/1766331000000/thumbnails/noco/pv3c5ekh1fjoihu/mieh9d1y7a7ls74/c2r1kl5m90m6ple/3x4_sehetz_sarah_heitz_sketchbook_Harbourwalk_02_PoRwv.webp/card_cover.jpg"
+            }
+          },
+          "signedPath": "dltemp/lB-8ctQruzU_7Gz3/1766331000000/noco/pv3c5ekh1fjoihu/mieh9d1y7a7ls74/c2r1kl5m90m6ple/3x4_sehetz_sarah_heitz_sketchbook_Harbourwalk_02_PoRwv.webp"
+        },
+        {
+          "path": "download/noco/pv3c5ekh1fjoihu/mieh9d1y7a7ls74/c2r1kl5m90m6ple/3x4_sehetz_sarah_heitz_sketchbook_Harbourwalk_03_BxncM.webp",
+          "title": "3x4_sehetz_sarah_heitz_sketchbook_Harbourwalk_03.webp",
+          "mimetype": "image/webp",
+          "size": 176428,
+          "width": 1080,
+          "height": 1440,
+          "id": "at0kzz4uhgr36ziz",
+          "thumbnails": {
+            "tiny": {
+              "signedPath": "dltemp/Z7rMreDxNeBER02g/1766331000000/thumbnails/noco/pv3c5ekh1fjoihu/mieh9d1y7a7ls74/c2r1kl5m90m6ple/3x4_sehetz_sarah_heitz_sketchbook_Harbourwalk_03_BxncM.webp/tiny.jpg"
+            },
+            "small": {
+              "signedPath": "dltemp/1pLkrZj3hTSoTRl5/1766331000000/thumbnails/noco/pv3c5ekh1fjoihu/mieh9d1y7a7ls74/c2r1kl5m90m6ple/3x4_sehetz_sarah_heitz_sketchbook_Harbourwalk_03_BxncM.webp/small.jpg"
+            },
+            "card_cover": {
+              "signedPath": "dltemp/MpAA-xkuno8gwUye/1766331000000/thumbnails/noco/pv3c5ekh1fjoihu/mieh9d1y7a7ls74/c2r1kl5m90m6ple/3x4_sehetz_sarah_heitz_sketchbook_Harbourwalk_03_BxncM.webp/card_cover.jpg"
+            }
+          },
+          "signedPath": "dltemp/Wp58qhdZH1bIS2iE/1766331000000/noco/pv3c5ekh1fjoihu/mieh9d1y7a7ls74/c2r1kl5m90m6ple/3x4_sehetz_sarah_heitz_sketchbook_Harbourwalk_03_BxncM.webp"
+        }
+      ],
+      "content_07_links": null,
+      "is_online": true,
+      "_nc_m2m_sehetz_skills": [
+        {
+          "skill_id": 10,
+          "sehetz_id": 1,
+          "skill": {
+            "Projects": 3,
+            "Id": 10,
+            "CreatedAt": "2025-12-20 13:24:00+00:00",
+            "UpdatedAt": "2025-12-20 13:26:37+00:00",
+            "Skill": "Foto"
+          }
+        }
+      ],
+      "_nc_m2m_sehetz_teams": [
+        {
+          "team_id": 5,
+          "sehetz_id": 1,
+          "team": {
+            "Projects": 4,
+            "Id": 5,
+            "CreatedAt": "2025-12-20 13:23:35+00:00",
+            "UpdatedAt": "2025-12-20 13:40:48+00:00",
+            "Team": "sehetz",
+            "design-work": true,
+            "description": null,
+            "Teaser-Image": null,
+            "start-date": 2015,
+            "end-date": null,
+            "role": "Courious Twad",
+            "location": "Basel",
+            "link": null
+          }
+        }
+      ],
+      "_nc_m2m_sehetz_gears": [
+        {
+          "gear_id": 1,
+          "sehetz_id": 1,
+          "gear": {
+            "Projects": 2,
+            "Id": 1,
+            "CreatedAt": "2025-12-20 13:23:45+00:00",
+            "UpdatedAt": "2025-12-20 19:29:42+00:00",
+            "Gear": "Sony A6100",
+            "description": "I've always dabbled in photography, whether as a theater photographer, as visual diary, or as a helpful tool to capture the people around me just as I see them. This camera was a gift and means a great deal to me. It has rekindled my interest in scene composition and imagery.\n",
+            "Teaser-Image": [
+              {
+                "path": "download/noco/pv3c5ekh1fjoihu/mb2io0hhb8mzae6/cqax9ua61uqjooh/Sehetz Sarah Heitz Gear Sony A6100 Crop__5Kmf.svg",
+                "title": "Sehetz Sarah Heitz Gear Sony A6100 Crop.svg",
+                "mimetype": "image/svg+xml",
+                "size": 34606,
+                "width": 195,
+                "height": 260,
+                "id": "atp5o89pbsq2j0ji",
+                "thumbnails": {
+                  "tiny": {
+                    "signedPath": "dltemp/sx9_sf0mgOGxUiPF/1766331000000/thumbnails/noco/pv3c5ekh1fjoihu/mb2io0hhb8mzae6/cqax9ua61uqjooh/Sehetz Sarah Heitz Gear Sony A6100 Crop__5Kmf.svg/tiny.jpg"
+                  },
+                  "small": {
+                    "signedPath": "dltemp/4BrvHM_NUEPX9Xxw/1766331000000/thumbnails/noco/pv3c5ekh1fjoihu/mb2io0hhb8mzae6/cqax9ua61uqjooh/Sehetz Sarah Heitz Gear Sony A6100 Crop__5Kmf.svg/small.jpg"
+                  },
+                  "card_cover": {
+                    "signedPath": "dltemp/PNU7eS2HuLQ9tftI/1766331000000/thumbnails/noco/pv3c5ekh1fjoihu/mb2io0hhb8mzae6/cqax9ua61uqjooh/Sehetz Sarah Heitz Gear Sony A6100 Crop__5Kmf.svg/card_cover.jpg"
+                  }
+                },
+                "signedPath": "dltemp/OBaPaEOz0Yt4XZtk/1766331000000/noco/pv3c5ekh1fjoihu/mb2io0hhb8mzae6/cqax9ua61uqjooh/Sehetz Sarah Heitz Gear Sony A6100 Crop__5Kmf.svg"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "Id": 2,
+      "CreatedAt": "2025-12-20 13:24:53+00:00",
+      "UpdatedAt": "2025-12-20 19:55:15+00:00",
+      "Title": "Mission Iris",
+      "description": "Two women, two gods, and one all-seeing eye. Mission Iris 3052 is my ongoing graphic novel project, a visual sci-fi rock opera for all who love humanity and want to journey along the current of history.",
+      "Datum": null,
+      "skill": 1,
+      "Gear": 1,
+      "Team": 1,
+      "Teaser-Image": [
+        {
+          "path": "download/noco/pv3c5ekh1fjoihu/mieh9d1y7a7ls74/c18fm6jyb2wfvqr/P011 Mission Iris 003_N2Xw2.png",
+          "title": "P011 Mission Iris 003.png",
+          "mimetype": "image/png",
+          "size": 1399354,
+          "width": 1440,
+          "height": 1800,
+          "id": "atp176lxuy48mg1e",
+          "thumbnails": {
+            "tiny": {
+              "signedPath": "dltemp/-7tR5JCwosOgFNhG/1766331000000/thumbnails/noco/pv3c5ekh1fjoihu/mieh9d1y7a7ls74/c18fm6jyb2wfvqr/P011 Mission Iris 003_N2Xw2.png/tiny.jpg"
+            },
+            "small": {
+              "signedPath": "dltemp/XowT0qOF9AcibUOu/1766331000000/thumbnails/noco/pv3c5ekh1fjoihu/mieh9d1y7a7ls74/c18fm6jyb2wfvqr/P011 Mission Iris 003_N2Xw2.png/small.jpg"
+            },
+            "card_cover": {
+              "signedPath": "dltemp/I6ooHxvKjuYwbMGe/1766331000000/thumbnails/noco/pv3c5ekh1fjoihu/mieh9d1y7a7ls74/c18fm6jyb2wfvqr/P011 Mission Iris 003_N2Xw2.png/card_cover.jpg"
+            }
+          },
+          "signedPath": "dltemp/O-A8gCp1Oqvd3BvN/1766331000000/noco/pv3c5ekh1fjoihu/mieh9d1y7a7ls74/c18fm6jyb2wfvqr/P011 Mission Iris 003_N2Xw2.png"
+        }
+      ],
+      "content_01_text": null,
+      "content_02_image": null,
+      "content_03_text": null,
+      "content_04_images": null,
+      "content_05_text": null,
+      "content_06_gallery": null,
+      "content_07_links": null,
+      "is_online": true,
+      "_nc_m2m_sehetz_skills": [
+        {
+          "skill_id": 2,
+          "sehetz_id": 2,
+          "skill": {
+            "Projects": 4,
+            "Id": 2,
+            "CreatedAt": "2025-12-20 13:24:00+00:00",
+            "UpdatedAt": "2025-12-20 13:26:53+00:00",
+            "Skill": "Illustration"
+          }
+        }
+      ],
+      "_nc_m2m_sehetz_teams": [
+        {
+          "team_id": 5,
+          "sehetz_id": 2,
+          "team": {
+            "Projects": 4,
+            "Id": 5,
+            "CreatedAt": "2025-12-20 13:23:35+00:00",
+            "UpdatedAt": "2025-12-20 13:40:48+00:00",
+            "Team": "sehetz",
+            "design-work": true,
+            "description": null,
+            "Teaser-Image": null,
+            "start-date": 2015,
+            "end-date": null,
+            "role": "Courious Twad",
+            "location": "Basel",
+            "link": null
+          }
+        }
+      ],
+      "_nc_m2m_sehetz_gears": [
+        {
+          "gear_id": 2,
+          "sehetz_id": 2,
+          "gear": {
+            "Projects": 2,
+            "Id": 2,
+            "CreatedAt": "2025-12-20 13:23:46+00:00",
+            "UpdatedAt": "2025-12-20 19:29:27+00:00",
+            "Gear": "Ipad Pro",
+            "description": "Who wouldn't love having their favorite tool always at hand? I grew up with digital drawing, from my first Wacom Bamboo Fun tablet at age eleven to over two Wacom Cintiqs (12 UX, 24 pro) that I lugged across Europe in my hand luggage several times. The iPad? For me, a lifelong dream.",
+            "Teaser-Image": [
+              {
+                "path": "download/noco/pv3c5ekh1fjoihu/mb2io0hhb8mzae6/cqax9ua61uqjooh/Sehetz Sarah Heitz Gear Ipad Crop_p1Tho.svg",
+                "title": "Sehetz Sarah Heitz Gear Ipad Crop.svg",
+                "mimetype": "image/svg+xml",
+                "size": 24558,
+                "width": 217,
+                "height": 290,
+                "id": "atvswn606y1mjzop",
+                "thumbnails": {
+                  "tiny": {
+                    "signedPath": "dltemp/uB3DQZs5QOwwKMAP/1766331000000/thumbnails/noco/pv3c5ekh1fjoihu/mb2io0hhb8mzae6/cqax9ua61uqjooh/Sehetz Sarah Heitz Gear Ipad Crop_p1Tho.svg/tiny.jpg"
+                  },
+                  "small": {
+                    "signedPath": "dltemp/WAHkpjVT2UzZ2Dln/1766331000000/thumbnails/noco/pv3c5ekh1fjoihu/mb2io0hhb8mzae6/cqax9ua61uqjooh/Sehetz Sarah Heitz Gear Ipad Crop_p1Tho.svg/small.jpg"
+                  },
+                  "card_cover": {
+                    "signedPath": "dltemp/8aZkwo_gWGVr8jKG/1766331000000/thumbnails/noco/pv3c5ekh1fjoihu/mb2io0hhb8mzae6/cqax9ua61uqjooh/Sehetz Sarah Heitz Gear Ipad Crop_p1Tho.svg/card_cover.jpg"
+                  }
+                },
+                "signedPath": "dltemp/CVI-ruUDo1sKuL7V/1766331000000/noco/pv3c5ekh1fjoihu/mb2io0hhb8mzae6/cqax9ua61uqjooh/Sehetz Sarah Heitz Gear Ipad Crop_p1Tho.svg"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "Id": 3,
+      "CreatedAt": "2025-12-20 13:24:53+00:00",
+      "UpdatedAt": "2025-12-20 19:56:52+00:00",
+      "Title": "Chebby Chic",
+      "description": "Snow-covered fairytale forests in the Czech Republic. In 2016, a friend and I got lost in the woods around Cheb, yielded the right of way to a fawn on the road, and startled ourselves with the crunching sound of a twig caught in the wheel spokes. These increasingly dark photographs came together during the day that the forest completely captivated us.",
+      "Datum": "2016-11-11",
+      "skill": 1,
+      "Gear": 1,
+      "Team": 1,
+      "Teaser-Image": [
+        {
+          "path": "download/noco/pv3c5ekh1fjoihu/mieh9d1y7a7ls74/c18fm6jyb2wfvqr/3x4_sehetz_sarah_heitz_sketchbook_chebby_chic_01_W2jD_.webp",
+          "title": "3x4_sehetz_sarah_heitz_sketchbook_chebby_chic_01.webp",
+          "mimetype": "image/webp",
+          "size": 295440,
+          "width": 1080,
+          "height": 1440,
+          "id": "atre66a484q7aw0t",
+          "thumbnails": {
+            "tiny": {
+              "signedPath": "dltemp/tYrGDGS_k8hZRf3o/1766331000000/thumbnails/noco/pv3c5ekh1fjoihu/mieh9d1y7a7ls74/c18fm6jyb2wfvqr/3x4_sehetz_sarah_heitz_sketchbook_chebby_chic_01_W2jD_.webp/tiny.jpg"
+            },
+            "small": {
+              "signedPath": "dltemp/P2mVhcycWg0HZzhS/1766331000000/thumbnails/noco/pv3c5ekh1fjoihu/mieh9d1y7a7ls74/c18fm6jyb2wfvqr/3x4_sehetz_sarah_heitz_sketchbook_chebby_chic_01_W2jD_.webp/small.jpg"
+            },
+            "card_cover": {
+              "signedPath": "dltemp/YDDnsQ0x-Q7wesOC/1766331000000/thumbnails/noco/pv3c5ekh1fjoihu/mieh9d1y7a7ls74/c18fm6jyb2wfvqr/3x4_sehetz_sarah_heitz_sketchbook_chebby_chic_01_W2jD_.webp/card_cover.jpg"
+            }
+          },
+          "signedPath": "dltemp/3IOmbh5wCEAoQ3Wt/1766331000000/noco/pv3c5ekh1fjoihu/mieh9d1y7a7ls74/c18fm6jyb2wfvqr/3x4_sehetz_sarah_heitz_sketchbook_chebby_chic_01_W2jD_.webp"
+        }
+      ],
+      "content_01_text": "The longer we stayed, the more the forest seemed to close in. Winter muted the colors, shortened the distance, and absorbed sound. Darkness arrived early, and ordinary details began to feel charged. The road guided us forward while limiting what we could see, leaving space for imagination to take over.",
+      "content_02_image": [
+        {
+          "path": "download/noco/pv3c5ekh1fjoihu/mieh9d1y7a7ls74/cchl73funp4pj7t/16x9_sehetz_sarah_heitz_sketchbook_chebby_chic_05_jAxB1.webp",
+          "title": "16x9_sehetz_sarah_heitz_sketchbook_chebby_chic_05.webp",
+          "mimetype": "image/webp",
+          "size": 326000,
+          "width": 1920,
+          "height": 1080,
+          "id": "atjmvbukdt994f5o",
+          "thumbnails": {
+            "tiny": {
+              "signedPath": "dltemp/75dwLtqPFwan9j2q/1766331000000/thumbnails/noco/pv3c5ekh1fjoihu/mieh9d1y7a7ls74/cchl73funp4pj7t/16x9_sehetz_sarah_heitz_sketchbook_chebby_chic_05_jAxB1.webp/tiny.jpg"
+            },
+            "small": {
+              "signedPath": "dltemp/C36xBpghHGjoa1mQ/1766331000000/thumbnails/noco/pv3c5ekh1fjoihu/mieh9d1y7a7ls74/cchl73funp4pj7t/16x9_sehetz_sarah_heitz_sketchbook_chebby_chic_05_jAxB1.webp/small.jpg"
+            },
+            "card_cover": {
+              "signedPath": "dltemp/sQu-A5dLPBdcfCBj/1766331000000/thumbnails/noco/pv3c5ekh1fjoihu/mieh9d1y7a7ls74/cchl73funp4pj7t/16x9_sehetz_sarah_heitz_sketchbook_chebby_chic_05_jAxB1.webp/card_cover.jpg"
+            }
+          },
+          "signedPath": "dltemp/t0jZ4sk8KhaVXEWz/1766331000000/noco/pv3c5ekh1fjoihu/mieh9d1y7a7ls74/cchl73funp4pj7t/16x9_sehetz_sarah_heitz_sketchbook_chebby_chic_05_jAxB1.webp"
+        }
+      ],
+      "content_03_text": "The images emerged along the way, taken from the car without staging or interruption. Roads cut through the frames and set their rhythm. The series balances a sense of looming unease with its own ordinariness. Nothing reveals itself, nothing escalates.",
+      "content_04_images": null,
+      "content_05_text": null,
+      "content_06_gallery": [
+        {
+          "path": "download/noco/pv3c5ekh1fjoihu/mieh9d1y7a7ls74/c2r1kl5m90m6ple/3x4_sehetz_sarah_heitz_sketchbook_chebby_chic_01_jMLAE.webp",
+          "title": "3x4_sehetz_sarah_heitz_sketchbook_chebby_chic_01.webp",
+          "mimetype": "image/webp",
+          "size": 295440,
+          "width": 1080,
+          "height": 1440,
+          "id": "ats78e36fk8jss32",
+          "thumbnails": {
+            "tiny": {
+              "signedPath": "dltemp/qlNb2Z8eAYfaRxNq/1766331000000/thumbnails/noco/pv3c5ekh1fjoihu/mieh9d1y7a7ls74/c2r1kl5m90m6ple/3x4_sehetz_sarah_heitz_sketchbook_chebby_chic_01_jMLAE.webp/tiny.jpg"
+            },
+            "small": {
+              "signedPath": "dltemp/-G3551JVz5bjfnRL/1766331000000/thumbnails/noco/pv3c5ekh1fjoihu/mieh9d1y7a7ls74/c2r1kl5m90m6ple/3x4_sehetz_sarah_heitz_sketchbook_chebby_chic_01_jMLAE.webp/small.jpg"
+            },
+            "card_cover": {
+              "signedPath": "dltemp/RC_SrAIff1VZnS6V/1766331000000/thumbnails/noco/pv3c5ekh1fjoihu/mieh9d1y7a7ls74/c2r1kl5m90m6ple/3x4_sehetz_sarah_heitz_sketchbook_chebby_chic_01_jMLAE.webp/card_cover.jpg"
+            }
+          },
+          "signedPath": "dltemp/CmvdBdR5RhiuZSCn/1766331000000/noco/pv3c5ekh1fjoihu/mieh9d1y7a7ls74/c2r1kl5m90m6ple/3x4_sehetz_sarah_heitz_sketchbook_chebby_chic_01_jMLAE.webp"
+        },
+        {
+          "path": "download/noco/pv3c5ekh1fjoihu/mieh9d1y7a7ls74/c2r1kl5m90m6ple/3x4_sehetz_sarah_heitz_sketchbook_chebby_chic_02_lhaZl.webp",
+          "title": "3x4_sehetz_sarah_heitz_sketchbook_chebby_chic_02.webp",
+          "mimetype": "image/webp",
+          "size": 138312,
+          "width": 1080,
+          "height": 1440,
+          "id": "att35g03ghgdhntv",
+          "thumbnails": {
+            "tiny": {
+              "signedPath": "dltemp/oAj3XD-0j8UBSjWQ/1766331000000/thumbnails/noco/pv3c5ekh1fjoihu/mieh9d1y7a7ls74/c2r1kl5m90m6ple/3x4_sehetz_sarah_heitz_sketchbook_chebby_chic_02_lhaZl.webp/tiny.jpg"
+            },
+            "small": {
+              "signedPath": "dltemp/rBBq9DJBGGFVdazD/1766331000000/thumbnails/noco/pv3c5ekh1fjoihu/mieh9d1y7a7ls74/c2r1kl5m90m6ple/3x4_sehetz_sarah_heitz_sketchbook_chebby_chic_02_lhaZl.webp/small.jpg"
+            },
+            "card_cover": {
+              "signedPath": "dltemp/NltvYLOEIa1Qi4Bf/1766331000000/thumbnails/noco/pv3c5ekh1fjoihu/mieh9d1y7a7ls74/c2r1kl5m90m6ple/3x4_sehetz_sarah_heitz_sketchbook_chebby_chic_02_lhaZl.webp/card_cover.jpg"
+            }
+          },
+          "signedPath": "dltemp/SzFU_0-GAzf3GEj4/1766331000000/noco/pv3c5ekh1fjoihu/mieh9d1y7a7ls74/c2r1kl5m90m6ple/3x4_sehetz_sarah_heitz_sketchbook_chebby_chic_02_lhaZl.webp"
+        },
+        {
+          "path": "download/noco/pv3c5ekh1fjoihu/mieh9d1y7a7ls74/c2r1kl5m90m6ple/3x4_sehetz_sarah_heitz_sketchbook_chebby_chic_03_gZjVw.webp",
+          "title": "3x4_sehetz_sarah_heitz_sketchbook_chebby_chic_03.webp",
+          "mimetype": "image/webp",
+          "size": 101782,
+          "width": 1080,
+          "height": 1440,
+          "id": "atgsf8d57ma4kdd9",
+          "thumbnails": {
+            "tiny": {
+              "signedPath": "dltemp/TsnobbSfqcmalXqL/1766331000000/thumbnails/noco/pv3c5ekh1fjoihu/mieh9d1y7a7ls74/c2r1kl5m90m6ple/3x4_sehetz_sarah_heitz_sketchbook_chebby_chic_03_gZjVw.webp/tiny.jpg"
+            },
+            "small": {
+              "signedPath": "dltemp/iKykgxTrQhgYrcjT/1766331000000/thumbnails/noco/pv3c5ekh1fjoihu/mieh9d1y7a7ls74/c2r1kl5m90m6ple/3x4_sehetz_sarah_heitz_sketchbook_chebby_chic_03_gZjVw.webp/small.jpg"
+            },
+            "card_cover": {
+              "signedPath": "dltemp/veycvc9e1cgk9UVl/1766331000000/thumbnails/noco/pv3c5ekh1fjoihu/mieh9d1y7a7ls74/c2r1kl5m90m6ple/3x4_sehetz_sarah_heitz_sketchbook_chebby_chic_03_gZjVw.webp/card_cover.jpg"
+            }
+          },
+          "signedPath": "dltemp/5ZLG-ynedOFn9dv0/1766331000000/noco/pv3c5ekh1fjoihu/mieh9d1y7a7ls74/c2r1kl5m90m6ple/3x4_sehetz_sarah_heitz_sketchbook_chebby_chic_03_gZjVw.webp"
+        },
+        {
+          "path": "download/noco/pv3c5ekh1fjoihu/mieh9d1y7a7ls74/c2r1kl5m90m6ple/3x4_sehetz_sarah_heitz_sketchbook_chebby_chic_04_H-dQr.webp",
+          "title": "3x4_sehetz_sarah_heitz_sketchbook_chebby_chic_04.webp",
+          "mimetype": "image/webp",
+          "size": 82266,
+          "width": 1080,
+          "height": 1440,
+          "id": "atx4nw0jd2r52xbg",
+          "thumbnails": {
+            "tiny": {
+              "signedPath": "dltemp/UmqIjMOqAfGcL08c/1766331000000/thumbnails/noco/pv3c5ekh1fjoihu/mieh9d1y7a7ls74/c2r1kl5m90m6ple/3x4_sehetz_sarah_heitz_sketchbook_chebby_chic_04_H-dQr.webp/tiny.jpg"
+            },
+            "small": {
+              "signedPath": "dltemp/52xBySM6c9ox-24W/1766331000000/thumbnails/noco/pv3c5ekh1fjoihu/mieh9d1y7a7ls74/c2r1kl5m90m6ple/3x4_sehetz_sarah_heitz_sketchbook_chebby_chic_04_H-dQr.webp/small.jpg"
+            },
+            "card_cover": {
+              "signedPath": "dltemp/9jfrKlmI0YBN4_jj/1766331000000/thumbnails/noco/pv3c5ekh1fjoihu/mieh9d1y7a7ls74/c2r1kl5m90m6ple/3x4_sehetz_sarah_heitz_sketchbook_chebby_chic_04_H-dQr.webp/card_cover.jpg"
+            }
+          },
+          "signedPath": "dltemp/-t6RjIX-PnMm5dGZ/1766331000000/noco/pv3c5ekh1fjoihu/mieh9d1y7a7ls74/c2r1kl5m90m6ple/3x4_sehetz_sarah_heitz_sketchbook_chebby_chic_04_H-dQr.webp"
+        },
+        {
+          "path": "download/noco/pv3c5ekh1fjoihu/mieh9d1y7a7ls74/c2r1kl5m90m6ple/3x4_sehetz_sarah_heitz_sketchbook_chebby_chic_05_GxyeB.webp",
+          "title": "3x4_sehetz_sarah_heitz_sketchbook_chebby_chic_05.webp",
+          "mimetype": "image/webp",
+          "size": 239654,
+          "width": 1080,
+          "height": 1440,
+          "id": "atj67xv3ljcb0fnj",
+          "thumbnails": {
+            "tiny": {
+              "signedPath": "dltemp/I1gWV6WxEeNn8iye/1766331000000/thumbnails/noco/pv3c5ekh1fjoihu/mieh9d1y7a7ls74/c2r1kl5m90m6ple/3x4_sehetz_sarah_heitz_sketchbook_chebby_chic_05_GxyeB.webp/tiny.jpg"
+            },
+            "small": {
+              "signedPath": "dltemp/h02XUnPpG7cVQ5o4/1766331000000/thumbnails/noco/pv3c5ekh1fjoihu/mieh9d1y7a7ls74/c2r1kl5m90m6ple/3x4_sehetz_sarah_heitz_sketchbook_chebby_chic_05_GxyeB.webp/small.jpg"
+            },
+            "card_cover": {
+              "signedPath": "dltemp/VgS-c04eAuTiNgri/1766331000000/thumbnails/noco/pv3c5ekh1fjoihu/mieh9d1y7a7ls74/c2r1kl5m90m6ple/3x4_sehetz_sarah_heitz_sketchbook_chebby_chic_05_GxyeB.webp/card_cover.jpg"
+            }
+          },
+          "signedPath": "dltemp/e4mVRw008SUtiQSc/1766331000000/noco/pv3c5ekh1fjoihu/mieh9d1y7a7ls74/c2r1kl5m90m6ple/3x4_sehetz_sarah_heitz_sketchbook_chebby_chic_05_GxyeB.webp"
+        },
+        {
+          "path": "download/noco/pv3c5ekh1fjoihu/mieh9d1y7a7ls74/c2r1kl5m90m6ple/3x4_sehetz_sarah_heitz_sketchbook_chebby_chic_06_WH8Fc.webp",
+          "title": "3x4_sehetz_sarah_heitz_sketchbook_chebby_chic_06.webp",
+          "mimetype": "image/webp",
+          "size": 174010,
+          "width": 1080,
+          "height": 1440,
+          "id": "atbje5imstli9guu",
+          "thumbnails": {
+            "tiny": {
+              "signedPath": "dltemp/D5cLUuxb3Oy6_BSK/1766331000000/thumbnails/noco/pv3c5ekh1fjoihu/mieh9d1y7a7ls74/c2r1kl5m90m6ple/3x4_sehetz_sarah_heitz_sketchbook_chebby_chic_06_WH8Fc.webp/tiny.jpg"
+            },
+            "small": {
+              "signedPath": "dltemp/YF-byNanv56Ja5NH/1766331000000/thumbnails/noco/pv3c5ekh1fjoihu/mieh9d1y7a7ls74/c2r1kl5m90m6ple/3x4_sehetz_sarah_heitz_sketchbook_chebby_chic_06_WH8Fc.webp/small.jpg"
+            },
+            "card_cover": {
+              "signedPath": "dltemp/7SX_KeIlpZPfcyIs/1766331000000/thumbnails/noco/pv3c5ekh1fjoihu/mieh9d1y7a7ls74/c2r1kl5m90m6ple/3x4_sehetz_sarah_heitz_sketchbook_chebby_chic_06_WH8Fc.webp/card_cover.jpg"
+            }
+          },
+          "signedPath": "dltemp/bfrZffzLbQMREgAs/1766331000000/noco/pv3c5ekh1fjoihu/mieh9d1y7a7ls74/c2r1kl5m90m6ple/3x4_sehetz_sarah_heitz_sketchbook_chebby_chic_06_WH8Fc.webp"
+        },
+        {
+          "path": "download/noco/pv3c5ekh1fjoihu/mieh9d1y7a7ls74/c2r1kl5m90m6ple/3x4_sehetz_sarah_heitz_sketchbook_chebby_chic_07_dIywY.webp",
+          "title": "3x4_sehetz_sarah_heitz_sketchbook_chebby_chic_07.webp",
+          "mimetype": "image/webp",
+          "size": 147790,
+          "width": 1080,
+          "height": 1440,
+          "id": "atx70m0qfwmsx54y",
+          "thumbnails": {
+            "tiny": {
+              "signedPath": "dltemp/AsJK0YUQX-frPU-v/1766331000000/thumbnails/noco/pv3c5ekh1fjoihu/mieh9d1y7a7ls74/c2r1kl5m90m6ple/3x4_sehetz_sarah_heitz_sketchbook_chebby_chic_07_dIywY.webp/tiny.jpg"
+            },
+            "small": {
+              "signedPath": "dltemp/GFpFNih6p2-XBFLK/1766331000000/thumbnails/noco/pv3c5ekh1fjoihu/mieh9d1y7a7ls74/c2r1kl5m90m6ple/3x4_sehetz_sarah_heitz_sketchbook_chebby_chic_07_dIywY.webp/small.jpg"
+            },
+            "card_cover": {
+              "signedPath": "dltemp/S32JXCrYYuYAQMCN/1766331000000/thumbnails/noco/pv3c5ekh1fjoihu/mieh9d1y7a7ls74/c2r1kl5m90m6ple/3x4_sehetz_sarah_heitz_sketchbook_chebby_chic_07_dIywY.webp/card_cover.jpg"
+            }
+          },
+          "signedPath": "dltemp/jT-vXyJRESyr-xBN/1766331000000/noco/pv3c5ekh1fjoihu/mieh9d1y7a7ls74/c2r1kl5m90m6ple/3x4_sehetz_sarah_heitz_sketchbook_chebby_chic_07_dIywY.webp"
+        },
+        {
+          "path": "download/noco/pv3c5ekh1fjoihu/mieh9d1y7a7ls74/c2r1kl5m90m6ple/3x4_sehetz_sarah_heitz_sketchbook_chebby_chic_08_of2TL.webp",
+          "title": "3x4_sehetz_sarah_heitz_sketchbook_chebby_chic_08.webp",
+          "mimetype": "image/webp",
+          "size": 163216,
+          "width": 1080,
+          "height": 1440,
+          "id": "atr3hcm4t8pl0e1d",
+          "thumbnails": {
+            "tiny": {
+              "signedPath": "dltemp/H-1CylPmjgEMMxfC/1766331000000/thumbnails/noco/pv3c5ekh1fjoihu/mieh9d1y7a7ls74/c2r1kl5m90m6ple/3x4_sehetz_sarah_heitz_sketchbook_chebby_chic_08_of2TL.webp/tiny.jpg"
+            },
+            "small": {
+              "signedPath": "dltemp/s1mVvmeSS6N9oPcw/1766331000000/thumbnails/noco/pv3c5ekh1fjoihu/mieh9d1y7a7ls74/c2r1kl5m90m6ple/3x4_sehetz_sarah_heitz_sketchbook_chebby_chic_08_of2TL.webp/small.jpg"
+            },
+            "card_cover": {
+              "signedPath": "dltemp/V_FFLmm8eGvB5xHT/1766331000000/thumbnails/noco/pv3c5ekh1fjoihu/mieh9d1y7a7ls74/c2r1kl5m90m6ple/3x4_sehetz_sarah_heitz_sketchbook_chebby_chic_08_of2TL.webp/card_cover.jpg"
+            }
+          },
+          "signedPath": "dltemp/Noo8merkvf0kVZIJ/1766331000000/noco/pv3c5ekh1fjoihu/mieh9d1y7a7ls74/c2r1kl5m90m6ple/3x4_sehetz_sarah_heitz_sketchbook_chebby_chic_08_of2TL.webp"
+        },
+        {
+          "path": "download/noco/pv3c5ekh1fjoihu/mieh9d1y7a7ls74/c2r1kl5m90m6ple/3x4_sehetz_sarah_heitz_sketchbook_chebby_chic_09_m_M52.webp",
+          "title": "3x4_sehetz_sarah_heitz_sketchbook_chebby_chic_09.webp",
+          "mimetype": "image/webp",
+          "size": 196746,
+          "width": 1080,
+          "height": 1440,
+          "id": "atfn8zjijhjca9yi",
+          "thumbnails": {
+            "tiny": {
+              "signedPath": "dltemp/t9VNLyM9z03uOdE0/1766331000000/thumbnails/noco/pv3c5ekh1fjoihu/mieh9d1y7a7ls74/c2r1kl5m90m6ple/3x4_sehetz_sarah_heitz_sketchbook_chebby_chic_09_m_M52.webp/tiny.jpg"
+            },
+            "small": {
+              "signedPath": "dltemp/XdFlfAMVpCGZOs6N/1766331000000/thumbnails/noco/pv3c5ekh1fjoihu/mieh9d1y7a7ls74/c2r1kl5m90m6ple/3x4_sehetz_sarah_heitz_sketchbook_chebby_chic_09_m_M52.webp/small.jpg"
+            },
+            "card_cover": {
+              "signedPath": "dltemp/OEkz8_eHct_2NmjP/1766331000000/thumbnails/noco/pv3c5ekh1fjoihu/mieh9d1y7a7ls74/c2r1kl5m90m6ple/3x4_sehetz_sarah_heitz_sketchbook_chebby_chic_09_m_M52.webp/card_cover.jpg"
+            }
+          },
+          "signedPath": "dltemp/3qjXjB8OU1sb7dos/1766331000000/noco/pv3c5ekh1fjoihu/mieh9d1y7a7ls74/c2r1kl5m90m6ple/3x4_sehetz_sarah_heitz_sketchbook_chebby_chic_09_m_M52.webp"
+        }
+      ],
+      "content_07_links": null,
+      "is_online": true,
+      "_nc_m2m_sehetz_skills": [
+        {
+          "skill_id": 10,
+          "sehetz_id": 3,
+          "skill": {
+            "Projects": 3,
+            "Id": 10,
+            "CreatedAt": "2025-12-20 13:24:00+00:00",
+            "UpdatedAt": "2025-12-20 13:26:37+00:00",
+            "Skill": "Foto"
+          }
+        }
+      ],
+      "_nc_m2m_sehetz_teams": [
+        {
+          "team_id": 7,
+          "sehetz_id": 3,
+          "team": {
+            "Projects": 1,
+            "Id": 7,
+            "CreatedAt": "2025-12-20 13:23:35+00:00",
+            "UpdatedAt": "2025-12-20 19:58:43+00:00",
+            "Team": "Fh Trier",
+            "design-work": true,
+            "description": "Trier University of Applied Sciences isn't the best university in the world, in Germany, or perhaps even in Rhineland-Palatinate. Nevertheless, I wouldn't trade the years I spent there for my bachelor's degree for anything in the world. It was a time of unique community, where we students taught each other tools and techniques, organized courses and excursions, put on exhibitions, and even staged entire plays and productions. What an empowering experience of self-efficacy!",
+            "Teaser-Image": [
+              {
+                "path": "download/noco/pv3c5ekh1fjoihu/mpz7ywybfxm3isa/cjpjpyar26z9u70/Sehetz-Team-Hochschule-Trier-3_hqbuA.jpg",
+                "title": "Sehetz-Team-Hochschule-Trier-3.jpg",
+                "mimetype": "image/jpeg",
+                "size": 298378,
+                "width": 1080,
+                "height": 1440,
+                "id": "atzwjmqrp9hwqlbc",
+                "thumbnails": {
+                  "tiny": {
+                    "signedPath": "dltemp/1MWRTuOYBItmEF_J/1766331000000/thumbnails/noco/pv3c5ekh1fjoihu/mpz7ywybfxm3isa/cjpjpyar26z9u70/Sehetz-Team-Hochschule-Trier-3_hqbuA.jpg/tiny.jpg"
+                  },
+                  "small": {
+                    "signedPath": "dltemp/smQjUsWfGcAU3e8r/1766331000000/thumbnails/noco/pv3c5ekh1fjoihu/mpz7ywybfxm3isa/cjpjpyar26z9u70/Sehetz-Team-Hochschule-Trier-3_hqbuA.jpg/small.jpg"
+                  },
+                  "card_cover": {
+                    "signedPath": "dltemp/OHjEb_KqYpwB2NVO/1766331000000/thumbnails/noco/pv3c5ekh1fjoihu/mpz7ywybfxm3isa/cjpjpyar26z9u70/Sehetz-Team-Hochschule-Trier-3_hqbuA.jpg/card_cover.jpg"
+                  }
+                },
+                "signedPath": "dltemp/qcz8U8aLLh4fr0mt/1766331000000/noco/pv3c5ekh1fjoihu/mpz7ywybfxm3isa/cjpjpyar26z9u70/Sehetz-Team-Hochschule-Trier-3_hqbuA.jpg"
+              }
+            ],
+            "start-date": 2015,
+            "end-date": 2019,
+            "role": "Student",
+            "location": "Trier",
+            "link": "https://www.hochschule-trier.de/en/"
+          }
+        }
+      ],
+      "_nc_m2m_sehetz_gears": [
+        {
+          "gear_id": 8,
+          "sehetz_id": 3,
+          "gear": {
+            "Projects": 1,
+            "Id": 8,
+            "CreatedAt": "2025-12-20 13:23:46+00:00",
+            "UpdatedAt": "2025-12-20 19:30:03+00:00",
+            "Gear": "Canon 70D",
+            "description": "My trusty Canon 70D accompanied me through my inexperienced student years. I must have taken 10,000 pictures with it, and 9,999 of them were blurry. Sadly, it spent its life below its potential, but it was always a loyal and well loved partner. (And yes, it's quite a weighty companion)",
+            "Teaser-Image": [
+              {
+                "path": "download/noco/pv3c5ekh1fjoihu/mb2io0hhb8mzae6/cqax9ua61uqjooh/Sehetz Sarah Heitz Gear Canon 70 D_AQqa7.svg",
+                "title": "Sehetz Sarah Heitz Gear Canon 70 D.svg",
+                "mimetype": "image/svg+xml",
+                "size": 37769,
+                "width": 260,
+                "height": 346,
+                "id": "atbx0f7unxcsv4fx",
+                "thumbnails": {
+                  "tiny": {
+                    "signedPath": "dltemp/sYuVjiB3LcfgpyFP/1766331000000/thumbnails/noco/pv3c5ekh1fjoihu/mb2io0hhb8mzae6/cqax9ua61uqjooh/Sehetz Sarah Heitz Gear Canon 70 D_AQqa7.svg/tiny.jpg"
+                  },
+                  "small": {
+                    "signedPath": "dltemp/Sljgzlq45xrqdiIW/1766331000000/thumbnails/noco/pv3c5ekh1fjoihu/mb2io0hhb8mzae6/cqax9ua61uqjooh/Sehetz Sarah Heitz Gear Canon 70 D_AQqa7.svg/small.jpg"
+                  },
+                  "card_cover": {
+                    "signedPath": "dltemp/4Obq9b4iVpsk5tMr/1766331000000/thumbnails/noco/pv3c5ekh1fjoihu/mb2io0hhb8mzae6/cqax9ua61uqjooh/Sehetz Sarah Heitz Gear Canon 70 D_AQqa7.svg/card_cover.jpg"
+                  }
+                },
+                "signedPath": "dltemp/TxPDBrkiwHG0gx2Q/1766331000000/noco/pv3c5ekh1fjoihu/mb2io0hhb8mzae6/cqax9ua61uqjooh/Sehetz Sarah Heitz Gear Canon 70 D_AQqa7.svg"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "Id": 4,
+      "CreatedAt": "2025-12-20 13:24:53+00:00",
+      "UpdatedAt": "2025-12-20 19:47:41+00:00",
+      "Title": "Als Gott Schlief",
+      "description": "My bachelor's project—so much happened around this project. A film shoot about the family history of my then Israeli-German partner, concept art for a video game, and collaborations with animators, musicians, and screenwriters. The project stirred up a lot of emotions; it resulted in the documentary \"Endlich Tacheles\" and the video game \"Als Gott Schlief.\"",
+      "Datum": "2019-03-01",
+      "skill": 1,
+      "Gear": 1,
+      "Team": 1,
+      "Teaser-Image": [
+        {
+          "path": "download/noco/pv3c5ekh1fjoihu/mieh9d1y7a7ls74/c18fm6jyb2wfvqr/sehetz Sarah Heitz teaser Video 01_1_Xq2zk.webm",
+          "title": "sehetz Sarah Heitz teaser Video 01_1.webm",
+          "mimetype": "video/webm",
+          "size": 1759682,
+          "id": "at03q09gxwtcc0cl",
+          "signedPath": "dltemp/4BhSJFwme0X3pkH7/1766331000000/noco/pv3c5ekh1fjoihu/mieh9d1y7a7ls74/c18fm6jyb2wfvqr/sehetz Sarah Heitz teaser Video 01_1_Xq2zk.webm"
+        }
+      ],
+      "content_01_text": "At the center was the idea of telling a Jewish family story set in Krakow in the 1930s through atmosphere, pacing, and interaction rather than explanation. Everyday life in the Kazimierz district served as the entry point, while an underlying sense of threat slowly entered the narrative. The project dealt with memory, transgenerational trauma, and the difficulty of positioning oneself as part of a later generation shaped by events it did not experience directly.",
+      "content_02_image": [
+        {
+          "path": "download/noco/pv3c5ekh1fjoihu/mieh9d1y7a7ls74/cchl73funp4pj7t/16x9_sehetz_sarah_heitz_sketchbook_als-gott-schlief_01_2xrdC.webp",
+          "title": "16x9_sehetz_sarah_heitz_sketchbook_als-gott-schlief_01.webp",
+          "mimetype": "image/webp",
+          "size": 873552,
+          "width": 1920,
+          "height": 1080,
+          "id": "at2jvrhdgygi4ozz",
+          "thumbnails": {
+            "tiny": {
+              "signedPath": "dltemp/ycOeGmtHN0NrLyUH/1766331000000/thumbnails/noco/pv3c5ekh1fjoihu/mieh9d1y7a7ls74/cchl73funp4pj7t/16x9_sehetz_sarah_heitz_sketchbook_als-gott-schlief_01_2xrdC.webp/tiny.jpg"
+            },
+            "small": {
+              "signedPath": "dltemp/kiC5IXBmosQ9XjKU/1766331000000/thumbnails/noco/pv3c5ekh1fjoihu/mieh9d1y7a7ls74/cchl73funp4pj7t/16x9_sehetz_sarah_heitz_sketchbook_als-gott-schlief_01_2xrdC.webp/small.jpg"
+            },
+            "card_cover": {
+              "signedPath": "dltemp/XQnSdUnXcMl3hIUf/1766331000000/thumbnails/noco/pv3c5ekh1fjoihu/mieh9d1y7a7ls74/cchl73funp4pj7t/16x9_sehetz_sarah_heitz_sketchbook_als-gott-schlief_01_2xrdC.webp/card_cover.jpg"
+            }
+          },
+          "signedPath": "dltemp/ypZX4BmU1ZEcZDaF/1766331000000/noco/pv3c5ekh1fjoihu/mieh9d1y7a7ls74/cchl73funp4pj7t/16x9_sehetz_sarah_heitz_sketchbook_als-gott-schlief_01_2xrdC.webp"
+        }
+      ],
+      "content_03_text": "The project yielded material for two interconnected results: the documentary film \"Endlich Tacheles,\" which reflects on identity, heritage, and strained family relationships across generations, and, in parallel, the historical game concept for the video game \"Als Gott Schlief\" I was involved only in the beginning: an interdisciplinary process encompassing film, game design, and collaboration with animators, musicians, and writers.\n",
+      "content_04_images": null,
+      "content_05_text": null,
+      "content_06_gallery": [
+        {
+          "id": "at7y4emkabzd3b18",
+          "path": "download/noco/pv3c5ekh1fjoihu/mieh9d1y7a7ls74/c2r1kl5m90m6ple/3x4_sehetz_sarah_heitz_sketchbook_als-gott-schlief_10_yR9oZ.webp",
+          "title": "3x4_sehetz_sarah_heitz_sketchbook_als-gott-schlief_10.webp",
+          "mimetype": "image/webp",
+          "size": 488864,
+          "width": 1080,
+          "height": 1440,
+          "thumbnails": {
+            "tiny": {
+              "signedPath": "dltemp/DHp6lX59hDNxYzTT/1766331000000/thumbnails/noco/pv3c5ekh1fjoihu/mieh9d1y7a7ls74/c2r1kl5m90m6ple/3x4_sehetz_sarah_heitz_sketchbook_als-gott-schlief_10_yR9oZ.webp/tiny.jpg"
+            },
+            "small": {
+              "signedPath": "dltemp/Uw3RcrVUmnHyfJ_9/1766331000000/thumbnails/noco/pv3c5ekh1fjoihu/mieh9d1y7a7ls74/c2r1kl5m90m6ple/3x4_sehetz_sarah_heitz_sketchbook_als-gott-schlief_10_yR9oZ.webp/small.jpg"
+            },
+            "card_cover": {
+              "signedPath": "dltemp/tN2jIY00_Z6O2BTv/1766331000000/thumbnails/noco/pv3c5ekh1fjoihu/mieh9d1y7a7ls74/c2r1kl5m90m6ple/3x4_sehetz_sarah_heitz_sketchbook_als-gott-schlief_10_yR9oZ.webp/card_cover.jpg"
+            }
+          },
+          "signedPath": "dltemp/CyBjby1nZUiEfQ51/1766331000000/noco/pv3c5ekh1fjoihu/mieh9d1y7a7ls74/c2r1kl5m90m6ple/3x4_sehetz_sarah_heitz_sketchbook_als-gott-schlief_10_yR9oZ.webp"
+        },
+        {
+          "id": "at9s063zazqnkro9",
+          "path": "download/noco/pv3c5ekh1fjoihu/mieh9d1y7a7ls74/c2r1kl5m90m6ple/3x4_sehetz_sarah_heitz_sketchbook_als-gott-schlief_11_ntaBV.webp",
+          "title": "3x4_sehetz_sarah_heitz_sketchbook_als-gott-schlief_11.webp",
+          "mimetype": "image/webp",
+          "size": 496026,
+          "width": 1080,
+          "height": 1440,
+          "thumbnails": {
+            "tiny": {
+              "signedPath": "dltemp/DaCJNfsBm1vySpvE/1766331000000/thumbnails/noco/pv3c5ekh1fjoihu/mieh9d1y7a7ls74/c2r1kl5m90m6ple/3x4_sehetz_sarah_heitz_sketchbook_als-gott-schlief_11_ntaBV.webp/tiny.jpg"
+            },
+            "small": {
+              "signedPath": "dltemp/__XmAcBj5fzhPcK-/1766331000000/thumbnails/noco/pv3c5ekh1fjoihu/mieh9d1y7a7ls74/c2r1kl5m90m6ple/3x4_sehetz_sarah_heitz_sketchbook_als-gott-schlief_11_ntaBV.webp/small.jpg"
+            },
+            "card_cover": {
+              "signedPath": "dltemp/F00OzhQU7nmximfs/1766331000000/thumbnails/noco/pv3c5ekh1fjoihu/mieh9d1y7a7ls74/c2r1kl5m90m6ple/3x4_sehetz_sarah_heitz_sketchbook_als-gott-schlief_11_ntaBV.webp/card_cover.jpg"
+            }
+          },
+          "signedPath": "dltemp/fsJJPoOQNNgFla7M/1766331000000/noco/pv3c5ekh1fjoihu/mieh9d1y7a7ls74/c2r1kl5m90m6ple/3x4_sehetz_sarah_heitz_sketchbook_als-gott-schlief_11_ntaBV.webp"
+        },
+        {
+          "id": "atcxiewyoeca54ki",
+          "path": "download/noco/pv3c5ekh1fjoihu/mieh9d1y7a7ls74/c2r1kl5m90m6ple/3x4_sehetz_sarah_heitz_sketchbook_als-gott-schlief_12__G0U8.webp",
+          "title": "3x4_sehetz_sarah_heitz_sketchbook_als-gott-schlief_12.webp",
+          "mimetype": "image/webp",
+          "size": 475908,
+          "width": 1080,
+          "height": 1440,
+          "thumbnails": {
+            "tiny": {
+              "signedPath": "dltemp/qCMe-14lPrP_NMIk/1766331000000/thumbnails/noco/pv3c5ekh1fjoihu/mieh9d1y7a7ls74/c2r1kl5m90m6ple/3x4_sehetz_sarah_heitz_sketchbook_als-gott-schlief_12__G0U8.webp/tiny.jpg"
+            },
+            "small": {
+              "signedPath": "dltemp/fhlrBYoVx4Du7sht/1766331000000/thumbnails/noco/pv3c5ekh1fjoihu/mieh9d1y7a7ls74/c2r1kl5m90m6ple/3x4_sehetz_sarah_heitz_sketchbook_als-gott-schlief_12__G0U8.webp/small.jpg"
+            },
+            "card_cover": {
+              "signedPath": "dltemp/z2KAP3ip6u07pFW7/1766331000000/thumbnails/noco/pv3c5ekh1fjoihu/mieh9d1y7a7ls74/c2r1kl5m90m6ple/3x4_sehetz_sarah_heitz_sketchbook_als-gott-schlief_12__G0U8.webp/card_cover.jpg"
+            }
+          },
+          "signedPath": "dltemp/o1sW4fkT5Lrj8NqM/1766331000000/noco/pv3c5ekh1fjoihu/mieh9d1y7a7ls74/c2r1kl5m90m6ple/3x4_sehetz_sarah_heitz_sketchbook_als-gott-schlief_12__G0U8.webp"
+        },
+        {
+          "id": "atxovrgxtt0nhltp",
+          "path": "download/noco/pv3c5ekh1fjoihu/mieh9d1y7a7ls74/c2r1kl5m90m6ple/3x4_sehetz_sarah_heitz_sketchbook_als-gott-schlief_13_dBtuM.webp",
+          "title": "3x4_sehetz_sarah_heitz_sketchbook_als-gott-schlief_13.webp",
+          "mimetype": "image/webp",
+          "size": 434532,
+          "width": 1080,
+          "height": 1440,
+          "thumbnails": {
+            "tiny": {
+              "signedPath": "dltemp/haD5AMXmHwRaKDpR/1766331000000/thumbnails/noco/pv3c5ekh1fjoihu/mieh9d1y7a7ls74/c2r1kl5m90m6ple/3x4_sehetz_sarah_heitz_sketchbook_als-gott-schlief_13_dBtuM.webp/tiny.jpg"
+            },
+            "small": {
+              "signedPath": "dltemp/6N8CaRxI_x_O5ErV/1766331000000/thumbnails/noco/pv3c5ekh1fjoihu/mieh9d1y7a7ls74/c2r1kl5m90m6ple/3x4_sehetz_sarah_heitz_sketchbook_als-gott-schlief_13_dBtuM.webp/small.jpg"
+            },
+            "card_cover": {
+              "signedPath": "dltemp/rGM5xJJCM9MWhDJ9/1766331000000/thumbnails/noco/pv3c5ekh1fjoihu/mieh9d1y7a7ls74/c2r1kl5m90m6ple/3x4_sehetz_sarah_heitz_sketchbook_als-gott-schlief_13_dBtuM.webp/card_cover.jpg"
+            }
+          },
+          "signedPath": "dltemp/ofpBOyQv64pRUyGR/1766331000000/noco/pv3c5ekh1fjoihu/mieh9d1y7a7ls74/c2r1kl5m90m6ple/3x4_sehetz_sarah_heitz_sketchbook_als-gott-schlief_13_dBtuM.webp"
+        },
+        {
+          "id": "attizud0ms3jzeqp",
+          "path": "download/noco/pv3c5ekh1fjoihu/mieh9d1y7a7ls74/c2r1kl5m90m6ple/3x4_sehetz_sarah_heitz_sketchbook_als-gott-schlief_14_pSeu9.webp",
+          "title": "3x4_sehetz_sarah_heitz_sketchbook_als-gott-schlief_14.webp",
+          "mimetype": "image/webp",
+          "size": 458742,
+          "width": 1080,
+          "height": 1440,
+          "thumbnails": {
+            "tiny": {
+              "signedPath": "dltemp/U1P0BKyN-b5m9ANt/1766331000000/thumbnails/noco/pv3c5ekh1fjoihu/mieh9d1y7a7ls74/c2r1kl5m90m6ple/3x4_sehetz_sarah_heitz_sketchbook_als-gott-schlief_14_pSeu9.webp/tiny.jpg"
+            },
+            "small": {
+              "signedPath": "dltemp/vkqxB2K6fWz5j9fv/1766331000000/thumbnails/noco/pv3c5ekh1fjoihu/mieh9d1y7a7ls74/c2r1kl5m90m6ple/3x4_sehetz_sarah_heitz_sketchbook_als-gott-schlief_14_pSeu9.webp/small.jpg"
+            },
+            "card_cover": {
+              "signedPath": "dltemp/EK_U2cRpHNvieppt/1766331000000/thumbnails/noco/pv3c5ekh1fjoihu/mieh9d1y7a7ls74/c2r1kl5m90m6ple/3x4_sehetz_sarah_heitz_sketchbook_als-gott-schlief_14_pSeu9.webp/card_cover.jpg"
+            }
+          },
+          "signedPath": "dltemp/cvpStS8IpbWLxH_T/1766331000000/noco/pv3c5ekh1fjoihu/mieh9d1y7a7ls74/c2r1kl5m90m6ple/3x4_sehetz_sarah_heitz_sketchbook_als-gott-schlief_14_pSeu9.webp"
+        },
+        {
+          "id": "ato781neuclvfgg4",
+          "path": "download/noco/pv3c5ekh1fjoihu/mieh9d1y7a7ls74/c2r1kl5m90m6ple/3x4_sehetz_sarah_heitz_sketchbook_als-gott-schlief_15_T-mAu.webp",
+          "title": "3x4_sehetz_sarah_heitz_sketchbook_als-gott-schlief_15.webp",
+          "mimetype": "image/webp",
+          "size": 423952,
+          "width": 1080,
+          "height": 1440,
+          "thumbnails": {
+            "tiny": {
+              "signedPath": "dltemp/8qFjlr2-1NRo17Wy/1766331000000/thumbnails/noco/pv3c5ekh1fjoihu/mieh9d1y7a7ls74/c2r1kl5m90m6ple/3x4_sehetz_sarah_heitz_sketchbook_als-gott-schlief_15_T-mAu.webp/tiny.jpg"
+            },
+            "small": {
+              "signedPath": "dltemp/jPvGXlpG2OFc6DH-/1766331000000/thumbnails/noco/pv3c5ekh1fjoihu/mieh9d1y7a7ls74/c2r1kl5m90m6ple/3x4_sehetz_sarah_heitz_sketchbook_als-gott-schlief_15_T-mAu.webp/small.jpg"
+            },
+            "card_cover": {
+              "signedPath": "dltemp/ududkTAcO7wLbDXR/1766331000000/thumbnails/noco/pv3c5ekh1fjoihu/mieh9d1y7a7ls74/c2r1kl5m90m6ple/3x4_sehetz_sarah_heitz_sketchbook_als-gott-schlief_15_T-mAu.webp/card_cover.jpg"
+            }
+          },
+          "signedPath": "dltemp/HH3JaUnZokxm_o1A/1766331000000/noco/pv3c5ekh1fjoihu/mieh9d1y7a7ls74/c2r1kl5m90m6ple/3x4_sehetz_sarah_heitz_sketchbook_als-gott-schlief_15_T-mAu.webp"
+        },
+        {
+          "id": "atueovk8pap9vfys",
+          "path": "download/noco/pv3c5ekh1fjoihu/mieh9d1y7a7ls74/c2r1kl5m90m6ple/3x4_sehetz_sarah_heitz_sketchbook_als-gott-schlief_16_u__LA.webp",
+          "title": "3x4_sehetz_sarah_heitz_sketchbook_als-gott-schlief_16.webp",
+          "mimetype": "image/webp",
+          "size": 657118,
+          "width": 1080,
+          "height": 1440,
+          "thumbnails": {
+            "tiny": {
+              "signedPath": "dltemp/cJ9EbPfMKwnh6tN6/1766331000000/thumbnails/noco/pv3c5ekh1fjoihu/mieh9d1y7a7ls74/c2r1kl5m90m6ple/3x4_sehetz_sarah_heitz_sketchbook_als-gott-schlief_16_u__LA.webp/tiny.jpg"
+            },
+            "small": {
+              "signedPath": "dltemp/LxOrxV6OAJkoIRbF/1766331000000/thumbnails/noco/pv3c5ekh1fjoihu/mieh9d1y7a7ls74/c2r1kl5m90m6ple/3x4_sehetz_sarah_heitz_sketchbook_als-gott-schlief_16_u__LA.webp/small.jpg"
+            },
+            "card_cover": {
+              "signedPath": "dltemp/zR87rBPdHDHriirp/1766331000000/thumbnails/noco/pv3c5ekh1fjoihu/mieh9d1y7a7ls74/c2r1kl5m90m6ple/3x4_sehetz_sarah_heitz_sketchbook_als-gott-schlief_16_u__LA.webp/card_cover.jpg"
+            }
+          },
+          "signedPath": "dltemp/-fYBfZH-tPp75Mn8/1766331000000/noco/pv3c5ekh1fjoihu/mieh9d1y7a7ls74/c2r1kl5m90m6ple/3x4_sehetz_sarah_heitz_sketchbook_als-gott-schlief_16_u__LA.webp"
+        },
+        {
+          "id": "atnlcjloqgyyvwtx",
+          "path": "download/noco/pv3c5ekh1fjoihu/mieh9d1y7a7ls74/c2r1kl5m90m6ple/3x4_sehetz_sarah_heitz_sketchbook_als-gott-schlief_17_a64aC.webp",
+          "title": "3x4_sehetz_sarah_heitz_sketchbook_als-gott-schlief_17.webp",
+          "mimetype": "image/webp",
+          "size": 455528,
+          "width": 1080,
+          "height": 1440,
+          "thumbnails": {
+            "tiny": {
+              "signedPath": "dltemp/7e1vsOdQ4TTI-yLh/1766331000000/thumbnails/noco/pv3c5ekh1fjoihu/mieh9d1y7a7ls74/c2r1kl5m90m6ple/3x4_sehetz_sarah_heitz_sketchbook_als-gott-schlief_17_a64aC.webp/tiny.jpg"
+            },
+            "small": {
+              "signedPath": "dltemp/dOq0j0Dcht9Tzocd/1766331000000/thumbnails/noco/pv3c5ekh1fjoihu/mieh9d1y7a7ls74/c2r1kl5m90m6ple/3x4_sehetz_sarah_heitz_sketchbook_als-gott-schlief_17_a64aC.webp/small.jpg"
+            },
+            "card_cover": {
+              "signedPath": "dltemp/Dk0na_1RDllW6oUU/1766331000000/thumbnails/noco/pv3c5ekh1fjoihu/mieh9d1y7a7ls74/c2r1kl5m90m6ple/3x4_sehetz_sarah_heitz_sketchbook_als-gott-schlief_17_a64aC.webp/card_cover.jpg"
+            }
+          },
+          "signedPath": "dltemp/wgdUDL_XABLhy5FZ/1766331000000/noco/pv3c5ekh1fjoihu/mieh9d1y7a7ls74/c2r1kl5m90m6ple/3x4_sehetz_sarah_heitz_sketchbook_als-gott-schlief_17_a64aC.webp"
+        },
+        {
+          "id": "atjjj7mn4lvtfzso",
+          "path": "download/noco/pv3c5ekh1fjoihu/mieh9d1y7a7ls74/c2r1kl5m90m6ple/3x4_sehetz_sarah_heitz_sketchbook_als-gott-schlief_18_bzlqa.webp",
+          "title": "3x4_sehetz_sarah_heitz_sketchbook_als-gott-schlief_18.webp",
+          "mimetype": "image/webp",
+          "size": 610408,
+          "width": 1080,
+          "height": 1440,
+          "thumbnails": {
+            "tiny": {
+              "signedPath": "dltemp/Ile7g7vbCm7Y0-D1/1766331000000/thumbnails/noco/pv3c5ekh1fjoihu/mieh9d1y7a7ls74/c2r1kl5m90m6ple/3x4_sehetz_sarah_heitz_sketchbook_als-gott-schlief_18_bzlqa.webp/tiny.jpg"
+            },
+            "small": {
+              "signedPath": "dltemp/BUFCLrsYVtHA6xQE/1766331000000/thumbnails/noco/pv3c5ekh1fjoihu/mieh9d1y7a7ls74/c2r1kl5m90m6ple/3x4_sehetz_sarah_heitz_sketchbook_als-gott-schlief_18_bzlqa.webp/small.jpg"
+            },
+            "card_cover": {
+              "signedPath": "dltemp/nOMmwU195KCEaHcN/1766331000000/thumbnails/noco/pv3c5ekh1fjoihu/mieh9d1y7a7ls74/c2r1kl5m90m6ple/3x4_sehetz_sarah_heitz_sketchbook_als-gott-schlief_18_bzlqa.webp/card_cover.jpg"
+            }
+          },
+          "signedPath": "dltemp/s_VNDoLjYDyzE6yx/1766331000000/noco/pv3c5ekh1fjoihu/mieh9d1y7a7ls74/c2r1kl5m90m6ple/3x4_sehetz_sarah_heitz_sketchbook_als-gott-schlief_18_bzlqa.webp"
+        }
+      ],
+      "content_07_links": "[Endlich tacheles film](https://endlich-tacheles.org/index.html)\n\n[Als Gott schlief game](https://alsgottschlief.de/)",
+      "is_online": true,
+      "_nc_m2m_sehetz_skills": [
+        {
+          "skill_id": 2,
+          "sehetz_id": 4,
+          "skill": {
+            "Projects": 4,
+            "Id": 2,
+            "CreatedAt": "2025-12-20 13:24:00+00:00",
+            "UpdatedAt": "2025-12-20 13:26:53+00:00",
+            "Skill": "Illustration"
+          }
+        }
+      ],
+      "_nc_m2m_sehetz_teams": [
+        {
+          "team_id": 4,
+          "sehetz_id": 4,
+          "team": {
+            "Projects": 1,
+            "Id": 4,
+            "CreatedAt": "2025-12-20 13:23:35+00:00",
+            "UpdatedAt": "2025-12-20 19:58:54+00:00",
+            "Team": "Tacheles",
+            "design-work": true,
+            "description": "\nPlease excuse the image quality. It’s emotionally true. In 2018, I worked on my bachelor's thesis with my then-partner Yaar, while a Berlin Studio were simultaneously filming the documentary \"Endlich Tacheles\" about his family history and how he coped with it. As a concept artist for the video game featured in the film, I also had a role on camera. Hardly any other industry unites so many people with so much passion as film – people who are on fire, who live, who create. An experience that deeply impressed me.",
+            "Teaser-Image": [
+              {
+                "path": "download/noco/pv3c5ekh1fjoihu/mpz7ywybfxm3isa/cjpjpyar26z9u70/Sehetz-team-Endlich-Tacheles-2_LeHd6.jpg",
+                "title": "Sehetz-team-Endlich-Tacheles-2.jpg",
+                "mimetype": "image/jpeg",
+                "size": 400806,
+                "width": 1080,
+                "height": 1440,
+                "id": "atwlypr242xj95a4",
+                "thumbnails": {
+                  "tiny": {
+                    "signedPath": "dltemp/AVfvzpeB-YRcNf67/1766331000000/thumbnails/noco/pv3c5ekh1fjoihu/mpz7ywybfxm3isa/cjpjpyar26z9u70/Sehetz-team-Endlich-Tacheles-2_LeHd6.jpg/tiny.jpg"
+                  },
+                  "small": {
+                    "signedPath": "dltemp/6M0wtoUlC-a01yFS/1766331000000/thumbnails/noco/pv3c5ekh1fjoihu/mpz7ywybfxm3isa/cjpjpyar26z9u70/Sehetz-team-Endlich-Tacheles-2_LeHd6.jpg/small.jpg"
+                  },
+                  "card_cover": {
+                    "signedPath": "dltemp/0LR-3leApAQgVVVq/1766331000000/thumbnails/noco/pv3c5ekh1fjoihu/mpz7ywybfxm3isa/cjpjpyar26z9u70/Sehetz-team-Endlich-Tacheles-2_LeHd6.jpg/card_cover.jpg"
+                  }
+                },
+                "signedPath": "dltemp/lp65H-8_c16eX-4M/1766331000000/noco/pv3c5ekh1fjoihu/mpz7ywybfxm3isa/cjpjpyar26z9u70/Sehetz-team-Endlich-Tacheles-2_LeHd6.jpg"
+              }
+            ],
+            "start-date": 2018,
+            "end-date": 2019,
+            "role": "Protagonist",
+            "location": "Berlin",
+            "link": "https://endlich-tacheles.org/"
+          }
+        }
+      ],
+      "_nc_m2m_sehetz_gears": [
+        {
+          "gear_id": 7,
+          "sehetz_id": 4,
+          "gear": {
+            "Projects": 1,
+            "Id": 7,
+            "CreatedAt": "2025-12-20 13:23:46+00:00",
+            "UpdatedAt": "2025-12-20 19:29:52+00:00",
+            "Gear": "Pen & Paper",
+            "description": "The comfort of a pencil lead on paper, the beautiful accidental effects that occur when the pigment rubs off onto the canvas, the smell of paint. All of that is simply put: my comfort zone. Things get exciting when you combine media: modeling clay, watercolors, pencil drawings? Why not!",
+            "Teaser-Image": [
+              {
+                "path": "download/noco/pv3c5ekh1fjoihu/mb2io0hhb8mzae6/cqax9ua61uqjooh/Sehetz Sarah Heitz Gear Pen & Paper_KuxBN.svg",
+                "title": "Sehetz Sarah Heitz Gear Pen & Paper.svg",
+                "mimetype": "image/svg+xml",
+                "size": 22331,
+                "width": 260,
+                "height": 346,
+                "id": "atmsrp682z115k1h",
+                "thumbnails": {
+                  "tiny": {
+                    "signedPath": "dltemp/jVkzmB8Sd4-Ifd-s/1766331000000/thumbnails/noco/pv3c5ekh1fjoihu/mb2io0hhb8mzae6/cqax9ua61uqjooh/Sehetz Sarah Heitz Gear Pen & Paper_KuxBN.svg/tiny.jpg"
+                  },
+                  "small": {
+                    "signedPath": "dltemp/BA_S1fhy4SabKiAw/1766331000000/thumbnails/noco/pv3c5ekh1fjoihu/mb2io0hhb8mzae6/cqax9ua61uqjooh/Sehetz Sarah Heitz Gear Pen & Paper_KuxBN.svg/small.jpg"
+                  },
+                  "card_cover": {
+                    "signedPath": "dltemp/hBe0sYEBwfNFBrA1/1766331000000/thumbnails/noco/pv3c5ekh1fjoihu/mb2io0hhb8mzae6/cqax9ua61uqjooh/Sehetz Sarah Heitz Gear Pen & Paper_KuxBN.svg/card_cover.jpg"
+                  }
+                },
+                "signedPath": "dltemp/wLb0uOvbukW99B4l/1766331000000/noco/pv3c5ekh1fjoihu/mb2io0hhb8mzae6/cqax9ua61uqjooh/Sehetz Sarah Heitz Gear Pen & Paper_KuxBN.svg"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "Id": 5,
+      "CreatedAt": "2025-12-20 13:24:53+00:00",
+      "UpdatedAt": "2025-12-20 19:56:22+00:00",
+      "Title": "BFS Rosling",
+      "description": "First things first: The video is cringeworthy. Nevertheless, it's one of my proudest projects at Superdot. Even before AI, we took on a project where we could try out completely new technologies; my task was to program the 3D animation of the visualization in Blender in a data-compliant manner.",
+      "Datum": "2023-02-01",
+      "skill": 1,
+      "Gear": 1,
+      "Team": 1,
+      "Teaser-Image": [
+        {
+          "path": "download/noco/pv3c5ekh1fjoihu/mieh9d1y7a7ls74/c18fm6jyb2wfvqr/Rosling_20230106_014-7_yUOuK.png",
+          "title": "Rosling_20230106_014-7.png",
+          "mimetype": "image/png",
+          "size": 561837,
+          "width": 1241,
+          "height": 1772,
+          "id": "atpk1qwo8j71xzu8",
+          "thumbnails": {
+            "tiny": {
+              "signedPath": "dltemp/xOw8NNq_LxDnV-QN/1766331000000/thumbnails/noco/pv3c5ekh1fjoihu/mieh9d1y7a7ls74/c18fm6jyb2wfvqr/Rosling_20230106_014-7_yUOuK.png/tiny.jpg"
+            },
+            "small": {
+              "signedPath": "dltemp/LHJw0YQRPMJdNUyd/1766331000000/thumbnails/noco/pv3c5ekh1fjoihu/mieh9d1y7a7ls74/c18fm6jyb2wfvqr/Rosling_20230106_014-7_yUOuK.png/small.jpg"
+            },
+            "card_cover": {
+              "signedPath": "dltemp/v_o7vTA_N14Lf2_X/1766331000000/thumbnails/noco/pv3c5ekh1fjoihu/mieh9d1y7a7ls74/c18fm6jyb2wfvqr/Rosling_20230106_014-7_yUOuK.png/card_cover.jpg"
+            }
+          },
+          "signedPath": "dltemp/nhElIYcPW0wfZkBW/1766331000000/noco/pv3c5ekh1fjoihu/mieh9d1y7a7ls74/c18fm6jyb2wfvqr/Rosling_20230106_014-7_yUOuK.png"
+        }
+      ],
+      "content_01_text": null,
+      "content_02_image": null,
+      "content_03_text": null,
+      "content_04_images": null,
+      "content_05_text": null,
+      "content_06_gallery": null,
+      "content_07_links": "[Watch a great visualization in action](https://www.youtube.com/watch?v=JK29DeDJo6A)",
+      "is_online": true,
+      "_nc_m2m_sehetz_skills": [
+        {
+          "skill_id": 6,
+          "sehetz_id": 5,
+          "skill": {
+            "Projects": 1,
+            "Id": 6,
+            "CreatedAt": "2025-12-20 13:24:00+00:00",
+            "UpdatedAt": "2025-12-20 13:26:19+00:00",
+            "Skill": "3D"
+          }
+        }
+      ],
+      "_nc_m2m_sehetz_teams": [
+        {
+          "team_id": 2,
+          "sehetz_id": 5,
+          "team": {
+            "Projects": 2,
+            "Id": 2,
+            "CreatedAt": "2025-12-20 13:23:35+00:00",
+            "UpdatedAt": "2025-12-20 19:58:12+00:00",
+            "Team": "Superdot",
+            "design-work": true,
+            "description": "It's difficult for me to put into words how much I value my time at Superdot. As a recent bachelor's graduate from a German province, I started my career in a studio where the art director was still learning typography directly from Weingart. What began as a traineeship became the most formative learning experience of my professional life. Darjan and Nicole not only shaped me but also nurtured my talents – and I am forever grateful for that.",
+            "Teaser-Image": [
+              {
+                "path": "download/noco/pv3c5ekh1fjoihu/mpz7ywybfxm3isa/cjpjpyar26z9u70/Sehetz-Team-Superdot__3NTb.webp",
+                "title": "Sehetz-Team-Superdot.webp",
+                "mimetype": "image/webp",
+                "size": 498384,
+                "width": 1350,
+                "height": 1800,
+                "id": "atzkx6ez0vjuzzv2",
+                "thumbnails": {
+                  "tiny": {
+                    "signedPath": "dltemp/W_sMm9qE7waQTiIY/1766331000000/thumbnails/noco/pv3c5ekh1fjoihu/mpz7ywybfxm3isa/cjpjpyar26z9u70/Sehetz-Team-Superdot__3NTb.webp/tiny.jpg"
+                  },
+                  "small": {
+                    "signedPath": "dltemp/blkRp7ThaLmcDDbs/1766331000000/thumbnails/noco/pv3c5ekh1fjoihu/mpz7ywybfxm3isa/cjpjpyar26z9u70/Sehetz-Team-Superdot__3NTb.webp/small.jpg"
+                  },
+                  "card_cover": {
+                    "signedPath": "dltemp/1MKJ-gbaya4AOHsh/1766331000000/thumbnails/noco/pv3c5ekh1fjoihu/mpz7ywybfxm3isa/cjpjpyar26z9u70/Sehetz-Team-Superdot__3NTb.webp/card_cover.jpg"
+                  }
+                },
+                "signedPath": "dltemp/c-zQT0V2iLbufKHC/1766331000000/noco/pv3c5ekh1fjoihu/mpz7ywybfxm3isa/cjpjpyar26z9u70/Sehetz-Team-Superdot__3NTb.webp"
+              }
+            ],
+            "start-date": 2020,
+            "end-date": null,
+            "role": "Information Designer",
+            "location": "Basel",
+            "link": "https://www.superdot.studio/"
+          }
+        }
+      ],
+      "_nc_m2m_sehetz_gears": [
+        {
+          "gear_id": 3,
+          "sehetz_id": 5,
+          "gear": {
+            "Projects": 1,
+            "Id": 3,
+            "CreatedAt": "2025-12-20 13:23:46+00:00",
+            "UpdatedAt": "2025-12-20 19:28:56+00:00",
+            "Gear": "Blender",
+            "description": "Ahhh, Blender. I love you and your community, the many tutorials, the helpful users who will still be answering questions in forums even in 2025. I love that you're improving the industry standard and constantly working on yourself. You're the best tool, and I'm grateful you exist.",
+            "Teaser-Image": [
+              {
+                "path": "download/noco/pv3c5ekh1fjoihu/mb2io0hhb8mzae6/cqax9ua61uqjooh/Sehetz Sarah Heitz Gear Blender_ymjy-.svg",
+                "title": "Sehetz Sarah Heitz Gear Blender.svg",
+                "mimetype": "image/svg+xml",
+                "size": 110411,
+                "width": 260,
+                "height": 346,
+                "id": "at3tylgpmk18fs59",
+                "thumbnails": {
+                  "tiny": {
+                    "signedPath": "dltemp/CT8ywL4vFZqFqylC/1766331000000/thumbnails/noco/pv3c5ekh1fjoihu/mb2io0hhb8mzae6/cqax9ua61uqjooh/Sehetz Sarah Heitz Gear Blender_ymjy-.svg/tiny.jpg"
+                  },
+                  "small": {
+                    "signedPath": "dltemp/faU04MQRvJnFkYst/1766331000000/thumbnails/noco/pv3c5ekh1fjoihu/mb2io0hhb8mzae6/cqax9ua61uqjooh/Sehetz Sarah Heitz Gear Blender_ymjy-.svg/small.jpg"
+                  },
+                  "card_cover": {
+                    "signedPath": "dltemp/z7txb-TSM6iaoeP2/1766331000000/thumbnails/noco/pv3c5ekh1fjoihu/mb2io0hhb8mzae6/cqax9ua61uqjooh/Sehetz Sarah Heitz Gear Blender_ymjy-.svg/card_cover.jpg"
+                  }
+                },
+                "signedPath": "dltemp/Uy1pP9c__EFDwSjZ/1766331000000/noco/pv3c5ekh1fjoihu/mb2io0hhb8mzae6/cqax9ua61uqjooh/Sehetz Sarah Heitz Gear Blender_ymjy-.svg"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "Id": 6,
+      "CreatedAt": "2025-12-20 13:24:53+00:00",
+      "UpdatedAt": "2025-12-20 19:55:26+00:00",
+      "Title": "SDGraphical",
+      "description": "Typesetting books, preparing them for printing, and designing icons. What a beautiful print project! Nicole designed the layout, Darjan and Nicole developed the graphs, Aaron programmed the graphs, and I developed the icons with Nicole and typeset the book. A great project that demonstrates how the workflow at Superdot flows smoothly through the entire team.",
+      "Datum": "2023-04-14",
+      "skill": 1,
+      "Gear": 1,
+      "Team": 1,
+      "Teaser-Image": [
+        {
+          "path": "download/noco/pv3c5ekh1fjoihu/mieh9d1y7a7ls74/c18fm6jyb2wfvqr/aC8eUSdWJ-7kScVD_P187.1100Teaser4x5_C5ic_.avif",
+          "title": "aC8eUSdWJ-7kScVD_P187.1100Teaser4x5.avif",
+          "mimetype": "image/avif",
+          "size": 254927,
+          "width": 1000,
+          "height": 1250,
+          "id": "atj30m0d4pxrzfu8",
+          "thumbnails": {
+            "tiny": {
+              "signedPath": "dltemp/ndFasxtBFYS8X89h/1766331000000/thumbnails/noco/pv3c5ekh1fjoihu/mieh9d1y7a7ls74/c18fm6jyb2wfvqr/aC8eUSdWJ-7kScVD_P187.1100Teaser4x5_C5ic_.avif/tiny.jpg"
+            },
+            "small": {
+              "signedPath": "dltemp/s0F7q8LQw8wPnbuz/1766331000000/thumbnails/noco/pv3c5ekh1fjoihu/mieh9d1y7a7ls74/c18fm6jyb2wfvqr/aC8eUSdWJ-7kScVD_P187.1100Teaser4x5_C5ic_.avif/small.jpg"
+            },
+            "card_cover": {
+              "signedPath": "dltemp/v1bGPVkCLk7kYegZ/1766331000000/thumbnails/noco/pv3c5ekh1fjoihu/mieh9d1y7a7ls74/c18fm6jyb2wfvqr/aC8eUSdWJ-7kScVD_P187.1100Teaser4x5_C5ic_.avif/card_cover.jpg"
+            }
+          },
+          "signedPath": "dltemp/AlQqU525TX7k0DxI/1766331000000/noco/pv3c5ekh1fjoihu/mieh9d1y7a7ls74/c18fm6jyb2wfvqr/aC8eUSdWJ-7kScVD_P187.1100Teaser4x5_C5ic_.avif"
+        }
+      ],
+      "content_01_text": null,
+      "content_02_image": null,
+      "content_03_text": null,
+      "content_04_images": null,
+      "content_05_text": null,
+      "content_06_gallery": null,
+      "content_07_links": null,
+      "is_online": true,
+      "_nc_m2m_sehetz_skills": [
+        {
+          "skill_id": 7,
+          "sehetz_id": 6,
+          "skill": {
+            "Projects": 1,
+            "Id": 7,
+            "CreatedAt": "2025-12-20 13:24:00+00:00",
+            "UpdatedAt": "2025-12-20 13:26:30+00:00",
+            "Skill": "Graphic"
+          }
+        }
+      ],
+      "_nc_m2m_sehetz_teams": [
+        {
+          "team_id": 2,
+          "sehetz_id": 6,
+          "team": {
+            "Projects": 2,
+            "Id": 2,
+            "CreatedAt": "2025-12-20 13:23:35+00:00",
+            "UpdatedAt": "2025-12-20 19:58:12+00:00",
+            "Team": "Superdot",
+            "design-work": true,
+            "description": "It's difficult for me to put into words how much I value my time at Superdot. As a recent bachelor's graduate from a German province, I started my career in a studio where the art director was still learning typography directly from Weingart. What began as a traineeship became the most formative learning experience of my professional life. Darjan and Nicole not only shaped me but also nurtured my talents – and I am forever grateful for that.",
+            "Teaser-Image": [
+              {
+                "path": "download/noco/pv3c5ekh1fjoihu/mpz7ywybfxm3isa/cjpjpyar26z9u70/Sehetz-Team-Superdot__3NTb.webp",
+                "title": "Sehetz-Team-Superdot.webp",
+                "mimetype": "image/webp",
+                "size": 498384,
+                "width": 1350,
+                "height": 1800,
+                "id": "atzkx6ez0vjuzzv2",
+                "thumbnails": {
+                  "tiny": {
+                    "signedPath": "dltemp/W_sMm9qE7waQTiIY/1766331000000/thumbnails/noco/pv3c5ekh1fjoihu/mpz7ywybfxm3isa/cjpjpyar26z9u70/Sehetz-Team-Superdot__3NTb.webp/tiny.jpg"
+                  },
+                  "small": {
+                    "signedPath": "dltemp/blkRp7ThaLmcDDbs/1766331000000/thumbnails/noco/pv3c5ekh1fjoihu/mpz7ywybfxm3isa/cjpjpyar26z9u70/Sehetz-Team-Superdot__3NTb.webp/small.jpg"
+                  },
+                  "card_cover": {
+                    "signedPath": "dltemp/1MKJ-gbaya4AOHsh/1766331000000/thumbnails/noco/pv3c5ekh1fjoihu/mpz7ywybfxm3isa/cjpjpyar26z9u70/Sehetz-Team-Superdot__3NTb.webp/card_cover.jpg"
+                  }
+                },
+                "signedPath": "dltemp/c-zQT0V2iLbufKHC/1766331000000/noco/pv3c5ekh1fjoihu/mpz7ywybfxm3isa/cjpjpyar26z9u70/Sehetz-Team-Superdot__3NTb.webp"
+              }
+            ],
+            "start-date": 2020,
+            "end-date": null,
+            "role": "Information Designer",
+            "location": "Basel",
+            "link": "https://www.superdot.studio/"
+          }
+        }
+      ],
+      "_nc_m2m_sehetz_gears": [
+        {
+          "gear_id": 4,
+          "sehetz_id": 6,
+          "gear": {
+            "Projects": 2,
+            "Id": 4,
+            "CreatedAt": "2025-12-20 13:23:46+00:00",
+            "UpdatedAt": "2025-12-20 19:29:15+00:00",
+            "Gear": "Creative Cloud",
+            "description": "After Effects, Bridge, Illustrator, InDesign, Lightroom, Photoshop, Premiere – that's my Adobe ABC. We designers need you, but we don't love you. For years, there was far too little innovation in these programs (thanks for the color search in InDesign, tho; the rest is peanuts), but I'm grateful for a tool that reliably lets me complete all my creative tasks. ",
+            "Teaser-Image": [
+              {
+                "path": "download/noco/pv3c5ekh1fjoihu/mb2io0hhb8mzae6/cqax9ua61uqjooh/Sehetz Sarah Heitz Gear Creative Cloud Crop_HcVgW.svg",
+                "title": "Sehetz Sarah Heitz Gear Creative Cloud Crop.svg",
+                "mimetype": "image/svg+xml",
+                "size": 35617,
+                "width": 217,
+                "height": 290,
+                "id": "atz2hn76vfda3dvr",
+                "thumbnails": {
+                  "tiny": {
+                    "signedPath": "dltemp/fBG1C7RMd6K4LQne/1766331000000/thumbnails/noco/pv3c5ekh1fjoihu/mb2io0hhb8mzae6/cqax9ua61uqjooh/Sehetz Sarah Heitz Gear Creative Cloud Crop_HcVgW.svg/tiny.jpg"
+                  },
+                  "small": {
+                    "signedPath": "dltemp/0IiZtmoY_eGBA5sB/1766331000000/thumbnails/noco/pv3c5ekh1fjoihu/mb2io0hhb8mzae6/cqax9ua61uqjooh/Sehetz Sarah Heitz Gear Creative Cloud Crop_HcVgW.svg/small.jpg"
+                  },
+                  "card_cover": {
+                    "signedPath": "dltemp/jRQm-LnucGO7Y6bC/1766331000000/thumbnails/noco/pv3c5ekh1fjoihu/mb2io0hhb8mzae6/cqax9ua61uqjooh/Sehetz Sarah Heitz Gear Creative Cloud Crop_HcVgW.svg/card_cover.jpg"
+                  }
+                },
+                "signedPath": "dltemp/WmTYXTbDG18O6dba/1766331000000/noco/pv3c5ekh1fjoihu/mb2io0hhb8mzae6/cqax9ua61uqjooh/Sehetz Sarah Heitz Gear Creative Cloud Crop_HcVgW.svg"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "Id": 7,
+      "CreatedAt": "2025-12-20 13:24:53+00:00",
+      "UpdatedAt": "2025-12-20 13:29:08+00:00",
+      "Title": "Nightwalker",
+      "description": null,
+      "Datum": "2025-11-13",
+      "skill": 1,
+      "Gear": 1,
+      "Team": 1,
+      "Teaser-Image": null,
+      "content_01_text": "What are you doing out alone, dark techno blasting in full volume?",
+      "content_02_image": null,
+      "content_03_text": "What are you doing out alone, dark techno blasting in full volume?",
+      "content_04_images": null,
+      "content_05_text": "What are you doing out alone, dark techno blasting in full volume?",
+      "content_06_gallery": null,
+      "content_07_links": null,
+      "is_online": false,
+      "_nc_m2m_sehetz_skills": [
+        {
+          "skill_id": 10,
+          "sehetz_id": 7,
+          "skill": {
+            "Projects": 3,
+            "Id": 10,
+            "CreatedAt": "2025-12-20 13:24:00+00:00",
+            "UpdatedAt": "2025-12-20 13:26:37+00:00",
+            "Skill": "Foto"
+          }
+        }
+      ],
+      "_nc_m2m_sehetz_teams": [
+        {
+          "team_id": 5,
+          "sehetz_id": 7,
+          "team": {
+            "Projects": 4,
+            "Id": 5,
+            "CreatedAt": "2025-12-20 13:23:35+00:00",
+            "UpdatedAt": "2025-12-20 13:40:48+00:00",
+            "Team": "sehetz",
+            "design-work": true,
+            "description": null,
+            "Teaser-Image": null,
+            "start-date": 2015,
+            "end-date": null,
+            "role": "Courious Twad",
+            "location": "Basel",
+            "link": null
+          }
+        }
+      ],
+      "_nc_m2m_sehetz_gears": [
+        {
+          "gear_id": 1,
+          "sehetz_id": 7,
+          "gear": {
+            "Projects": 2,
+            "Id": 1,
+            "CreatedAt": "2025-12-20 13:23:45+00:00",
+            "UpdatedAt": "2025-12-20 19:29:42+00:00",
+            "Gear": "Sony A6100",
+            "description": "I've always dabbled in photography, whether as a theater photographer, as visual diary, or as a helpful tool to capture the people around me just as I see them. This camera was a gift and means a great deal to me. It has rekindled my interest in scene composition and imagery.\n",
+            "Teaser-Image": [
+              {
+                "path": "download/noco/pv3c5ekh1fjoihu/mb2io0hhb8mzae6/cqax9ua61uqjooh/Sehetz Sarah Heitz Gear Sony A6100 Crop__5Kmf.svg",
+                "title": "Sehetz Sarah Heitz Gear Sony A6100 Crop.svg",
+                "mimetype": "image/svg+xml",
+                "size": 34606,
+                "width": 195,
+                "height": 260,
+                "id": "atp5o89pbsq2j0ji",
+                "thumbnails": {
+                  "tiny": {
+                    "signedPath": "dltemp/sx9_sf0mgOGxUiPF/1766331000000/thumbnails/noco/pv3c5ekh1fjoihu/mb2io0hhb8mzae6/cqax9ua61uqjooh/Sehetz Sarah Heitz Gear Sony A6100 Crop__5Kmf.svg/tiny.jpg"
+                  },
+                  "small": {
+                    "signedPath": "dltemp/4BrvHM_NUEPX9Xxw/1766331000000/thumbnails/noco/pv3c5ekh1fjoihu/mb2io0hhb8mzae6/cqax9ua61uqjooh/Sehetz Sarah Heitz Gear Sony A6100 Crop__5Kmf.svg/small.jpg"
+                  },
+                  "card_cover": {
+                    "signedPath": "dltemp/PNU7eS2HuLQ9tftI/1766331000000/thumbnails/noco/pv3c5ekh1fjoihu/mb2io0hhb8mzae6/cqax9ua61uqjooh/Sehetz Sarah Heitz Gear Sony A6100 Crop__5Kmf.svg/card_cover.jpg"
+                  }
+                },
+                "signedPath": "dltemp/OBaPaEOz0Yt4XZtk/1766331000000/noco/pv3c5ekh1fjoihu/mb2io0hhb8mzae6/cqax9ua61uqjooh/Sehetz Sarah Heitz Gear Sony A6100 Crop__5Kmf.svg"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "Id": 8,
+      "CreatedAt": "2025-12-20 13:24:53+00:00",
+      "UpdatedAt": "2025-12-20 20:01:21+00:00",
+      "Title": "Dreamscape",
+      "description": "Taste has color, form, and history. I developed the cartridge packaging for Carnault. Illustration, layout, and design combine to create the packaging for the four flavors. Each has a unique color palette with gradations to represent the individual nuances of the different tastes. The packaging invites you to dream—a world of pleasure and nostalgia.",
+      "Datum": "2023-10-10",
+      "skill": 1,
+      "Gear": 1,
+      "Team": 1,
+      "Teaser-Image": [
+        {
+          "path": "download/noco/pv3c5ekh1fjoihu/mieh9d1y7a7ls74/c18fm6jyb2wfvqr/Carnault-No1-Carnault-152826635_FYZUB.webp",
+          "title": "Carnault-No1-Carnault-152826635.webp",
+          "mimetype": "image/webp",
+          "size": 80600,
+          "width": 1296,
+          "height": 1622,
+          "id": "atsk5ubvh4vetvne",
+          "thumbnails": {
+            "tiny": {
+              "signedPath": "dltemp/-zxaJCDa9U1Qa4dK/1766331000000/thumbnails/noco/pv3c5ekh1fjoihu/mieh9d1y7a7ls74/c18fm6jyb2wfvqr/Carnault-No1-Carnault-152826635_FYZUB.webp/tiny.jpg"
+            },
+            "small": {
+              "signedPath": "dltemp/8ri_mfB8XTFiCy0R/1766331000000/thumbnails/noco/pv3c5ekh1fjoihu/mieh9d1y7a7ls74/c18fm6jyb2wfvqr/Carnault-No1-Carnault-152826635_FYZUB.webp/small.jpg"
+            },
+            "card_cover": {
+              "signedPath": "dltemp/v5f6u6rzgth1q2xa/1766331000000/thumbnails/noco/pv3c5ekh1fjoihu/mieh9d1y7a7ls74/c18fm6jyb2wfvqr/Carnault-No1-Carnault-152826635_FYZUB.webp/card_cover.jpg"
+            }
+          },
+          "signedPath": "dltemp/jA4qP0ODY58qpk5c/1766331000000/noco/pv3c5ekh1fjoihu/mieh9d1y7a7ls74/c18fm6jyb2wfvqr/Carnault-No1-Carnault-152826635_FYZUB.webp"
+        }
+      ],
+      "content_01_text": null,
+      "content_02_image": null,
+      "content_03_text": null,
+      "content_04_images": null,
+      "content_05_text": null,
+      "content_06_gallery": null,
+      "content_07_links": "[Visit the Carnault website](https://carnault.ch/)",
+      "is_online": true,
+      "_nc_m2m_sehetz_skills": [
+        {
+          "skill_id": 2,
+          "sehetz_id": 8,
+          "skill": {
+            "Projects": 4,
+            "Id": 2,
+            "CreatedAt": "2025-12-20 13:24:00+00:00",
+            "UpdatedAt": "2025-12-20 13:26:53+00:00",
+            "Skill": "Illustration"
+          }
+        }
+      ],
+      "_nc_m2m_sehetz_teams": [
+        {
+          "team_id": 1,
+          "sehetz_id": 8,
+          "team": {
+            "Projects": 1,
+            "Id": 1,
+            "CreatedAt": "2025-12-20 13:23:33+00:00",
+            "UpdatedAt": "2025-12-20 19:58:05+00:00",
+            "Team": "Carnault",
+            "design-work": true,
+            "description": "Three brothers, one cigarette, and the entire Black Forest. Carnault is an electronic cigarette, developed and largely manufactured in Switzerland. It's a shared dream that we've continually expanded, refreshed, revitalized, and fueled over the past years. I joined the crew in 2021, when the ship had already been sailing for a good 10 years, just in time for the first working prototypes. Whether it's webshops, physical stores, or the design for the products surrounding the cigarette, in a startup, diverse collaboration and a strong team are essential!",
+            "Teaser-Image": [
+              {
+                "path": "download/noco/pv3c5ekh1fjoihu/mpz7ywybfxm3isa/cjpjpyar26z9u70/Sehetz-Team-carnault_qmVCH.webp",
+                "title": "Sehetz-Team-carnault.webp",
+                "mimetype": "image/webp",
+                "size": 691446,
+                "width": 1080,
+                "height": 1440,
+                "id": "at22fp4fqf851lih",
+                "thumbnails": {
+                  "tiny": {
+                    "signedPath": "dltemp/eFQyX8lYxNgmnHJm/1766331000000/thumbnails/noco/pv3c5ekh1fjoihu/mpz7ywybfxm3isa/cjpjpyar26z9u70/Sehetz-Team-carnault_qmVCH.webp/tiny.jpg"
+                  },
+                  "small": {
+                    "signedPath": "dltemp/SQMvjqqMdzmRGa9W/1766331000000/thumbnails/noco/pv3c5ekh1fjoihu/mpz7ywybfxm3isa/cjpjpyar26z9u70/Sehetz-Team-carnault_qmVCH.webp/small.jpg"
+                  },
+                  "card_cover": {
+                    "signedPath": "dltemp/BurGhnMrAweb7lRi/1766331000000/thumbnails/noco/pv3c5ekh1fjoihu/mpz7ywybfxm3isa/cjpjpyar26z9u70/Sehetz-Team-carnault_qmVCH.webp/card_cover.jpg"
+                  }
+                },
+                "signedPath": "dltemp/D0MkjhTFzVeYd9pI/1766331000000/noco/pv3c5ekh1fjoihu/mpz7ywybfxm3isa/cjpjpyar26z9u70/Sehetz-Team-carnault_qmVCH.webp"
+              }
+            ],
+            "start-date": 2021,
+            "end-date": null,
+            "role": "Graphic Designer",
+            "location": "Basel",
+            "link": "https://carnault.com/en"
+          }
+        }
+      ],
+      "_nc_m2m_sehetz_gears": [
+        {
+          "gear_id": 2,
+          "sehetz_id": 8,
+          "gear": {
+            "Projects": 2,
+            "Id": 2,
+            "CreatedAt": "2025-12-20 13:23:46+00:00",
+            "UpdatedAt": "2025-12-20 19:29:27+00:00",
+            "Gear": "Ipad Pro",
+            "description": "Who wouldn't love having their favorite tool always at hand? I grew up with digital drawing, from my first Wacom Bamboo Fun tablet at age eleven to over two Wacom Cintiqs (12 UX, 24 pro) that I lugged across Europe in my hand luggage several times. The iPad? For me, a lifelong dream.",
+            "Teaser-Image": [
+              {
+                "path": "download/noco/pv3c5ekh1fjoihu/mb2io0hhb8mzae6/cqax9ua61uqjooh/Sehetz Sarah Heitz Gear Ipad Crop_p1Tho.svg",
+                "title": "Sehetz Sarah Heitz Gear Ipad Crop.svg",
+                "mimetype": "image/svg+xml",
+                "size": 24558,
+                "width": 217,
+                "height": 290,
+                "id": "atvswn606y1mjzop",
+                "thumbnails": {
+                  "tiny": {
+                    "signedPath": "dltemp/uB3DQZs5QOwwKMAP/1766331000000/thumbnails/noco/pv3c5ekh1fjoihu/mb2io0hhb8mzae6/cqax9ua61uqjooh/Sehetz Sarah Heitz Gear Ipad Crop_p1Tho.svg/tiny.jpg"
+                  },
+                  "small": {
+                    "signedPath": "dltemp/WAHkpjVT2UzZ2Dln/1766331000000/thumbnails/noco/pv3c5ekh1fjoihu/mb2io0hhb8mzae6/cqax9ua61uqjooh/Sehetz Sarah Heitz Gear Ipad Crop_p1Tho.svg/small.jpg"
+                  },
+                  "card_cover": {
+                    "signedPath": "dltemp/8aZkwo_gWGVr8jKG/1766331000000/thumbnails/noco/pv3c5ekh1fjoihu/mb2io0hhb8mzae6/cqax9ua61uqjooh/Sehetz Sarah Heitz Gear Ipad Crop_p1Tho.svg/card_cover.jpg"
+                  }
+                },
+                "signedPath": "dltemp/CVI-ruUDo1sKuL7V/1766331000000/noco/pv3c5ekh1fjoihu/mb2io0hhb8mzae6/cqax9ua61uqjooh/Sehetz Sarah Heitz Gear Ipad Crop_p1Tho.svg"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "Id": 9,
+      "CreatedAt": "2025-12-20 13:24:53+00:00",
+      "UpdatedAt": "2025-12-20 19:53:33+00:00",
+      "Title": "Web Illustrations",
+      "description": " A website can't just stand on its own; it needs to be filled with life. For sehetz.ch, I developed a short series showcasing my favorite tools in action.",
+      "Datum": "2025-11-29",
+      "skill": 1,
+      "Gear": 1,
+      "Team": 1,
+      "Teaser-Image": [
+        {
+          "path": "download/noco/pv3c5ekh1fjoihu/mieh9d1y7a7ls74/c18fm6jyb2wfvqr/Sehetz Sarah Heitz Gear Blender@8x_H3hL7.webp",
+          "title": "Sehetz Sarah Heitz Gear Blender@8x.webp",
+          "mimetype": "image/webp",
+          "size": 114104,
+          "width": 2081,
+          "height": 2771,
+          "id": "atisiw4x1l0hfu0o",
+          "thumbnails": {
+            "tiny": {
+              "signedPath": "dltemp/RbPto9eq0M7RZQSi/1766331000000/thumbnails/noco/pv3c5ekh1fjoihu/mieh9d1y7a7ls74/c18fm6jyb2wfvqr/Sehetz Sarah Heitz Gear Blender@8x_H3hL7.webp/tiny.jpg"
+            },
+            "small": {
+              "signedPath": "dltemp/csCELv2DBdiLoXNT/1766331000000/thumbnails/noco/pv3c5ekh1fjoihu/mieh9d1y7a7ls74/c18fm6jyb2wfvqr/Sehetz Sarah Heitz Gear Blender@8x_H3hL7.webp/small.jpg"
+            },
+            "card_cover": {
+              "signedPath": "dltemp/JaSovlZwQdd2BtKe/1766331000000/thumbnails/noco/pv3c5ekh1fjoihu/mieh9d1y7a7ls74/c18fm6jyb2wfvqr/Sehetz Sarah Heitz Gear Blender@8x_H3hL7.webp/card_cover.jpg"
+            }
+          },
+          "signedPath": "dltemp/RcfUaxFTIQtvuqdl/1766331000000/noco/pv3c5ekh1fjoihu/mieh9d1y7a7ls74/c18fm6jyb2wfvqr/Sehetz Sarah Heitz Gear Blender@8x_H3hL7.webp"
+        }
+      ],
+      "content_01_text": "In these illustrations, tools refuse to stay abstract. Cameras grow too large to handle properly, software turns into something you have to carry around, and digital devices suddenly occupy real volume. The figures deal with their equipment in mildly impractical ways. Nothing looks efficient. Everything feels familiar.",
+      "content_02_image": [
+        {
+          "path": "download/noco/pv3c5ekh1fjoihu/mieh9d1y7a7ls74/cchl73funp4pj7t/Sehetz Sarah Heitz Gear Gruppe@8x_ekfuP.webp",
+          "title": "Sehetz Sarah Heitz Gear Gruppe@8x.webp",
+          "mimetype": "image/webp",
+          "size": 255850,
+          "width": 5423,
+          "height": 3050,
+          "id": "atxcrnry193hyvcx",
+          "thumbnails": {
+            "tiny": {
+              "signedPath": "dltemp/vIa-hR2bPc09Kti5/1766331000000/thumbnails/noco/pv3c5ekh1fjoihu/mieh9d1y7a7ls74/cchl73funp4pj7t/Sehetz Sarah Heitz Gear Gruppe@8x_ekfuP.webp/tiny.jpg"
+            },
+            "small": {
+              "signedPath": "dltemp/n4OFZCWiNuse7cKx/1766331000000/thumbnails/noco/pv3c5ekh1fjoihu/mieh9d1y7a7ls74/cchl73funp4pj7t/Sehetz Sarah Heitz Gear Gruppe@8x_ekfuP.webp/small.jpg"
+            },
+            "card_cover": {
+              "signedPath": "dltemp/WVmvQxM5vEK52KOY/1766331000000/thumbnails/noco/pv3c5ekh1fjoihu/mieh9d1y7a7ls74/cchl73funp4pj7t/Sehetz Sarah Heitz Gear Gruppe@8x_ekfuP.webp/card_cover.jpg"
+            }
+          },
+          "signedPath": "dltemp/aCKcVkHTCbfTB0df/1766331000000/noco/pv3c5ekh1fjoihu/mieh9d1y7a7ls74/cchl73funp4pj7t/Sehetz Sarah Heitz Gear Gruppe@8x_ekfuP.webp"
+        }
+      ],
+      "content_03_text": "The series treats tools less as solutions and more as long-term relationships. Some feel supportive, others slightly demanding, most somewhere in between. Together, they form an inventory of things that enable work while constantly getting in the way.",
+      "content_04_images": [
+        {
+          "id": "atb3f79l4avdbbue",
+          "path": "download/noco/pv3c5ekh1fjoihu/mieh9d1y7a7ls74/cj599155ucoggob/Sehetz Sarah Heitz Gear Ipad Crop@8x_aEMhH.webp",
+          "title": "Sehetz Sarah Heitz Gear Ipad Crop@8x.webp",
+          "mimetype": "image/webp",
+          "size": 65428,
+          "width": 1740,
+          "height": 2317,
+          "thumbnails": {
+            "tiny": {
+              "signedPath": "dltemp/XmFKWEvj05kVGrbv/1766331000000/thumbnails/noco/pv3c5ekh1fjoihu/mieh9d1y7a7ls74/cj599155ucoggob/Sehetz Sarah Heitz Gear Ipad Crop@8x_aEMhH.webp/tiny.jpg"
+            },
+            "small": {
+              "signedPath": "dltemp/VVBRlAbZssKfP_gn/1766331000000/thumbnails/noco/pv3c5ekh1fjoihu/mieh9d1y7a7ls74/cj599155ucoggob/Sehetz Sarah Heitz Gear Ipad Crop@8x_aEMhH.webp/small.jpg"
+            },
+            "card_cover": {
+              "signedPath": "dltemp/Kd430g2a2nWwm2v-/1766331000000/thumbnails/noco/pv3c5ekh1fjoihu/mieh9d1y7a7ls74/cj599155ucoggob/Sehetz Sarah Heitz Gear Ipad Crop@8x_aEMhH.webp/card_cover.jpg"
+            }
+          },
+          "signedPath": "dltemp/p2cNkSgEzPxvhNqI/1766331000000/noco/pv3c5ekh1fjoihu/mieh9d1y7a7ls74/cj599155ucoggob/Sehetz Sarah Heitz Gear Ipad Crop@8x_aEMhH.webp"
+        },
+        {
+          "path": "download/noco/pv3c5ekh1fjoihu/mieh9d1y7a7ls74/cj599155ucoggob/Sehetz Sarah Heitz Gear Blender@8x_JDHBE.webp",
+          "title": "Sehetz Sarah Heitz Gear Blender@8x.webp",
+          "mimetype": "image/webp",
+          "size": 114104,
+          "width": 2081,
+          "height": 2771,
+          "id": "at5dyiv4i0ikf354",
+          "thumbnails": {
+            "tiny": {
+              "signedPath": "dltemp/kbrAMmODaDT3ysZf/1766331000000/thumbnails/noco/pv3c5ekh1fjoihu/mieh9d1y7a7ls74/cj599155ucoggob/Sehetz Sarah Heitz Gear Blender@8x_JDHBE.webp/tiny.jpg"
+            },
+            "small": {
+              "signedPath": "dltemp/oQ09yWV3ZXNB0bGG/1766331000000/thumbnails/noco/pv3c5ekh1fjoihu/mieh9d1y7a7ls74/cj599155ucoggob/Sehetz Sarah Heitz Gear Blender@8x_JDHBE.webp/small.jpg"
+            },
+            "card_cover": {
+              "signedPath": "dltemp/fZBUBPCjLI6smpUu/1766331000000/thumbnails/noco/pv3c5ekh1fjoihu/mieh9d1y7a7ls74/cj599155ucoggob/Sehetz Sarah Heitz Gear Blender@8x_JDHBE.webp/card_cover.jpg"
+            }
+          },
+          "signedPath": "dltemp/EBQFmfzFGr5Kayou/1766331000000/noco/pv3c5ekh1fjoihu/mieh9d1y7a7ls74/cj599155ucoggob/Sehetz Sarah Heitz Gear Blender@8x_JDHBE.webp"
+        }
+      ],
+      "content_05_text": "The illustrations use flat colors, clear outlines, and an intentionally limited palette. No textures, no depth, no drama, a deliberate return to vector illustration that mostly worked out.",
+      "content_06_gallery": [
+        {
+          "path": "download/noco/pv3c5ekh1fjoihu/mieh9d1y7a7ls74/c2r1kl5m90m6ple/Sehetz Sarah Heitz Gear Blender@8x_vrOIY.webp",
+          "title": "Sehetz Sarah Heitz Gear Blender@8x.webp",
+          "mimetype": "image/webp",
+          "size": 114104,
+          "width": 2081,
+          "height": 2771,
+          "id": "at9w2ha6qy1rltcl",
+          "thumbnails": {
+            "tiny": {
+              "signedPath": "dltemp/eqwMiHB-RsH1N36N/1766331000000/thumbnails/noco/pv3c5ekh1fjoihu/mieh9d1y7a7ls74/c2r1kl5m90m6ple/Sehetz Sarah Heitz Gear Blender@8x_vrOIY.webp/tiny.jpg"
+            },
+            "small": {
+              "signedPath": "dltemp/3NXxGgMMtOW7847m/1766331000000/thumbnails/noco/pv3c5ekh1fjoihu/mieh9d1y7a7ls74/c2r1kl5m90m6ple/Sehetz Sarah Heitz Gear Blender@8x_vrOIY.webp/small.jpg"
+            },
+            "card_cover": {
+              "signedPath": "dltemp/l89kcTwAk_3Z2P-w/1766331000000/thumbnails/noco/pv3c5ekh1fjoihu/mieh9d1y7a7ls74/c2r1kl5m90m6ple/Sehetz Sarah Heitz Gear Blender@8x_vrOIY.webp/card_cover.jpg"
+            }
+          },
+          "signedPath": "dltemp/xL4LMD5SzLFhN1qe/1766331000000/noco/pv3c5ekh1fjoihu/mieh9d1y7a7ls74/c2r1kl5m90m6ple/Sehetz Sarah Heitz Gear Blender@8x_vrOIY.webp"
+        },
+        {
+          "path": "download/noco/pv3c5ekh1fjoihu/mieh9d1y7a7ls74/c2r1kl5m90m6ple/Sehetz Sarah Heitz Gear Canon 70 D@8x__LRy4.webp",
+          "title": "Sehetz Sarah Heitz Gear Canon 70 D@8x.webp",
+          "mimetype": "image/webp",
+          "size": 86092,
+          "width": 2081,
+          "height": 2771,
+          "id": "at2pppeutqk0rfor",
+          "thumbnails": {
+            "tiny": {
+              "signedPath": "dltemp/Y9FVHRCJVRlLzUl5/1766331000000/thumbnails/noco/pv3c5ekh1fjoihu/mieh9d1y7a7ls74/c2r1kl5m90m6ple/Sehetz Sarah Heitz Gear Canon 70 D@8x__LRy4.webp/tiny.jpg"
+            },
+            "small": {
+              "signedPath": "dltemp/RpFt6N29X8OCFLmO/1766331000000/thumbnails/noco/pv3c5ekh1fjoihu/mieh9d1y7a7ls74/c2r1kl5m90m6ple/Sehetz Sarah Heitz Gear Canon 70 D@8x__LRy4.webp/small.jpg"
+            },
+            "card_cover": {
+              "signedPath": "dltemp/up79122fmZNfGQF4/1766331000000/thumbnails/noco/pv3c5ekh1fjoihu/mieh9d1y7a7ls74/c2r1kl5m90m6ple/Sehetz Sarah Heitz Gear Canon 70 D@8x__LRy4.webp/card_cover.jpg"
+            }
+          },
+          "signedPath": "dltemp/68Mdd6dy8jxbDC35/1766331000000/noco/pv3c5ekh1fjoihu/mieh9d1y7a7ls74/c2r1kl5m90m6ple/Sehetz Sarah Heitz Gear Canon 70 D@8x__LRy4.webp"
+        },
+        {
+          "path": "download/noco/pv3c5ekh1fjoihu/mieh9d1y7a7ls74/c2r1kl5m90m6ple/Sehetz Sarah Heitz Gear Creative Cloud Crop@8x_eOI9z.webp",
+          "title": "Sehetz Sarah Heitz Gear Creative Cloud Crop@8x.webp",
+          "mimetype": "image/webp",
+          "size": 56026,
+          "width": 1740,
+          "height": 2317,
+          "id": "athvv7duluhuj381",
+          "thumbnails": {
+            "tiny": {
+              "signedPath": "dltemp/-D6XwoI6p-MUIrXc/1766331000000/thumbnails/noco/pv3c5ekh1fjoihu/mieh9d1y7a7ls74/c2r1kl5m90m6ple/Sehetz Sarah Heitz Gear Creative Cloud Crop@8x_eOI9z.webp/tiny.jpg"
+            },
+            "small": {
+              "signedPath": "dltemp/IhXdnh-7mY_Q51XN/1766331000000/thumbnails/noco/pv3c5ekh1fjoihu/mieh9d1y7a7ls74/c2r1kl5m90m6ple/Sehetz Sarah Heitz Gear Creative Cloud Crop@8x_eOI9z.webp/small.jpg"
+            },
+            "card_cover": {
+              "signedPath": "dltemp/LEAG0ilfyiK1RNXs/1766331000000/thumbnails/noco/pv3c5ekh1fjoihu/mieh9d1y7a7ls74/c2r1kl5m90m6ple/Sehetz Sarah Heitz Gear Creative Cloud Crop@8x_eOI9z.webp/card_cover.jpg"
+            }
+          },
+          "signedPath": "dltemp/ob2Fg_IowtoW1w59/1766331000000/noco/pv3c5ekh1fjoihu/mieh9d1y7a7ls74/c2r1kl5m90m6ple/Sehetz Sarah Heitz Gear Creative Cloud Crop@8x_eOI9z.webp"
+        },
+        {
+          "path": "download/noco/pv3c5ekh1fjoihu/mieh9d1y7a7ls74/c2r1kl5m90m6ple/Sehetz Sarah Heitz Gear Ipad Crop@8x_Pn3Hj.webp",
+          "title": "Sehetz Sarah Heitz Gear Ipad Crop@8x.webp",
+          "mimetype": "image/webp",
+          "size": 65428,
+          "width": 1740,
+          "height": 2317,
+          "id": "atzidaysu91rkggc",
+          "thumbnails": {
+            "tiny": {
+              "signedPath": "dltemp/XkssyTX2Z-Z0emuk/1766331000000/thumbnails/noco/pv3c5ekh1fjoihu/mieh9d1y7a7ls74/c2r1kl5m90m6ple/Sehetz Sarah Heitz Gear Ipad Crop@8x_Pn3Hj.webp/tiny.jpg"
+            },
+            "small": {
+              "signedPath": "dltemp/Ka9lq-vP_FxemAfO/1766331000000/thumbnails/noco/pv3c5ekh1fjoihu/mieh9d1y7a7ls74/c2r1kl5m90m6ple/Sehetz Sarah Heitz Gear Ipad Crop@8x_Pn3Hj.webp/small.jpg"
+            },
+            "card_cover": {
+              "signedPath": "dltemp/9QTVbuubZKhxUaoH/1766331000000/thumbnails/noco/pv3c5ekh1fjoihu/mieh9d1y7a7ls74/c2r1kl5m90m6ple/Sehetz Sarah Heitz Gear Ipad Crop@8x_Pn3Hj.webp/card_cover.jpg"
+            }
+          },
+          "signedPath": "dltemp/bZx5f-1hOWfViV_7/1766331000000/noco/pv3c5ekh1fjoihu/mieh9d1y7a7ls74/c2r1kl5m90m6ple/Sehetz Sarah Heitz Gear Ipad Crop@8x_Pn3Hj.webp"
+        },
+        {
+          "path": "download/noco/pv3c5ekh1fjoihu/mieh9d1y7a7ls74/c2r1kl5m90m6ple/Sehetz Sarah Heitz Gear Pen & Paper@8x_5SNMS.webp",
+          "title": "Sehetz Sarah Heitz Gear Pen & Paper@8x.webp",
+          "mimetype": "image/webp",
+          "size": 56410,
+          "width": 2081,
+          "height": 2771,
+          "id": "atoh7qfap4c6fyyo",
+          "thumbnails": {
+            "tiny": {
+              "signedPath": "dltemp/R-MYaQD_YElFsv_3/1766331000000/thumbnails/noco/pv3c5ekh1fjoihu/mieh9d1y7a7ls74/c2r1kl5m90m6ple/Sehetz Sarah Heitz Gear Pen & Paper@8x_5SNMS.webp/tiny.jpg"
+            },
+            "small": {
+              "signedPath": "dltemp/7Gj4GO6pXj1fsILS/1766331000000/thumbnails/noco/pv3c5ekh1fjoihu/mieh9d1y7a7ls74/c2r1kl5m90m6ple/Sehetz Sarah Heitz Gear Pen & Paper@8x_5SNMS.webp/small.jpg"
+            },
+            "card_cover": {
+              "signedPath": "dltemp/t0tretGz5Qx5WFSw/1766331000000/thumbnails/noco/pv3c5ekh1fjoihu/mieh9d1y7a7ls74/c2r1kl5m90m6ple/Sehetz Sarah Heitz Gear Pen & Paper@8x_5SNMS.webp/card_cover.jpg"
+            }
+          },
+          "signedPath": "dltemp/DQY9ABPbebo9Nlhl/1766331000000/noco/pv3c5ekh1fjoihu/mieh9d1y7a7ls74/c2r1kl5m90m6ple/Sehetz Sarah Heitz Gear Pen & Paper@8x_5SNMS.webp"
+        },
+        {
+          "path": "download/noco/pv3c5ekh1fjoihu/mieh9d1y7a7ls74/c2r1kl5m90m6ple/Sehetz Sarah Heitz Gear Sony A6100 Crop@8x_uYCxX.webp",
+          "title": "Sehetz Sarah Heitz Gear Sony A6100 Crop@8x.webp",
+          "mimetype": "image/webp",
+          "size": 56354,
+          "width": 1561,
+          "height": 2079,
+          "id": "ato5giyanay2i4rg",
+          "thumbnails": {
+            "tiny": {
+              "signedPath": "dltemp/giQxgC2FVHYEWUKe/1766331000000/thumbnails/noco/pv3c5ekh1fjoihu/mieh9d1y7a7ls74/c2r1kl5m90m6ple/Sehetz Sarah Heitz Gear Sony A6100 Crop@8x_uYCxX.webp/tiny.jpg"
+            },
+            "small": {
+              "signedPath": "dltemp/3CsNkAsSjhqV8Lo1/1766331000000/thumbnails/noco/pv3c5ekh1fjoihu/mieh9d1y7a7ls74/c2r1kl5m90m6ple/Sehetz Sarah Heitz Gear Sony A6100 Crop@8x_uYCxX.webp/small.jpg"
+            },
+            "card_cover": {
+              "signedPath": "dltemp/fVkpLbef1iv1gzuN/1766331000000/thumbnails/noco/pv3c5ekh1fjoihu/mieh9d1y7a7ls74/c2r1kl5m90m6ple/Sehetz Sarah Heitz Gear Sony A6100 Crop@8x_uYCxX.webp/card_cover.jpg"
+            }
+          },
+          "signedPath": "dltemp/376Ok0M_9kTOxKeQ/1766331000000/noco/pv3c5ekh1fjoihu/mieh9d1y7a7ls74/c2r1kl5m90m6ple/Sehetz Sarah Heitz Gear Sony A6100 Crop@8x_uYCxX.webp"
+        }
+      ],
+      "content_07_links": null,
+      "is_online": true,
+      "_nc_m2m_sehetz_skills": [
+        {
+          "skill_id": 2,
+          "sehetz_id": 9,
+          "skill": {
+            "Projects": 4,
+            "Id": 2,
+            "CreatedAt": "2025-12-20 13:24:00+00:00",
+            "UpdatedAt": "2025-12-20 13:26:53+00:00",
+            "Skill": "Illustration"
+          }
+        }
+      ],
+      "_nc_m2m_sehetz_teams": [
+        {
+          "team_id": 5,
+          "sehetz_id": 9,
+          "team": {
+            "Projects": 4,
+            "Id": 5,
+            "CreatedAt": "2025-12-20 13:23:35+00:00",
+            "UpdatedAt": "2025-12-20 13:40:48+00:00",
+            "Team": "sehetz",
+            "design-work": true,
+            "description": null,
+            "Teaser-Image": null,
+            "start-date": 2015,
+            "end-date": null,
+            "role": "Courious Twad",
+            "location": "Basel",
+            "link": null
+          }
+        }
+      ],
+      "_nc_m2m_sehetz_gears": [
+        {
+          "gear_id": 4,
+          "sehetz_id": 9,
+          "gear": {
+            "Projects": 2,
+            "Id": 4,
+            "CreatedAt": "2025-12-20 13:23:46+00:00",
+            "UpdatedAt": "2025-12-20 19:29:15+00:00",
+            "Gear": "Creative Cloud",
+            "description": "After Effects, Bridge, Illustrator, InDesign, Lightroom, Photoshop, Premiere – that's my Adobe ABC. We designers need you, but we don't love you. For years, there was far too little innovation in these programs (thanks for the color search in InDesign, tho; the rest is peanuts), but I'm grateful for a tool that reliably lets me complete all my creative tasks. ",
+            "Teaser-Image": [
+              {
+                "path": "download/noco/pv3c5ekh1fjoihu/mb2io0hhb8mzae6/cqax9ua61uqjooh/Sehetz Sarah Heitz Gear Creative Cloud Crop_HcVgW.svg",
+                "title": "Sehetz Sarah Heitz Gear Creative Cloud Crop.svg",
+                "mimetype": "image/svg+xml",
+                "size": 35617,
+                "width": 217,
+                "height": 290,
+                "id": "atz2hn76vfda3dvr",
+                "thumbnails": {
+                  "tiny": {
+                    "signedPath": "dltemp/fBG1C7RMd6K4LQne/1766331000000/thumbnails/noco/pv3c5ekh1fjoihu/mb2io0hhb8mzae6/cqax9ua61uqjooh/Sehetz Sarah Heitz Gear Creative Cloud Crop_HcVgW.svg/tiny.jpg"
+                  },
+                  "small": {
+                    "signedPath": "dltemp/0IiZtmoY_eGBA5sB/1766331000000/thumbnails/noco/pv3c5ekh1fjoihu/mb2io0hhb8mzae6/cqax9ua61uqjooh/Sehetz Sarah Heitz Gear Creative Cloud Crop_HcVgW.svg/small.jpg"
+                  },
+                  "card_cover": {
+                    "signedPath": "dltemp/jRQm-LnucGO7Y6bC/1766331000000/thumbnails/noco/pv3c5ekh1fjoihu/mb2io0hhb8mzae6/cqax9ua61uqjooh/Sehetz Sarah Heitz Gear Creative Cloud Crop_HcVgW.svg/card_cover.jpg"
+                  }
+                },
+                "signedPath": "dltemp/WmTYXTbDG18O6dba/1766331000000/noco/pv3c5ekh1fjoihu/mb2io0hhb8mzae6/cqax9ua61uqjooh/Sehetz Sarah Heitz Gear Creative Cloud Crop_HcVgW.svg"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "Id": 10,
+      "CreatedAt": "2025-12-20 13:24:53+00:00",
+      "UpdatedAt": null,
+      "Title": null,
+      "description": null,
+      "Datum": null,
+      "skill": 0,
+      "Gear": 0,
+      "Team": 0,
+      "Teaser-Image": null,
+      "content_01_text": null,
+      "content_02_image": null,
+      "content_03_text": null,
+      "content_04_images": null,
+      "content_05_text": null,
+      "content_06_gallery": null,
+      "content_07_links": null,
+      "is_online": false,
+      "_nc_m2m_sehetz_skills": [],
+      "_nc_m2m_sehetz_teams": [],
+      "_nc_m2m_sehetz_gears": []
+    },
+    {
+      "Id": 11,
+      "CreatedAt": "2025-12-20 13:24:53+00:00",
+      "UpdatedAt": null,
+      "Title": null,
+      "description": null,
+      "Datum": null,
+      "skill": 0,
+      "Gear": 0,
+      "Team": 0,
+      "Teaser-Image": null,
+      "content_01_text": null,
+      "content_02_image": null,
+      "content_03_text": null,
+      "content_04_images": null,
+      "content_05_text": null,
+      "content_06_gallery": null,
+      "content_07_links": null,
+      "is_online": false,
+      "_nc_m2m_sehetz_skills": [],
+      "_nc_m2m_sehetz_teams": [],
+      "_nc_m2m_sehetz_gears": []
+    }
+  ],
+  "pageInfo": {
+    "totalRows": 11,
+    "page": 1,
+    "pageSize": 200,
+    "isFirstPage": true,
+    "isLastPage": true
+  }
+}

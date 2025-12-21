@@ -291,7 +291,7 @@ export default function TimelineViz() {
               x={tx + TWEAK.projectLabels.bgPadding}
               y={y - TWEAK.projectLabels.paddingTop + 5}
               fontSize={isMobile ? TWEAK.projectLabels.fontSizeMobile : TWEAK.projectLabels.fontSizeDesktop}
-              fontFamily="SF Pro Rounded"
+              fontFamily="'SF Pro Rounded', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif"
               fontWeight={TWEAK.projectLabels.fontWeight}
               textAnchor="start"
               fill={colors.projectLabelText}
@@ -411,7 +411,7 @@ export default function TimelineViz() {
           x={x}
           y={labelY}
           fontSize={isMobile ? TWEAK.fonts.labelMobile : TWEAK.fonts.labelDesktop}
-          fontFamily="SF Pro Rounded"
+          fontFamily="'SF Pro Rounded', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif"
           fontWeight={teamLabelWeight}
           textAnchor="middle"
           fill={colors.text}
@@ -488,7 +488,7 @@ export default function TimelineViz() {
             x={TWEAK.spacing.padding.left}
             y={y - TWEAK.spacing.yearSpacingDesktop / 5}
             fontSize={isMobile ? TWEAK.fonts.yearMobile : TWEAK.fonts.yearDesktop}
-            fontFamily="SF Pro Rounded"
+            fontFamily="'SF Pro Rounded', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif"
             letterSpacing={yearLetterSpacingD}
             textAnchor="start"
             fill={colors.text}
@@ -557,7 +557,7 @@ export default function TimelineViz() {
                     x={x}
                     y={headerY - 12}
                     fontSize={TWEAK.fonts.labelMobile}
-                    fontFamily="SF Pro Rounded"
+                    fontFamily="'SF Pro Rounded', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif"
                     fontWeight={teamLabelWeight}
                     textAnchor="middle"
                     fill={colors.text}
@@ -741,7 +741,7 @@ export default function TimelineViz() {
                       x={tx}
                       y={posY + 5}
                       fontSize={TWEAK.projectLabels.fontSizeMobile}
-                      fontFamily="SF Pro Rounded"
+                      fontFamily="'SF Pro Rounded', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif"
                       textAnchor="middle"
                       fill={colors.projectLabelText}
                       className="project-title"

@@ -1,0 +1,577 @@
+{
+  "list": [
+    {
+      "Id": 1,
+      "CreatedAt": "2025-12-20 13:23:33+00:00",
+      "UpdatedAt": "2025-12-20 19:58:05+00:00",
+      "Team": "Carnault",
+      "Projects": 1,
+      "design-work": true,
+      "description": "Three brothers, one cigarette, and the entire Black Forest. Carnault is an electronic cigarette, developed and largely manufactured in Switzerland. It's a shared dream that we've continually expanded, refreshed, revitalized, and fueled over the past years. I joined the crew in 2021, when the ship had already been sailing for a good 10 years, just in time for the first working prototypes. Whether it's webshops, physical stores, or the design for the products surrounding the cigarette, in a startup, diverse collaboration and a strong team are essential!",
+      "Teaser-Image": [
+        {
+          "path": "download/noco/pv3c5ekh1fjoihu/mpz7ywybfxm3isa/cjpjpyar26z9u70/Sehetz-Team-carnault_qmVCH.webp",
+          "title": "Sehetz-Team-carnault.webp",
+          "mimetype": "image/webp",
+          "size": 691446,
+          "width": 1080,
+          "height": 1440,
+          "id": "at22fp4fqf851lih",
+          "thumbnails": {
+            "tiny": {
+              "signedPath": "dltemp/eFQyX8lYxNgmnHJm/1766331000000/thumbnails/noco/pv3c5ekh1fjoihu/mpz7ywybfxm3isa/cjpjpyar26z9u70/Sehetz-Team-carnault_qmVCH.webp/tiny.jpg"
+            },
+            "small": {
+              "signedPath": "dltemp/SQMvjqqMdzmRGa9W/1766331000000/thumbnails/noco/pv3c5ekh1fjoihu/mpz7ywybfxm3isa/cjpjpyar26z9u70/Sehetz-Team-carnault_qmVCH.webp/small.jpg"
+            },
+            "card_cover": {
+              "signedPath": "dltemp/BurGhnMrAweb7lRi/1766331000000/thumbnails/noco/pv3c5ekh1fjoihu/mpz7ywybfxm3isa/cjpjpyar26z9u70/Sehetz-Team-carnault_qmVCH.webp/card_cover.jpg"
+            }
+          },
+          "signedPath": "dltemp/D0MkjhTFzVeYd9pI/1766331000000/noco/pv3c5ekh1fjoihu/mpz7ywybfxm3isa/cjpjpyar26z9u70/Sehetz-Team-carnault_qmVCH.webp"
+        }
+      ],
+      "start-date": 2021,
+      "end-date": null,
+      "role": "Graphic Designer",
+      "location": "Basel",
+      "link": "https://carnault.com/en",
+      "_nc_m2m_sehetz_teams": [
+        {
+          "team_id": 1,
+          "sehetz_id": 8,
+          "team": {
+            "Projects": 1,
+            "Id": 1,
+            "CreatedAt": "2025-12-20 13:23:33+00:00",
+            "UpdatedAt": "2025-12-20 19:58:05+00:00",
+            "Team": "Carnault",
+            "design-work": true,
+            "description": "Three brothers, one cigarette, and the entire Black Forest. Carnault is an electronic cigarette, developed and largely manufactured in Switzerland. It's a shared dream that we've continually expanded, refreshed, revitalized, and fueled over the past years. I joined the crew in 2021, when the ship had already been sailing for a good 10 years, just in time for the first working prototypes. Whether it's webshops, physical stores, or the design for the products surrounding the cigarette, in a startup, diverse collaboration and a strong team are essential!",
+            "Teaser-Image": [
+              {
+                "path": "download/noco/pv3c5ekh1fjoihu/mpz7ywybfxm3isa/cjpjpyar26z9u70/Sehetz-Team-carnault_qmVCH.webp",
+                "title": "Sehetz-Team-carnault.webp",
+                "mimetype": "image/webp",
+                "size": 691446,
+                "width": 1080,
+                "height": 1440,
+                "id": "at22fp4fqf851lih",
+                "thumbnails": {
+                  "tiny": {
+                    "signedPath": "dltemp/eFQyX8lYxNgmnHJm/1766331000000/thumbnails/noco/pv3c5ekh1fjoihu/mpz7ywybfxm3isa/cjpjpyar26z9u70/Sehetz-Team-carnault_qmVCH.webp/tiny.jpg"
+                  },
+                  "small": {
+                    "signedPath": "dltemp/SQMvjqqMdzmRGa9W/1766331000000/thumbnails/noco/pv3c5ekh1fjoihu/mpz7ywybfxm3isa/cjpjpyar26z9u70/Sehetz-Team-carnault_qmVCH.webp/small.jpg"
+                  },
+                  "card_cover": {
+                    "signedPath": "dltemp/BurGhnMrAweb7lRi/1766331000000/thumbnails/noco/pv3c5ekh1fjoihu/mpz7ywybfxm3isa/cjpjpyar26z9u70/Sehetz-Team-carnault_qmVCH.webp/card_cover.jpg"
+                  }
+                },
+                "signedPath": "dltemp/D0MkjhTFzVeYd9pI/1766331000000/noco/pv3c5ekh1fjoihu/mpz7ywybfxm3isa/cjpjpyar26z9u70/Sehetz-Team-carnault_qmVCH.webp"
+              }
+            ],
+            "start-date": 2021,
+            "end-date": null,
+            "role": "Graphic Designer",
+            "location": "Basel",
+            "link": "https://carnault.com/en"
+          }
+        }
+      ]
+    },
+    {
+      "Id": 2,
+      "CreatedAt": "2025-12-20 13:23:35+00:00",
+      "UpdatedAt": "2025-12-20 19:58:12+00:00",
+      "Team": "Superdot",
+      "Projects": 2,
+      "design-work": true,
+      "description": "It's difficult for me to put into words how much I value my time at Superdot. As a recent bachelor's graduate from a German province, I started my career in a studio where the art director was still learning typography directly from Weingart. What began as a traineeship became the most formative learning experience of my professional life. Darjan and Nicole not only shaped me but also nurtured my talents – and I am forever grateful for that.",
+      "Teaser-Image": [
+        {
+          "path": "download/noco/pv3c5ekh1fjoihu/mpz7ywybfxm3isa/cjpjpyar26z9u70/Sehetz-Team-Superdot__3NTb.webp",
+          "title": "Sehetz-Team-Superdot.webp",
+          "mimetype": "image/webp",
+          "size": 498384,
+          "width": 1350,
+          "height": 1800,
+          "id": "atzkx6ez0vjuzzv2",
+          "thumbnails": {
+            "tiny": {
+              "signedPath": "dltemp/W_sMm9qE7waQTiIY/1766331000000/thumbnails/noco/pv3c5ekh1fjoihu/mpz7ywybfxm3isa/cjpjpyar26z9u70/Sehetz-Team-Superdot__3NTb.webp/tiny.jpg"
+            },
+            "small": {
+              "signedPath": "dltemp/blkRp7ThaLmcDDbs/1766331000000/thumbnails/noco/pv3c5ekh1fjoihu/mpz7ywybfxm3isa/cjpjpyar26z9u70/Sehetz-Team-Superdot__3NTb.webp/small.jpg"
+            },
+            "card_cover": {
+              "signedPath": "dltemp/1MKJ-gbaya4AOHsh/1766331000000/thumbnails/noco/pv3c5ekh1fjoihu/mpz7ywybfxm3isa/cjpjpyar26z9u70/Sehetz-Team-Superdot__3NTb.webp/card_cover.jpg"
+            }
+          },
+          "signedPath": "dltemp/c-zQT0V2iLbufKHC/1766331000000/noco/pv3c5ekh1fjoihu/mpz7ywybfxm3isa/cjpjpyar26z9u70/Sehetz-Team-Superdot__3NTb.webp"
+        }
+      ],
+      "start-date": 2020,
+      "end-date": null,
+      "role": "Information Designer",
+      "location": "Basel",
+      "link": "https://www.superdot.studio/",
+      "_nc_m2m_sehetz_teams": [
+        {
+          "team_id": 2,
+          "sehetz_id": 5,
+          "team": {
+            "Projects": 2,
+            "Id": 2,
+            "CreatedAt": "2025-12-20 13:23:35+00:00",
+            "UpdatedAt": "2025-12-20 19:58:12+00:00",
+            "Team": "Superdot",
+            "design-work": true,
+            "description": "It's difficult for me to put into words how much I value my time at Superdot. As a recent bachelor's graduate from a German province, I started my career in a studio where the art director was still learning typography directly from Weingart. What began as a traineeship became the most formative learning experience of my professional life. Darjan and Nicole not only shaped me but also nurtured my talents – and I am forever grateful for that.",
+            "Teaser-Image": [
+              {
+                "path": "download/noco/pv3c5ekh1fjoihu/mpz7ywybfxm3isa/cjpjpyar26z9u70/Sehetz-Team-Superdot__3NTb.webp",
+                "title": "Sehetz-Team-Superdot.webp",
+                "mimetype": "image/webp",
+                "size": 498384,
+                "width": 1350,
+                "height": 1800,
+                "id": "atzkx6ez0vjuzzv2",
+                "thumbnails": {
+                  "tiny": {
+                    "signedPath": "dltemp/W_sMm9qE7waQTiIY/1766331000000/thumbnails/noco/pv3c5ekh1fjoihu/mpz7ywybfxm3isa/cjpjpyar26z9u70/Sehetz-Team-Superdot__3NTb.webp/tiny.jpg"
+                  },
+                  "small": {
+                    "signedPath": "dltemp/blkRp7ThaLmcDDbs/1766331000000/thumbnails/noco/pv3c5ekh1fjoihu/mpz7ywybfxm3isa/cjpjpyar26z9u70/Sehetz-Team-Superdot__3NTb.webp/small.jpg"
+                  },
+                  "card_cover": {
+                    "signedPath": "dltemp/1MKJ-gbaya4AOHsh/1766331000000/thumbnails/noco/pv3c5ekh1fjoihu/mpz7ywybfxm3isa/cjpjpyar26z9u70/Sehetz-Team-Superdot__3NTb.webp/card_cover.jpg"
+                  }
+                },
+                "signedPath": "dltemp/c-zQT0V2iLbufKHC/1766331000000/noco/pv3c5ekh1fjoihu/mpz7ywybfxm3isa/cjpjpyar26z9u70/Sehetz-Team-Superdot__3NTb.webp"
+              }
+            ],
+            "start-date": 2020,
+            "end-date": null,
+            "role": "Information Designer",
+            "location": "Basel",
+            "link": "https://www.superdot.studio/"
+          }
+        },
+        {
+          "team_id": 2,
+          "sehetz_id": 6,
+          "team": {
+            "Projects": 2,
+            "Id": 2,
+            "CreatedAt": "2025-12-20 13:23:35+00:00",
+            "UpdatedAt": "2025-12-20 19:58:12+00:00",
+            "Team": "Superdot",
+            "design-work": true,
+            "description": "It's difficult for me to put into words how much I value my time at Superdot. As a recent bachelor's graduate from a German province, I started my career in a studio where the art director was still learning typography directly from Weingart. What began as a traineeship became the most formative learning experience of my professional life. Darjan and Nicole not only shaped me but also nurtured my talents – and I am forever grateful for that.",
+            "Teaser-Image": [
+              {
+                "path": "download/noco/pv3c5ekh1fjoihu/mpz7ywybfxm3isa/cjpjpyar26z9u70/Sehetz-Team-Superdot__3NTb.webp",
+                "title": "Sehetz-Team-Superdot.webp",
+                "mimetype": "image/webp",
+                "size": 498384,
+                "width": 1350,
+                "height": 1800,
+                "id": "atzkx6ez0vjuzzv2",
+                "thumbnails": {
+                  "tiny": {
+                    "signedPath": "dltemp/W_sMm9qE7waQTiIY/1766331000000/thumbnails/noco/pv3c5ekh1fjoihu/mpz7ywybfxm3isa/cjpjpyar26z9u70/Sehetz-Team-Superdot__3NTb.webp/tiny.jpg"
+                  },
+                  "small": {
+                    "signedPath": "dltemp/blkRp7ThaLmcDDbs/1766331000000/thumbnails/noco/pv3c5ekh1fjoihu/mpz7ywybfxm3isa/cjpjpyar26z9u70/Sehetz-Team-Superdot__3NTb.webp/small.jpg"
+                  },
+                  "card_cover": {
+                    "signedPath": "dltemp/1MKJ-gbaya4AOHsh/1766331000000/thumbnails/noco/pv3c5ekh1fjoihu/mpz7ywybfxm3isa/cjpjpyar26z9u70/Sehetz-Team-Superdot__3NTb.webp/card_cover.jpg"
+                  }
+                },
+                "signedPath": "dltemp/c-zQT0V2iLbufKHC/1766331000000/noco/pv3c5ekh1fjoihu/mpz7ywybfxm3isa/cjpjpyar26z9u70/Sehetz-Team-Superdot__3NTb.webp"
+              }
+            ],
+            "start-date": 2020,
+            "end-date": null,
+            "role": "Information Designer",
+            "location": "Basel",
+            "link": "https://www.superdot.studio/"
+          }
+        }
+      ]
+    },
+    {
+      "Id": 3,
+      "CreatedAt": "2025-12-20 13:23:35+00:00",
+      "UpdatedAt": "2025-12-20 13:40:48+00:00",
+      "Team": "Bühne1",
+      "Projects": 0,
+      "design-work": true,
+      "description": null,
+      "Teaser-Image": null,
+      "start-date": 2015,
+      "end-date": 2021,
+      "role": "Graphic Designer",
+      "location": "Trier",
+      "link": "https://buehne1-trier.de/",
+      "_nc_m2m_sehetz_teams": []
+    },
+    {
+      "Id": 4,
+      "CreatedAt": "2025-12-20 13:23:35+00:00",
+      "UpdatedAt": "2025-12-20 19:58:54+00:00",
+      "Team": "Tacheles",
+      "Projects": 1,
+      "design-work": true,
+      "description": "\nPlease excuse the image quality. It’s emotionally true. In 2018, I worked on my bachelor's thesis with my then-partner Yaar, while a Berlin Studio were simultaneously filming the documentary \"Endlich Tacheles\" about his family history and how he coped with it. As a concept artist for the video game featured in the film, I also had a role on camera. Hardly any other industry unites so many people with so much passion as film – people who are on fire, who live, who create. An experience that deeply impressed me.",
+      "Teaser-Image": [
+        {
+          "path": "download/noco/pv3c5ekh1fjoihu/mpz7ywybfxm3isa/cjpjpyar26z9u70/Sehetz-team-Endlich-Tacheles-2_LeHd6.jpg",
+          "title": "Sehetz-team-Endlich-Tacheles-2.jpg",
+          "mimetype": "image/jpeg",
+          "size": 400806,
+          "width": 1080,
+          "height": 1440,
+          "id": "atwlypr242xj95a4",
+          "thumbnails": {
+            "tiny": {
+              "signedPath": "dltemp/AVfvzpeB-YRcNf67/1766331000000/thumbnails/noco/pv3c5ekh1fjoihu/mpz7ywybfxm3isa/cjpjpyar26z9u70/Sehetz-team-Endlich-Tacheles-2_LeHd6.jpg/tiny.jpg"
+            },
+            "small": {
+              "signedPath": "dltemp/6M0wtoUlC-a01yFS/1766331000000/thumbnails/noco/pv3c5ekh1fjoihu/mpz7ywybfxm3isa/cjpjpyar26z9u70/Sehetz-team-Endlich-Tacheles-2_LeHd6.jpg/small.jpg"
+            },
+            "card_cover": {
+              "signedPath": "dltemp/0LR-3leApAQgVVVq/1766331000000/thumbnails/noco/pv3c5ekh1fjoihu/mpz7ywybfxm3isa/cjpjpyar26z9u70/Sehetz-team-Endlich-Tacheles-2_LeHd6.jpg/card_cover.jpg"
+            }
+          },
+          "signedPath": "dltemp/lp65H-8_c16eX-4M/1766331000000/noco/pv3c5ekh1fjoihu/mpz7ywybfxm3isa/cjpjpyar26z9u70/Sehetz-team-Endlich-Tacheles-2_LeHd6.jpg"
+        }
+      ],
+      "start-date": 2018,
+      "end-date": 2019,
+      "role": "Protagonist",
+      "location": "Berlin",
+      "link": "https://endlich-tacheles.org/",
+      "_nc_m2m_sehetz_teams": [
+        {
+          "team_id": 4,
+          "sehetz_id": 4,
+          "team": {
+            "Projects": 1,
+            "Id": 4,
+            "CreatedAt": "2025-12-20 13:23:35+00:00",
+            "UpdatedAt": "2025-12-20 19:58:54+00:00",
+            "Team": "Tacheles",
+            "design-work": true,
+            "description": "\nPlease excuse the image quality. It’s emotionally true. In 2018, I worked on my bachelor's thesis with my then-partner Yaar, while a Berlin Studio were simultaneously filming the documentary \"Endlich Tacheles\" about his family history and how he coped with it. As a concept artist for the video game featured in the film, I also had a role on camera. Hardly any other industry unites so many people with so much passion as film – people who are on fire, who live, who create. An experience that deeply impressed me.",
+            "Teaser-Image": [
+              {
+                "path": "download/noco/pv3c5ekh1fjoihu/mpz7ywybfxm3isa/cjpjpyar26z9u70/Sehetz-team-Endlich-Tacheles-2_LeHd6.jpg",
+                "title": "Sehetz-team-Endlich-Tacheles-2.jpg",
+                "mimetype": "image/jpeg",
+                "size": 400806,
+                "width": 1080,
+                "height": 1440,
+                "id": "atwlypr242xj95a4",
+                "thumbnails": {
+                  "tiny": {
+                    "signedPath": "dltemp/AVfvzpeB-YRcNf67/1766331000000/thumbnails/noco/pv3c5ekh1fjoihu/mpz7ywybfxm3isa/cjpjpyar26z9u70/Sehetz-team-Endlich-Tacheles-2_LeHd6.jpg/tiny.jpg"
+                  },
+                  "small": {
+                    "signedPath": "dltemp/6M0wtoUlC-a01yFS/1766331000000/thumbnails/noco/pv3c5ekh1fjoihu/mpz7ywybfxm3isa/cjpjpyar26z9u70/Sehetz-team-Endlich-Tacheles-2_LeHd6.jpg/small.jpg"
+                  },
+                  "card_cover": {
+                    "signedPath": "dltemp/0LR-3leApAQgVVVq/1766331000000/thumbnails/noco/pv3c5ekh1fjoihu/mpz7ywybfxm3isa/cjpjpyar26z9u70/Sehetz-team-Endlich-Tacheles-2_LeHd6.jpg/card_cover.jpg"
+                  }
+                },
+                "signedPath": "dltemp/lp65H-8_c16eX-4M/1766331000000/noco/pv3c5ekh1fjoihu/mpz7ywybfxm3isa/cjpjpyar26z9u70/Sehetz-team-Endlich-Tacheles-2_LeHd6.jpg"
+              }
+            ],
+            "start-date": 2018,
+            "end-date": 2019,
+            "role": "Protagonist",
+            "location": "Berlin",
+            "link": "https://endlich-tacheles.org/"
+          }
+        }
+      ]
+    },
+    {
+      "Id": 5,
+      "CreatedAt": "2025-12-20 13:23:35+00:00",
+      "UpdatedAt": "2025-12-20 13:40:48+00:00",
+      "Team": "sehetz",
+      "Projects": 4,
+      "design-work": true,
+      "description": null,
+      "Teaser-Image": null,
+      "start-date": 2015,
+      "end-date": null,
+      "role": "Courious Twad",
+      "location": "Basel",
+      "link": null,
+      "_nc_m2m_sehetz_teams": [
+        {
+          "team_id": 5,
+          "sehetz_id": 1,
+          "team": {
+            "Projects": 4,
+            "Id": 5,
+            "CreatedAt": "2025-12-20 13:23:35+00:00",
+            "UpdatedAt": "2025-12-20 13:40:48+00:00",
+            "Team": "sehetz",
+            "design-work": true,
+            "description": null,
+            "Teaser-Image": null,
+            "start-date": 2015,
+            "end-date": null,
+            "role": "Courious Twad",
+            "location": "Basel",
+            "link": null
+          }
+        },
+        {
+          "team_id": 5,
+          "sehetz_id": 2,
+          "team": {
+            "Projects": 4,
+            "Id": 5,
+            "CreatedAt": "2025-12-20 13:23:35+00:00",
+            "UpdatedAt": "2025-12-20 13:40:48+00:00",
+            "Team": "sehetz",
+            "design-work": true,
+            "description": null,
+            "Teaser-Image": null,
+            "start-date": 2015,
+            "end-date": null,
+            "role": "Courious Twad",
+            "location": "Basel",
+            "link": null
+          }
+        },
+        {
+          "team_id": 5,
+          "sehetz_id": 7,
+          "team": {
+            "Projects": 4,
+            "Id": 5,
+            "CreatedAt": "2025-12-20 13:23:35+00:00",
+            "UpdatedAt": "2025-12-20 13:40:48+00:00",
+            "Team": "sehetz",
+            "design-work": true,
+            "description": null,
+            "Teaser-Image": null,
+            "start-date": 2015,
+            "end-date": null,
+            "role": "Courious Twad",
+            "location": "Basel",
+            "link": null
+          }
+        },
+        {
+          "team_id": 5,
+          "sehetz_id": 9,
+          "team": {
+            "Projects": 4,
+            "Id": 5,
+            "CreatedAt": "2025-12-20 13:23:35+00:00",
+            "UpdatedAt": "2025-12-20 13:40:48+00:00",
+            "Team": "sehetz",
+            "design-work": true,
+            "description": null,
+            "Teaser-Image": null,
+            "start-date": 2015,
+            "end-date": null,
+            "role": "Courious Twad",
+            "location": "Basel",
+            "link": null
+          }
+        }
+      ]
+    },
+    {
+      "Id": 6,
+      "CreatedAt": "2025-12-20 13:23:35+00:00",
+      "UpdatedAt": "2025-12-20 13:40:48+00:00",
+      "Team": "Superdot Trainee",
+      "Projects": 0,
+      "design-work": true,
+      "description": "For the dreames and achievers",
+      "Teaser-Image": null,
+      "start-date": 2019,
+      "end-date": 2020,
+      "role": "Information Designer",
+      "location": "Basel",
+      "link": "https://www.superdot.studio/",
+      "_nc_m2m_sehetz_teams": []
+    },
+    {
+      "Id": 7,
+      "CreatedAt": "2025-12-20 13:23:35+00:00",
+      "UpdatedAt": "2025-12-20 19:58:43+00:00",
+      "Team": "Fh Trier",
+      "Projects": 1,
+      "design-work": true,
+      "description": "Trier University of Applied Sciences isn't the best university in the world, in Germany, or perhaps even in Rhineland-Palatinate. Nevertheless, I wouldn't trade the years I spent there for my bachelor's degree for anything in the world. It was a time of unique community, where we students taught each other tools and techniques, organized courses and excursions, put on exhibitions, and even staged entire plays and productions. What an empowering experience of self-efficacy!",
+      "Teaser-Image": [
+        {
+          "path": "download/noco/pv3c5ekh1fjoihu/mpz7ywybfxm3isa/cjpjpyar26z9u70/Sehetz-Team-Hochschule-Trier-3_hqbuA.jpg",
+          "title": "Sehetz-Team-Hochschule-Trier-3.jpg",
+          "mimetype": "image/jpeg",
+          "size": 298378,
+          "width": 1080,
+          "height": 1440,
+          "id": "atzwjmqrp9hwqlbc",
+          "thumbnails": {
+            "tiny": {
+              "signedPath": "dltemp/1MWRTuOYBItmEF_J/1766331000000/thumbnails/noco/pv3c5ekh1fjoihu/mpz7ywybfxm3isa/cjpjpyar26z9u70/Sehetz-Team-Hochschule-Trier-3_hqbuA.jpg/tiny.jpg"
+            },
+            "small": {
+              "signedPath": "dltemp/smQjUsWfGcAU3e8r/1766331000000/thumbnails/noco/pv3c5ekh1fjoihu/mpz7ywybfxm3isa/cjpjpyar26z9u70/Sehetz-Team-Hochschule-Trier-3_hqbuA.jpg/small.jpg"
+            },
+            "card_cover": {
+              "signedPath": "dltemp/OHjEb_KqYpwB2NVO/1766331000000/thumbnails/noco/pv3c5ekh1fjoihu/mpz7ywybfxm3isa/cjpjpyar26z9u70/Sehetz-Team-Hochschule-Trier-3_hqbuA.jpg/card_cover.jpg"
+            }
+          },
+          "signedPath": "dltemp/qcz8U8aLLh4fr0mt/1766331000000/noco/pv3c5ekh1fjoihu/mpz7ywybfxm3isa/cjpjpyar26z9u70/Sehetz-Team-Hochschule-Trier-3_hqbuA.jpg"
+        }
+      ],
+      "start-date": 2015,
+      "end-date": 2019,
+      "role": "Student",
+      "location": "Trier",
+      "link": "https://www.hochschule-trier.de/en/",
+      "_nc_m2m_sehetz_teams": [
+        {
+          "team_id": 7,
+          "sehetz_id": 3,
+          "team": {
+            "Projects": 1,
+            "Id": 7,
+            "CreatedAt": "2025-12-20 13:23:35+00:00",
+            "UpdatedAt": "2025-12-20 19:58:43+00:00",
+            "Team": "Fh Trier",
+            "design-work": true,
+            "description": "Trier University of Applied Sciences isn't the best university in the world, in Germany, or perhaps even in Rhineland-Palatinate. Nevertheless, I wouldn't trade the years I spent there for my bachelor's degree for anything in the world. It was a time of unique community, where we students taught each other tools and techniques, organized courses and excursions, put on exhibitions, and even staged entire plays and productions. What an empowering experience of self-efficacy!",
+            "Teaser-Image": [
+              {
+                "path": "download/noco/pv3c5ekh1fjoihu/mpz7ywybfxm3isa/cjpjpyar26z9u70/Sehetz-Team-Hochschule-Trier-3_hqbuA.jpg",
+                "title": "Sehetz-Team-Hochschule-Trier-3.jpg",
+                "mimetype": "image/jpeg",
+                "size": 298378,
+                "width": 1080,
+                "height": 1440,
+                "id": "atzwjmqrp9hwqlbc",
+                "thumbnails": {
+                  "tiny": {
+                    "signedPath": "dltemp/1MWRTuOYBItmEF_J/1766331000000/thumbnails/noco/pv3c5ekh1fjoihu/mpz7ywybfxm3isa/cjpjpyar26z9u70/Sehetz-Team-Hochschule-Trier-3_hqbuA.jpg/tiny.jpg"
+                  },
+                  "small": {
+                    "signedPath": "dltemp/smQjUsWfGcAU3e8r/1766331000000/thumbnails/noco/pv3c5ekh1fjoihu/mpz7ywybfxm3isa/cjpjpyar26z9u70/Sehetz-Team-Hochschule-Trier-3_hqbuA.jpg/small.jpg"
+                  },
+                  "card_cover": {
+                    "signedPath": "dltemp/OHjEb_KqYpwB2NVO/1766331000000/thumbnails/noco/pv3c5ekh1fjoihu/mpz7ywybfxm3isa/cjpjpyar26z9u70/Sehetz-Team-Hochschule-Trier-3_hqbuA.jpg/card_cover.jpg"
+                  }
+                },
+                "signedPath": "dltemp/qcz8U8aLLh4fr0mt/1766331000000/noco/pv3c5ekh1fjoihu/mpz7ywybfxm3isa/cjpjpyar26z9u70/Sehetz-Team-Hochschule-Trier-3_hqbuA.jpg"
+              }
+            ],
+            "start-date": 2015,
+            "end-date": 2019,
+            "role": "Student",
+            "location": "Trier",
+            "link": "https://www.hochschule-trier.de/en/"
+          }
+        }
+      ]
+    },
+    {
+      "Id": 8,
+      "CreatedAt": "2025-12-20 13:23:35+00:00",
+      "UpdatedAt": "2025-12-20 13:40:48+00:00",
+      "Team": "Coop",
+      "Projects": 0,
+      "design-work": true,
+      "description": null,
+      "Teaser-Image": null,
+      "start-date": 2015,
+      "end-date": 2018,
+      "role": "Graphic Designer",
+      "location": "Basel",
+      "link": "https://www.coop.ch/de/",
+      "_nc_m2m_sehetz_teams": []
+    },
+    {
+      "Id": 9,
+      "CreatedAt": "2025-12-20 13:23:35+00:00",
+      "UpdatedAt": "2025-12-20 13:40:48+00:00",
+      "Team": "Akademia Sztuk Pięknych",
+      "Projects": 0,
+      "design-work": true,
+      "description": null,
+      "Teaser-Image": null,
+      "start-date": 2017,
+      "end-date": 2018,
+      "role": "Student",
+      "location": "Kraków",
+      "link": "https://www.asp.krakow.pl/",
+      "_nc_m2m_sehetz_teams": []
+    },
+    {
+      "Id": 10,
+      "CreatedAt": "2025-12-20 13:23:35+00:00",
+      "UpdatedAt": "2025-12-20 13:40:48+00:00",
+      "Team": "H&M",
+      "Projects": 0,
+      "design-work": false,
+      "description": "Zwischen Kleiderständern und Kund*innen lernte ich das, was in keinem Designstudium gelehrt wird: Geduld, Kommunikation und gutes Timing.",
+      "Teaser-Image": null,
+      "start-date": 2015,
+      "end-date": 2016,
+      "role": "Sales Advisor",
+      "location": "Basel",
+      "link": "https://www2.hm.com/",
+      "_nc_m2m_sehetz_teams": []
+    },
+    {
+      "Id": 11,
+      "CreatedAt": "2025-12-20 13:23:35+00:00",
+      "UpdatedAt": "2025-12-20 13:40:48+00:00",
+      "Team": "Cubiculum",
+      "Projects": 0,
+      "design-work": false,
+      "description": "Pizza machen, Menschen treffen, Abende retten. Ein Job, der überraschend viel über Teamarbeit und Gastfreundschaft lehrt – und über die perfekte Balance von Teig und Temperatur.",
+      "Teaser-Image": null,
+      "start-date": 2018,
+      "end-date": 2019,
+      "role": "Pizza-Maker",
+      "location": "Trier",
+      "link": "https://pizzasalat.de/",
+      "_nc_m2m_sehetz_teams": []
+    },
+    {
+      "Id": 12,
+      "CreatedAt": "2025-12-20 13:23:35+00:00",
+      "UpdatedAt": "2025-12-20 13:40:48+00:00",
+      "Team": "Club Aktiv",
+      "Projects": 0,
+      "design-work": false,
+      "description": "Als Freizeitassistenz durfte ich Menschen begleiten, stärken und unterstützen. Eine Aufgabe, die mich geerdet hat und meinen Blick für unterschiedliche Lebensrealitäten schärfte.",
+      "Teaser-Image": null,
+      "start-date": 2018,
+      "end-date": 2019,
+      "role": "Leisure Assistance",
+      "location": "Trier",
+      "link": "https://www.clubaktiv.de/",
+      "_nc_m2m_sehetz_teams": []
+    }
+  ],
+  "pageInfo": {
+    "totalRows": 12,
+    "page": 1,
+    "pageSize": 25,
+    "isFirstPage": true,
+    "isLastPage": true
+  }
+}

@@ -49,17 +49,47 @@ export async function timeline_fetch(setTeams, setMinYear, setProjects) {
     const NOCO_BASE = import.meta.env.VITE_NOCO_BASE_URL || "http://localhost:8080";
     const TEAMS_TABLE_ID = "mpz7ywybfxm3isa";
     const PROJECTS_TABLE_ID = "mieh9d1y7a7ls74";
-    const TEAMS_API_URL = `${NOCO_BASE}/api/v2/tables/${TEAMS_TABLE_ID}/records`;
-    const PROJECTS_API_URL = `${NOCO_BASE}/api/v2/tables/${PROJECTS_TABLE_ID}/records?include=_nc_m2m_sehetz_skills,_nc_m2m_sehetz_teams&limit=200`;
 
-    // Fetch teams
-    const teamsRes = await fetch(TEAMS_API_URL, {
-      headers: { "xc-token": API_TOKEN },
-    });
+    // Try static data first
+    let teamsJson, projectsJson;
+    
+    try {
+      const [teamsRes, projectsRes] = await Promise.all([
+        fetch("/data/teams.json", { cache: "force-cache" }),
+        fetch("/data/projects.json", { cache: "force-cache" })
+      ]);
+      
+      if (teamsRes.ok && projectsRes.ok) {
+        teamsJson = await teamsRes.json();
+        projectsJson = await projectsRes.json();
+      }
+    } catch (err) {
+      // Fall through to live fetch
+    }
 
-    if (!teamsRes.ok) return;
+    // Fallback to live NocoDB in development
+    if (!teamsJson && import.meta.env.DEV) {
+      const TEAMS_API_URL = `${NOCO_BASE}/api/v2/tables/${TEAMS_TABLE_ID}/records`;
+      const teamsRes = await fetch(TEAMS_API_URL, {
+        headers: { "xc-token": API_TOKEN },
+      });
+      if (teamsRes.ok) {
+        teamsJson = await teamsRes.json();
+      }
+    }
 
-    const teamsJson = await teamsRes.json();
+    if (!projectsJson && import.meta.env.DEV) {
+      const PROJECTS_API_URL = `${NOCO_BASE}/api/v2/tables/${PROJECTS_TABLE_ID}/records?include=_nc_m2m_sehetz_skills,_nc_m2m_sehetz_teams&limit=200`;
+      const projectsRes = await fetch(PROJECTS_API_URL, {
+        headers: { "xc-token": API_TOKEN },
+      });
+      if (projectsRes.ok) {
+        projectsJson = await projectsRes.json();
+      }
+    }
+
+    if (!teamsJson || !projectsJson) return;
+
     const teamRows = teamsJson.list || [];
 
     // Normalize team data
@@ -91,41 +121,33 @@ export async function timeline_fetch(setTeams, setMinYear, setProjects) {
       : new Date().getFullYear();
     setMinYear(calculatedMinYear);
 
-    // Fetch projects and link to teams
-    const projectsRes = await fetch(PROJECTS_API_URL, {
-      headers: { "xc-token": API_TOKEN },
-    });
+    // Process projects data
+    const projectRows = projectsJson.list || [];
+    const projectsExtracted = [];
+    projectRows.forEach((proj, projIdx) => {
+      const year = timeline_parseYear(proj.Datum);
+      if (!year) return;
 
-    if (projectsRes.ok) {
-      const projectsJson = await projectsRes.json();
-      const projectRows = projectsJson.list || [];
+      // Get the first related skill
+      const relSkills = proj._nc_m2m_sehetz_skills || [];
+      const skillObj = relSkills[0]?.skill;
+      const skillSlug = skillObj?.Skill ? timeline_generateSlug(skillObj.Skill) : "all";
 
-      const projectsExtracted = [];
-      projectRows.forEach((proj, projIdx) => {
-        const year = timeline_parseYear(proj.Datum);
-        if (!year) return;
-
-        // Get the first related skill
-        const relSkills = proj._nc_m2m_sehetz_skills || [];
-        const skillObj = relSkills[0]?.skill;
-        const skillSlug = skillObj?.Skill ? timeline_generateSlug(skillObj.Skill) : "all";
-
-        const relTeams = proj._nc_m2m_sehetz_teams || [];
-        relTeams.forEach((rel) => {
-          const teamObj = rel.team;
-          if (!teamObj) return;
-          projectsExtracted.push({
-            team: teamObj.Team,
-            year,
-            title: proj.Title || "Untitled",
-            slug: timeline_generateSlug(proj.Title),
-            skillSlug: skillSlug,
-          });
+      const relTeams = proj._nc_m2m_sehetz_teams || [];
+      relTeams.forEach((rel) => {
+        const teamObj = rel.team;
+        if (!teamObj) return;
+        projectsExtracted.push({
+          team: teamObj.Team,
+          year,
+          title: proj.Title || "Untitled",
+          slug: timeline_generateSlug(proj.Title),
+          skillSlug: skillSlug,
         });
       });
+    });
 
-      setProjects(projectsExtracted);
-    }
+    setProjects(projectsExtracted);
   } catch (err) {
     // Silent fail
   }
