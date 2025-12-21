@@ -21,13 +21,7 @@ export default defineConfig({
     chunkSizeWarningLimit: 600,
     // Enable CSS code splitting
     cssCodeSplit: true,
-    // Minify with terser for better compression
-    minify: 'terser',
-    terserOptions: {
-      compress: {
-        drop_console: true, // Remove console.logs in production
-        drop_debugger: true,
-      },
-    },
+    // Use esbuild (default, faster and no extra dependency needed)
+    minify: 'esbuild',
   },
 })
