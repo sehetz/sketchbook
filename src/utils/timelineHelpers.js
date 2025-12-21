@@ -125,6 +125,9 @@ export async function timeline_fetch(setTeams, setMinYear, setProjects) {
     const projectRows = projectsJson.list || [];
     const projectsExtracted = [];
     projectRows.forEach((proj, projIdx) => {
+      // Skip offline projects
+      if (!proj.is_online) return;
+      
       const year = timeline_parseYear(proj.Datum);
       if (!year) return;
 
