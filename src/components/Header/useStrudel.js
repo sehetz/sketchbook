@@ -46,7 +46,6 @@ export default function useStrudel() {
   const playSound = (ctx, master, soundName) => {
     const sound = SOUNDS[soundName];
     if (!sound) {
-      console.warn(`Sound "${soundName}" not found`);
       return;
     }
 
@@ -134,7 +133,7 @@ export default function useStrudel() {
         playBeat(ctx, master, beatPhase);
       }, interval);
     } catch (err) {
-      console.error("Audio start failed", err);
+      // Silent fail
     }
   };
 

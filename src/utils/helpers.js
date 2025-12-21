@@ -115,7 +115,6 @@ export function project_normalize(project, NOCO_BASE_URL) {
   const file = project["Teaser-Image"]?.[0];
   let teaserImageFile = null;
   let teaserVideoFile = null;
-  let teaserVideo = null;
 
   if (file) {
     const mime = file.mimetype || file.type || "";
@@ -124,7 +123,6 @@ export function project_normalize(project, NOCO_BASE_URL) {
     
     if (isVideo) {
       teaserVideoFile = file;
-      teaserVideo = `${NOCO_BASE_URL}/${file.signedPath || file.path}`;
     } else {
       teaserImageFile = file;
     }
@@ -155,7 +153,7 @@ export function project_normalize(project, NOCO_BASE_URL) {
     return b;
   });
 
-  return { ...project, teaserImageFile, teaserVideoFile, teaserVideo, blocks };
+  return { ...project, teaserImageFile, teaserVideoFile, blocks };
 }
 
 // ============================================

@@ -4,6 +4,7 @@
 
 import { useRef, useEffect } from "react";
 import MasterMediaImage from "../../../common/MasterMediaImage.jsx";
+import { resolveMediaPath } from "../../../../utils/mediaManifest.js";
 
 export default function CaseTeaser({
   project,
@@ -17,13 +18,13 @@ export default function CaseTeaser({
 
   // ⭐ Extract first related gear & team (if present)
   const firstGear =
-    project["nc_3zu8___nc_m2m_nc_3zu8__Projec_Gears"]?.[0]?.Gear?.Gear || "";
+    project["_nc_m2m_sehetz_gears"]?.[0]?.gear?.Gear || "";
   const firstTeam =
-    project["nc_3zu8___nc_m2m_nc_3zu8__Projec_Teams"]?.[0]?.Teams?.Team || "";
+    project["_nc_m2m_sehetz_teams"]?.[0]?.team?.Team || "";
 
   // ⭐ Extract first skill name (for skills view)
   const firstSkill =
-    project["nc_3zu8___nc_m2m_nc_3zu8__Projec_Skills"]?.[0]?.Skills?.Skill || "";
+    project["_nc_m2m_sehetz_skills"]?.[0]?.skill?.Skill || "";
 
   // ⭐ Scroll AFTER opening (minimal perceptible delay)
   useEffect(() => {
@@ -44,6 +45,20 @@ export default function CaseTeaser({
   const handleToggle = () => {
     onToggle(index); // ⭐ Pass index to parent
   };
+
+  // Resolve video path (local first, then remote)
+  const NOCO_BASE_URL = import.meta.env.VITE_NOCO_BASE_URL || "http://localhost:8080";
+  const getVideoSrc = () => {
+    if (!project.teaserVideoFile) return null;
+    const filename = project.teaserVideoFile.name || project.teaserVideoFile.title;
+    const localPath = filename ? resolveMediaPath(filename) : null;
+    if (localPath) return localPath;
+    // Fallback to remote
+    const remotePath = project.teaserVideoFile.signedPath || project.teaserVideoFile.path;
+    return remotePath ? `${NOCO_BASE_URL}/${remotePath}` : null;
+  };
+
+  const videoSrc = getVideoSrc();
 
   return (
     <div className="case-teaser">
@@ -70,9 +85,9 @@ export default function CaseTeaser({
           <div className="flex-1 pr-8 text-2">{project["description"]}</div>
 
           {isOpen ? (
-            project.teaserVideoFile ? (
+            videoSrc ? (
               <video
-                src={project.teaserVideo}
+                src={videoSrc}
                 className="teaser__image"
                 autoPlay
                 loop

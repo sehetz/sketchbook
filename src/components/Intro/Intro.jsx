@@ -29,7 +29,7 @@ export default function Intro({ filter = "skills", page = "home" }) {
           setIntroText(matchingRow.description);
         }
       } catch (err) {
-        console.error("Failed to load intro text:", err);
+        // Silent fail
       }
     }
 

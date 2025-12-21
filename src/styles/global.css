@@ -623,13 +623,17 @@ strong,
   }
 }
 
-@media (max-width: 900px) {
+@media (max-width: 1000px) {
   .flex:not(.filter-nav):not(.case-header) {
     flex-direction: column;
   }
   .filter-nav,
   .case-header {
     flex-direction: row;
+  }
+  .case-line__gear,
+  .case-line__team {
+    display: none;
   }
   .footer,
   .footer .flex,
@@ -644,12 +648,8 @@ strong,
   .footer .footer-exception,
   .footer .text-3 {
     text-align: left;
-  }
-  .footer .flex > * {
-    width: 100%;
-  }
-  .case-line__gear,
-  .case-line__team {
+  }case-line__gear:empty,
+  .case-line__team:empty {
     display: none;
   }
   .w-1-2,

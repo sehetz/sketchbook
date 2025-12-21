@@ -127,6 +127,6 @@ export async function timeline_fetch(setTeams, setMinYear, setProjects) {
       setProjects(projectsExtracted);
     }
   } catch (err) {
-    console.error("Timeline fetch error:", err);
+    // Silent fail
   }
 }

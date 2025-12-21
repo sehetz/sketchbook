@@ -11,9 +11,7 @@ async function init() {
       const res = await fetch("/media-manifest.json");
       const manifest = await res.json();
       window.__MEDIA_MANIFEST = manifest;
-      console.log("✅ Media manifest loaded:", Object.keys(manifest).length, "files");
     } catch (err) {
-      console.warn("⚠️ Could not load media-manifest.json:", err.message);
       window.__MEDIA_MANIFEST = {};
     }
   }

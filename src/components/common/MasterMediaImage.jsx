@@ -47,24 +47,11 @@ export default function MasterMediaImage({
     return { rawFilename, localSrc, computedRemoteSrc, primary, secondary };
   }, [file, filename, remoteSrc, NOCO]);
 
-  if (typeof import.meta !== "undefined" && import.meta.env?.DEV) {
-    const key = `${computed.rawFilename || ""}|${computed.primary}|${computed.secondary || ""}`;
-    if (!loggedKeys.has(key)) {
-      loggedKeys.add(key);
-      console.log("🎨 MasterMediaImage", {
-        filename: computed.rawFilename,
-        hasLocal: !!computed.localSrc,
-        hasRemote: !!computed.computedRemoteSrc,
-        primary: computed.primary,
-        secondary: computed.secondary,
-      });
-    }
-  }
+
 
   const handleError = (e) => {
     if (!triedFallback.current && computed.secondary) {
       triedFallback.current = true;
-      console.warn("📸 Fallback to remote:", computed.rawFilename || computed.computedRemoteSrc);
       e.currentTarget.src = computed.secondary;
       return;
     }
@@ -72,9 +59,6 @@ export default function MasterMediaImage({
   };
 
   if (!computed.primary) {
-    if (import.meta.env?.DEV) {
-      console.warn("🚫 MasterMediaImage: No valid source", { file, filename, remoteSrc });
-    }
     return null;
   }
 

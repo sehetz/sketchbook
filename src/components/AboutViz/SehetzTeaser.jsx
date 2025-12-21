@@ -32,7 +32,7 @@ export default function SehetzTeaser() {
           });
         }
       } catch (err) {
-        console.error("Failed to load sehetz:", err);
+        // Silent fail
       }
     }
 
