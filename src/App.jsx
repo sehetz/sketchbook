@@ -54,7 +54,6 @@ function App() {
   return (
     <>
       <Header />
-      <Intro filter={filter} />
       <main>
         <DataView urlState={urlState} currentPath={currentPath} />
       </main>

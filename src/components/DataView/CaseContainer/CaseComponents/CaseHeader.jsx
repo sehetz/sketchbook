@@ -12,9 +12,9 @@ export default function CaseHeader({ type, label, projects, isOpen }) {
 
   return (
     <div className="case-header flex text-1 p-6">
-      <div className={`flex-1 ${alignmentClass}`}>
+      <div className={`flex-1 ${alignmentClass}`} style={{ display: 'flex', alignItems: 'center' }}>
         {type === "skills" && projects?.length > 0 && (
-          <span className="text-1 text-baseline">{getDice(projects.length)}{"\u00A0"}</span>
+          <span className="text-1">{getDice(projects.length)}{"\u00A0"}</span>
         )}
         {label}
       </div>

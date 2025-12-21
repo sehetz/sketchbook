@@ -5,6 +5,7 @@
 import { useState, useEffect } from "react";
 import CaseContainer from "./CaseContainer/CaseContainer";
 import FilterNav from "./FilterNav/FilterNav";
+import Intro from "../Intro/Intro";
 import { project_normalize } from "../../utils/helpers.js";
 import { url_push, url_replace } from "../../utils/urlRouting.js";
 
@@ -205,6 +206,7 @@ export default function DataView({ urlState, currentPath }) {
   // ============================================
   return (
     <main className="data-view">
+      <Intro filter={filter} />
       <FilterNav filter={filter} setFilter={handleFilterChange} />
       {containers.map((container, index) => (
         <CaseContainer
