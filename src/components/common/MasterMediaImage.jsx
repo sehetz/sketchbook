@@ -67,9 +67,15 @@ export default function MasterMediaImage({
       src={computed.primary}
       alt={alt}
       className={className}
-      style={style}
+      style={{
+        ...style,
+        // Prevent CLS by maintaining aspect ratio
+        aspectRatio: style?.aspectRatio || 'auto',
+        objectFit: style?.objectFit || 'cover',
+      }}
       loading={loading}
       decoding={decoding}
+      fetchpriority={loading === 'eager' ? 'high' : 'auto'}
       onError={handleError}
       onLoad={onLoad}
     />

@@ -31,6 +31,9 @@
 
   /* 🔠 TYPOGRAPHY */
   --font-sans: "SF Pro Rounded", "SF Pro", "Helvetica Neue", Helvetica, "Roboto", Arial, sans-serif;
+  
+  /* Prevent invisible text during font load (better CLS) */
+  font-display: swap;
 
   /* TEXT STYLES */
   --text-scale-mobile: 0.8;

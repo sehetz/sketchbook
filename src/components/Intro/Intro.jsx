@@ -37,7 +37,7 @@ export default function Intro({ filter = "skills", page = "home" }) {
   }, [filter, page, INTRO_API_URL, API_TOKEN]);
 
   return (
-    <section className="flex p-6">
+    <section className="flex p-6 intro-section">
       <div className="flex-1 padding-right">
         <p className="text-2">{introText}</p>
       </div>

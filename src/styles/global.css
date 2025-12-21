@@ -254,6 +254,7 @@ a {
   max-height: 0;
   opacity: 0;
   transition: max-height var(--transition-wipe), opacity var(--transition-wipe);
+  will-change: max-height, opacity; /* GPU acceleration for smoother animations */
 }
 .wipe.open,
 .teaser-wipe.open {
@@ -386,6 +387,7 @@ a {
   box-sizing: border-box;
   transition: height var(--transition-interact),
     background-color var(--transition-fast);
+  will-change: height, background-color; /* Optimize for frequent hover interactions */
 }
 .case-line__title {
   display: block;
@@ -483,7 +485,8 @@ a {
 
 /* Footer */
 .footer {
-  min-height: 300px; /* Prevent CLS by reserving space */
+  min-height: 350px; /* Prevent CLS by reserving space */
+  contain: layout; /* Isolate layout calculations for better performance */
 }
 .footer a,
 .footer a:link,

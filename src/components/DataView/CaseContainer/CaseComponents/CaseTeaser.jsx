@@ -100,7 +100,7 @@ export default function CaseTeaser({
                 file={project.teaserImageFile}
                 alt={project.Title}
                 className="teaser__image"
-                loading="lazy"
+                loading={index === 0 ? "eager" : "lazy"}
                 decoding="async"
               />
             ) : (

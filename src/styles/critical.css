@@ -1,6 +1,11 @@
 /* CRITICAL CSS - Inline in <head> for faster First Paint */
 /* Only the absolute minimum needed for above-the-fold content */
 
+@font-face {
+  font-family: 'SF Pro Rounded';
+  font-display: swap; /* Prevent FOIT, improve CLS */
+}
+
 :root {
   --color-bg: #f8f8f8;
   --color-fg: #1a1a1a;
@@ -32,9 +37,16 @@ main {
   min-height: 50vh;
 }
 
+/* Intro section - reserve space to prevent CLS */
+.intro-section {
+  min-height: 120px;
+  contain: layout;
+}
+
 /* Footer skeleton to prevent CLS */
 .footer {
-  min-height: 300px;
+  min-height: 350px;
+  contain: layout;
 }
 
 /* Loading state */
