@@ -6,17 +6,15 @@ import { url_parse } from "./utils/urlRouting.js";
 
 // Core Components
 import Header from "./components/Header/Header";
-import Intro from "./components/Intro/Intro";
 import Footer from "./components/Footer/Footer";
 
-// Data Logic Layer
-import DataView from "./components/DataView/DataView";
-import TimelineViz from "./components/AboutViz/TimelineViz";
-import SehetzTeaser from "./components/AboutViz/SehetzTeaser";
-import { useState, useEffect } from "react";
-import Impressum from "./impressum";
-import About from "./About";
-import Privacy from "./privacy";
+// Lazy load non-critical pages for better performance
+import { useState, useEffect, lazy, Suspense } from "react";
+
+const DataView = lazy(() => import("./components/DataView/DataView"));
+const Impressum = lazy(() => import("./impressum"));
+const About = lazy(() => import("./About"));
+const Privacy = lazy(() => import("./privacy"));
 
 function App() {
   // Simple client-side page switch (reacts to history / popstate)
@@ -47,15 +45,17 @@ function App() {
 
   // normalize trailing slash, then route
   const normalized = currentPath.replace(/\/$/, "");
-  if (normalized === "/impressum") return <Impressum />;
-  if (normalized === "/about") return <About />;
-  if (normalized === "/privacy") return <Privacy />;
+  if (normalized === "/impressum") return <Suspense fallback={<div className="loading">Loading...</div>}><Impressum /></Suspense>;
+  if (normalized === "/about") return <Suspense fallback={<div className="loading">Loading...</div>}><About /></Suspense>;
+  if (normalized === "/privacy") return <Suspense fallback={<div className="loading">Loading...</div>}><Privacy /></Suspense>;
 
   return (
     <>
       <Header />
       <main>
-        <DataView urlState={urlState} currentPath={currentPath} />
+        <Suspense fallback={<div className="loading">Loading content...</div>}>
+          <DataView urlState={urlState} currentPath={currentPath} />
+        </Suspense>
       </main>
       <Footer />
     </>

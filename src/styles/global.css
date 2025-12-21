@@ -482,6 +482,9 @@ a {
 }
 
 /* Footer */
+.footer {
+  min-height: 300px; /* Prevent CLS by reserving space */
+}
 .footer a,
 .footer a:link,
 .footer a:visited,
