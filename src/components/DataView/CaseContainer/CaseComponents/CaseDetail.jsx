@@ -1,3 +1,7 @@
+import { useEffect } from "react";
+import { useHead } from "../../../../utils/useHead.js";
+import { desc_extractFirst } from "../../../../utils/seoHelpers.js";
+import { text_labelToSlug } from "../../../../utils/urlRouting.js";
 import TextBlock from "../Blocks/TextBlock.jsx";
 import ImageBlock from "../Blocks/ImageBlock.jsx"; 
 import LinkBlock from "../Blocks/LinkBlock.jsx";
@@ -5,6 +9,20 @@ import LinkBlock from "../Blocks/LinkBlock.jsx";
 export default function CaseDetail({ project }) {
   const blocks = project.blocks || [];
   const projectTitle = project.Title || "";
+  const projectSlug = text_labelToSlug(projectTitle);
+  const description = desc_extractFirst(blocks);
+  
+  // Update meta tags when project opens
+  useEffect(() => {
+    if (projectTitle) {
+      useHead({
+        title: `${projectTitle} – Sehetz Sketchbook`,
+        description: description || `Explore the ${projectTitle} project in the Sehetz creative portfolio.`,
+        url: `https://sehetz.ch/${projectSlug}`,
+        slug: projectSlug
+      });
+    }
+  }, [projectTitle, projectSlug, description]);
 
   const hasLinkBlock = blocks.some((block) => block.type.includes("link"));
 

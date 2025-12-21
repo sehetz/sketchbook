@@ -1,14 +1,29 @@
 // ============================================
 // useHead.js – Dynamic Meta Tags Hook
 // ============================================
-// Usage: useHead({ title, description, image, url })
+// Usage: useHead({ title, description, image, url, slug })
+
+/**
+ * Generate OG image URL from project slug
+ * Checks if generated OG image exists, otherwise falls back to default
+ * 
+ * @param {String} slug - Project slug (e.g., "harbourwalk")
+ * @returns {String} OG image URL
+ */
+export function getOgImage(slug) {
+  if (!slug) return "https://sehetz.ch/og-image.jpg";
+  return `https://sehetz.ch/og/${slug}.jpg`;
+}
 
 export function useHead({ 
   title = "Sehetz Sketchbook", 
   description = "Creative portfolio showcasing design, illustration, and digital art.",
   image = "https://sehetz.ch/og-image.jpg",
-  url = "https://sehetz.ch"
+  url = "https://sehetz.ch",
+  slug = null
 } = {}) {
+  // Auto-generate OG image from slug if not explicitly provided
+  const ogImage = slug ? getOgImage(slug) : image;
   
   // Update document title
   if (typeof document !== 'undefined') {
@@ -38,15 +53,17 @@ export function useHead({
   // Open Graph
   setMetaTag('og:title', title, true);
   setMetaTag('og:description', description, true);
-  setMetaTag('og:image', image, true);
+  setMetaTag('og:image', ogImage, true);
   setMetaTag('og:url', url, true);
   setMetaTag('og:type', 'website', true);
+  setMetaTag('og:image:width', '1200', true);
+  setMetaTag('og:image:height', '630', true);
   
   // Twitter Card
   setMetaTag('twitter:card', 'summary_large_image');
   setMetaTag('twitter:title', title);
   setMetaTag('twitter:description', description);
-  setMetaTag('twitter:image', image);
+  setMetaTag('twitter:image', ogImage);
 
   // Canonical URL
   if (typeof document !== 'undefined') {
