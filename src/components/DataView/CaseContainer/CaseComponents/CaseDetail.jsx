@@ -15,10 +15,15 @@ export default function CaseDetail({ project }) {
   // Update meta tags when project opens
   useEffect(() => {
     if (projectTitle) {
+      // Get current URL from browser (includes filter + containerLabel + projectSlug)
+      const currentUrl = typeof window !== 'undefined' 
+        ? window.location.href.replace(/^http:\/\/localhost:\d+/, 'https://sehetz.ch')
+        : `https://sehetz.ch/${projectSlug}`;
+      
       useHead({
         title: `${projectTitle} – Sehetz Sketchbook`,
         description: description || `Explore the ${projectTitle} project in the Sehetz creative portfolio.`,
-        url: `https://sehetz.ch/${projectSlug}`,
+        url: currentUrl,
         slug: projectSlug
       });
     }
