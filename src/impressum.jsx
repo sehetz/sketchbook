@@ -45,7 +45,7 @@ For questions regarding this impressum or our website, please contact me via the
     <>
       <Header />
       <main className="p-6-all">
-        <h1 className="text-1">Impressum</h1>
+        <h1 className="text-1">Imprint</h1>
         <div
           className="text-2"
           style={{ whiteSpace: "pre-wrap", marginTop: "1rem" }}

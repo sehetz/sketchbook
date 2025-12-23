@@ -4,20 +4,16 @@ import { useEffect } from "react";
 
 export default function Privacy() {
   useEffect(() => {
-    document.title = "Privacy Policy";
+    document.title = "Privacy Policy — Sarah Heitz";
   }, []);
 
   const privacyText = `
-Last Updated: 2026-01-01
-
 <strong>1. introduction</strong>
-This Privacy Policy explains how I collect, use, and protect your personal data when you visit this website (sehetz.info). I am committed to transparency and comply with the Swiss Federal Data Protection Act (FADP) and the General Data Protection Regulation (GDPR) where applicable.
+This Privacy Policy explains how I collect, use, and protect your personal data when you visit this website (sehetz.ch). I am committed to transparency and comply with the Swiss Federal Data Protection Act (FADP) and the General Data Protection Regulation (GDPR) where applicable.
 
 <strong>2. controller of personal data</strong>
 Sarah Heitz, E-Mail: sarahelenaheitz@gmail.com
 Canton Basel, Switzerland
-
-<strong>3. data I collect and how I collect it</strong>
 
 <strong>3.1 automatically collected data</strong>
 Browser Information: IP address, browser type, operating system, referrer URL
@@ -39,12 +35,10 @@ Strudel State: WebAudio playback state (no audio is recorded or transmitted)
 I use NocoDB (a database service) to manage project and team data. When you visit the «About» or «Work» sections, your browser fetches data from NocoDB's API:
 Data retrieved: Project titles, team names, timeline information, descriptions
 No personal identifying information is sent to NocoDB
-NocoDB's privacy policy applies to their processing: https://nocodb.com/privacy
+NocoDB's privacy policy applies to their processing: <a href="https://nocodb.com/privacy" target="_blank" rel="noopener noreferrer">https://nocodb.com/privacy</a>
 
 <strong>3.5 external links and social media</strong>
 This website contains links to external platforms (Spotify, Instagram, LinkedIn). These platforms have their own privacy policies. I am not responsible for their data practices.
-
-<strong>4. how I use your data</strong>
 
 <strong>4.1 for service provision</strong>
 Display portfolio content and projects
@@ -68,7 +62,6 @@ Sale to third parties
 Tracking across other websites (no cookies, no pixels, no analytics)
 
 <strong>5. data retention</strong>
-
 Access Logs: Deleted after 30 days
 E-Mail Correspondence: Retained for 2 years (for legal compliance)
 Local Storage Data: Permanently stored on your device until you clear it
@@ -83,8 +76,6 @@ Port your data to another service
 Object to processing
 Withdraw consent
 
-To exercise these rights, contact me at: sarahelenaheitz@gmail.com
-
 <strong>7. no third-party sharing</strong>
 I do not sell, trade, or share your personal data with third parties, except:
 NocoDB (for project data retrieval, as disclosed above)
@@ -98,10 +89,7 @@ HTTPS encryption for data in transit
 Secure API token handling (not exposed in client-side code)
 Regular updates to dependencies
 No logging of sensitive information
-
 However, no system is 100% secure. I cannot guarantee absolute security.
-
-<strong>9. cookies and tracking</strong>
 
 <strong>9.1 Google Analytics</strong>
 This website uses Google Analytics 4 to understand how visitors use the site. Google Analytics collects:
@@ -110,16 +98,16 @@ Browser and device information
 Pages visited and time spent on pages
 Traffic sources (how you found this site)
 
+<strong>9.2 Google Analytics Cookies</strong>
 Google Analytics sets cookies on your device to distinguish unique users. These cookies do not collect personally identifiable information.
-Data collected by Google Analytics is processed according to Google's Privacy Policy: https://policies.google.com/privacy
-You can opt out of Google Analytics by installing the Google Analytics Opt-out Browser Add-on: https://tools.google.com/dlpage/gaoptout
+Data collected by Google Analytics is processed according to Google's Privacy Policy: <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer">https://policies.google.com/privacy</a>
+You can opt out of Google Analytics by installing the Google Analytics Opt-out Browser Add-on: <a href="https://tools.google.com/dlpage/gaoptout" target="_blank" rel="noopener noreferrer">https://tools.google.com/dlpage/gaoptout</a>
 
-<strong>9.2 localStorage</strong>
+<strong>9.3 localStorage</strong>
 This website uses browser localStorage (not cookies) for:
 Dark mode preference
 Impressum text edits
 WebAudio playback state
-
 This data is stored locally on your device and never transmitted to servers.
 
 <strong>10. external links</strong>
