@@ -132,7 +132,7 @@ a {
 }
 
 .p-text {
-  padding: var(--space-14) var(--space-6);
+  padding: var(--space-14)  var(--space-6) var(--space-16)  var(--space-6); 
 }
 .p-teaser {
   padding: var(--space-32) var(--space-6);

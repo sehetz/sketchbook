@@ -75,7 +75,7 @@ export default function MasterMediaImage({
       }}
       loading={loading}
       decoding={decoding}
-      fetchpriority={loading === 'eager' ? 'high' : 'auto'}
+      fetchPriority={loading === 'eager' ? 'high' : 'auto'}
       onError={handleError}
       onLoad={onLoad}
     />
