@@ -25,9 +25,13 @@ export default defineConfig({
     chunkSizeWarningLimit: 600,
     // Enable CSS code splitting
     cssCodeSplit: true,
-    // Use esbuild (default, faster and no extra dependency needed)
+    // Use esbuild for faster minification
     minify: 'esbuild',
     // Prevent inline code - always emit files
     assetsInlineLimit: 0,
+    // Enable source map for production debugging (can be disabled for smaller builds)
+    sourcemap: false,
+    // Target modern browsers for smaller bundles
+    target: 'es2020',
   },
 })
