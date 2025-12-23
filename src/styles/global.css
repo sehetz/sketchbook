@@ -577,17 +577,14 @@ img {
     overflow-x: auto;
     overflow-y: hidden;
     -webkit-overflow-scrolling: touch;
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
   }
   
   .image-wrapper--16x9 .image-media {
-    height: 100%;
-    width: auto;
-    flex-shrink: 0;
-    object-fit: cover;
-    pointer-events: none; /* Prevent image from blocking scroll */
+    width: 177.78% !important; /* Override inline styles - 16:9 in 3:4 container */
+    height: 100% !important;
+    object-fit: cover !important;
+    object-position: center !important;
+    pointer-events: none;
   }
   
   /* Hide scrollbar */
