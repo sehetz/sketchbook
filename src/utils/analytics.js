@@ -1,7 +1,7 @@
 // Google Analytics 4 Integration
 // Privacy-friendly tracking with consent support
 
-// Initialize GA4
+// Initialize GA4 with lazy loading for better performance
 export function initGA() {
   const measurementId = import.meta.env.VITE_GA_MEASUREMENT_ID;
   
@@ -10,6 +10,15 @@ export function initGA() {
     return;
   }
 
+  // Lazy load GA after page is interactive (improves LCP)
+  if ('requestIdleCallback' in window) {
+    requestIdleCallback(() => loadGA(measurementId), { timeout: 2000 });
+  } else {
+    setTimeout(() => loadGA(measurementId), 2000);
+  }
+}
+
+function loadGA(measurementId) {
   // Load GA4 script
   const script1 = document.createElement('script');
   script1.async = true;

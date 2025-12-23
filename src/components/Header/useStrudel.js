@@ -118,6 +118,11 @@ export default function useStrudel() {
       const ctx = new Ctx();
       audioCtxRef.current = ctx;
 
+      // Resume AudioContext (required for Safari/iOS)
+      if (ctx.state === 'suspended') {
+        await ctx.resume();
+      }
+
       const master = ctx.createGain();
       master.gain.value = BEAT_CONFIG.masterVolume;
       master.connect(ctx.destination);

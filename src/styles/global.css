@@ -35,6 +35,13 @@ a {
   transition: var(--transition-smooth);
 }
 
+/* Prevent layout shifts for images */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
 
 /* 2. TYPOGRAPHY */
 
