@@ -23,5 +23,7 @@ export default defineConfig({
     cssCodeSplit: true,
     // Use esbuild (default, faster and no extra dependency needed)
     minify: 'esbuild',
+    // Prevent inline code - always emit files
+    assetsInlineLimit: 0,
   },
 })
