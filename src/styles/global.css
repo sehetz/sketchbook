@@ -34,11 +34,7 @@ a {
   text-decoration: none;
   transition: var(--transition-smooth);
 }
-::selection,
-::-moz-selection {
-  background: var(--color-surface) !important;
-  color: var(--color-fg) !important;
-}
+
 
 /* 2. TYPOGRAPHY */
 
@@ -485,7 +481,7 @@ a {
 
 /* Footer */
 .footer {
-  min-height: 350px; /* Prevent CLS by reserving space */
+  min-height: 100px; /* Prevent CLS by reserving space */
   contain: layout; /* Isolate layout calculations for better performance */
 }
 .footer a,

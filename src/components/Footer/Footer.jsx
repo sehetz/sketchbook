@@ -49,7 +49,7 @@ export default function Footer() {
             Privacy Policy
           </a>
           <a href="/impressum" onClick={handleInternal} className="w-full border-top-thin border-bottom-thin pt-2 pb-2 flex axis-right text-3 footer-link">
-            Impressum
+            Imprint
           </a>
         </div>
       </div>
