@@ -552,6 +552,14 @@ img {
 .image-block {
   padding: 0 var(--space-6);
 }
+
+/* Mobile: Remove padding for 16x9 images for edge-to-edge swipe */
+@media (max-width: 768px) {
+  .image-block:has(.image-wrapper--16x9) {
+    padding: 0;
+  }
+}
+
 .image-wrapper {
   display: block;
   width: 100%;
@@ -561,6 +569,37 @@ img {
 .image-wrapper--16x9 {
   aspect-ratio: 16 / 9;
 }
+
+/* Mobile: 16x9 images in 3x4 container with horizontal swipe */
+@media (max-width: 768px) {
+  .image-wrapper--16x9 {
+    aspect-ratio: 3 / 4;
+    overflow-x: scroll;
+    overflow-y: hidden;
+    -webkit-overflow-scrolling: touch;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+  }
+  
+  .image-wrapper--16x9 .image-media {
+    height: 100%;
+    width: auto;
+    flex-shrink: 0;
+    object-fit: cover;
+    touch-action: pan-x;
+  }
+  
+  /* Hide scrollbar */
+  .image-wrapper--16x9::-webkit-scrollbar {
+    display: none;
+  }
+  .image-wrapper--16x9 {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+}
+
 .image-wrapper--3x4 {
   aspect-ratio: 3 / 4;
 }
