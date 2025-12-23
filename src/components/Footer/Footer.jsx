@@ -4,7 +4,8 @@ export default function Footer() {
     const href = e.currentTarget.getAttribute("href");
     if (!href || !href.startsWith("/")) return;
     e.preventDefault();
-    if (window.location.pathname === href) return;
+    
+    // Always navigate, even if same path (to ensure scroll to top and re-render)
     window.history.pushState({}, "", href);
     // notify App about navigation
     window.dispatchEvent(new PopStateEvent("popstate"));
