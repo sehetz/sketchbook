@@ -12,7 +12,7 @@
     "preview": "vite preview",
     "fetch-static-data": "export $(cat .env | grep -v '^#' | xargs) && node scripts/fetch-static-data.js",
     "generate-og-images": "node scripts/generate-og-images.js",
-    "generate-icons": "node scripts/generate-apple-icons.js && node scripts/generate-og-images.js",
+    "generate-icons": "node scripts/generate-apple-icons.js && node scripts/generate-all-icons.js && node scripts/generate-og-images.js",
     "check-noco-media": "export $(cat .env | grep -v '^#' | xargs) && node scripts/check-noco-media.js",
     "download-noco-media": "export $(cat .env | grep -v '^#' | xargs) && node scripts/download-noco-media.js"
   },
