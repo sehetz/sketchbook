@@ -51,9 +51,10 @@ Display portfolio content and projects
 Respond to e-mail inquiries
 Maintain website functionality
 
-<strong>4.2 for improvement</strong>
-Analyze website usage (via access logs only, not tracking tools)
-Improve user experience
+<strong>4.2 for improvement and analytics</strong>
+Analyze website usage via Google Analytics (anonymized)
+Understand which projects and pages are most popular
+Improve user experience and navigation
 Fix bugs and security issues
 
 <strong>4.3 legal obligations</strong>
@@ -87,6 +88,7 @@ To exercise these rights, contact me at: sarahelenaheitz@gmail.com
 <strong>7. no third-party sharing</strong>
 I do not sell, trade, or share your personal data with third parties, except:
 NocoDB (for project data retrieval, as disclosed above)
+Google (for Analytics, as disclosed above)
 Service providers (e.g., hosting providers)
 When legally required by Swiss or EU authorities
 
@@ -100,13 +102,27 @@ No logging of sensitive information
 However, no system is 100% secure. I cannot guarantee absolute security.
 
 <strong>9. cookies and tracking</strong>
-This website does NOT use:
-Cookies (except localStorage, which is not a cookie)
-Tracking pixels or analytics tools (Google Analytics, Hotjar, etc.)
-Session tracking
-Cross-site tracking
 
-Your privacy is respected.
+<strong>9.1 Google Analytics</strong>
+This website uses Google Analytics 4 to understand how visitors use the site. Google Analytics collects:
+Anonymized IP addresses (IP anonymization is enabled)
+Browser and device information
+Pages visited and time spent on pages
+Traffic sources (how you found this site)
+
+Google Analytics sets cookies on your device to distinguish unique users. These cookies do not collect personally identifiable information.
+
+Data collected by Google Analytics is processed according to Google's Privacy Policy: https://policies.google.com/privacy
+
+You can opt out of Google Analytics by installing the Google Analytics Opt-out Browser Add-on: https://tools.google.com/dlpage/gaoptout
+
+<strong>9.2 localStorage</strong>
+This website uses browser localStorage (not cookies) for:
+Dark mode preference
+Impressum text edits
+WebAudio playback state
+
+This data is stored locally on your device and never transmitted to servers.
 
 <strong>10. external links</strong>
 This website contains links to external websites (NocoDB, social media platforms, etc.). I am not responsible for their privacy practices. Please review their privacy policies before sharing data with them.
