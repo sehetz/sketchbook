@@ -4,7 +4,7 @@ import { useEffect } from "react";
 
 export default function Privacy() {
   useEffect(() => {
-    document.title = "Privacy Policy — Sarah Heitz";
+    document.title = "Privacy Policy";
   }, []);
 
   const privacyText = `
@@ -111,9 +111,7 @@ Pages visited and time spent on pages
 Traffic sources (how you found this site)
 
 Google Analytics sets cookies on your device to distinguish unique users. These cookies do not collect personally identifiable information.
-
 Data collected by Google Analytics is processed according to Google's Privacy Policy: https://policies.google.com/privacy
-
 You can opt out of Google Analytics by installing the Google Analytics Opt-out Browser Add-on: https://tools.google.com/dlpage/gaoptout
 
 <strong>9.2 localStorage</strong>
