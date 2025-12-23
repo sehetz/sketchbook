@@ -6,7 +6,7 @@
   /* 🎨 COLORS */
   --color-bg: #fff;
   --color-fg: #121212;
-  --color-surface: #f3f3f3;
+  --color-surface: #f8f8f8;
   --color-link: #121212;
 
   /* 🧱 SPACING SCALE */
@@ -105,7 +105,7 @@
 :root.dark {
   --color-bg: #121212;
   --color-fg: #fff;
-  --color-surface: #1e1e1e;
+  --color-surface: #181818;
   --color-link: #ffffff;
   --color-bg-light: #1e1e1e;
   --color-timeline-hover: #766400;
