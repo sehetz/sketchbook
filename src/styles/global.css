@@ -574,7 +574,7 @@ img {
 @media (max-width: 768px) {
   .image-wrapper--16x9 {
     aspect-ratio: 3 / 4;
-    overflow-x: scroll;
+    overflow-x: auto;
     overflow-y: hidden;
     -webkit-overflow-scrolling: touch;
     display: flex;
@@ -587,7 +587,7 @@ img {
     width: auto;
     flex-shrink: 0;
     object-fit: cover;
-    touch-action: pan-x;
+    pointer-events: none; /* Prevent image from blocking scroll */
   }
   
   /* Hide scrollbar */
