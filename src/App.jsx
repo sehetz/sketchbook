@@ -3,6 +3,7 @@ import "./styles/global.css";
 import { useHead } from "./utils/useHead.js";
 import { schema_inject, schema_getOrganization } from "./utils/structuredData.js";
 import { url_parse } from "./utils/urlRouting.js";
+import { initGA, trackPageView } from "./utils/analytics.js";
 
 // Core Components
 import Header from "./components/Header/Header";
@@ -21,6 +22,17 @@ function App() {
   const [currentPath, setCurrentPath] = useState(
     typeof window !== "undefined" ? window.location.pathname : "/"
   );
+  
+  // Initialize Google Analytics on mount
+  useEffect(() => {
+    initGA();
+  }, []);
+  
+  // Track page views when path changes
+  useEffect(() => {
+    trackPageView(currentPath);
+  }, [currentPath]);
+  
   useEffect(() => {
     const onPop = () => setCurrentPath(window.location.pathname);
     window.addEventListener("popstate", onPop);
