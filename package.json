@@ -6,11 +6,13 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "node scripts/fetch-static-data.js && node scripts/generate-og-images.js && node scripts/generate-apple-icons.js && node scripts/prerender-content.js && vite build && node scripts/inline-critical-css.js && node scripts/generate-static-pages.js && node scripts/generate-sitemap.js",
+    "build": "node scripts/fetch-static-data.js && node scripts/prerender-content.js && vite build && node scripts/inline-critical-css.js && node scripts/generate-static-pages.js && node scripts/generate-sitemap.js",
+    "build:full": "node scripts/fetch-static-data.js && node scripts/generate-og-images.js && node scripts/generate-apple-icons.js && node scripts/prerender-content.js && vite build && node scripts/inline-critical-css.js && node scripts/generate-static-pages.js && node scripts/generate-sitemap.js",
     "lint": "eslint .",
     "preview": "vite preview",
     "fetch-static-data": "export $(cat .env | grep -v '^#' | xargs) && node scripts/fetch-static-data.js",
     "generate-og-images": "node scripts/generate-og-images.js",
+    "generate-icons": "node scripts/generate-apple-icons.js && node scripts/generate-og-images.js",
     "check-noco-media": "export $(cat .env | grep -v '^#' | xargs) && node scripts/check-noco-media.js",
     "download-noco-media": "export $(cat .env | grep -v '^#' | xargs) && node scripts/download-noco-media.js"
   },
