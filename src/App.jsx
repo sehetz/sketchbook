@@ -46,7 +46,7 @@ function App() {
   // Set meta tags for homepage
   useHead({
     title: "Sehetz Sketchbook – Creative Portfolio",
-    description: "Explore a curated portfolio of design, illustration, and digital art projects. Discover skills, gears, and creative teams.",
+    description: "Hello 👋 I’m Sarah Heitz, a Basel-based designer and jack of many trades. This isn’t a polished portfolio, but a sketchbook of experiences, small wins, and failures across different skills, tools, and creative teams.",
     url: "https://sehetz.ch",
   });
 

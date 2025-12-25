@@ -22,7 +22,7 @@ export default function CaseDetail({ project }) {
       
       useHead({
         title: `${projectTitle} – Sehetz Sketchbook`,
-        description: description || `Explore the ${projectTitle} project in the Sehetz creative portfolio.`,
+        description: description || `«${projectTitle}»—Wow! Isn’t that a new draft in the Sehetz sketchbook? Check it out!`,
         url: currentUrl,
         slug: projectSlug
       });
