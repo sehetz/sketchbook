@@ -30,7 +30,7 @@
   --space-48: 12rem; /* 192px */
 
   /* 🔠 TYPOGRAPHY */
-  --font-sans:"SF Pro Rounded", "SF Pro", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --font-sans: "SF Pro Rounded", "SF Pro", "Helvetica Neue", Helvetica, "National Park", Arial, sans-serif;
   
   /* Prevent invisible text during font load (better CLS) */
   font-display: swap;

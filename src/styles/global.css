@@ -17,8 +17,11 @@ body,
   background: var(--color-bg);
   color: var(--color-fg);
   font-family: var(--font-sans);
-  letter-spacing: 0.01em;
+  letter-spacing: 0.025em;
   ;
+}
+body.fallback-font-active {
+  letter-spacing: -0.05em;
 }
 h1,
 h2,
