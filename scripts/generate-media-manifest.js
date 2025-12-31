@@ -1,5 +1,10 @@
 // Generate a media manifest mapping filenames to their relative paths for runtime fallbacks
 // Output: public/media-manifest.json
+
+// Usage:
+// cd /Users/sarahcarnault/Documents/sketchbook/scripts
+// node generate-media-manifest.js
+
 import fs from "node:fs/promises";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
