@@ -3,6 +3,7 @@
 // ============================================
 
 import MasterMediaImage from '../../../common/MasterMediaImage.jsx';
+import MasterMediaVideo from '../../../common/MasterMediaVideo.jsx';
 import { alt_generate } from '../../../../utils/seoHelpers.js';
 
 export default function ImageBlock({ images, projectTitle = "" }) {
@@ -26,16 +27,14 @@ export default function ImageBlock({ images, projectTitle = "" }) {
   if (images.length === 1) {
     const item = images[0];
     const altText = alt_generate(item.name, projectTitle, 0);
-    const NOCO = import.meta.env.VITE_NOCO_BASE_URL || "http://localhost:8080";
-    const videoSrc = `${NOCO}/${item.signedPath || item.path}`;
     
     return (
       <div className="image-block">
         <div className="image-wrapper image-wrapper--16x9">
           {isVideo(item) ? (
-            <video
+            <MasterMediaVideo
+              file={item}
               className="image-media"
-              src={videoSrc}
               autoPlay
               loop
               muted
@@ -57,21 +56,19 @@ export default function ImageBlock({ images, projectTitle = "" }) {
 
   // CASE 2: Multiple images (4:5 grid)
   const isFourGrid = images.length >= 4;
-  const NOCO = import.meta.env.VITE_NOCO_BASE_URL || "http://localhost:8080";
 
   return (
     <div className="image-block">
       <div className={`image-grid ${isFourGrid ? "image-grid--4col" : ""}`}>
         {images.map((item, i) => {
           const altText = alt_generate(item.name, projectTitle, i);
-          const videoSrc = `${NOCO}/${item.signedPath || item.path}`;
 
           return (
             <div key={i} className="image-wrapper image-wrapper--3x4">
               {isVideo(item) ? (
-                <video
+                <MasterMediaVideo
+                  file={item}
                   className="image-media"
-                  src={videoSrc}
                   autoPlay
                   loop
                   muted

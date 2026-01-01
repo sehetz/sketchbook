@@ -11,9 +11,16 @@ function buildCandidates(name) {
   const stripTaggedScale = decoded.replace(/@(\d+x)_([A-Za-z0-9]+)(\.[^.]+)$/i, "@$1$3");
   if (stripTaggedScale !== decoded) candidates.add(stripTaggedScale);
 
-  // Generic "_hash.ext" -> ".ext" cleanup
+  // Generic "_hash.ext" -> ".ext" cleanup (matches 4+ alphanumeric chars before extension)
   const stripHash = decoded.replace(/_[A-Za-z0-9]{4,}(\.[^.]+)$/i, "$1");
   if (stripHash !== decoded) candidates.add(stripHash);
+
+  // Additional cleanup: strip multiple consecutive hash-like patterns
+  let current = stripHash;
+  while (current !== current.replace(/_[A-Za-z0-9]{4,}(\.[^.]+)$/i, "$1")) {
+    current = current.replace(/_[A-Za-z0-9]{4,}(\.[^.]+)$/i, "$1");
+    candidates.add(current);
+  }
 
   return Array.from(candidates);
 }

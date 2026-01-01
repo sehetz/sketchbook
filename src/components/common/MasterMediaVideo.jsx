@@ -1,8 +1,6 @@
 import { useMemo, useRef } from "react";
 import { resolveMediaPath } from "../../utils/mediaManifest.js";
 
-const loggedKeys = new Set();
-
 function extractFilename(file, remoteSrc) {
   if (file?.name) return file.name;
   if (file?.title) return file.title;
@@ -17,19 +15,19 @@ function extractFilename(file, remoteSrc) {
   }
 }
 
-export default function MasterMediaImage({
+export default function MasterMediaVideo({
   file,
   filename,
   remoteSrc,
-  alt = "",
   className = "",
-  style,
-  loading = "lazy",
-  decoding = "async",
-  onLoad,
+  autoPlay = true,
+  loop = true,
+  muted = true,
+  playsInline = true,
   onError: externalOnError,
 }) {
   const NOCO = import.meta.env.VITE_NOCO_BASE_URL || "http://localhost:8080";
+  const videoRef = useRef(null);
   const triedFallback = useRef(false);
 
   const computed = useMemo(() => {
@@ -47,25 +45,17 @@ export default function MasterMediaImage({
     return { rawFilename, localSrc, computedRemoteSrc, primary, secondary };
   }, [file, filename, remoteSrc, NOCO]);
 
-  const handleError = (e) => {
+  const handleError = () => {
     if (!triedFallback.current && computed.secondary) {
       triedFallback.current = true;
-      if (process.env.NODE_ENV === 'development') {
-        console.log(`[Media] Remote failed for "${computed.rawFilename}", trying fallback:`, computed.secondary);
+      if (videoRef.current) {
+        videoRef.current.src = computed.secondary;
+        videoRef.current.load();
       }
-      e.currentTarget.src = computed.secondary;
       return;
     }
-    
-    if (process.env.NODE_ENV === 'development') {
-      console.warn(`[Media] Failed to load: ${computed.rawFilename}`, {
-        primary: computed.primary,
-        secondary: computed.secondary,
-        triedFallback: triedFallback.current,
-      });
-    }
-    
-    externalOnError?.(e);
+
+    externalOnError?.();
   };
 
   if (!computed.primary) {
@@ -73,21 +63,16 @@ export default function MasterMediaImage({
   }
 
   return (
-    <img
-      src={computed.primary}
-      alt={alt}
+    <video
+      ref={videoRef}
       className={className}
-      style={{
-        ...style,
-        // Prevent CLS by maintaining aspect ratio
-        aspectRatio: style?.aspectRatio || 'auto',
-        objectFit: style?.objectFit || 'cover',
-      }}
-      loading={loading}
-      decoding={decoding}
-      fetchPriority={loading === 'eager' ? 'high' : 'auto'}
+      src={computed.primary}
+      autoPlay={autoPlay}
+      loop={loop}
+      muted={muted}
+      playsInline={playsInline}
       onError={handleError}
-      onLoad={onLoad}
+      style={{ backgroundColor: 'transparent', display: 'block', width: '100%', height: '100%' }}
     />
   );
 }
