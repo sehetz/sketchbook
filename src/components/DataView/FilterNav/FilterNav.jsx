@@ -14,7 +14,7 @@ export default function FilterNav({ filter, setFilter }) {
           }`}
           onClick={() => setFilter("skills")}
         >
-          {filter === "skills" ? <strong>skills</strong> : "skills"}
+          skills
         </button>
       </div>
 
@@ -26,7 +26,7 @@ export default function FilterNav({ filter, setFilter }) {
           }`}
           onClick={() => setFilter("gears")}
         >
-          {filter === "gears" ? <strong>gear</strong> : "gear"}
+          gear
         </button>
       </div>
 
@@ -38,7 +38,7 @@ export default function FilterNav({ filter, setFilter }) {
           }`}
           onClick={() => setFilter("teams")}
         >
-          {filter === "teams" ? <strong>teams</strong> : "teams"}
+          teams
         </button>
       </div>
 

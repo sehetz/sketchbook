@@ -18,10 +18,13 @@ body,
   color: var(--color-fg);
   font-family: var(--font-sans);
   letter-spacing: 0.025em;
-  ; 
 }
-body.fallback-font-active {
-  letter-spacing: -0.05em;
+
+body.national-park-active {
+  letter-spacing: -0.25em;
+  letter-spacing: -0.0125em;
+  word-spacing: -0.1em;
+  font-weight: 420;
 }
 h1,
 h2,
@@ -329,6 +332,11 @@ img {
   cursor: pointer;
   color: var(--color-fg);
   font-family: inherit;
+  font-weight: 400;
+  transition: font-weight 0.1s ease;
+}
+.filter-button:hover {
+  font-weight: 800;
 }
 .filter--active {
   font-weight: 800;
