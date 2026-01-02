@@ -29,7 +29,7 @@ export default function Footer() {
           <a href="https://open.spotify.com/playlist/55H70kIwDQhHEBM81WNSbp?si=85b728e402dc477d" target="_blank" rel="noopener noreferrer" className="w-full border-top-thin pt-2 pb-2 flex text-3 footer-link">
             Listen to my Spotify
           </a>
-          <a href="mailto:sarah.heitz@sehetz.ch" className="w-full border-top-thin border-bottom-thin pt-2 pb-2 flex text-3 footer-link">
+          <a href="mailto:hoi@sehetz.ch" className="w-full border-top-thin border-bottom-thin pt-2 pb-2 flex text-3 footer-link">
             Or mail me
           </a>
         </div>
