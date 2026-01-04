@@ -45,10 +45,33 @@ function App() {
 
   // Set meta tags for homepage
   useHead({
-    title: "Sehetz Sketchbook – Creative Portfolio",
-    description: "Hello 👋 I’m Sarah Heitz, a Basel-based designer and jack of many trades. This isn’t a polished portfolio, but a sketchbook of experiences, small wins, and failures across different skills, tools, and creative teams.",
+    title: "Sarah Heitz – Illustrator & Designer | Sehetz",
+    description: "Sarah Heitz, illustrator & designer based in Basel, Switzerland. Creative portfolio design, and illustration projects across different skills and creative teams.",
     url: "https://sehetz.ch",
   });
+
+  // Set keywords and author meta tags
+  useEffect(() => {
+    if (typeof document !== 'undefined') {
+      // Keywords
+      let keywordsMeta = document.querySelector('meta[name="keywords"]');
+      if (!keywordsMeta) {
+        keywordsMeta = document.createElement('meta');
+        keywordsMeta.name = 'keywords';
+        document.head.appendChild(keywordsMeta);
+      }
+      keywordsMeta.content = 'Sarah Heitz, illustrator, designer, Basel, Switzerland, creative portfolio, illustration, graphic design';
+
+      // Author
+      let authorMeta = document.querySelector('meta[name="author"]');
+      if (!authorMeta) {
+        authorMeta = document.createElement('meta');
+        authorMeta.name = 'author';
+        document.head.appendChild(authorMeta);
+      }
+      authorMeta.content = 'Sarah Heitz';
+    }
+  }, []);
 
   // Inject Organization schema
   useEffect(() => {

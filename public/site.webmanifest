@@ -1,6 +1,7 @@
 {
-  "name": "MyWebSite",
-  "short_name": "MySite",
+  "name": "Sehetz – Sarah Heitz Illustration & Design",
+  "short_name": "Sehetz",
+  "description": "Sarah Heitz - Basel-based designer, illustrator & digital artist. Creative portfolio & sketchbook.",
   "icons": [
     {
       "src": "/web-app-manifest-192x192.png",
@@ -15,7 +16,7 @@
       "purpose": "maskable"
     }
   ],
-  "theme_color": "#ffffff",
-  "background_color": "#ffffff",
+  "theme_color": "#121212",
+  "background_color": "#121212",
   "display": "standalone"
 }

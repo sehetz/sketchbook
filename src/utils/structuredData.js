@@ -25,15 +25,21 @@ export function schema_getOrganization() {
     "@type": "Organization",
     "name": "Sehetz",
     "url": "https://sehetz.ch",
-    "description": "Creative portfolio showcasing design, illustration, and digital art",
+    "description": "Sarah Heitz - illustrator and designer based in Basel, Switzerland. Creative portfolio showcasing illustration, and design work.",
     "image": "https://sehetz.ch/og-image.jpg",
+    "logo": "https://sehetz.ch/favicon.svg",
     "sameAs": [
       "https://instagram.com/sehetz",
       "https://twitter.com/sehetz"
     ],
     "address": {
       "@type": "PostalAddress",
+      "streetAddress": "Basel",
       "addressCountry": "CH"
+    },
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "contactType": "Creative Services"
     }
   };
 }
