@@ -32,7 +32,7 @@ async function init() {
     }
   }
 
-  // Restore original SPA path when redirected via 404.html (?p=/about)
+  // Restore original SPA path when redirected via 404.html (?p=/sarah-heitz)
   if (typeof window !== "undefined") {
     const params = new URLSearchParams(window.location.search);
     const redirectPath = params.get("p");

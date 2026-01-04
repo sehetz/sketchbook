@@ -80,7 +80,7 @@ function App() {
 
   // normalize trailing slash, then route
   const normalized = currentPath.replace(/\/$/, "");
-  if (normalized === "/impressum") return <Suspense fallback={<div className="loading">Loading...</div>}><Impressum /></Suspense>;
+  if (normalized === "/sarah-heitz") return <Suspense fallback={<div className="loading">Loading...</div>}><About /></Suspense>;
   if (normalized === "/about") return <Suspense fallback={<div className="loading">Loading...</div>}><About /></Suspense>;
   if (normalized === "/privacy") return <Suspense fallback={<div className="loading">Loading...</div>}><Privacy /></Suspense>;
 

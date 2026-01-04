@@ -32,7 +32,7 @@ export default function Header() {
       </div>
 
       <a
-        href="/about"
+        href="/sarah-heitz"
         className="flex-1 text-3 axis-right"
       >
         <div className="header__link">who dis?</div>
