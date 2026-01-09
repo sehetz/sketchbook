@@ -46,7 +46,6 @@ export default function About() {
 
   return (
     <main>
-      <Header />
       <Intro page="about" /> {/* ⭐ Pass page prop */}
       <TimelineViz />
       <SehetzTeaser /> {/* ⭐ NEW */}

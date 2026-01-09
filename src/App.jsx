@@ -6,7 +6,6 @@ import { url_parse } from "./utils/urlRouting.js";
 import { initGA, trackPageView } from "./utils/analytics.js";
 
 // Core Components
-import Banner from "./components/Banner/Banner";
 import Header from "./components/Header/Header";
 import Footer from "./components/Footer/Footer";
 
@@ -87,7 +86,6 @@ function App() {
 
   return (
     <>
-      <Banner pdfUrl={null} />
       <Header />
       <main>
         <Suspense fallback={<div className="loading">Loading content...</div>}>
