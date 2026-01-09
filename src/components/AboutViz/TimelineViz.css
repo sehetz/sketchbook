@@ -10,6 +10,7 @@
 
 /* Team Labels (shown on hover) */
 .team-label {
+  font-family: var(--font-sans);
   opacity: 0;
   visibility: hidden;
   transition: opacity var(--transition-hover), visibility var(--transition-hover);
@@ -51,7 +52,7 @@
 
 /* Project Titles (text labels) */
 .project-title {
-  font-family: "SF Pro Rounded", -apple-system, "Helvetica Neue", Arial, sans-serif;
+  font-family: var(--font-sans);
   pointer-events: none;
   opacity: 0;
   transform: translateX(var(--size-svg-translate));

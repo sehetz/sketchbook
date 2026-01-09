@@ -2,14 +2,14 @@
 /* Only the absolute minimum needed for above-the-fold content */
 
 @font-face {
-  font-family: 'SF Pro Rounded';
+  font-family: Arial;
   font-display: swap; /* Prevent FOIT, improve CLS */
 }
 
 :root {
   --color-bg: #fff;
   --color-fg: #121212;
-  --font-sans: 'SF Pro Rounded', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  --font-sans: "SF Pro Rounded", "TikTok Sans", "National Park", "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
 * {

@@ -331,7 +331,7 @@ img {
   margin: 0;
   cursor: pointer;
   color: var(--color-fg);
-  font-family: inherit;
+  font-family: var(--font-sans);
   font-weight: 400;
   transition: font-weight 0.1s ease;
 }
@@ -670,7 +670,7 @@ a.link-block__link:hover .link-block__text {
 strong,
 .filter-button strong {
   font-weight: 800;
-  font-family: "SF Pro Rounded", "SF Pro", "Helvetica Neue", Helvetica, "Roboto", Arial, sans-serif;
+  font-family: var(--font-sans);
 }
 
 /* 10. RESPONSIVE */
