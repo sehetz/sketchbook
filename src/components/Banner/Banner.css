@@ -1,0 +1,75 @@
+/* ============================================
+   Banner.css – Animated Marquee Banner
+   ============================================ */
+
+.banner {
+  display: block;
+  width: 100%;
+  height: 64px;
+  border: none;
+  border-bottom: var(--line-solid);
+  background: var(--color-bg);
+  overflow: hidden;
+  text-decoration: none;
+  color: var(--color-fg);
+  transition: background-color var(--transition-smooth);
+  position: relative;
+  z-index: 100; /* Above header */
+  cursor: pointer;
+  pointer-events: auto;
+  padding: 0;
+  margin: 0;
+  font: inherit;
+  appearance: none;
+  -webkit-appearance: none;
+}
+
+.banner:hover {
+  background-color: #FFFB78;
+  color: var(--color-fg);
+}
+
+.banner__content {
+  display: flex;
+  align-items: center;
+  height: 100%;
+  padding: 0 var(--space-6); /* 24px sides */
+  overflow: hidden;
+  width: 100%;
+  pointer-events: none;
+}
+
+.banner__scroll {
+  display: flex;
+  gap: var(--space-6); /* 24px between repeats */
+  animation: scroll-left 20s linear infinite;
+  white-space: nowrap;
+  font-family: var(--font-sans);
+  font-size: var(--text-3-size);
+  font-weight: 400;
+  line-height: var(--text-1-line);
+}
+
+.banner__text {
+  display: inline-block;
+  flex-shrink: 0;
+}
+
+@keyframes scroll-left {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+@media (max-width: 600px) {
+  .banner {
+    height: 48px;
+  }
+
+  .banner__scroll {
+    font-size: calc(var(--text-3-size) * var(--text-scale-mobile));
+  }
+}
