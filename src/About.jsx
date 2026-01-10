@@ -22,14 +22,59 @@ export default function About() {
       "@type": "Person",
       name: "Sarah Heitz",
       alternateName: ["Sarah Heitz", "Sarah", "sehetz"],
-      jobTitle: "Information Designer, Illustrator, Filmmaker, Frontend Developer",
-      url: "https://sehetz.info",
+      description: "Graphic Designer with experience in Information Design, UX/UI, Design Systems, and Illustration.",
+      jobTitle: ["Information Designer", "Illustrator", "Frontend Developer"],
+      url: "https://sehetz.ch",
+      email: "hoi@sehetz.ch",
+      image: "https://sehetz.ch/media/Sehetz-Team-Hochschule-Trier-3.jpg",
+      location: {
+        "@type": "Place",
+        name: "Basel, Switzerland"
+      },
       sameAs: [
         "https://www.linkedin.com/in/sarah-heitz-7b722b118/",
         "https://www.instagram.com/sehetz/",
-        // Add your socials
+        "https://www.behance.net/sehetz",
+        "https://ch.pinterest.com/sehetzch/"
       ],
-      knowsAbout: ["Product Design", "UX Design", "UI Design", "Design Systems"],
+      knowsAbout: [
+        "Product Design",
+        "UX Design",
+        "UI Design",
+        "Design Systems",
+        "Illustration",
+        "Frontend Development",
+        "Comic",
+        "User Research"
+      ],
+      worksFor: [
+        {
+          "@type": "Organization",
+          name: "Superdot.studio",
+          url: "https://superdot.studio",
+          description: "Agency for Information Design"
+        },
+        {
+          "@type": "Organization",
+          name: "Carnault.ch",
+          url: "https://carnault.ch",
+          description: "Luxury Brand for electric Cigarettes"
+        }
+      ],
+      hasOccupation: [
+        {
+          "@type": "Occupation",
+          name: "Designer"
+        },
+        {
+          "@type": "Occupation",
+          name: "Illustrator"
+        },
+        {
+          "@type": "Occupation",
+          name: "Developer"
+        }
+      ]
     };
 
     const script = document.createElement("script");
