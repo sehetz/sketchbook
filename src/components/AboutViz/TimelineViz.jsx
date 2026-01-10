@@ -115,8 +115,8 @@ const TWEAK = {
   teamsEndXOffset: 96,     // Right edge offset
 
   // 🔤 YEAR LABEL LETTER SPACING
-  yearLetterSpacing: 0.12,  // Letter spacing for year labels
-  letterSpacingMobile: 1.0, // Extra letter spacing for all text on mobile
+  yearLetterSpacing: 0,  // Letter spacing for year labels
+  letterSpacingMobile: 0.25, // Extra letter spacing for all text on mobile
 };
 
 export default function TimelineViz() {
@@ -291,7 +291,7 @@ export default function TimelineViz() {
               x={tx + TWEAK.projectLabels.bgPadding}
               y={y - TWEAK.projectLabels.paddingTop + 5}
               fontSize={isMobile ? TWEAK.projectLabels.fontSizeMobile : TWEAK.projectLabels.fontSizeDesktop}
-              fontFamily="'SF Pro Rounded', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif"
+              fontFamily="'TikTok Sans', 'Helvetica', Arial, sans-serif"
               fontWeight={TWEAK.projectLabels.fontWeight}
               textAnchor="start"
               fill={colors.projectLabelText}
@@ -411,7 +411,7 @@ export default function TimelineViz() {
           x={x}
           y={labelY}
           fontSize={isMobile ? TWEAK.fonts.labelMobile : TWEAK.fonts.labelDesktop}
-          fontFamily="'SF Pro Rounded', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif"
+          fontFamily="'TikTok Sans', 'Helvetica', Arial, sans-serif"
           fontWeight={teamLabelWeight}
           textAnchor="middle"
           fill={colors.text}
@@ -488,7 +488,8 @@ export default function TimelineViz() {
             x={TWEAK.spacing.padding.left}
             y={y - TWEAK.spacing.yearSpacingDesktop / 5}
             fontSize={isMobile ? TWEAK.fonts.yearMobile : TWEAK.fonts.yearDesktop}
-            fontFamily="'SF Pro Rounded', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif"
+            // fontFamily="'TikTok Sans', 'Helvetica', Arial, sans-serif"
+            fontFamily="'TikTok Sans', 'Helvetica', Arial, sans-serif"
             letterSpacing={yearLetterSpacingD}
             textAnchor="start"
             fill={colors.text}
@@ -557,7 +558,7 @@ export default function TimelineViz() {
                     x={x}
                     y={headerY - 12}
                     fontSize={TWEAK.fonts.labelMobile}
-                    fontFamily="'SF Pro Rounded', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif"
+                    fontFamily="'TikTok Sans', 'Helvetica', Arial, sans-serif"
                     fontWeight={teamLabelWeight}
                     textAnchor="middle"
                     fill={colors.text}
@@ -707,7 +708,7 @@ export default function TimelineViz() {
               return projs.map((p, idx) => {
                 const posY = dotY + idx * projectStackYD;
                 const tx = posX; // Center the label on the team column
-                const labelPadding = 16;
+                const labelPadding = 28;
                 const textWidth = isMobile ? measureMobileLabelWidth(p.title) : 0;
                 const tooltipWidth = isMobile ? textWidth + labelPadding * 2 : 0;
                 
@@ -741,7 +742,7 @@ export default function TimelineViz() {
                       x={tx}
                       y={posY + 5}
                       fontSize={TWEAK.projectLabels.fontSizeMobile}
-                      fontFamily="'SF Pro Rounded', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif"
+                      fontFamily="'TikTok Sans', 'Helvetica', Arial, sans-serif"
                       textAnchor="middle"
                       fill={colors.projectLabelText}
                       className="project-title"

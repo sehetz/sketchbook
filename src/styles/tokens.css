@@ -4,7 +4,7 @@
 
 :root {
   /* 🎨 COLORS */
-  --color-bg: #fff;
+  --color-bg: #ffffff;
   --color-fg: #121212;
   --color-surface: #f6f6f6;
   --color-link: #121212;
@@ -30,13 +30,13 @@
   --space-48: 12rem; /* 192px */
 
   /* 🔠 TYPOGRAPHY */
-  --font-sans: "SF Pro Rounded","TikTok Sans", Helvetica, Arial, sans-serif; 
+  --font-sans: "TikTok Sans", Helvetica, Arial, sans-serif; 
    
   /* Prevent invisible text during font load (better CLS) */
   font-display: swap;
 
   /* TEXT STYLES */
-  --text-scale-mobile: 0.8;
+  --text-scale-mobile: 0.75;
   --text-1-size: 3rem;
   --text-1-line: 1.05;
   --text-2-size: 2rem;
