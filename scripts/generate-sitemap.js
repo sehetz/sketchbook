@@ -23,28 +23,18 @@ async function generateSitemap() {
   try {
     console.log('🗺️  Generating sitemap.xml...');
 
+    // Read projects from the static data file that was just created
+    const projectsJsonPath = path.join(process.cwd(), 'public/data/projects.json');
+    
     let projects = [];
-
-    // If API credentials available, fetch live data
-    if (API_URL && API_TOKEN) {
-      console.log('📡 Fetching project data from NocoDB...');
-      try {
-        const res = await fetch(API_URL, {
-          headers: { "xc-token": API_TOKEN }
-        });
-
-        if (!res.ok) {
-          console.warn(`⚠️  API responded ${res.status}. Using minimal sitemap instead.`);
-        } else {
-          const json = await res.json();
-          projects = json.list || [];
-          console.log(`✅ Fetched ${projects.length} projects`);
-        }
-      } catch (fetchErr) {
-        console.warn(`⚠️  API fetch failed (${fetchErr.message}). Using minimal sitemap.`);
-      }
+    
+    if (fs.existsSync(projectsJsonPath)) {
+      console.log('📖 Reading projects from public/data/projects.json...');
+      const projectsData = JSON.parse(fs.readFileSync(projectsJsonPath, 'utf8'));
+      projects = projectsData.list || [];
+      console.log(`✅ Loaded ${projects.length} projects from static file`);
     } else {
-      console.log('⚠️  No API credentials. Using minimal sitemap.');
+      console.warn('⚠️  public/data/projects.json not found. Using fallback empty list.');
     }
 
     // Generate XML
