@@ -29,15 +29,15 @@ export function sitemap_generate(projects = []) {
   const urls = [
     { loc: baseUrl, lastmod: new Date().toISOString().split('T')[0], priority: "1.0" },
     { loc: `${baseUrl}/sarah-heitz`, lastmod: new Date().toISOString().split('T')[0], priority: "0.9" },
-    { loc: `${baseUrl}/about`, lastmod: new Date().toISOString().split('T')[0], priority: "0.9" },
     { loc: `${baseUrl}/impressum`, lastmod: new Date().toISOString().split('T')[0], priority: "0.3" },
     { loc: `${baseUrl}/privacy`, lastmod: new Date().toISOString().split('T')[0], priority: "0.3" },
   ];
 
   // Add project URLs from data
-  const onlineProjects = projects.filter(p => p.is_online === 1);
+  const onlineProjects = projects.filter(p => p.is_online === 1 || !p.is_online); // Include all if is_online field missing
   
-  console.log(`[Sitemap] Processing ${onlineProjects.length} online projects`);
+  console.log(`[Sitemap] Processing ${onlineProjects.length} projects`);
+  console.log(`[Sitemap] First project keys:`, projects[0] ? Object.keys(projects[0]) : 'N/A');
   
   onlineProjects.forEach((project, idx) => {
     const title = project.Title || "";
