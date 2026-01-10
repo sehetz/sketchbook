@@ -707,6 +707,12 @@ strong,
   transform: translateX(0);
 }
 
+@media (max-width: 600px) {
+  .hover-only {
+    transition: none;
+  }
+}
+
 
 
 
