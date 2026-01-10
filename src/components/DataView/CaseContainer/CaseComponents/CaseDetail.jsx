@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import { useHead } from "../../../../utils/useHead.js";
+import { schema_inject, schema_getCreativeWork } from "../../../../utils/structuredData.js";
 import { desc_extractFirst } from "../../../../utils/seoHelpers.js";
 import { text_labelToSlug } from "../../../../utils/urlRouting.js";
 import TextBlock from "../Blocks/TextBlock.jsx";
@@ -26,8 +27,11 @@ export default function CaseDetail({ project }) {
         url: currentUrl,
         slug: projectSlug
       });
+
+      // Inject CreativeWork schema for this project
+      schema_inject(schema_getCreativeWork(project));
     }
-  }, [projectTitle, projectSlug, description]);
+  }, [projectTitle, projectSlug, description, project]);
 
   const hasLinkBlock = blocks.some((block) => block.type.includes("link"));
 
