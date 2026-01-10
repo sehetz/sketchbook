@@ -65,8 +65,9 @@ export function sitemap_generate(projects = []) {
     let projectAdded = false;
     
     // Add skill URLs (if has skills)
-    skills.forEach(skill => {
+    skills.forEach((skill, i) => {
       const skillLabel = skill.Skills?.Skill || skill.Skill || (typeof skill === 'string' ? skill : null);
+      console.log(`[Sitemap] Skill ${i}: raw="${JSON.stringify(skill).slice(0,50)}" label="${skillLabel}" type=${typeof skillLabel}`);
       if (skillLabel && typeof skillLabel === 'string') {
         const skillSlug = text_labelToSlug(skillLabel);
         urls.push({
