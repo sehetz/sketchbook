@@ -7,7 +7,7 @@ import CaseHeader from "./CaseComponents/CaseHeader.jsx";
 import CaseTeaser from "./CaseComponents/CaseTeaser.jsx";
 import GearTeaser from "./CaseComponents/GearTeaser.jsx";
 import TeamTeaser from "./CaseComponents/TeamTeaser.jsx";
-import { text_labelToSlug } from "../../../utils/urlRouting.js";
+import { text_labelToSlug, url_build } from "../../../utils/urlRouting.js";
 
 import { CLOSE_MS, TRANSITION_GAP_MS, DEFAULT_FIRST_OPEN_INDEX, timer_clear, timer_schedule } from "../../../utils/helpers.js";
 
@@ -178,9 +178,32 @@ export default function CaseContainer({
       return (
         <>
           <GearTeaser gear={gearData} />
-          {!isOpen && displayProjects.length > 1 && (
-            <div style={{ height: `${(displayProjects.length - 1) * 32}px` }} />
-          )}
+          {/* Show all projects for this gear as links */}
+          {displayProjects.map((project, index) => {
+            const firstSkill = project["_nc_m2m_sehetz_skills"]?.[0]?.skill?.Skill || "";
+            const projectSlug = text_labelToSlug(project.Title || "");
+            const skillUrl = url_build({ 
+              filter: "skills", 
+              containerLabel: firstSkill, 
+              projectSlug: projectSlug 
+            });
+            
+            const firstTeam = project["_nc_m2m_sehetz_teams"]?.[0]?.team?.Team || "";
+
+            return (
+              <a
+                key={project.id || index}
+                href={skillUrl}
+                className={`case-line ${index === 0 ? "border-top-dotted" : "border-top-dotted"}`}
+                style={{ textDecoration: "none", color: "inherit" }}
+              >
+                <div className="flex w-full gap-6 text-2">
+                  <div className="flex-1 axis-left case-line__title">{project.Title || ""}</div>
+                  <div className="flex-1 axis-right case-line__team">{firstTeam}</div>
+                </div>
+              </a>
+            );
+          })}
         </>
       );
     }
@@ -191,9 +214,33 @@ export default function CaseContainer({
       return (
         <>
           <TeamTeaser team={teamData} />
-          {!isOpen && displayProjects.length > 1 && (
-            <div style={{ height: `${(displayProjects.length - 1) * 32}px` }} />
-          )}
+          {/* Show all projects for this team as links */}
+          {displayProjects.map((project, index) => {
+            const firstSkill = project["_nc_m2m_sehetz_skills"]?.[0]?.skill?.Skill || "";
+            const projectSlug = text_labelToSlug(project.Title || "");
+            const skillUrl = url_build({ 
+              filter: "skills", 
+              containerLabel: firstSkill, 
+              projectSlug: projectSlug 
+            });
+
+            const firstGear = project["_nc_m2m_sehetz_gears"]?.[0]?.gear?.Gear || "";
+
+            return (
+              <a
+                key={project.id || index}
+                href={skillUrl}
+                className={`case-line ${index === 0 ? "border-top-dotted" : "border-top-dotted"}`}
+                style={{ textDecoration: "none", color: "inherit" }}
+              >
+                <div className="flex w-full gap-6 text-2">
+                  <div className="flex-1 axis-left case-line__title">{project.Title || ""}</div>
+                  <div className="flex-1 axis-center case-line__gear">{firstGear}</div>
+                  <div className="flex-1 axis-right case-line__team"></div>
+                </div>
+              </a>
+            );
+          })}
         </>
       );
     }

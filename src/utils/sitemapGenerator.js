@@ -36,7 +36,9 @@ export function sitemap_generate(projects = []) {
   // Add project URLs from data
   const onlineProjects = projects.filter(p => p.is_online === 1 || !p.is_online);
   
-  console.log(`[Sitemap] Processing ${onlineProjects.length} projects`);
+  console.log(`[Sitemap] Total projects: ${projects.length}`);
+  console.log(`[Sitemap] is_online values:`, projects.map((p, i) => `${i}: ${p.is_online}`).join(', '));
+  console.log(`[Sitemap] Processing ${onlineProjects.length} projects (after filter)`);
   
   onlineProjects.forEach((project, idx) => {
     const title = project.Title || "";

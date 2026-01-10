@@ -147,7 +147,7 @@ img {
   padding: var(--space-14)  var(--space-6) var(--space-16)  var(--space-6); 
 }
 .p-teaser {
-  padding: var(--space-32) var(--space-6);
+  padding: var(--space-12) var(--space-6) var(--space-12) var(--space-6);
 }
 .p-6-all {
   padding: var(--space-6);
@@ -777,6 +777,9 @@ strong,
   .p-teaser {
     padding: var(--space-6);
   }
+  .p-teaser .text-right {
+    text-align: left;
+  }
 }
 
 @media (max-width: 600px) {
@@ -794,6 +797,10 @@ strong,
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+  }
+
+  .p-6-all.pt-12 .text-3 {
+    font-size: calc(var(--text-2-size) * var(--text-scale-mobile));
   }
 
   .project-s {
