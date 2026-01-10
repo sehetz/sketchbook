@@ -682,7 +682,8 @@ strong,
   transition: opacity 0.2s ease, transform 0.2s ease;
 }
 
-.case-header:hover .hover-only {
+.case-header:hover .hover-only,
+.case-header.open .hover-only {
   display: block;
   opacity: 1;
   transform: translateX(0);

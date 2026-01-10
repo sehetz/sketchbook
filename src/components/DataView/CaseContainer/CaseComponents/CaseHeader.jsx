@@ -11,7 +11,7 @@ export default function CaseHeader({ type, label, projects, isOpen }) {
   };
 
   return (
-    <div className="case-header flex text-1 p-6">
+    <div className={`case-header flex text-1 p-6 ${isOpen ? 'open' : ''}`}>
       <div className={`flex-1 ${alignmentClass}`} style={{ display: 'flex', alignItems: 'center' }}>
         {type === "skills" && projects?.length > 0 && (
           <span className="text-1 dice hover-only">{getDice(projects.length)}{"\u00A0"}</span>
