@@ -28,6 +28,7 @@ export function sitemap_generate(projects = []) {
   // Start with base URLs (homepage, etc)
   const urls = [
     { loc: baseUrl, lastmod: new Date().toISOString().split('T')[0], priority: "1.0" },
+    { loc: `${baseUrl}/sarah-heitz`, lastmod: new Date().toISOString().split('T')[0], priority: "0.9" },
     { loc: `${baseUrl}/about`, lastmod: new Date().toISOString().split('T')[0], priority: "0.9" },
     { loc: `${baseUrl}/impressum`, lastmod: new Date().toISOString().split('T')[0], priority: "0.3" },
     { loc: `${baseUrl}/privacy`, lastmod: new Date().toISOString().split('T')[0], priority: "0.3" },
@@ -36,15 +37,22 @@ export function sitemap_generate(projects = []) {
   // Add project URLs from data
   const onlineProjects = projects.filter(p => p.is_online === 1);
   
-  onlineProjects.forEach(project => {
+  console.log(`[Sitemap] Processing ${onlineProjects.length} online projects`);
+  
+  onlineProjects.forEach((project, idx) => {
     const title = project.Title || "";
     const slug = text_labelToSlug(title);
     const datum = project.Datum || new Date().toISOString().split('T')[0];
     
+    const skills = project.nc_3zu8___nc_m2m_nc_3zu8__Projec_Skills || [];
+    const gears = project.nc_3zu8___nc_m2m_nc_3zu8__Projec_Gears || [];
+    const teams = project.nc_3zu8___nc_m2m_nc_3zu8__Projec_Teams || [];
+    
+    console.log(`[Sitemap] Project ${idx + 1}: "${title}" | Skills: ${skills.length}, Gears: ${gears.length}, Teams: ${teams.length}`);
+    
     let projectAdded = false;
     
     // Add skill URLs (if has skills)
-    const skills = project.nc_3zu8___nc_m2m_nc_3zu8__Projec_Skills || [];
     skills.forEach(skill => {
       const skillLabel = skill.Skills?.Skill || "";
       if (skillLabel) {
@@ -59,7 +67,6 @@ export function sitemap_generate(projects = []) {
     });
     
     // Add gear URLs (if has gears)
-    const gears = project.nc_3zu8___nc_m2m_nc_3zu8__Projec_Gears || [];
     gears.forEach(gear => {
       const gearLabel = gear.Gear?.Gear || "";
       if (gearLabel) {
@@ -73,7 +80,6 @@ export function sitemap_generate(projects = []) {
     });
     
     // Add team URLs (if has teams)
-    const teams = project.nc_3zu8___nc_m2m_nc_3zu8__Projec_Teams || [];
     teams.forEach(team => {
       const teamLabel = team.Teams?.Team || "";
       if (teamLabel) {
