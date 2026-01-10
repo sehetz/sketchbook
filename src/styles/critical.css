@@ -9,7 +9,7 @@
 :root {
   --color-bg: #fff;
   --color-fg: #121212;
-  --font-sans: "SF Pro Rounded", "TikTok Sans", "National Park", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --font-sans: "SF Pro Rounded", "TikTok Sans", Helvetica, Arial, sans-serif; 
 }
 
 * {

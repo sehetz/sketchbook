@@ -6,7 +6,7 @@ export default function CaseHeader({ type, label, projects, isOpen }) {
 
   // Würfel-Unicode basierend auf Projektanzahl (1-6)
   const getDice = (count) => {
-    const dice = ["⚀", "⚁", "⚂", "⚃", "⚄", "⚅"];
+    const dice = ["1", "2", "3", "4", "5", "6"];
     return dice[Math.min(count - 1, 5)] || "⚅"; // Max 6 (⚅)
   };
 
@@ -14,7 +14,7 @@ export default function CaseHeader({ type, label, projects, isOpen }) {
     <div className="case-header flex text-1 p-6">
       <div className={`flex-1 ${alignmentClass}`} style={{ display: 'flex', alignItems: 'center' }}>
         {type === "skills" && projects?.length > 0 && (
-          <span className="text-1">{getDice(projects.length)}{"\u00A0"}</span>
+          <span className="text-1 dice">{getDice(projects.length)}{"\u00A0"}</span>
         )}
         {label}
       </div>

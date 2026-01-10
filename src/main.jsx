@@ -3,21 +3,6 @@ import { createRoot } from "react-dom/client";
 
 import App from "./App.jsx";
 
-/**
- * Apply National Park font styling if National Park is the active font.
- * Styles are defined in global.css under body.national-park-active
- */
-async function detectNationalPark() {
-  try {
-    await document.fonts.load('12px "National Park"');
-    document.body.classList.add("national-park-active");
-  } catch {
-    // National Park not loaded, no class needed
-  }
-}
-
-// Detect National Park font BEFORE anything renders
-detectNationalPark();
 
 // Load media manifest synchronously before rendering
 async function init() {

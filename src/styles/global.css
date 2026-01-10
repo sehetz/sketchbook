@@ -20,12 +20,6 @@ body,
   letter-spacing: 0.025em;
 }
 
-body.national-park-active {
-  letter-spacing: -0.25em;
-  letter-spacing: -0.0125em;
-  word-spacing: -0.1em;
-  font-weight: 420;
-}
 h1,
 h2,
 h3,
@@ -62,17 +56,20 @@ img {
   font-size: var(--text-1-size);
   line-height: var(--text-1-line);
   color: var(--color-fg);
+  font-weight: 350;
 }
 .text-2 {
   font-size: var(--text-2-size);
   line-height: var(--text-2-line);
   color: var(--color-fg);
+  font-weight: 400;
 }
 .text-3 {
   font-size: var(--text-3-size);
   line-height: var(--text-3-line);
   letter-spacing: var(--text-3-letter);
   color: var(--color-fg);
+  font-weight: 425;
 }
 
 /* 3. LAYOUT – Flex & Grid */
@@ -673,6 +670,11 @@ strong,
   font-family: var(--font-sans);
 }
 
+
+.dice {
+  width: 40px;
+}
+
 /* 10. RESPONSIVE */
 
 @media (max-width: 1200px) {
@@ -769,6 +771,10 @@ strong,
   }
   .text-3 {
     font-size: calc(var(--text-3-size) * var(--text-scale-mobile));
+  }
+
+  .dice {
+    width: 32px;
   }
 
   .masonry {
