@@ -28,7 +28,9 @@ export function sitemap_generate(projects = []) {
   // Start with base URLs (homepage, etc)
   const urls = [
     { loc: baseUrl, lastmod: new Date().toISOString().split('T')[0], priority: "1.0" },
+    { loc: `${baseUrl}/about`, lastmod: new Date().toISOString().split('T')[0], priority: "0.9" },
     { loc: `${baseUrl}/impressum`, lastmod: new Date().toISOString().split('T')[0], priority: "0.3" },
+    { loc: `${baseUrl}/privacy`, lastmod: new Date().toISOString().split('T')[0], priority: "0.3" },
   ];
 
   // Add project URLs from data
@@ -38,6 +40,8 @@ export function sitemap_generate(projects = []) {
     const title = project.Title || "";
     const slug = text_labelToSlug(title);
     const datum = project.Datum || new Date().toISOString().split('T')[0];
+    
+    let projectAdded = false;
     
     // Add skill URLs (if has skills)
     const skills = project.nc_3zu8___nc_m2m_nc_3zu8__Projec_Skills || [];
@@ -50,6 +54,7 @@ export function sitemap_generate(projects = []) {
           lastmod: datum,
           priority: "0.8"
         });
+        projectAdded = true;
       }
     });
     
@@ -80,6 +85,11 @@ export function sitemap_generate(projects = []) {
         });
       }
     });
+    
+    // If project has no skills, add it via first team or gear as fallback
+    if (!projectAdded && (teams.length > 0 || gears.length > 0)) {
+      projectAdded = true;
+    }
   });
 
   // Remove duplicates (use Map to keep first occurrence)
