@@ -46,12 +46,12 @@
   --text-3-letter: 0.12px;
 
   /* 🧩 LINE STYLES */
-  --line-width: 3px;
+  --line-width: 2.5px;
   --line-solid: var(--line-width) solid var(--color-fg);
   --line-dotted: var(--line-width) dotted var(--color-fg);
   --line-dot-size: 0.1px;
   --line-dot-gap: 10px;
-  --size-border-thin: 1.5px;
+  --size-border-thin: 2px;
 
   /* 💫 ANIMATIONS & TRANSITIONS */
   --transition-fast: 0.125s ease;

@@ -251,8 +251,8 @@ export default function CaseContainer({
       ref={containerRef}
       className={`case-container ${isOpen ? "open" : "closed"}`}
       style={{
-        borderTop: "3px solid var(--color-fg)",
-        borderBottom: isLast ? "3px solid var(--color-fg)" : "none",
+        borderTop: "var(--line-width) solid var(--color-fg)",
+        borderBottom: isLast ? "var(--line-width) solid var(--color-fg)" : "none",
         height: isOpen ? "auto" : `${closedHeight}px`,
       }}
     >

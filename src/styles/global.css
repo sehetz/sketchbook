@@ -70,7 +70,7 @@ img {
   line-height: var(--text-3-line);
   letter-spacing: var(--text-3-letter);
   color: var(--color-fg);
-  font-weight: 440;
+  font-weight: 460;
 }
 
 /* 3. LAYOUT – Flex & Grid */
