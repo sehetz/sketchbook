@@ -49,15 +49,15 @@ export function sitemap_generate(projects = []) {
     let gears = project.nc_3zu8___nc_m2m_nc_3zu8__Projec_Gears || project._nc_m2m_sehetz_gears || [];
     let teams = project.nc_3zu8___nc_m2m_nc_3zu8__Projec_Teams || project._nc_m2m_sehetz_teams || [];
     
-    // Fallback: if M2M fields are empty but simple fields exist, use them
+    // Fallback: if M2M fields are empty but simple fields exist, convert them
     if (skills.length === 0 && project.skill) {
-      skills = Array.isArray(project.skill) ? project.skill : [{ Skills: { Skill: project.skill } }];
+      skills = Array.isArray(project.skill) ? project.skill.map(s => typeof s === 'string' ? { Skill: s } : s) : [{ Skill: project.skill }];
     }
     if (gears.length === 0 && project.Gear) {
-      gears = Array.isArray(project.Gear) ? project.Gear : [{ Gear: { Gear: project.Gear } }];
+      gears = Array.isArray(project.Gear) ? project.Gear.map(g => typeof g === 'string' ? { Gear: g } : g) : [{ Gear: project.Gear }];
     }
     if (teams.length === 0 && project.Team) {
-      teams = Array.isArray(project.Team) ? project.Team : [{ Teams: { Team: project.Team } }];
+      teams = Array.isArray(project.Team) ? project.Team.map(t => typeof t === 'string' ? { Team: t } : t) : [{ Team: project.Team }];
     }
     
     console.log(`[Sitemap] Project ${idx + 1}: "${title}" | Skills: ${skills.length}, Gears: ${gears.length}, Teams: ${teams.length}`);
@@ -66,8 +66,8 @@ export function sitemap_generate(projects = []) {
     
     // Add skill URLs (if has skills)
     skills.forEach(skill => {
-      const skillLabel = skill.Skills?.Skill || skill.Skill || skill;
-      if (skillLabel) {
+      const skillLabel = skill.Skills?.Skill || skill.Skill || (typeof skill === 'string' ? skill : null);
+      if (skillLabel && typeof skillLabel === 'string') {
         const skillSlug = text_labelToSlug(skillLabel);
         urls.push({
           loc: `${baseUrl}/skills/${skillSlug}/${slug}`,
@@ -80,8 +80,8 @@ export function sitemap_generate(projects = []) {
     
     // Add gear URLs (if has gears)
     gears.forEach(gear => {
-      const gearLabel = gear.Gear?.Gear || gear.Gear || gear;
-      if (gearLabel) {
+      const gearLabel = gear.Gear?.Gear || gear.Gear || (typeof gear === 'string' ? gear : null);
+      if (gearLabel && typeof gearLabel === 'string') {
         const gearSlug = text_labelToSlug(gearLabel);
         urls.push({
           loc: `${baseUrl}/gears/${gearSlug}`,
@@ -93,8 +93,8 @@ export function sitemap_generate(projects = []) {
     
     // Add team URLs (if has teams)
     teams.forEach(team => {
-      const teamLabel = team.Teams?.Team || team.Team || team;
-      if (teamLabel) {
+      const teamLabel = team.Teams?.Team || team.Team || (typeof team === 'string' ? team : null);
+      if (teamLabel && typeof teamLabel === 'string') {
         const teamSlug = text_labelToSlug(teamLabel);
         urls.push({
           loc: `${baseUrl}/teams/${teamSlug}`,
