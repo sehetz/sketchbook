@@ -252,6 +252,18 @@ img {
   }
 }
 
+@keyframes arrow-bounce {
+  0% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(4px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
 .transition,
 .transition-height {
   transition: var(--transition-smooth);
@@ -406,7 +418,10 @@ img {
   display: block;
   min-width: 0;
   white-space: nowrap;
-  overflow: hidden;
+ 
+.case-line a:hover .case-line__title {
+  animation: arrow-bounce 0.5s ease-in-out;
+} overflow: hidden;
   text-overflow: ellipsis;
   line-height: 1.2;
 }
@@ -418,6 +433,9 @@ img {
 }
 .case-line:hover {
   background-color: var(--color-hover-bg);
+}
+a.case-line:hover .case-line__title {
+  animation: arrow-bounce 0.5s ease-in-out;
 }
 .case-line--open {
   height: var(--size-case-line-height-open);

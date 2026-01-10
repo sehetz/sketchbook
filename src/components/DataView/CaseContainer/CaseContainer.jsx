@@ -198,7 +198,7 @@ export default function CaseContainer({
                 style={{ textDecoration: "none", color: "inherit" }}
               >
                 <div className="flex w-full gap-6 text-2">
-                  <div className="flex-1 axis-left case-line__title">{project.Title || ""}</div>
+                  <div className="flex-1 axis-left case-line__title">→ {project.Title || ""}</div>
                   <div className="flex-1 axis-right case-line__team">{firstTeam}</div>
                 </div>
               </a>
@@ -234,7 +234,7 @@ export default function CaseContainer({
                 style={{ textDecoration: "none", color: "inherit" }}
               >
                 <div className="flex w-full gap-6 text-2">
-                  <div className="flex-1 axis-left case-line__title">{project.Title || ""}</div>
+                  <div className="flex-1 axis-left case-line__title">→ {project.Title || ""}</div>
                   <div className="flex-1 axis-center case-line__gear">{firstGear}</div>
                   <div className="flex-1 axis-right case-line__team"></div>
                 </div>
