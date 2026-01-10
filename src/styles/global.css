@@ -790,6 +790,20 @@ strong,
     font-size: calc(var(--text-3-size) * var(--text-scale-mobile));
   }
 
+  .case-line__title {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .project-s {
+    display: inline-block;
+    max-width: 150px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
   .dice {
     width: 32px;
   }
