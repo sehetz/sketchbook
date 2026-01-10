@@ -34,80 +34,50 @@ export function sitemap_generate(projects = []) {
   ];
 
   // Add project URLs from data
-  const onlineProjects = projects.filter(p => p.is_online === 1 || !p.is_online); // Include all if is_online field missing
+  const onlineProjects = projects.filter(p => p.is_online === 1 || !p.is_online);
   
   console.log(`[Sitemap] Processing ${onlineProjects.length} projects`);
-  console.log(`[Sitemap] First project keys:`, projects[0] ? Object.keys(projects[0]) : 'N/A');
   
   onlineProjects.forEach((project, idx) => {
     const title = project.Title || "";
     const slug = text_labelToSlug(title);
     const datum = project.Datum || new Date().toISOString().split('T')[0];
     
-    // Try M2M fields first (nested objects)
-    let skills = project.nc_3zu8___nc_m2m_nc_3zu8__Projec_Skills || project._nc_m2m_sehetz_skills || [];
-    let gears = project.nc_3zu8___nc_m2m_nc_3zu8__Projec_Gears || project._nc_m2m_sehetz_gears || [];
-    let teams = project.nc_3zu8___nc_m2m_nc_3zu8__Projec_Teams || project._nc_m2m_sehetz_teams || [];
+    // Get skills/gears/teams - simple string fields
+    const skillStr = project.skill ? (typeof project.skill === 'string' ? project.skill : '') : '';
+    const gearStr = project.Gear ? (typeof project.Gear === 'string' ? project.Gear : '') : '';
+    const teamStr = project.Team ? (typeof project.Team === 'string' ? project.Team : '') : '';
     
-    // Fallback: if M2M fields are empty but simple fields exist, convert them
-    if (skills.length === 0 && project.skill) {
-      skills = Array.isArray(project.skill) ? project.skill.map(s => typeof s === 'string' ? { Skill: s } : s) : [{ Skill: project.skill }];
+    console.log(`[Sitemap] Project ${idx + 1}: "${title}" | skill="${skillStr}" gear="${gearStr}" team="${teamStr}"`);
+    
+    // Add skill URL
+    if (skillStr) {
+      const skillSlug = text_labelToSlug(skillStr);
+      urls.push({
+        loc: `${baseUrl}/skills/${skillSlug}/${slug}`,
+        lastmod: datum,
+        priority: "0.8"
+      });
     }
-    if (gears.length === 0 && project.Gear) {
-      gears = Array.isArray(project.Gear) ? project.Gear.map(g => typeof g === 'string' ? { Gear: g } : g) : [{ Gear: project.Gear }];
+    
+    // Add gear URL
+    if (gearStr) {
+      const gearSlug = text_labelToSlug(gearStr);
+      urls.push({
+        loc: `${baseUrl}/gears/${gearSlug}`,
+        lastmod: datum,
+        priority: "0.7"
+      });
     }
-    if (teams.length === 0 && project.Team) {
-      teams = Array.isArray(project.Team) ? project.Team.map(t => typeof t === 'string' ? { Team: t } : t) : [{ Team: project.Team }];
-    }
     
-    console.log(`[Sitemap] Project ${idx + 1}: "${title}" | Skills: ${skills.length}, Gears: ${gears.length}, Teams: ${teams.length}`);
-    
-    let projectAdded = false;
-    
-    // Add skill URLs (if has skills)
-    skills.forEach((skill, i) => {
-      const skillLabel = skill.Skills?.Skill || skill.Skill || (typeof skill === 'string' ? skill : null);
-      console.log(`[Sitemap] Skill ${i}: raw="${JSON.stringify(skill).slice(0,50)}" label="${skillLabel}" type=${typeof skillLabel}`);
-      if (skillLabel && typeof skillLabel === 'string') {
-        const skillSlug = text_labelToSlug(skillLabel);
-        urls.push({
-          loc: `${baseUrl}/skills/${skillSlug}/${slug}`,
-          lastmod: datum,
-          priority: "0.8"
-        });
-        projectAdded = true;
-      }
-    });
-    
-    // Add gear URLs (if has gears)
-    gears.forEach(gear => {
-      const gearLabel = gear.Gear?.Gear || gear.Gear || (typeof gear === 'string' ? gear : null);
-      if (gearLabel && typeof gearLabel === 'string') {
-        const gearSlug = text_labelToSlug(gearLabel);
-        urls.push({
-          loc: `${baseUrl}/gears/${gearSlug}`,
-          lastmod: datum,
-          priority: "0.7"
-        });
-      }
-    });
-    
-    // Add team URLs (if has teams)
-    teams.forEach(team => {
-      const teamLabel = team.Teams?.Team || team.Team || (typeof team === 'string' ? team : null);
-      if (teamLabel && typeof teamLabel === 'string') {
-        const teamSlug = text_labelToSlug(teamLabel);
-        urls.push({
-          loc: `${baseUrl}/teams/${teamSlug}`,
-          lastmod: datum,
-          priority: "0.6"
-        });
-      }
-    });
-    
-    // If project has no skills, add it via first team or gear as fallback
-    if (!projectAdded && (teams.length > 0 || gears.length > 0)) {
-      projectAdded = true;
+    // Add team URL
+    if (teamStr) {
+      const teamSlug = text_labelToSlug(teamStr);
+      urls.push({
+        loc: `${baseUrl}/teams/${teamSlug}`,
+        lastmod: datum,
+        priority: "0.6"
+      });
     }
   });
 
