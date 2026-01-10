@@ -17,6 +17,7 @@
     "download-noco-media": "export $(cat .env | grep -v '^#' | xargs) && node scripts/download-noco-media.js"
   },
   "dependencies": {
+    "dotenv": "^17.2.3",
     "p5": "^2.1.2",
     "react": "^19.1.1",
     "react-dom": "^19.1.1",
