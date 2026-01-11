@@ -62,7 +62,7 @@ img {
   color: var(--color-fg);
   font-weight: 365; 
   letter-spacing: -0.00625em;
-}
+} 
 .text-2 {
   font-size: var(--text-2-size);
   line-height: var(--text-2-line);
