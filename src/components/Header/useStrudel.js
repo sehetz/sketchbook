@@ -155,15 +155,24 @@ export default function useStrudel() {
     if (!rave) {
       await startRave();
       document.documentElement.classList.add("dark");
+      localStorage.setItem("darkMode", "true");
       setRave(true);
     } else {
       stopRave();
       document.documentElement.classList.remove("dark");
+      localStorage.setItem("darkMode", "false");
       setRave(false);
     }
   };
 
   useEffect(() => {
+    // Load dark mode preference from localStorage
+    const savedDarkMode = localStorage.getItem("darkMode") === "true";
+    if (savedDarkMode) {
+      document.documentElement.classList.add("dark");
+      setRave(true);
+    }
+    
     return () => {
       stopRave();
       document.documentElement.classList.remove("dark");
