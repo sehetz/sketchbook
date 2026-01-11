@@ -17,7 +17,7 @@ body,
   background: var(--color-bg);
   color: var(--color-fg);
   font-family: var(--font-sans);
-  letter-spacing: 0.0125em;
+  letter-spacing: 0.025em;
 }
 
 h1,
@@ -46,17 +46,21 @@ img {
 
 
 /* 2. TYPOGRAPHY */
+/* 2. TikTok Sans Variable by Grilli  */
 
 .text-1,
 .text-2,
 .text-3 {
   font-family: var(--font-sans);
+  font-variation-settings:
+    "slnt" 0,
+    "wdth" 99;
 }
 .text-1 {
   font-size: var(--text-1-size);
   line-height: var(--text-1-line);
   color: var(--color-fg);
-  font-weight: 365;
+  font-weight: 365; 
   letter-spacing: -0.00625em;
 }
 .text-2 {

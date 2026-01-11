@@ -2,6 +2,15 @@
    Sketchbook – Core Design Tokens (minimal)
    ======================================= */
 
+/* Local Variable Font with all axes */
+@font-face {
+  font-family: "TikTok Sans";
+  src: url("../assets/TikTokSans-VariableFont_opsz,slnt,wdth,wght.ttf") format("truetype-variations");
+  font-weight: 100 900;
+  font-stretch: 75% 150%;
+  font-display: swap;
+}
+
 :root {
   /* 🎨 COLORS */
   --color-bg: #ffffff;
