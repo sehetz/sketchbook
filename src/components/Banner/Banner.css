@@ -10,7 +10,6 @@
   /* border-bottom: var(--size-border-thin) solid var(--color-fg);  */
   background: var(--color-bg);
   color: var(--color-fg);
-
 }
 
 .banner:hover {
