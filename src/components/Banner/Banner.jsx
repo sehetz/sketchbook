@@ -14,7 +14,7 @@ export default function Banner({ pdfUrl = "https://raw.githubusercontent.com/seh
       <div className="banner__content">
         <div className="banner__scroll">
           {/* Repeat text multiple times for seamless loop */}
-          {[...Array(10)].map((_, i) => (
+          {[...Array(100)].map((_, i) => (
             <span key={i} className="banner__text">
               {bannerText}
             </span>

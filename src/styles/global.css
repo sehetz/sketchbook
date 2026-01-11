@@ -17,7 +17,8 @@ body,
   background: var(--color-bg);
   color: var(--color-fg);
   font-family: var(--font-sans);
-  letter-spacing: 0.025em;
+  /* font-optical-sizing: auto; */
+  letter-spacing: 0.0175em;
 }
 
 h1,
@@ -200,6 +201,10 @@ img {
   padding-top: var(--space-12);
 }
 
+.mt-6 {
+  margin-top: var(--space-6);
+}
+
 .w-1-2 {
   width: 50%;
 }
@@ -231,7 +236,37 @@ img {
   border-bottom: var(--line-width) dotted var(--color-fg);
 }
 
-/* 5. ANIMATIONS */
+/* 5. LINK BUTTONS & INTERACTIVE */
+
+.btn-text-2 {
+  display: inline-block;
+  font-size: var(--text-2-size);
+  line-height: var(--text-2-line);
+  font-weight: 400;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background-color var(--transition-smooth), transform var(--transition-fast);
+}
+
+.btn-text-2:hover {
+  background-color: var(--color-surface);
+}
+
+.btn-text-2 > div {
+  padding: var(--space-2) 0;
+}
+
+.btn-text-2:hover > div {
+  background-color: var(--color-surface);
+}
+
+@media (max-width: 600px) {
+  .btn-text-2 {
+    font-size: calc(var(--text-2-size) * var(--text-scale-mobile));
+  }
+}
+
+/* 6. ANIMATIONS & TRANSITIONS */
 
 @keyframes spin {
   from {
@@ -273,6 +308,7 @@ img {
 .transition-height {
   transition: var(--transition-smooth);
 }
+
 .wipe,
 .teaser-wipe {
   overflow: hidden;
@@ -281,6 +317,7 @@ img {
   transition: max-height var(--transition-wipe), opacity var(--transition-wipe);
   will-change: max-height, opacity; /* GPU acceleration for smoother animations */
 }
+
 .wipe.open,
 .teaser-wipe.open {
   max-height: 99999px;
@@ -288,11 +325,7 @@ img {
   overflow: visible;
 }
 
-/* Header Disco Animation */
-/* Animation definiert in .header__disco--on oben */
-
-
-/* 6. COMPONENTS */
+/* 7. COMPONENTS & LAYOUTS */
 
 /* Header */
 .header {
@@ -367,7 +400,7 @@ img {
   user-select: text;
 }
 
-/* Case Container */
+/* Case Container & Teasers */
 .case-container {
   width: 100%;
   overflow: hidden;
@@ -423,10 +456,7 @@ img {
   display: block;
   min-width: 0;
   white-space: nowrap;
- 
-.case-line a:hover .case-line__title {
-  animation: arrow-bounce 0.5s ease-in-out;
-} overflow: hidden;
+  overflow: hidden;
   text-overflow: ellipsis;
   line-height: 1.2;
 }
@@ -439,18 +469,23 @@ img {
 .case-line:hover {
   background-color: var(--color-hover-bg);
 }
+
 a.case-line:hover .case-line__title {
   animation: arrow-bounce 0.5s ease-in-out;
 }
+
 .case-line--open {
   height: var(--size-case-line-height-open);
 }
+
 .case-line--hidden {
   display: none;
 }
+
 .case-line.border-top-dotted {
   border-top: var(--line-width) dotted var(--color-fg);
 }
+
 .case-teaser {
   width: 100%;
 }
@@ -464,11 +499,12 @@ a.case-line:hover .case-line__title {
   width: 100%;
   box-sizing: border-box;
 }
+
 .block-wrapper--final-no-links {
   padding-bottom: var(--space-24);
 }
 
-/* Teasers */
+/* Teaser Styles */
 .teaser__image,
 .teaser__image_small {
   aspect-ratio: 3 / 4;
@@ -580,7 +616,7 @@ a.case-line:hover .case-line__title {
   min-height: var(--size-masonry-title-height);
 }
 
-/* 7. IMAGES & MEDIA */
+/* Images & Media */
 
 .image-block {
   padding: 0 var(--space-6);
@@ -661,38 +697,41 @@ a.link-block__link {
   align-items: center;
   flex-wrap: wrap;
 }
+
 .link-block__icon {
   display: inline-flex;
   align-items: center;
   flex-shrink: 0;
 }
+
 .link-block__text {
   display: inline-flex;
   align-items: center;
   word-break: break-word;
   overflow-wrap: break-word;
 }
+
 a.link-block__link:hover .link-block__text {
   background-color: var(--color-hover-bg);
 }
 
-/* Timeline SVG Styles – see TimelineViz.css */
+/* Timeline SVG */
 .YearBlock {
   height: var(--space-24);
   width: 100%;
 }
 
-/* 9. UTILITY & STATE */
+/* Utility & State Classes */
 
 .hover-bold:hover {
   background-color: var(--color-hover-bg);
 }
+
 strong,
 .filter-button strong {
   font-weight: 800;
   font-family: var(--font-sans);
 }
-
 
 .dice {
   width: 40px;
@@ -718,10 +757,7 @@ strong,
   }
 }
 
-
-
-
-/* 10. RESPONSIVE */
+/* Responsive Breakpoints */
 
 @media (max-width: 1200px) {
   .masonry {
@@ -754,7 +790,9 @@ strong,
   .footer .footer-exception,
   .footer .text-3 {
     text-align: left;
-  }case-line__gear:empty,
+  }
+
+  .case-line__gear:empty,
   .case-line__team:empty {
     display: none;
   }
@@ -850,6 +888,7 @@ strong,
   .masonry-item {
     padding: var(--space-3);
   }
+
   .footer,
   .footer .flex,
   .footer .axis-right,
@@ -866,5 +905,9 @@ strong,
   }
   .footer .flex > * {
     width: 100%;
+  }
+
+  .dice {
+    width: 32px;
   }
 }

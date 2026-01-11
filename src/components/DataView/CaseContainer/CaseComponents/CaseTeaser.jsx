@@ -4,6 +4,7 @@
 
 import { useRef, useEffect } from "react";
 import MasterMediaImage from "../../../common/MasterMediaImage.jsx";
+import ButtonText2 from "../../../common/ButtonText2.jsx";
 import { resolveMediaPath } from "../../../../utils/mediaManifest.js";
 
 export default function CaseTeaser({
@@ -15,6 +16,23 @@ export default function CaseTeaser({
   type // ⭐ ensure parent passes current filter type
 }) {
   const caseLineRef = useRef(null);
+
+  // ⭐ Extract call_to_action data
+  const callToActionData = project["call_to_action"] || "";
+  let ctaText = null;
+  let ctaHref = null;
+
+  if (callToActionData) {
+    // Parse Markdown link format: [label](url)
+    const match = callToActionData.match(/\[([^\]]+)\]\(([^)]+)\)/);
+    if (match) {
+      ctaText = match[1];
+      ctaHref = match[2];
+    } else {
+      // Fallback: if plain text, no link
+      ctaText = callToActionData;
+    }
+  }
 
   // ⭐ Extract first related gear & team (if present)
   const firstGear =
@@ -82,7 +100,16 @@ export default function CaseTeaser({
 
       <div className={`teaser-wipe ${isOpen ? "open" : ""}`}>
         <div className="flex gap-6 p-6-all">
-          <div className="flex-1 pr-8 text-2">{project["description"]}</div>
+          <div className="flex-col flex-1">
+            <div className="pr-8 text-2">{project["description"]}</div>
+            
+            {/* CTA Button – 24px gap below text */}
+            {ctaText && ctaHref && (
+              <div className="mt-6">
+                <ButtonText2 text={ctaText} href={ctaHref} />
+              </div>
+            )}
+          </div>
 
           {isOpen ? (
             videoSrc ? (
