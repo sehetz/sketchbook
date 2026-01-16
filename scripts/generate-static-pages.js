@@ -132,7 +132,6 @@ async function generateStaticPages() {
         name: "Hochschule Trier",
         url: "https://www.hochschule-trier.de/"
       },
-      award: ["Red Dot Award", "Best of Swiss Web Nominee"],
       nationality: "Swiss",
       speaks: ["German", "English"],
       hasCredential: [
