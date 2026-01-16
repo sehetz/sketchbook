@@ -41,7 +41,7 @@ export function schema_getPerson() {
     //     "@type": "Organization",
     //     name: "Swiss Graphic Designers Association"
     //   }
-    ],
+    // ],
     knowsLanguage: ["de", "en"],
     address: {
       "@type": "PostalAddress",
