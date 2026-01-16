@@ -101,9 +101,7 @@ async function generateStaticPages() {
     
     // Generate static pages for Privacy and Impressum
     console.log("\n📄 Generating static policy pages...\n");
-    
-    const baseHtml = await fs.readFile(path.resolve(__dirname, "../dist/index.html"), "utf8");
-    
+    // baseHtml ist bereits oben deklariert und geladen
     // Privacy page
     let privacyHtml = baseHtml;
     const privacyDesc = "Privacy Policy for Sehetz – Information about how personal data is collected, used, and protected on this website.";
