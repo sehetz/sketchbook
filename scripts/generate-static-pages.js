@@ -99,9 +99,33 @@ async function generateStaticPages() {
 
     console.log(`\n✨ Generated ${generated} static project pages!`);
     
-    // Generate static pages for Privacy and Impressum
+    // Generate static pages for Privacy, Impressum und Sarah-Heitz
     console.log("\n📄 Generating static policy pages...\n");
     // baseHtml ist bereits oben deklariert und geladen
+
+    // Sarah-Heitz page
+    let sarahHtml = baseHtml;
+    const sarahTitle = "Sarah Heitz – Illustrator & Designer | Sehetz";
+    const sarahDesc = "Portfolio und Biografie von Sarah Heitz, Illustratorin und Designerin aus Basel, Schweiz.";
+    sarahHtml = sarahHtml.replace(
+      /<title>.*?<\/title>/,
+      `<title>${sarahTitle}</title>`
+    );
+    sarahHtml = sarahHtml.replace(
+      /<\/head>/,
+      `    <meta name=\"description\" content=\"${sarahDesc}\" />
+    <link rel=\"canonical\" href=\"https://sehetz.ch/sarah-heitz\" />
+    <meta property=\"og:title\" content=\"${sarahTitle}\" />
+    <meta property=\"og:description\" content=\"${sarahDesc}\" />
+    <meta property=\"og:url\" content=\"https://sehetz.ch/sarah-heitz\" />
+    <meta property=\"og:type\" content=\"profile\" />
+  </head>`
+    );
+    const sarahDir = path.resolve(__dirname, "../dist/sarah-heitz");
+    await fs.mkdir(sarahDir, { recursive: true });
+    await fs.writeFile(path.join(sarahDir, "index.html"), sarahHtml, "utf8");
+    console.log(`✅ /sarah-heitz/`);
+
     // Privacy page
     let privacyHtml = baseHtml;
     const privacyDesc = "Privacy Policy for Sehetz – Information about how personal data is collected, used, and protected on this website.";

@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 
 export default function Intro({ filter = "skills", page = "home" }) {
   const [introText, setIntroText] = useState(
-    "I tend to never finish a sketchbook. (Do you?) So I'd like to let the imperfection speak for itself. Browse through my stuff"
+    "Do you ever finish a sketchbook? This page is not about perfection, it's an continiously growing archive of my body of work. Explore my skills, learn from my mistakes & findings!"
   );
 
   const API_TOKEN = import.meta.env.VITE_API_TOKEN;
@@ -11,20 +11,18 @@ export default function Intro({ filter = "skills", page = "home" }) {
   const INTRO_API_URL = `${NOCO_BASE}/api/v2/tables/${INTRO_TABLE_ID}/records`;
 
   useEffect(() => {
+    // Sofort Platzhalter setzen, damit UI reagiert
+    //setIntroText("I tend to never finish a sketchbook. (Do you?) So I'd like to let the imperfection speak for itself.");
     async function fetchIntroText() {
       try {
         const res = await fetch(INTRO_API_URL, {
           headers: { "xc-token": API_TOKEN },
         });
-        
         if (!res.ok) return;
-
         const json = await res.json();
         const rows = json.list || [];
-
         const searchKey = page === "about" ? "about" : filter === "skills" ? "skill" : filter === "gears" ? "gear" : "team";
         const matchingRow = rows.find(row => row.name?.toLowerCase() === searchKey);
-        
         if (matchingRow?.description) {
           setIntroText(matchingRow.description);
         }
@@ -32,7 +30,6 @@ export default function Intro({ filter = "skills", page = "home" }) {
         // Silent fail
       }
     }
-
     fetchIntroText();
   }, [filter, page, INTRO_API_URL, API_TOKEN]);
 
