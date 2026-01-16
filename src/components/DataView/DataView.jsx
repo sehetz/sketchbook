@@ -176,6 +176,7 @@ export default function DataView({ urlState, currentPath }) {
 
   const handleUrlUpdate = (state) => {
     url_push(state);
+
   };
 
   const handleFilterChange = (newFilter) => {

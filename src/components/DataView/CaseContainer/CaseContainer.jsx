@@ -111,12 +111,13 @@ export default function CaseContainer({
   };
 
   const handleProjectToggle = (index) => {
+    // Immer: Wenn ein Projekt manuell geöffnet wird, URL-Requested-Flag zurücksetzen
+    userClearedRequestedRef.current = true;
+
     // Same project → close
     if (openProjectIndex === index) {
-      userClearedRequestedRef.current = true;
       timer_clear(transitionTimerRef, queuedProjectRef);
       setOpenProjectIndex(null);
-      
       // Update URL: remove project slug (only container)
       if (onUpdateUrl) {
         onUpdateUrl({ filter: type, containerLabel: label });
@@ -129,7 +130,6 @@ export default function CaseContainer({
       setOpenProjectIndex(null);
       timer_clear(transitionTimerRef, queuedProjectRef);
       timer_schedule(index, transitionTimerRef, queuedProjectRef, CLOSE_MS + TRANSITION_GAP_MS);
-      
       transitionTimerRef.current = setTimeout(() => {
         setOpenProjectIndex(queuedProjectRef.current);
         timer_clear(transitionTimerRef, queuedProjectRef);

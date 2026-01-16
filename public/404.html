@@ -2,20 +2,20 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <title>Redirecting…</title>
-    <meta http-equiv="refresh" content="0;url=/?p=%2F" />
-    <script>
-      (function() {
-        var l = window.location;
-        var redirect = l.protocol + "//" + l.host + "/?p=" + encodeURIComponent(l.pathname) + (l.search ? "&q=" + encodeURIComponent(l.search.slice(1)) : "") + l.hash;
-        l.replace(redirect);
-      })();
-    </script>
+    <title>Page Not Found</title>
+    <meta name="robots" content="noindex" />
+    <meta http-equiv="refresh" content="0;url=/" />
     <style>
       body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; padding: 2rem; }
     </style>
   </head>
   <body>
-    <p>Redirecting…</p>
+    <h1>404 - Page Not Found</h1>
+    <p>Redirecting to home page...</p>
+    <script>
+      // Ensure this is served with 404 status
+      // and redirect to home for SPA routing
+      window.location.replace('/');
+    </script>
   </body>
 </html>

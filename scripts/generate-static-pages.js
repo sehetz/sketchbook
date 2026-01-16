@@ -98,6 +98,57 @@ async function generateStaticPages() {
     }
 
     console.log(`\n✨ Generated ${generated} static project pages!`);
+    
+    // Generate static pages for Privacy and Impressum
+    console.log("\n📄 Generating static policy pages...\n");
+    
+    const baseHtml = await fs.readFile(path.resolve(__dirname, "../dist/index.html"), "utf8");
+    
+    // Privacy page
+    let privacyHtml = baseHtml;
+    const privacyDesc = "Privacy Policy for Sehetz – Information about how personal data is collected, used, and protected on this website.";
+    privacyHtml = privacyHtml.replace(
+      /<title>.*?<\/title>/,
+      `<title>Privacy Policy – Sehetz</title>`
+    );
+    privacyHtml = privacyHtml.replace(
+      /<\/head>/,
+      `    <meta name="description" content="${privacyDesc}" />
+    <link rel="canonical" href="https://sehetz.ch/privacy" />
+    <meta property="og:title" content="Privacy Policy – Sehetz" />
+    <meta property="og:description" content="${privacyDesc}" />
+    <meta property="og:url" content="https://sehetz.ch/privacy" />
+    <meta property="og:type" content="website" />
+  </head>`
+    );
+    const privacyDir = path.resolve(__dirname, "../dist/privacy");
+    await fs.mkdir(privacyDir, { recursive: true });
+    await fs.writeFile(path.join(privacyDir, "index.html"), privacyHtml, "utf8");
+    console.log(`✅ /privacy/`);
+    
+    // Impressum page
+    let impressumHtml = baseHtml;
+    const impressumDesc = "Impressum for Sehetz – Legal information and imprint for this website by Sarah Heitz.";
+    impressumHtml = impressumHtml.replace(
+      /<title>.*?<\/title>/,
+      `<title>Impressum – Sehetz</title>`
+    );
+    impressumHtml = impressumHtml.replace(
+      /<\/head>/,
+      `    <meta name="description" content="${impressumDesc}" />
+    <link rel="canonical" href="https://sehetz.ch/impressum" />
+    <meta property="og:title" content="Impressum – Sehetz" />
+    <meta property="og:description" content="${impressumDesc}" />
+    <meta property="og:url" content="https://sehetz.ch/impressum" />
+    <meta property="og:type" content="website" />
+  </head>`
+    );
+    const impressumDir = path.resolve(__dirname, "../dist/impressum");
+    await fs.mkdir(impressumDir, { recursive: true });
+    await fs.writeFile(path.join(impressumDir, "index.html"), impressumHtml, "utf8");
+    console.log(`✅ /impressum/`);
+    
+    console.log(`\n✨ Generated static policy pages!`);
   } catch (err) {
     console.error("❌ Error generating static pages:", err.message);
     process.exit(1);
