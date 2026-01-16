@@ -111,6 +111,93 @@ async function generateStaticPages() {
       /<title>.*?<\/title>/,
       `<title>${sarahTitle}</title>`
     );
+    const personSchema = {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      name: "Sarah Heitz",
+      alternateName: ["Sarah Heitz", "Sarah", "sehetz"],
+      description: "Graphic Designer with experience in Information Design, UX/UI, Design Systems, and Illustration.",
+      jobTitle: ["Information Designer", "Illustrator", "Frontend Developer"],
+      url: "https://sehetz.ch",
+      email: "hoi@sehetz.ch",
+      image: "https://sehetz.ch/media/Sehetz-Team-Hochschule-Trier-3.jpg",
+      location: {
+        "@type": "Place",
+        name: "Basel, Switzerland"
+      },
+      birthDate: "1995-10-10",
+      gender: "female",
+      alumniOf: {
+        "@type": "CollegeOrUniversity",
+        name: "Hochschule Trier",
+        url: "https://www.hochschule-trier.de/"
+      },
+      award: ["Red Dot Award", "Best of Swiss Web Nominee"],
+      nationality: "Swiss",
+      speaks: ["German", "English"],
+      hasCredential: [
+        {
+          "@type": "EducationalOccupationalCredential",
+          credentialCategory: "Bachelor of Arts",
+          educationalLevel: "University"
+        }
+      ],
+      memberOf: [
+        // {
+        //   "@type": "Organization",
+        //   name: "Swiss Graphic Designers Association"
+        // }
+      ],
+      knowsLanguage: ["de", "en"],
+      address: {
+        "@type": "PostalAddress",
+        addressLocality: "Basel",
+        addressCountry: "CH"
+      },
+      sameAs: [
+        "https://www.linkedin.com/in/sarah-heitz-7b722b118/",
+        "https://www.instagram.com/sehetz/",
+        "https://www.behance.net/sehetz",
+        "https://ch.pinterest.com/sehetzch/"
+      ],
+      knowsAbout: [
+        "Product Design",
+        "UX Design",
+        "UI Design",
+        "Design Systems",
+        "Illustration",
+        "Frontend Development",
+        "Comic",
+      ],
+      worksFor: [
+        {
+          "@type": "Organization",
+          name: "Superdot.studio",
+          url: "https://superdot.studio",
+          description: "Agency for Information Design"
+        },
+        {
+          "@type": "Organization",
+          name: "Carnault.ch",
+          url: "https://carnault.ch",
+          description: "Luxury Brand for electric Cigarettes"
+        }
+      ],
+      hasOccupation: [
+        {
+          "@type": "Occupation",
+          name: "Designer"
+        },
+        {
+          "@type": "Occupation",
+          name: "Illustrator"
+        },
+        {
+          "@type": "Occupation",
+          name: "Developer"
+        }
+      ]
+    };
     sarahHtml = sarahHtml.replace(
       /<\/head>/,
       `    <meta name=\"description\" content=\"${sarahDesc}\" />
@@ -119,6 +206,7 @@ async function generateStaticPages() {
     <meta property=\"og:description\" content=\"${sarahDesc}\" />
     <meta property=\"og:url\" content=\"https://sehetz.ch/sarah-heitz\" />
     <meta property=\"og:type\" content=\"profile\" />
+    <script type=\"application/ld+json\">${JSON.stringify(personSchema)}</script>
   </head>`
     );
     const sarahDir = path.resolve(__dirname, "../dist/sarah-heitz");

@@ -1,3 +1,99 @@
+/**
+ * Generate Person schema for Sarah Heitz
+ * Used in: About.jsx, static page generation
+ * What: Creates JSON-LD Person schema for SEO (profile info)
+ *
+ * @returns {Object} Schema object with alle relevanten Felder
+ */
+export function schema_getPerson() {
+  return {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    name: "Sarah Heitz",
+    alternateName: ["Sarah Heitz", "Sarah", "sehetz"],
+    description: "Graphic Designer with experience in Information Design, UX/UI, Design Systems, and Illustration.",
+    jobTitle: ["Information Designer", "Illustrator", "Frontend Developer"],
+    url: "https://sehetz.ch",
+    email: "hoi@sehetz.ch",
+    image: "https://sehetz.ch/media/Sehetz-Team-Hochschule-Trier-3.jpg",
+    location: {
+      "@type": "Place",
+      name: "Basel, Switzerland"
+    },
+    birthDate: "1995-10-10",
+    gender: "female",
+    alumniOf: {
+      "@type": "CollegeOrUniversity",
+      name: "Hochschule Trier",
+      url: "https://www.hochschule-trier.de/"
+    },
+    nationality: "German",
+    speaks: ["German", "English"],
+    hasCredential: [
+      {
+        "@type": "EducationalOccupationalCredential",
+        credentialCategory: "Bachelor of Arts",
+        educationalLevel: "University"
+      }
+    ],
+    // memberOf: [
+    //   {
+    //     "@type": "Organization",
+    //     name: "Swiss Graphic Designers Association"
+    //   }
+    ],
+    knowsLanguage: ["de", "en"],
+    address: {
+      "@type": "PostalAddress",
+      addressLocality: "Basel",
+      addressCountry: "CH"
+    },
+    sameAs: [
+      "https://www.linkedin.com/in/sarah-heitz-7b722b118/",
+      "https://www.instagram.com/sehetz/",
+      "https://www.behance.net/sehetz",
+      "https://ch.pinterest.com/sehetzch/"
+    ],
+    knowsAbout: [
+      "Product Design",
+      "UX Design",
+      "UI Design",
+      "Design Systems",
+      "Illustration",
+      "Frontend Development",
+      "Comic",
+      "User Research"
+    ],
+    worksFor: [
+      {
+        "@type": "Organization",
+        name: "Superdot.studio",
+        url: "https://superdot.studio",
+        description: "Agency for Information Design"
+      },
+      {
+        "@type": "Organization",
+        name: "Carnault.ch",
+        url: "https://carnault.ch",
+        description: "Luxury Brand for electric Cigarettes"
+      }
+    ],
+    hasOccupation: [
+      {
+        "@type": "Occupation",
+        name: "Designer"
+      },
+      {
+        "@type": "Occupation",
+        name: "Illustrator"
+      },
+      {
+        "@type": "Occupation",
+        name: "Developer"
+      }
+    ]
+  };
+}
 // ============================================
 // STRUCTURED DATA (JSON-LD) UTILITIES – SEO
 // ============================================
@@ -30,7 +126,6 @@ export function schema_getOrganization() {
     "logo": "https://sehetz.ch/favicon.svg",
     "sameAs": [
       "https://instagram.com/sehetz",
-      "https://twitter.com/sehetz"
     ],
     "address": {
       "@type": "PostalAddress",

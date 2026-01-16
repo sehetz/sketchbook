@@ -31,6 +31,33 @@ export default function About() {
         "@type": "Place",
         name: "Basel, Switzerland"
       },
+      birthDate: "1995-10-10",
+      gender: "female",
+      alumniOf: {
+        "@type": "CollegeOrUniversity",
+        name: "Hochschule Trier",
+        url: "https://www.hochschule-trier.de/"
+      },
+      speaks: ["German", "English"],
+      hasCredential: [
+        {
+          "@type": "EducationalOccupationalCredential",
+          credentialCategory: "Bachelor of Arts",
+          educationalLevel: "University"
+        }
+      ],
+      // memberOf: [
+      //   {
+      //     "@type": "Organization",
+      //     name: "Swiss Graphic Designers Association"
+      //   }
+      ],
+      knowsLanguage: ["de", "en"],
+      address: {
+        "@type": "PostalAddress",
+        addressLocality: "Basel",
+        addressCountry: "CH"
+      },
       sameAs: [
         "https://www.linkedin.com/in/sarah-heitz-7b722b118/",
         "https://www.instagram.com/sehetz/",
