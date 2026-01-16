@@ -36,12 +36,6 @@ export function schema_getPerson() {
         educationalLevel: "University"
       }
     ],
-    // memberOf: [
-    //   {
-    //     "@type": "Organization",
-    //     name: "Swiss Graphic Designers Association"
-    //   }
-    // ],
     knowsLanguage: ["de", "en"],
     address: {
       "@type": "PostalAddress",
