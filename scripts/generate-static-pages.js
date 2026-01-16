@@ -121,10 +121,7 @@ async function generateStaticPages() {
       url: "https://sehetz.ch",
       email: "hoi@sehetz.ch",
       image: "https://sehetz.ch/media/Sehetz-Team-Hochschule-Trier-3.jpg",
-      location: {
-        "@type": "Place",
-        name: "Basel, Switzerland"
-      },
+
       birthDate: "1995-10-10",
       gender: "female",
       alumniOf: {
@@ -132,8 +129,7 @@ async function generateStaticPages() {
         name: "Hochschule Trier",
         url: "https://www.hochschule-trier.de/"
       },
-      nationality: "Swiss",
-      speaks: ["German", "English"],
+      nationality: "German",
       hasCredential: [
         {
           "@type": "EducationalOccupationalCredential",

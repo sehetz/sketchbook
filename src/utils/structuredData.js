@@ -16,10 +16,6 @@ export function schema_getPerson() {
     url: "https://sehetz.ch",
     email: "hoi@sehetz.ch",
     image: "https://sehetz.ch/media/Sehetz-Team-Hochschule-Trier-3.jpg",
-    location: {
-      "@type": "Place",
-      name: "Basel, Switzerland"
-    },
     birthDate: "1995-10-10",
     gender: "female",
     alumniOf: {
@@ -28,7 +24,6 @@ export function schema_getPerson() {
       url: "https://www.hochschule-trier.de/"
     },
     nationality: "German",
-    speaks: ["German", "English"],
     hasCredential: [
       {
         "@type": "EducationalOccupationalCredential",
