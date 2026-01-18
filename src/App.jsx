@@ -47,7 +47,7 @@ function App() {
   // Set meta tags for homepage
   useHead({
     title: "Sarah Heitz – Illustrator & Designer | Sehetz",
-    description: "Sarah Heitz, illustrator & designer based in Basel, Switzerland. Creative portfolio design, and illustration projects across different skills and creative teams.",
+    description: "Sarah Heitz, illustrator, designer & information designer at home in Basel, Switzerland. Online portfolio loaded with projects across different skills and creative teams.",
     url: "https://sehetz.ch",
   });
 
