@@ -5,7 +5,7 @@
 import { useState, useEffect } from "react";
 import CaseContainer from "./CaseContainer/CaseContainer";
 import FilterNav from "./FilterNav/FilterNav";
-import Intro from "../Intro/Intro";
+import Intro from "../Intro.jsx";
 import { project_normalize } from "../../utils/helpers.js";
 import { url_push, url_replace } from "../../utils/urlRouting.js";
 

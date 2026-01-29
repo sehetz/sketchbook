@@ -8,11 +8,11 @@ export default function Impressum() {
   }, []);
 
   const impressumText = `
-Operator / Provider / Head of Code
+<strong>Operator / Provider / Head of Code</strong>
 Sarah Heitz + Github Copilot
 
-Contact:
-E-Mail: sarahelenaheitz@gmail.com
+<strong>Contact</strong>
+hoi@sehetz.ch
 
 <strong>Liability for Content</strong>
 The contents of our website have been created with great care. However, I assume no liability for the accuracy, completeness, or timeliness of the contents.

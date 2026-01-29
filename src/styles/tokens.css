@@ -94,14 +94,10 @@
 
   /* 📐 LAYOUT DIMENSIONS */
   --layout-image-grid-minmax: 200px;
-  --layout-masonry-3col: 3;
-  --layout-masonry-2col: 2;
-  --layout-masonry-1col: 1;
 
   /* 📋 CASE CONTAINER SIZES */
   --size-case-line-height: 4rem;
   --size-case-line-height-open: 7.5rem;
-  --size-masonry-title-height: 6rem;
 
   /* 📏 BREAKPOINTS */
   --breakpoint-lg: 1200px;

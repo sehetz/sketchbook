@@ -1,7 +1,7 @@
 import Header from "./components/Header/Header";
 import Footer from "./components/Footer/Footer";
 import TimelineViz from "./components/AboutViz/TimelineViz";
-import Intro from "./components/Intro/Intro";
+import Intro from "./components/Intro";
 import SehetzTeaser from "./components/AboutViz/SehetzTeaser";
 
 export default function About() {
