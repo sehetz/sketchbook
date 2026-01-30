@@ -5,7 +5,7 @@ import { resolveMediaPath } from "../../utils/mediaManifest.js";
 
 // === CONSTANTS ===
 const MODEL_POSITION = [0, -3.5, 0];
-const MODEL_POSITION_MOBILE = [-1.5, -2, 0];
+const MODEL_POSITION_MOBILE = [0, -2, 0];
 
 const DEFAULT_CAMERA_POSITION = [0, -2, 25];
 const DEFAULT_CAMERA_FOV = 35;
