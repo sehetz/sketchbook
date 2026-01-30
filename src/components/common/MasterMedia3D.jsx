@@ -202,6 +202,7 @@ export default function MasterMedia3D({
     position: 'relative',
     overflow: 'hidden',
     borderRadius: 'var(--size-svg-rx, 6px)',
+    touchAction: 'pan-y',
     ...style,
   } : {
     width: '100%',
