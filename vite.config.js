@@ -5,7 +5,9 @@ export default defineConfig({
   plugins: [react()],
   base: '/', // ⭐ Lokal immer '/'
   server: {
-    historyApiFallback: true, // ✅ Bei Refresh alle Routes zu index.html fallback
+    port: 5174,
+    strictPort: false,
+    open: false,
   },
   build: {
     // Performance optimizations

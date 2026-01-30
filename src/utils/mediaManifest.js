@@ -7,13 +7,22 @@ function buildCandidates(name) {
   if (name) candidates.add(name);
   if (decoded) candidates.add(decoded);
 
+  // Remove duplicate markers like "(1)", "(2)", " copy" etc.
+  // Matches: "filename(1).ext" -> "filename.ext" or "filename (1).ext" -> "filename.ext"
+  const stripDuplicateMarker = decoded.replace(/\s*\(\d+\)(\.[^.]+)$/i, "$1");
+  if (stripDuplicateMarker !== decoded) candidates.add(stripDuplicateMarker);
+  
+  // Also try without space: "filename copy.ext" -> "filename.ext"
+  const stripCopy = stripDuplicateMarker.replace(/\s+copy(\.[^.]+)$/i, "$1");
+  if (stripCopy !== stripDuplicateMarker) candidates.add(stripCopy);
+
   // Remove transient hash suffixes like "@8x_H3hL7.webp" -> "@8x.webp"
-  const stripTaggedScale = decoded.replace(/@(\d+x)_([A-Za-z0-9]+)(\.[^.]+)$/i, "@$1$3");
-  if (stripTaggedScale !== decoded) candidates.add(stripTaggedScale);
+  const stripTaggedScale = stripCopy.replace(/@(\d+x)_([A-Za-z0-9]+)(\.[^.]+)$/i, "@$1$3");
+  if (stripTaggedScale !== stripCopy) candidates.add(stripTaggedScale);
 
   // Generic "_hash.ext" -> ".ext" cleanup (matches 4+ alphanumeric chars before extension)
-  const stripHash = decoded.replace(/_[A-Za-z0-9]{4,}(\.[^.]+)$/i, "$1");
-  if (stripHash !== decoded) candidates.add(stripHash);
+  const stripHash = stripTaggedScale.replace(/_[A-Za-z0-9]{4,}(\.[^.]+)$/i, "$1");
+  if (stripHash !== stripTaggedScale) candidates.add(stripHash);
 
   // Additional cleanup: strip multiple consecutive hash-like patterns
   let current = stripHash;

@@ -4,6 +4,7 @@
 
 import MasterMediaImage from '../../../common/MasterMediaImage.jsx';
 import MasterMediaVideo from '../../../common/MasterMediaVideo.jsx';
+import MasterMedia3D from '../../../common/MasterMedia3D.jsx';
 import { alt_generate } from '../../../../utils/seoHelpers.js';
 
 export default function ImageBlock({ images, projectTitle = "" }) {
@@ -17,13 +18,55 @@ export default function ImageBlock({ images, projectTitle = "" }) {
     return null;
   }
 
-  const isVideo = (att) => {
-    const mime = att.mimetype || att.type || "";
-    const name = (att.name || "").toLowerCase();
-    return mime.startsWith("video/") || /\.(mp4|webm|mov|m4v)$/i.test(name);
+  // Robustere Typ-Erkennung
+  const getName = (att) => {
+    if (!att) return "";
+    return (
+      att.name || att.filename || att.title || att.fileName || ""
+    ).toString().toLowerCase().trim();
   };
 
-  // CASE 1: Single image (16:9 fullwidth)
+  const getMime = (att) => {
+    if (!att) return "";
+    return (
+      att.mimetype || att.type || att.mimeType || ""
+    ).toString().toLowerCase().trim();
+  };
+
+  const is3D = (att) => {
+    const name = getName(att);
+    const mime = getMime(att);
+    // Erlaube auch Leerzeichen, Klammern, Sonderzeichen im Namen
+    return (
+      /\.(fbx|glb|gltf)([?#].*)?$/i.test(name) ||
+      mime === "model/fbx" ||
+      mime === "model/gltf-binary" ||
+      mime === "model/gltf+json" ||
+      mime.startsWith("model/3d")
+    );
+  };
+
+  const isVideo = (att) => {
+    const name = getName(att);
+    const mime = getMime(att);
+    return (
+      mime.startsWith("video/") ||
+      /\.(mp4|webm|mov|m4v)([?#].*)?$/i.test(name)
+    );
+  };
+
+  const isImage = (att) => {
+    const name = getName(att);
+    const mime = getMime(att);
+    // Exkludiere 3D und Video
+    if (is3D(att) || isVideo(att)) return false;
+    return (
+      mime.startsWith("image/") ||
+      /\.(jpg|jpeg|png|gif|webp|avif|svg|bmp|tiff?)([?#].*)?$/i.test(name)
+    );
+  };
+
+  // CASE 1: Single media (16:9 fullwidth)
   if (images.length === 1) {
     const item = images[0];
     const altText = alt_generate(item.name, projectTitle, 0);
@@ -31,7 +74,9 @@ export default function ImageBlock({ images, projectTitle = "" }) {
     return (
       <div className="image-block">
         <div className="image-wrapper image-wrapper--16x9">
-          {isVideo(item) ? (
+          {is3D(item) ? (
+            <MasterMedia3D file={item} className="image-media" />
+          ) : isVideo(item) ? (
             <MasterMediaVideo
               file={item}
               className="image-media"
@@ -65,7 +110,9 @@ export default function ImageBlock({ images, projectTitle = "" }) {
 
           return (
             <div key={i} className="image-wrapper image-wrapper--3x4">
-              {isVideo(item) ? (
+              {is3D(item) ? (
+                <MasterMedia3D file={item} className="image-media" />
+              ) : isVideo(item) ? (
                 <MasterMediaVideo
                   file={item}
                   className="image-media"

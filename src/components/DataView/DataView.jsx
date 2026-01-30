@@ -165,9 +165,9 @@ export default function DataView({ urlState, currentPath }) {
     }))
     .sort((a, b) => b.projects.length - a.projects.length);
 
-  // Find currently open container index (based on URL)
+  // Find currently open container index (based on URL) - case-insensitive
   const openIndex = openContainerLabel 
-    ? containers.findIndex(c => c.label === openContainerLabel)
+    ? containers.findIndex(c => c.label.toLowerCase() === openContainerLabel.toLowerCase())
     : -1;
 
   // ============================================

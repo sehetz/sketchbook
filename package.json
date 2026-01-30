@@ -17,11 +17,14 @@
     "download-noco-media": "export $(cat .env | grep -v '^#' | xargs) && node scripts/download-noco-media.js"
   },
   "dependencies": {
+    "@react-three/drei": "^10.7.7",
+    "@react-three/fiber": "^9.5.0",
     "dotenv": "^17.2.3",
     "p5": "^2.1.2",
     "react": "^19.1.1",
     "react-dom": "^19.1.1",
-    "react-router-dom": "^7.9.6"
+    "react-router-dom": "^7.9.6",
+    "three": "^0.182.0"
   },
   "devDependencies": {
     "@eslint/js": "^9.36.0",
