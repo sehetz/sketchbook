@@ -1,23 +1,49 @@
-// Objekt-Position (im Frame)
-const MODEL_POSITION = [0, -3.5, 0]; // X, Y, Z
-const MODEL_POSITION_MOBILE = [-1.5, -2, 0]; // Mobile: X nach links, Y höher
-import React, { useMemo, useRef, useEffect, useState, Suspense } from "react";
+import React, { useRef, useEffect, useState, Suspense } from "react";
+import { Canvas } from "@react-three/fiber";
+import { OrbitControls, useFBX } from "@react-three/drei";
+import { resolveMediaPath } from "../../utils/mediaManifest.js";
 
-// ErrorBoundary für 3D-Modelle
+// === CONSTANTS ===
+const MODEL_POSITION = [0, -3.5, 0];
+const MODEL_POSITION_MOBILE = [-1.5, -2, 0];
+
+const DEFAULT_CAMERA_POSITION = [0, -2, 25];
+const DEFAULT_CAMERA_FOV = 35;
+
+const AMBIENT_INTENSITY = 1.0;
+const DIRECTIONAL_1_POSITION = [5, 10, 7];
+const DIRECTIONAL_1_INTENSITY = 1.2;
+const DIRECTIONAL_2_POSITION = [-5, -10, -7];
+const DIRECTIONAL_2_INTENSITY = 0.5;
+const POINT_POSITION = [0, 10, 0];
+const POINT_INTENSITY = 0.6;
+const SHADOW_MAP_SIZE = 2048;
+const BACKGROUND_COLOR = "var(--color-surface)";
+
+const CONTROLS_ENABLE_PAN = true;
+const CONTROLS_ENABLE_ZOOM = true;
+const CONTROLS_ENABLE_ROTATE = true;
+const CONTROLS_MIN_DISTANCE = 1;
+const CONTROLS_MAX_DISTANCE = 100;
+const CONTROLS_TARGET = [0, 0, 0];
+
+// === ERROR BOUNDARY ===
 class ModelErrorBoundary extends React.Component {
   constructor(props) {
     super(props);
     this.state = { hasError: false, error: null };
   }
+
   static getDerivedStateFromError(error) {
     return { hasError: true, error };
   }
+
   componentDidCatch(error, info) {
     if (this.props.onError) this.props.onError(error, info);
   }
+
   render() {
     if (this.state.hasError) {
-      // Zeige Pfade, falls übergeben
       const { debugPaths } = this.props;
       return (
         <div style={{
@@ -52,33 +78,7 @@ class ModelErrorBoundary extends React.Component {
   }
 }
 
-// === SCENE CONTROLS ===
-// Kamera
-const DEFAULT_CAMERA_POSITION = [0, -2, 25];
-const DEFAULT_CAMERA_FOV = 35;
-
-// Lichtquellen
-const AMBIENT_INTENSITY = 1.0;
-const DIRECTIONAL_1_POSITION = [5, 10, 7];
-const DIRECTIONAL_1_INTENSITY = 1.2;
-const DIRECTIONAL_2_POSITION = [-5, -10, -7];
-const DIRECTIONAL_2_INTENSITY = 0.5;
-const POINT_POSITION = [0, 10, 0];
-const POINT_INTENSITY = 0.6;
-const SHADOW_MAP_SIZE = 2048;
-const BACKGROUND_COLOR = "var(--color-surface)";
-
-// OrbitControls
-const CONTROLS_ENABLE_PAN = true;
-const CONTROLS_ENABLE_ZOOM = true;
-const CONTROLS_ENABLE_ROTATE = true;
-const CONTROLS_MIN_DISTANCE = 1;
-const CONTROLS_MAX_DISTANCE = 100;
-const CONTROLS_TARGET = [0, 0, 0];
-import { resolveMediaPath } from "../../utils/mediaManifest.js";
-import { Canvas } from "@react-three/fiber";
-import { OrbitControls, useFBX } from "@react-three/drei";
-
+// === HELPER FUNCTIONS ===
 function extractFilename(file, remoteSrc) {
   if (file?.name) return file.name;
   if (file?.title) return file.title;
@@ -92,7 +92,6 @@ function extractFilename(file, remoteSrc) {
     return last ? decodeURIComponent(last) : null;
   }
 }
-
 
 function FBXModel({ url, position }) {
   const fbx = useFBX(url);
@@ -157,6 +156,8 @@ export default function MasterMedia3D({
   const [tried3DFallback, setTried3DFallback] = useState(false);
   const [currentSrc, setCurrentSrc] = useState(computedEarly.primary);
   const [isMobile, setIsMobile] = useState(false);
+  const controlsRef = useRef(null);
+  const containerDivRef = useRef(null);
   
   useEffect(() => {
     const checkMobile = () => setIsMobile(window.innerWidth < 768);
@@ -171,17 +172,91 @@ export default function MasterMedia3D({
     setError(false);
   }, [computedEarly.primary]);
 
+  // Reset camera when mobile state changes
+  useEffect(() => {
+    if (controlsRef.current) {
+      controlsRef.current.reset();
+    }
+  }, [isMobile]);
+
+  // Reset camera when model source changes
+  useEffect(() => {
+    if (currentSrc && controlsRef.current) {
+      // Small delay to ensure model is loaded
+      const timer = setTimeout(() => {
+        controlsRef.current?.reset();
+      }, 500);
+      return () => clearTimeout(timer);
+    }
+  }, [currentSrc]);
+
   const aspectStyle = {
     width: '100%',
     aspectRatio: '16 / 9',
     background,
     position: 'relative',
     overflow: 'hidden',
+    borderRadius: 'var(--size-svg-rx, 6px)',
     ...style,
   };
 
+  const controlsButtonStyle = {
+    position: 'absolute',
+    bottom: 'var(--space-4)',
+    right: 'var(--space-4)',
+    zIndex: 10,
+    display: 'flex',
+    gap: 'var(--space-2)',
+    background: 'var(--color-bg)',
+    borderRadius: 'var(--size-svg-rx, 6px)',
+    border: 'var(--stroke-thin) solid var(--color-stroke)',
+    padding: 'var(--space-2)',
+  };
+
+  const buttonStyle = {
+    width: '32px',
+    height: '32px',
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    background: 'transparent',
+    border: 'none',
+    cursor: 'pointer',
+    color: 'var(--color-fg)',
+    fontSize: '18px',
+    transition: 'var(--transition-smooth)',
+    padding: 0,
+  };
+
+  const zoomIn = () => {
+    if (controlsRef.current) {
+      const camera = controlsRef.current.object;
+      const target = controlsRef.current.target;
+      const direction = camera.position.clone().sub(target).normalize();
+      const distance = camera.position.distanceTo(target);
+      const newDistance = Math.max(controlsMinDistance, distance - 3);
+      camera.position.copy(target).add(direction.multiplyScalar(newDistance));
+      controlsRef.current.update();
+    }
+  };
+
+  const zoomOut = () => {
+    if (controlsRef.current) {
+      const camera = controlsRef.current.object;
+      const target = controlsRef.current.target;
+      const direction = camera.position.clone().sub(target).normalize();
+      const distance = camera.position.distanceTo(target);
+      const newDistance = Math.min(controlsMaxDistance, distance + 3);
+      camera.position.copy(target).add(direction.multiplyScalar(newDistance));
+      controlsRef.current.update();
+    }
+  };
+
   const handleCanvasCreated = (gl) => {
-    // gl.setClearColor('#f6f6f6');
+    // Reset camera when canvas is created
+    if (controlsRef.current) {
+      controlsRef.current.reset();
+    }
   };
 
   const handleModelError = (e) => {
@@ -215,7 +290,55 @@ export default function MasterMedia3D({
 
   return (
     <ModelErrorBoundary debugPaths={{primary: computedEarly.primary, secondary: computedEarly.secondary}} onError={handleModelError}>
-      <div className={className} style={aspectStyle}>
+      <div ref={containerDivRef} className={className} style={aspectStyle}>
+        {/* Zoom Controls */}
+        <div style={{
+          position: 'absolute',
+          bottom: '12px',
+          left: '50%',
+          transform: 'translateX(-50%)',
+          zIndex: 10,
+          display: 'flex',
+          gap: '6px',
+          pointerEvents: 'auto',
+        }}>
+          {[
+            { label: 'Zoom in', icon: '+', handler: zoomIn },
+            { label: 'Zoom out', icon: '−', handler: zoomOut },
+          ].map((btn) => (
+            <button
+              key={btn.label}
+              onPointerDown={(e) => {
+                e.stopPropagation();
+                e.preventDefault();
+                btn.handler();
+              }}
+              style={{
+                background: 'rgba(246, 246, 246, 0.5)',
+                color: 'var(--color-fg)',
+                border: 'none',
+                width: 48,
+                height: 48,
+                borderRadius: '50%',
+                cursor: 'pointer',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                fontSize: 'var(--text-2-size)',
+                lineHeight: 'var(--text-2-line)',
+                fontWeight: 425,
+                transition: 'var(--transition-smooth)',
+                padding: 0,
+                touchAction: 'none',
+              }}
+              onMouseEnter={(e) => e.target.style.background = 'var(--color-bg)'}
+              onMouseLeave={(e) => e.target.style.background = 'rgba(246, 246, 246, 0.5)'}
+              aria-label={btn.label}
+            >
+              {btn.icon}
+            </button>
+          ))}
+        </div>
         <Canvas camera={{ position: cameraPosition, fov: cameraFov }} shadows onCreated={({ gl }) => handleCanvasCreated(gl)}>
           {/* Hemisphere light für natürliches Licht */}
           <hemisphereLight skyColor={0xffffff} groundColor={0x444444} intensity={1.2} position={[0, 20, 0]} />
@@ -238,20 +361,22 @@ export default function MasterMedia3D({
             <FBXModel url={currentSrc} position={isMobile ? MODEL_POSITION_MOBILE : MODEL_POSITION} />
           </Suspense>
           <OrbitControls
-            enablePan={controlsEnablePan}
-            enableZoom={controlsEnableZoom}
-            enableRotate={controlsEnableRotate}
+            ref={controlsRef}
+            enablePan={true}
+            enableZoom={false}
+            enableRotate={true}
             minDistance={controlsMinDistance}
             maxDistance={controlsMaxDistance}
             target={controlsTarget}
             enableDamping
+            autoRotate={false}
             mouseButtons={{
               LEFT: 0,
               MIDDLE: 0,
-              RIGHT: 0,
+              RIGHT: 2,
             }}
             touches={{
-              ONE: 0,
+              ONE: 1,
               TWO: 1,
             }}
           />
