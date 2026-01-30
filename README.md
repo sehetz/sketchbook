@@ -113,3 +113,8 @@ Favicon
   - optional: /public/apple-touch-icon.png (iOS), /public/safari-pinned-tab.svg (Safari)
 - Empfohlen: generiere verschiedene Größen mit https://realfavicongenerator.net/ und kopiere die Ausgaben ins public-Verzeichnis.
 - Nach dem Ersetzen: dev-server neu starten oder Browser-Cache leeren (Strg/Cmd+Shift+R), damit das neue Icon sichtbar wird.
+
+
+# Timline viz aktualisieren
+in der console eingeben, nachdem die sichtbarkeit auf noco eingestellt ist:
+npm run fetch-static-data
