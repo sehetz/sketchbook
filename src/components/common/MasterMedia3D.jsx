@@ -44,11 +44,11 @@ class ModelErrorBoundary extends React.Component {
 
   render() {
     if (this.state.hasError) {
-      const { debugPaths } = this.props;
+      const { debugPaths, isMobile } = this.props;
       return (
         <div style={{
           width: '100%',
-          aspectRatio: '16 / 9',
+          aspectRatio: isMobile ? '3 / 4' : '16 / 9',
           background: 'var(--color-surface, #f6f6f6)',
           color: '#b00',
           display: 'flex',
@@ -155,7 +155,10 @@ export default function MasterMedia3D({
   const [error, setError] = useState(false);
   const [tried3DFallback, setTried3DFallback] = useState(false);
   const [currentSrc, setCurrentSrc] = useState(computedEarly.primary);
-  const [isMobile, setIsMobile] = useState(false);
+  const [isMobile, setIsMobile] = useState(() => {
+    if (typeof window === 'undefined') return false;
+    return window.innerWidth < 768;
+  });
   const controlsRef = useRef(null);
   const containerDivRef = useRef(null);
   
@@ -190,7 +193,17 @@ export default function MasterMedia3D({
     }
   }, [currentSrc]);
 
-  const aspectStyle = {
+  const aspectStyle = isMobile ? {
+    width: '100%',
+    maxWidth: '100%',
+    aspectRatio: '3 / 4',
+    height: 'auto',
+    background,
+    position: 'relative',
+    overflow: 'hidden',
+    borderRadius: 'var(--size-svg-rx, 6px)',
+    ...style,
+  } : {
     width: '100%',
     aspectRatio: '16 / 9',
     background,
@@ -282,16 +295,16 @@ export default function MasterMedia3D({
 
   if (!currentSrc || error) {
     return (
-      <ModelErrorBoundary debugPaths={{primary: computedEarly.primary, secondary: computedEarly.secondary}}>
+      <ModelErrorBoundary isMobile={isMobile} debugPaths={{primary: computedEarly.primary, secondary: computedEarly.secondary}}>
         <div className={className} style={aspectStyle} />
       </ModelErrorBoundary>
     );
   }
 
   return (
-    <ModelErrorBoundary debugPaths={{primary: computedEarly.primary, secondary: computedEarly.secondary}} onError={handleModelError}>
+    <ModelErrorBoundary isMobile={isMobile} debugPaths={{primary: computedEarly.primary, secondary: computedEarly.secondary}} onError={handleModelError}>
       <div ref={containerDivRef} className={className} style={aspectStyle}>
-        {/* Zoom Controls */}
+        {/* Zoom Controls - Mobile & Desktop */}
         <div style={{
           position: 'absolute',
           bottom: '12px',
@@ -299,7 +312,7 @@ export default function MasterMedia3D({
           transform: 'translateX(-50%)',
           zIndex: 10,
           display: 'flex',
-          gap: '6px',
+          gap: 'var(--space-2, 6px)',
           pointerEvents: 'auto',
         }}>
           {[
@@ -317,8 +330,8 @@ export default function MasterMedia3D({
                 background: 'rgba(246, 246, 246, 0.5)',
                 color: 'var(--color-fg)',
                 border: 'none',
-                width: 48,
-                height: 48,
+                width: 'var(--space-12, 48px)',
+                height: 'var(--space-12, 48px)',
                 borderRadius: '50%',
                 cursor: 'pointer',
                 display: 'flex',
@@ -371,13 +384,13 @@ export default function MasterMedia3D({
             enableDamping
             autoRotate={false}
             mouseButtons={{
-              LEFT: 0,
-              MIDDLE: 0,
-              RIGHT: 2,
+              LEFT: 0,   // Left click: Rotate
+              MIDDLE: 0, // Middle: Rotate
+              RIGHT: 2,  // Right click: Pan
             }}
             touches={{
-              ONE: 1,
-              TWO: 1,
+              ONE: 2,    // 1-finger: Pan (allows page scroll when not over canvas)
+              TWO: 0,    // 2-finger: Rotate
             }}
           />
         </Canvas>
