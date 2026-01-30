@@ -352,7 +352,12 @@ export default function MasterMedia3D({
             </button>
           ))}
         </div>
-        <Canvas camera={{ position: cameraPosition, fov: cameraFov }} shadows onCreated={({ gl }) => handleCanvasCreated(gl)}>
+        <Canvas 
+          camera={{ position: cameraPosition, fov: cameraFov }} 
+          shadows 
+          onCreated={({ gl }) => handleCanvasCreated(gl)}
+          style={{ touchAction: isMobile ? 'pan-y' : 'auto' }}
+        >
           {/* Hemisphere light für natürliches Licht */}
           <hemisphereLight skyColor={0xffffff} groundColor={0x444444} intensity={1.2} position={[0, 20, 0]} />
           {/* Ambient light */}
@@ -376,7 +381,7 @@ export default function MasterMedia3D({
           <OrbitControls
             ref={controlsRef}
             enablePan={true}
-            enableZoom={false}
+            enableZoom={isMobile ? true : false}
             enableRotate={true}
             minDistance={controlsMinDistance}
             maxDistance={controlsMaxDistance}
@@ -389,7 +394,6 @@ export default function MasterMedia3D({
               RIGHT: 2,  // Right click: Pan
             }}
             touches={{
-              ONE: 2,    // 1-finger: Pan (allows page scroll when not over canvas)
               TWO: 0,    // 2-finger: Rotate
             }}
           />
