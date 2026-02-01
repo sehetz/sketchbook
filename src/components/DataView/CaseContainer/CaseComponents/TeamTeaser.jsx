@@ -2,7 +2,7 @@
 // TeamTeaser.jsx – Team-Level Body Teaser
 // ============================================
 
-import MasterMediaImage from "../../../common/MasterMediaImage.jsx";
+import MasterMediaImage from "../../../media/MasterMediaImage.jsx";
 
 export default function TeamTeaser({ team }) {
   if (!team) return null;

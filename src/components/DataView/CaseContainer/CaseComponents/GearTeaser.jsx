@@ -2,7 +2,7 @@
 // GearTeaser.jsx – Gear-Level Body Teaser
 // ============================================
 
-import MasterMediaImage from "../../../common/MasterMediaImage.jsx";
+import MasterMediaImage from "../../../media/MasterMediaImage.jsx";
 
 export default function GearTeaser({ gear }) {
   if (!gear) return null;

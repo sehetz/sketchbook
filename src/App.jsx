@@ -1,22 +1,21 @@
 // src/App.jsx
 import "./styles/global.css";
-import { useHead } from "./utils/useHead.js";
-import { schema_inject, schema_getOrganization } from "./utils/structuredData.js";
-import { url_parse } from "./utils/urlRouting.js";
+import { useHead, schema_inject, schema_getOrganization } from "./utils/seo.js";
+import { url_parse } from "./utils/routing.js";
 import { initGA, trackPageView } from "./utils/analytics.js";
 
 // Core Components
-import Banner from "./components/Banner/Banner";
-import Header from "./components/Header/Header";
-import Footer from "./components/Footer/Footer";
+import Banner from "./components/layout/Banner/Banner";
+import Header from "./components/layout/Header/Header";
+import Footer from "./components/layout/Footer/Footer";
 
 // Lazy load non-critical pages for better performance
 import { useState, useEffect, lazy, Suspense } from "react";
 
 const DataView = lazy(() => import("./components/DataView/DataView"));
-const Impressum = lazy(() => import("./impressum"));
-const About = lazy(() => import("./About"));
-const Privacy = lazy(() => import("./privacy"));
+const Impressum = lazy(() => import("./pages/Impressum"));
+const About = lazy(() => import("./pages/About"));
+const Privacy = lazy(() => import("./pages/Privacy"));
 
 function App() {
   // Simple client-side page switch (reacts to history / popstate)

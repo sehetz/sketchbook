@@ -3,9 +3,9 @@
 // ============================================
 
 import { useRef, useEffect } from "react";
-import MasterMediaImage from "../../../common/MasterMediaImage.jsx";
-import ButtonText2 from "../../../common/ButtonText2.jsx";
-import { resolveMediaPath } from "../../../../utils/mediaManifest.js";
+import MasterMediaImage from "../../../media/MasterMediaImage.jsx";
+import ButtonText2 from "../../../media/ButtonText2.jsx";
+import { resolveMediaPath } from "../../../../utils/project.js";
 
 export default function CaseTeaser({
   project,

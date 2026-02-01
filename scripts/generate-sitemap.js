@@ -13,7 +13,8 @@
 
 import fs from 'fs';
 import path from 'path';
-import { sitemap_generate } from '../src/utils/sitemapGenerator.js';
+import { sitemap_generate } from '../src/utils/seo.js';
+import { text_labelToSlug } from '../src/utils/routing.js';
 
 // Get environment variables
 const API_URL = process.env.VITE_API_URL;
@@ -38,7 +39,7 @@ async function generateSitemap() {
     }
 
     // Generate XML
-    const sitemapXml = sitemap_generate(projects);
+    const sitemapXml = sitemap_generate(projects, text_labelToSlug);
 
     // Ensure dist folder exists
     const distPath = path.join(process.cwd(), 'dist');
@@ -61,7 +62,7 @@ async function generateSitemap() {
       fs.mkdirSync(distPath, { recursive: true });
     }
     const sitemapPath = path.join(distPath, 'sitemap.xml');
-    fs.writeFileSync(sitemapPath, sitemap_generate([]), 'utf8');
+    fs.writeFileSync(sitemapPath, sitemap_generate([], text_labelToSlug), 'utf8');
     console.log(`✨ Wrote minimal sitemap to ${sitemapPath}`);
   }
 }

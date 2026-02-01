@@ -1,5 +1,5 @@
 import { useMemo, useRef } from "react";
-import { resolveMediaPath } from "../../utils/mediaManifest.js";
+import { resolveMediaPath } from "../../utils/project.js";
 
 const loggedKeys = new Set();
 

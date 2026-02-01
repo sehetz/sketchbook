@@ -1,7 +1,7 @@
 import React, { useRef, useEffect, useState, Suspense } from "react";
 import { Canvas } from "@react-three/fiber";
 import { OrbitControls, useFBX } from "@react-three/drei";
-import { resolveMediaPath } from "../../utils/mediaManifest.js";
+import { resolveMediaPath } from "../../utils/project.js";
 
 // === CONSTANTS ===
 const MODEL_POSITION = [0, -3.5, 0];

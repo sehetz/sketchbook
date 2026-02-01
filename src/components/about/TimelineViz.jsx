@@ -1,5 +1,5 @@
 import { useEffect, useState, useMemo } from "react";
-import { timeline_fetch } from "../../utils/timelineHelpers.js";
+import { timeline_fetch } from "../../utils/project.js";
 import "./TimelineViz.css";
 
 // ============================================

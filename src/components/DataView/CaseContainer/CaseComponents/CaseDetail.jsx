@@ -1,8 +1,6 @@
 import { useEffect } from "react";
-import { useHead } from "../../../../utils/useHead.js";
-import { schema_inject, schema_getCreativeWork } from "../../../../utils/structuredData.js";
-import { desc_extractFirst } from "../../../../utils/seoHelpers.js";
-import { text_labelToSlug } from "../../../../utils/urlRouting.js";
+import { useHead, schema_inject, schema_getCreativeWork, desc_extractFirst } from "../../../../utils/seo.js";
+import { text_labelToSlug } from "../../../../utils/routing.js";
 import TextBlock from "../Blocks/TextBlock.jsx";
 import ImageBlock from "../Blocks/ImageBlock.jsx"; 
 import LinkBlock from "../Blocks/LinkBlock.jsx";

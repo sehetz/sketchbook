@@ -5,9 +5,9 @@
 import { useState, useEffect } from "react";
 import CaseContainer from "./CaseContainer/CaseContainer";
 import FilterNav from "./FilterNav/FilterNav";
-import Intro from "../Intro.jsx";
-import { project_normalize } from "../../utils/helpers.js";
-import { url_push, url_replace } from "../../utils/urlRouting.js";
+import Intro from "../layout/Intro.jsx";
+import { project_normalize } from "../../utils/project.js";
+import { url_push, url_replace } from "../../utils/routing.js";
 
 export default function DataView({ urlState, currentPath }) {
   // ============================================

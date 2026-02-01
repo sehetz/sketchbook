@@ -2,10 +2,10 @@
 // ImageBlock.jsx – unified grid + 4-per-row with proper aspect ratios
 // ============================================
 
-import MasterMediaImage from '../../../common/MasterMediaImage.jsx';
-import MasterMediaVideo from '../../../common/MasterMediaVideo.jsx';
-import MasterMedia3D from '../../../common/MasterMedia3D.jsx';
-import { alt_generate } from '../../../../utils/seoHelpers.js';
+import MasterMediaImage from '../../../media/MasterMediaImage.jsx';
+import MasterMediaVideo from '../../../media/MasterMediaVideo.jsx';
+import MasterMedia3D from '../../../media/MasterMedia3D.jsx';
+import { alt_generate } from '../../../../utils/seo.js';
 
 export default function ImageBlock({ images, projectTitle = "" }) {
   // Defensive: ensure images is an array

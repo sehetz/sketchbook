@@ -1,5 +1,5 @@
 import { useMemo, useRef } from "react";
-import { resolveMediaPath } from "../../utils/mediaManifest.js";
+import { resolveMediaPath } from "../../utils/project.js";
 
 function extractFilename(file, remoteSrc) {
   if (file?.name) return file.name;
