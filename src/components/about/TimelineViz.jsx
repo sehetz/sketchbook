@@ -1,10 +1,13 @@
 import { useEffect, useState, useMemo } from "react";
-import { timeline_fetch } from "../../utils/project.js";
+import { useData } from "../../contexts/DataContext.jsx";
 import "./TimelineViz.css";
 
 // ============================================
 // TimelineViz.jsx – SVG-based Team Timeline
 // ============================================
+// 
+// Zeigt Teams auf einer Timeline mit zugehörigen Projects.
+// DATEN kommen aus DataContext (teams + projects)
 
 // 🎨 TWEAKABLE VALUES – All design constants in one place
 // These are LOCAL to this component. Adjust here without affecting global tokens.
@@ -145,10 +148,109 @@ export default function TimelineViz() {
     return isDark ? TWEAK_DARK : TWEAK_LIGHT;
   }, [isDark]);
 
-  // Fetch data from NocoDB
+  // ============================================
+  // DATEN AUS CONTEXT HOLEN (statt fetch)
+  // ============================================
+  
+  const { teams: rawTeams, projects: rawProjects } = useData();
+
+  // Process teams data (wie vorher in timeline_fetch)
   useEffect(() => {
-    timeline_fetch(setTeams, setMinYear, setProjects);
-  }, []);
+    if (!rawTeams || rawTeams.length === 0) return;
+
+    // Parse year helper
+    const parseYear = (val) => {
+      if (val == null) return null;
+      if (typeof val === "number" && Number.isFinite(val)) return Math.floor(val);
+      if (typeof val === "string") {
+        const m = val.match(/(\d{4})/);
+        if (m) return parseInt(m[1], 10);
+      }
+      return null;
+    };
+
+    // Normalize team data
+    const extracted = rawTeams.map((row) => ({
+      team: row.Team || "Unknown",
+      start: parseYear(row["start-date"]),
+      end: parseYear(row["end-date"]),
+      designWork: row["design-work"] === 1 || row["design-work"] === true,
+      link: row.link || null,
+      role: row.role || null,
+    }));
+
+    // Filter valid teams
+    const validTeams = extracted
+      .filter((t) => Number.isInteger(t.start))
+      .sort((a, b) => {
+        if (a.end === null && b.end === null) return b.start - a.start;
+        if (a.end === null) return -1;
+        if (b.end === null) return 1;
+        return b.end - a.end;
+      });
+
+    setTeams(validTeams);
+
+    // Calculate min year
+    const startYears = validTeams.map((t) => t.start).filter(Boolean);
+    const calculatedMinYear = startYears.length
+      ? Math.min(...startYears)
+      : new Date().getFullYear();
+    setMinYear(calculatedMinYear);
+  }, [rawTeams]);
+
+  // Process projects data (wie vorher in timeline_fetch)
+  useEffect(() => {
+    if (!rawProjects || rawProjects.length === 0) return;
+
+    const parseYear = (val) => {
+      if (val == null) return null;
+      if (typeof val === "number" && Number.isFinite(val)) return Math.floor(val);
+      if (typeof val === "string") {
+        const m = val.match(/(\d{4})/);
+        if (m) return parseInt(m[1], 10);
+      }
+      return null;
+    };
+
+    const generateSlug = (title) => {
+      return title
+        .toLowerCase()
+        .trim()
+        .replace(/\s+/g, "-")
+        .replace(/[^\w\-]/g, "")
+        .replace(/\-+/g, "-");
+    };
+
+    const projectsExtracted = [];
+    rawProjects.forEach((proj) => {
+      // Skip offline projects
+      if (!proj.is_online) return;
+      
+      const year = parseYear(proj.Datum);
+      if (!year) return;
+
+      // Get the first related skill
+      const relSkills = proj._nc_m2m_sehetz_skills || [];
+      const skillObj = relSkills[0]?.skill;
+      const skillSlug = skillObj?.Skill ? generateSlug(skillObj.Skill) : "all";
+
+      const relTeams = proj._nc_m2m_sehetz_teams || [];
+      relTeams.forEach((rel) => {
+        const teamObj = rel.team;
+        if (!teamObj) return;
+        projectsExtracted.push({
+          team: teamObj.Team,
+          year,
+          title: proj.Title || "Untitled",
+          slug: generateSlug(proj.Title),
+          skillSlug: skillSlug,
+        });
+      });
+    });
+
+    setProjects(projectsExtracted);
+  }, [rawProjects]);
 
   // Responsive mobile detection
   useEffect(() => {

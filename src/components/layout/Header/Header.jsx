@@ -1,6 +1,5 @@
 import { useEffect, useRef } from "react";
-import { useRotationAnimation } from "../../../utils/ui.js";
-import useStrudel from "../../../hooks/useStrudel.js";
+import { useRotationAnimation, useStrudel } from "../../../utils/ui.jsx";
 
 export default function Header() {
   const [rave, toggleRave] = useStrudel();

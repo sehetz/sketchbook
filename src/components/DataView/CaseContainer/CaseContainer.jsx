@@ -8,7 +8,7 @@ import CaseTeaser from "./CaseComponents/CaseTeaser.jsx";
 import GearTeaser from "./CaseComponents/GearTeaser.jsx";
 import TeamTeaser from "./CaseComponents/TeamTeaser.jsx";
 import { text_labelToSlug, url_build } from "../../../utils/routing.js";
-import { CLOSE_MS, TRANSITION_GAP_MS, DEFAULT_FIRST_OPEN_INDEX, timer_clear, timer_schedule } from "../../../utils/ui.js";
+import { CLOSE_MS, TRANSITION_GAP_MS, DEFAULT_FIRST_OPEN_INDEX, timer_clear, timer_schedule } from "../../../utils/ui.jsx";
 
 // Lazy-load CaseDetail to reduce initial bundle size
 const CaseDetail = lazy(() => import("./CaseComponents/CaseDetail.jsx"));

@@ -3,6 +3,7 @@ import "./styles/global.css";
 import { useHead, schema_inject, schema_getOrganization } from "./utils/seo.js";
 import { url_parse } from "./utils/routing.js";
 import { initGA, trackPageView } from "./utils/analytics.js";
+import { DataProvider } from "./contexts/DataContext.jsx";
 
 // Core Components
 import Banner from "./components/layout/Banner/Banner";
@@ -80,13 +81,13 @@ function App() {
 
   // normalize trailing slash, then route
   const normalized = currentPath.replace(/\/$/, "");
-  if (normalized === "/sarah-heitz") return <Suspense fallback={<div className="loading">Loading...</div>}><About /></Suspense>;
-  if (normalized === "/about") return <Suspense fallback={<div className="loading">Loading...</div>}><About /></Suspense>;
+  if (normalized === "/sarah-heitz") return <DataProvider><Suspense fallback={<div className="loading">Loading...</div>}><About /></Suspense></DataProvider>;
+  if (normalized === "/about") return <DataProvider><Suspense fallback={<div className="loading">Loading...</div>}><About /></Suspense></DataProvider>;
   if (normalized === "/privacy") return <Suspense fallback={<div className="loading">Loading...</div>}><Privacy /></Suspense>;
   if (normalized === "/impressum") return <Suspense fallback={<div className="loading">Loading...</div>}><Impressum /></Suspense>;
 
   return (
-    <>
+    <DataProvider>
       {/* <Banner/> */}
       <Header />
       <main>
@@ -95,7 +96,7 @@ function App() {
         </Suspense>
       </main>
       <Footer />
-    </>
+    </DataProvider>
   );
 }
 

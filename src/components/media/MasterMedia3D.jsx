@@ -1,13 +1,13 @@
 import React, { useRef, useEffect, useState, Suspense } from "react";
 import { Canvas } from "@react-three/fiber";
-import { OrbitControls, useFBX } from "@react-three/drei";
+import { OrbitControls, useFBX, useGLTF } from "@react-three/drei";
 import { resolveMediaPath } from "../../utils/project.js";
 
 // === CONSTANTS ===
-const MODEL_POSITION = [0, -3.5, 0];
+const MODEL_POSITION = [2, -2.25, 0];
 const MODEL_POSITION_MOBILE = [0, -2, 0];
 
-const DEFAULT_CAMERA_POSITION = [0, -2, 25];
+const DEFAULT_CAMERA_POSITION = [-5, 2.5, 15];
 const DEFAULT_CAMERA_FOV = 35;
 
 const AMBIENT_INTENSITY = 1.0;
@@ -17,14 +17,14 @@ const DIRECTIONAL_2_POSITION = [-5, -10, -7];
 const DIRECTIONAL_2_INTENSITY = 0.5;
 const POINT_POSITION = [0, 10, 0];
 const POINT_INTENSITY = 0.6;
-const SHADOW_MAP_SIZE = 2048;
+const SHADOW_MAP_SIZE = 1048;
 const BACKGROUND_COLOR = "var(--color-surface)";
 
 const CONTROLS_ENABLE_PAN = true;
 const CONTROLS_ENABLE_ZOOM = true;
 const CONTROLS_ENABLE_ROTATE = true;
-const CONTROLS_MIN_DISTANCE = 1;
-const CONTROLS_MAX_DISTANCE = 100;
+const CONTROLS_MIN_DISTANCE = 5;
+const CONTROLS_MAX_DISTANCE = 40;
 const CONTROLS_TARGET = [0, 0, 0];
 
 // === ERROR BOUNDARY ===
@@ -93,9 +93,36 @@ function extractFilename(file, remoteSrc) {
   }
 }
 
+function getFileExtension(url) {
+  if (!url) return null;
+  const path = url.split('?')[0]; // Remove query params
+  const ext = path.split('.').pop()?.toLowerCase();
+  return ext;
+}
+
 function FBXModel({ url, position }) {
   const fbx = useFBX(url);
   return <primitive object={fbx} position={position} />;
+}
+
+function GLBModel({ url, position }) {
+  const gltf = useGLTF(url);
+  return <primitive object={gltf.scene} position={position} />;
+}
+
+function Model3D({ url, position }) {
+  const ext = getFileExtension(url);
+  
+  if (ext === 'glb' || ext === 'gltf') {
+    return <GLBModel url={url} position={position} />;
+  }
+  
+  if (ext === 'fbx') {
+    return <FBXModel url={url} position={position} />;
+  }
+  
+  // Default to FBX for backwards compatibility
+  return <FBXModel url={url} position={position} />;
 }
 
 export default function MasterMedia3D({
@@ -144,6 +171,19 @@ export default function MasterMedia3D({
     // Wenn beide existieren und unterschiedlich sind, nutze Remote als Fallback
     if (localSrc && computedRemoteSrc && localSrc !== computedRemoteSrc) {
       secondary = computedRemoteSrc;
+    }
+    
+    // Debug logging für 3D-Dateien
+    const ext = getFileExtension(primary);
+    if (ext === 'fbx' || ext === 'glb' || ext === 'gltf') {
+      console.log('[MasterMedia3D] Loading 3D model:', {
+        rawFilename,
+        localSrc,
+        computedRemoteSrc,
+        primary,
+        secondary,
+        format: ext
+      });
     }
     
     return { rawFilename, localSrc, computedRemoteSrc, primary, secondary };
@@ -376,7 +416,7 @@ export default function MasterMedia3D({
           />
           <pointLight position={pointPosition} intensity={pointIntensity} />
           <Suspense fallback={null}>
-            <FBXModel url={currentSrc} position={isMobile ? MODEL_POSITION_MOBILE : MODEL_POSITION} />
+            <Model3D url={currentSrc} position={isMobile ? MODEL_POSITION_MOBILE : MODEL_POSITION} />
           </Suspense>
           <OrbitControls
             ref={controlsRef}
