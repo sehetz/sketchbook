@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <title>Lebenslauf – Sarah Heitz</title>
+  <style>
+    @page {
+      size: A4;
+      margin: 20mm;
+    }
+    
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+      font-size: 10.5pt;
+      line-height: 1.5;
+      color: #121212;
+      background: white;
+    }
+    
+    .container {
+      max-width: 210mm;
+      margin: 0 auto;
+      padding: 0;
+    }
+    
+    /* Header */
+    .header {
+      display: flex;
+      align-items: flex-start;
+      gap: 24px;
+      margin-bottom: 32px;
+      padding-bottom: 24px;
+      border-bottom: 2px solid #121212;
+    }
+    
+    .profile-image {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      object-fit: cover;
+      flex-shrink: 0;
+    }
+    
+    .header-content {
+      flex: 1;
+    }
+    
+    .name {
+      font-size: 24pt;
+      font-weight: 700;
+      line-height: 1.1;
+      margin-bottom: 8px;
+    }
+    
+    .tagline {
+      font-size: 11pt;
+      color: #555;
+      margin-bottom: 12px;
+    }
+    
+    .contact {
+      font-size: 9.5pt;
+      line-height: 1.6;
+    }
+    
+    .contact a {
+      color: #121212;
+      text-decoration: none;
+    }
+    
+    /* Sections */
+    .section {
+      margin-bottom: 28px;
+      page-break-inside: avoid;
+    }
+    
+    .section-title {
+      font-size: 13pt;
+      font-weight: 700;
+      margin-bottom: 16px;
+      padding-bottom: 6px;
+      border-bottom: 1.5px solid #121212;
+    }
+    
+    /* Experience Entry */
+    .entry {
+      margin-bottom: 20px;
+      page-break-inside: avoid;
+    }
+    
+    .entry-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-bottom: 6px;
+    }
+    
+    .entry-title {
+      font-size: 11.5pt;
+      font-weight: 700;
+    }
+    
+    .entry-date {
+      font-size: 10pt;
+      color: #555;
+      white-space: nowrap;
+    }
+    
+    .entry-subtitle {
+      font-size: 10.5pt;
+      color: #555;
+      margin-bottom: 6px;
+    }
+    
+    .entry-description {
+      font-size: 10pt;
+      line-height: 1.5;
+      color: #333;
+    }
+    
+    .entry-link {
+      font-size: 9.5pt;
+      color: #555;
+      margin-top: 4px;
+    }
+    
+    .entry-link a {
+      color: #121212;
+      text-decoration: none;
+    }
+    
+    /* Skills */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+    }
+    
+    .skill-category {
+      margin-bottom: 12px;
+    }
+    
+    .skill-category-title {
+      font-size: 10.5pt;
+      font-weight: 700;
+      margin-bottom: 4px;
+    }
+    
+    .skill-list {
+      font-size: 10pt;
+      line-height: 1.6;
+      color: #333;
+    }
+    
+    /* Footer */
+    .footer {
+      margin-top: 32px;
+      padding-top: 16px;
+      border-top: 1px solid #ddd;
+      font-size: 8.5pt;
+      color: #888;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- Header -->
+    <div class="header">
+      <img src="file:///Users/sarahcarnault/Documents/sketchbook/public/media/Sarah-Heitz-sehetz.jpg" alt="Sarah Heitz" class="profile-image" />
+      <div class="header-content">
+        <h1 class="name">Sarah Heitz</h1>
+        <div class="tagline">Graphic Designer & Illustrator</div>
+        <div class="contact">
+          Basel, Schweiz<br/>
+          <a href="https://sehetz.ch">sehetz.ch</a> · 
+          <a href="mailto:hello@sehetz.ch">hello@sehetz.ch</a>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Profile -->
+    <div class="section">
+      <h2 class="section-title">Profil</h2>
+      <p class="entry-description">
+        Leidenschaftliche Grafikdesignerin und Illustratorin mit über 10 Jahren Erfahrung in den Bereichen 
+        Informationsdesign, Corporate Design und digitale Medien. Spezialisiert auf die Entwicklung 
+        visueller Identitäten, interaktive Webanwendungen und Datenvisualisierung. Erfahren in der 
+        Zusammenarbeit mit interdisziplinären Teams und in der eigenständigen Projektentwicklung.
+      </p>
+    </div>
+    
+    <!-- Experience -->
+    <div class="section">
+      <h2 class="section-title">Berufserfahrung</h2>
+      
+      <div class="entry">
+        <div class="entry-header">
+          <div class="entry-title">Carnault</div>
+          <div class="entry-date">2021 – heute</div>
+        </div>
+        <div class="entry-subtitle">Graphic Designer · Basel</div>
+        <p class="entry-description">Three brothers, one cigarette, and the entire Black Forest. Carnault is an electronic cigarette, developed and largely manufactured in Switzerland. It's a shared dream that we've continually expanded, refreshed, revitalized, and fueled over the past years. I joined the crew in 2021, when the ship had already been sailing for a good 10 years, just in time for the first working prototypes. Whether it's webshops, physical stores, or the design for the products surrounding the cigarette, in a startup, diverse collaboration and a strong team are essential!</p>
+        <div class="entry-link"><a href="https://carnault.com/en">https://carnault.com/en</a></div>
+      </div>
+      <div class="entry">
+        <div class="entry-header">
+          <div class="entry-title">Superdot</div>
+          <div class="entry-date">2020 – heute</div>
+        </div>
+        <div class="entry-subtitle">Information Designer · Basel</div>
+        <p class="entry-description">It is hard to overstate how important my time at Superdot has been for me. Fresh out of a bachelor’s program in a small German province, I found myself working in a studio where the art director had still studied typography directly under Weingart. What started as a traineeship grew into the most formative learning experience of my early career. Darjan and Nicole shaped my development and supported my strengths, for which I remain deeply grateful.</p>
+        <div class="entry-link"><a href="https://www.superdot.studio/">https://www.superdot.studio/</a></div>
+      </div>
+      <div class="entry">
+        <div class="entry-header">
+          <div class="entry-title">Superdot Trainee</div>
+          <div class="entry-date">2019 – 2020</div>
+        </div>
+        <div class="entry-subtitle">Information Designer · Basel</div>
+        <p class="entry-description">For the dreames and achievers</p>
+        <div class="entry-link"><a href="https://www.superdot.studio/">https://www.superdot.studio/</a></div>
+      </div>
+      <div class="entry">
+        <div class="entry-header">
+          <div class="entry-title">Tacheles</div>
+          <div class="entry-date">2018 – 2019</div>
+        </div>
+        <div class="entry-subtitle">Protagonist · Berlin</div>
+        <p class="entry-description">Please excuse the image quality. It’s emotionally true. In 2018, I was working on my bachelor’s thesis, creating concept art for «Als Gott Schlief», a video game project by Yaar. At the same time, a Berlin-based studio was filming the documentary «Endlich Tacheles» about him, his family, their history, and how a video game might me an outlet for coping with it. Because of how closely I was involved with the project, I became part of the film. Designing characters and scenes for a game about memory and inherited trauma while the documentary showed the people carrying it. </p>
+        <div class="entry-link"><a href="https://endlich-tacheles.org/">https://endlich-tacheles.org/</a></div>
+      </div>
+      <div class="entry">
+        <div class="entry-header">
+          <div class="entry-title">Akademia Sztuk Pięknych</div>
+          <div class="entry-date">2017 – 2018</div>
+        </div>
+        <div class="entry-subtitle">Student · Kraków</div>
+        
+        <div class="entry-link"><a href="https://www.asp.krakow.pl/">https://www.asp.krakow.pl/</a></div>
+      </div>
+      <div class="entry">
+        <div class="entry-header">
+          <div class="entry-title">Bühne1</div>
+          <div class="entry-date">2015 – 2021</div>
+        </div>
+        <div class="entry-subtitle">Graphic Designer · Trier</div>
+        
+        <div class="entry-link"><a href="https://buehne1-trier.de/">https://buehne1-trier.de/</a></div>
+      </div>
+      <div class="entry">
+        <div class="entry-header">
+          <div class="entry-title">sehetz</div>
+          <div class="entry-date">2015 – heute</div>
+        </div>
+        <div class="entry-subtitle">Courious Twad · Basel</div>
+        
+        
+      </div>
+      <div class="entry">
+        <div class="entry-header">
+          <div class="entry-title">Fh Trier</div>
+          <div class="entry-date">2015 – 2019</div>
+        </div>
+        <div class="entry-subtitle">Student · Trier</div>
+        <p class="entry-description">Trier University of Applied Sciences isn't the best university in the world, in Germany, or perhaps even in Rhineland-Palatinate. Nevertheless, I wouldn't trade the years I spent there for my bachelor's degree for anything in the world. It was a time of unique community, where we students taught each other tools and techniques, organized courses and excursions, put on exhibitions, and even staged entire plays and productions. What an empowering experience of self-efficacy!</p>
+        <div class="entry-link"><a href="https://www.hochschule-trier.de/en/">https://www.hochschule-trier.de/en/</a></div>
+      </div>
+      <div class="entry">
+        <div class="entry-header">
+          <div class="entry-title">Coop</div>
+          <div class="entry-date">2015 – 2018</div>
+        </div>
+        <div class="entry-subtitle">Graphic Designer · Basel</div>
+        
+        <div class="entry-link"><a href="https://www.coop.ch/de/">https://www.coop.ch/de/</a></div>
+      </div>
+    </div>
+    
+    <!-- Additional Experience -->
+    <div class="section">
+      <h2 class="section-title">Weitere Erfahrungen</h2>
+      
+      <div class="entry">
+        <div class="entry-header">
+          <div class="entry-title">Cubiculum</div>
+          <div class="entry-date">2018 – 2019</div>
+        </div>
+        <div class="entry-subtitle">Pizza-Maker · Trier</div>
+        <p class="entry-description">Pizza machen, Menschen treffen, Abende retten. Ein Job, der überraschend viel über Teamarbeit und Gastfreundschaft lehrt – und über die perfekte Balance von Teig und Temperatur.</p>
+      </div>
+      <div class="entry">
+        <div class="entry-header">
+          <div class="entry-title">Club Aktiv</div>
+          <div class="entry-date">2018 – 2019</div>
+        </div>
+        <div class="entry-subtitle">Leisure Assistance · Trier</div>
+        <p class="entry-description">Als Freizeitassistenz durfte ich Menschen begleiten, stärken und unterstützen. Eine Aufgabe, die mich geerdet hat und meinen Blick für unterschiedliche Lebensrealitäten schärfte.</p>
+      </div>
+      <div class="entry">
+        <div class="entry-header">
+          <div class="entry-title">H&M</div>
+          <div class="entry-date">2015 – 2016</div>
+        </div>
+        <div class="entry-subtitle">Sales Advisor · Basel</div>
+        <p class="entry-description">Zwischen Kleiderständern und Kund*innen lernte ich das, was in keinem Designstudium gelehrt wird: Geduld, Kommunikation und gutes Timing.</p>
+      </div>
+    </div>
+    
+    <!-- Skills -->
+    <div class="section">
+      <h2 class="section-title">Kompetenzen</h2>
+      <div class="skills-grid">
+        <div class="skill-category">
+          <div class="skill-category-title">Design & Gestaltung</div>
+          <div class="skill-list">
+            Corporate Design · Editorial Design<br/>
+            Informationsdesign · Datenvisualisierung<br/>
+            Illustration · Konzeption
+          </div>
+        </div>
+        <div class="skill-category">
+          <div class="skill-category-title">Technische Fähigkeiten</div>
+          <div class="skill-list">
+            Adobe Creative Suite<br/>
+            Figma · Sketch<br/>
+            HTML/CSS · JavaScript · React
+          </div>
+        </div>
+        <div class="skill-category">
+          <div class="skill-category-title">Sprachen</div>
+          <div class="skill-list">
+            Deutsch (Muttersprache)<br/>
+            Englisch (Fließend)<br/>
+            Französisch (Grundkenntnisse)
+          </div>
+        </div>
+        <div class="skill-category">
+          <div class="skill-category-title">Soft Skills</div>
+          <div class="skill-list">
+            Teamarbeit · Projektmanagement<br/>
+            Kommunikation · Konzeptentwicklung<br/>
+            Selbstständiges Arbeiten
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Footer -->
+    <div class="footer">
+      Erstellt am 30. Januar 2026
+    </div>
+  </div>
+</body>
+</html>
