@@ -78,7 +78,7 @@ export function DataProvider({ children }) {
         return JSON.parse(cached);
       }
     } catch (err) {
-      console.warn(`[DataContext] Cache read failed for ${key}:`, err);
+      // Silent error handling
     }
     return null;
   }
@@ -91,7 +91,7 @@ export function DataProvider({ children }) {
     try {
       sessionStorage.setItem(key, JSON.stringify(data));
     } catch (err) {
-      console.warn(`[DataContext] Cache write failed for ${key}:`, err);
+      // Silent error handling
     }
   }
 
@@ -99,47 +99,57 @@ export function DataProvider({ children }) {
   // LOAD PROJECTS
   // ============================================
   
-  async function loadProjects() {
-    // 1) Versuche Cache
+  async function loadProjects(isInitialLoad = false) {
+    let localData = null;
+
+    // 1) SOFORT lokale Daten laden (Cache oder static JSON)
     const cached = loadFromCache(CACHE_KEYS.projects);
     if (cached && Array.isArray(cached) && cached.length > 0) {
+      localData = cached;
       setProjects(cached);
+      if (isInitialLoad) setIsLoading(false); // Sofort anzeigen
     }
 
-    // 2) Versuche static JSON (für Production)
-    try {
-      const res = await fetch("/data/projects.json", { cache: "force-cache" });
-      if (res.ok) {
-        const json = await res.json();
-        const normalized = (json.list || []).map((p) => project_normalize(p, NOCO_BASE));
-        if (normalized.length > 0) {
-          setProjects(normalized);
-          saveToCache(CACHE_KEYS.projects, normalized);
-          return; // Static data geladen, fertig
-        }
-      }
-    } catch (err) {
-      console.warn("[DataContext] Static projects.json failed:", err);
-    }
-
-    // 3) Live-Fetch von NocoDB (nur in Development)
-    if (import.meta.env.DEV) {
+    // 2) Falls kein Cache: Static JSON laden (synchron für User)
+    if (!localData) {
       try {
-        const include = "include=_nc_m2m_sehetz_skills,_nc_m2m_sehetz_gears,_nc_m2m_sehetz_teams&limit=200";
-        const url = `${NOCO_BASE}/api/v2/tables/${PROJECTS_TABLE_ID}/records?${include}`;
-        const res = await fetch(url, { headers: { "xc-token": API_TOKEN } });
-        
+        const res = await fetch("/data/projects.json", { cache: "force-cache" });
         if (res.ok) {
           const json = await res.json();
           const normalized = (json.list || []).map((p) => project_normalize(p, NOCO_BASE));
-          setProjects(normalized);
-          saveToCache(CACHE_KEYS.projects, normalized);
-          console.log(`[DataContext] ✅ Loaded ${normalized.length} projects from API`);
+          if (normalized.length > 0) {
+            localData = normalized;
+            setProjects(normalized);
+            saveToCache(CACHE_KEYS.projects, normalized);
+            if (isInitialLoad) setIsLoading(false); // Sofort anzeigen
+          }
         }
       } catch (err) {
-        console.warn("[DataContext] Live projects fetch failed:", err);
-        setError("Konnte Projekte nicht laden");
+        // Silent error handling
       }
+    }
+
+    // 3) Im Hintergrund: Live-Fetch von NocoDB (immer, auch Production)
+    try {
+      const include = "include=_nc_m2m_sehetz_skills,_nc_m2m_sehetz_gears,_nc_m2m_sehetz_teams&limit=200";
+      const url = `${NOCO_BASE}/api/v2/tables/${PROJECTS_TABLE_ID}/records?${include}`;
+      const res = await fetch(url, { 
+        headers: { "xc-token": API_TOKEN },
+        signal: AbortSignal.timeout(10000) // 10s timeout für langsame Render-Instanz
+      });
+      
+      if (res.ok) {
+        const json = await res.json();
+        const normalized = (json.list || []).map((p) => project_normalize(p, NOCO_BASE));
+        
+        // Nur updaten wenn sich was geändert hat
+        if (JSON.stringify(normalized) !== JSON.stringify(localData)) {
+          setProjects(normalized);
+          saveToCache(CACHE_KEYS.projects, normalized);
+        }
+      }
+    } catch (err) {
+      // Timeout oder Fehler bei API -> kein Problem, lokale Daten sind ja da
     }
   }
 
@@ -147,45 +157,53 @@ export function DataProvider({ children }) {
   // LOAD TEAMS
   // ============================================
   
-  async function loadTeams() {
-    // 1) Versuche Cache
+  async function loadTeams(isInitialLoad = false) {
+    let localData = null;
+
+    // 1) SOFORT lokale Daten laden (Cache oder static JSON)
     const cached = loadFromCache(CACHE_KEYS.teams);
     if (cached && Array.isArray(cached) && cached.length > 0) {
+      localData = cached;
       setTeams(cached);
     }
 
-    // 2) Versuche static JSON
-    try {
-      const res = await fetch("/data/teams.json", { cache: "force-cache" });
-      if (res.ok) {
-        const json = await res.json();
-        const teamsList = json.list || [];
-        if (teamsList.length > 0) {
-          setTeams(teamsList);
-          saveToCache(CACHE_KEYS.teams, teamsList);
-          return;
-        }
-      }
-    } catch (err) {
-      console.warn("[DataContext] Static teams.json failed:", err);
-    }
-
-    // 3) Live-Fetch (nur Development)
-    if (import.meta.env.DEV) {
+    // 2) Falls kein Cache: Static JSON laden
+    if (!localData) {
       try {
-        const url = `${NOCO_BASE}/api/v2/tables/${TEAMS_TABLE_ID}/records`;
-        const res = await fetch(url, { headers: { "xc-token": API_TOKEN } });
-        
+        const res = await fetch("/data/teams.json", { cache: "force-cache" });
         if (res.ok) {
           const json = await res.json();
           const teamsList = json.list || [];
-          setTeams(teamsList);
-          saveToCache(CACHE_KEYS.teams, teamsList);
-          console.log(`[DataContext] ✅ Loaded ${teamsList.length} teams from API`);
+          if (teamsList.length > 0) {
+            localData = teamsList;
+            setTeams(teamsList);
+            saveToCache(CACHE_KEYS.teams, teamsList);
+          }
         }
       } catch (err) {
-        console.warn("[DataContext] Live teams fetch failed:", err);
+        // Silent error handling
       }
+    }
+
+    // 3) Im Hintergrund: Live-Fetch von NocoDB
+    try {
+      const url = `${NOCO_BASE}/api/v2/tables/${TEAMS_TABLE_ID}/records`;
+      const res = await fetch(url, { 
+        headers: { "xc-token": API_TOKEN },
+        signal: AbortSignal.timeout(10000)
+      });
+      
+      if (res.ok) {
+        const json = await res.json();
+        const teamsList = json.list || [];
+        
+        if (JSON.stringify(teamsList) !== JSON.stringify(localData)) {
+          setTeams(teamsList);
+          saveToCache(CACHE_KEYS.teams, teamsList);
+        }
+      }
+    } catch (err) {
+      // Silent error handling
     }
   }
 
@@ -193,17 +211,23 @@ export function DataProvider({ children }) {
   // LOAD INTRO TEXTS
   // ============================================
   
-  async function loadIntroTexts() {
-    // 1) Versuche Cache
+  async function loadIntroTexts(isInitialLoad = false) {
+    let localData = null;
+
+    // 1) SOFORT Cache laden
     const cached = loadFromCache(CACHE_KEYS.intro);
     if (cached && Object.keys(cached).length > 0) {
+      localData = cached;
       setIntroTexts(cached);
     }
 
-    // 2) Live-Fetch (immer, da kleine Datenmenge)
+    // 2) Im Hintergrund: Live-Fetch
     try {
       const url = `${NOCO_BASE}/api/v2/tables/${INTRO_TABLE_ID}/records`;
-      const res = await fetch(url, { headers: { "xc-token": API_TOKEN } });
+      const res = await fetch(url, { 
+        headers: { "xc-token": API_TOKEN },
+        signal: AbortSignal.timeout(10000)
+      });
       
       if (res.ok) {
         const json = await res.json();
@@ -217,12 +241,13 @@ export function DataProvider({ children }) {
           }
         });
         
-        setIntroTexts(textsMap);
-        saveToCache(CACHE_KEYS.intro, textsMap);
-        console.log(`[DataContext] ✅ Loaded ${Object.keys(textsMap).length} intro texts`);
+        if (JSON.stringify(textsMap) !== JSON.stringify(localData)) {
+          setIntroTexts(textsMap);
+          saveToCache(CACHE_KEYS.intro, textsMap);
+        }
       }
     } catch (err) {
-      console.warn("[DataContext] Intro texts fetch failed:", err);
+      // Silent error handling
     }
   }
 
@@ -235,27 +260,26 @@ export function DataProvider({ children }) {
       setIsLoading(true);
       
       // Alle Daten parallel laden für maximale Performance
+      // isInitialLoad=true sorgt dafür, dass lokale Daten sofort angezeigt werden
       await Promise.all([
-        loadProjects(),
-        loadTeams(),
-        loadIntroTexts(),
+        loadProjects(true),
+        loadTeams(true),
+        loadIntroTexts(true),
       ]);
       
       setIsLoading(false);
-      console.log("[DataContext] 🎉 Alle Daten geladen");
     }
 
     loadAllData();
 
-    // Auto-Refresh in Development alle 30 Sekunden
-    if (import.meta.env.DEV) {
-      const refreshInterval = setInterval(() => {
-        console.log("[DataContext] 🔄 Refreshing data...");
-        loadProjects();
-      }, 30000);
-      
-      return () => clearInterval(refreshInterval);
-    }
+    // Auto-Refresh alle 60 Sekunden (auch in Production für Live-Updates)
+    const refreshInterval = setInterval(() => {
+      loadProjects(false);
+      loadTeams(false);
+      loadIntroTexts(false);
+    }, 60000);
+    
+    return () => clearInterval(refreshInterval);
   }, []);
 
   // ============================================
