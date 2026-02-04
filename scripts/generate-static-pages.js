@@ -105,8 +105,8 @@ async function generateStaticPages() {
 
     // Sarah-Heitz page
     let sarahHtml = baseHtml;
-    const sarahTitle = "Sarah Heitz – Illustrator & Designer | Sehetz";
-    const sarahDesc = "Portfolio und Biografie von Sarah Heitz, Illustratorin und Designerin aus Basel, Schweiz.";
+    const sarahTitle = "Sarah Elena Heitz – Illustrator & Designer | Sehetz";
+    const sarahDesc = "Portfolio and biography of Sarah Heitz, illustrator and designer from Basel, Switzerland.";
     sarahHtml = sarahHtml.replace(
       /<title>.*?<\/title>/,
       `<title>${sarahTitle}</title>`
