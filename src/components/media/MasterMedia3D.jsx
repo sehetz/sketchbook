@@ -434,6 +434,7 @@ export default function MasterMedia3D({
               RIGHT: 2,  // Right click: Pan
             }}
             touches={{
+              ONE: 0,    // 1-finger: Rotate
               TWO: 2,    // 2-finger: Pan
             }}
           />

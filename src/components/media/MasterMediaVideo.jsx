@@ -72,7 +72,7 @@ export default function MasterMediaVideo({
       muted={muted}
       playsInline={playsInline}
       onError={handleError}
-      style={{ backgroundColor: 'transparent', display: 'block', width: '100%', height: '100%' }}
+      style={{ backgroundColor: 'var(--color-surface)', display: 'block', width: '100%', height: '100%' }}
     />
   );
 }
