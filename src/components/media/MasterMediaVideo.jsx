@@ -63,16 +63,24 @@ export default function MasterMediaVideo({
   }
 
   return (
-    <video
-      ref={videoRef}
-      className={className}
-      src={computed.primary}
-      autoPlay={autoPlay}
-      loop={loop}
-      muted={muted}
-      playsInline={playsInline}
-      onError={handleError}
-      style={{ backgroundColor: 'var(--color-surface)', display: 'block', width: '100%', height: '100%' }}
-    />
+    <div style={{ 
+      backgroundColor: 'var(--color-surface)', 
+      width: '100%', 
+      height: '100%',
+      display: 'block',
+      position: 'relative'
+    }}>
+      <video
+        ref={videoRef}
+        className={className}
+        src={computed.primary}
+        autoPlay={autoPlay}
+        loop={loop}
+        muted={muted}
+        playsInline={playsInline}
+        onError={handleError}
+        style={{ display: 'block', width: '100%', height: '100%', position: 'relative', zIndex: 1 }}
+      />
+    </div>
   );
 }
