@@ -36,6 +36,24 @@ export default function TimelineViz() {
   const [projects, setProjects] = useState([]);
   const [isMobile, setIsMobile] = useState(false);
   const [hoveredProjectId, setHoveredProjectId] = useState(null);
+  const [isDarkMode, setIsDarkMode] = useState(false);
+
+  // Track dark mode changes
+  useEffect(() => {
+    const checkDarkMode = () => {
+      setIsDarkMode(document.documentElement.classList.contains('dark'));
+    };
+    checkDarkMode();
+    
+    // Watch for class changes on root element
+    const observer = new MutationObserver(checkDarkMode);
+    observer.observe(document.documentElement, {
+      attributes: true,
+      attributeFilter: ['class']
+    });
+    
+    return () => observer.disconnect();
+  }, []);
 
   // Read CSS variables for colors and dimensions
   const cssVars = useMemo(() => {
@@ -94,7 +112,7 @@ export default function TimelineViz() {
       lineDotGap: parseCSSValueInPx('--line-dot-gap', root),
       fontSans: getCSSVar('--font-sans', root),
     };
-  }, []);
+  }, [isDarkMode]);
 
   // ============================================
   // DATEN AUS CONTEXT HOLEN (statt fetch)
