@@ -50,6 +50,11 @@
 /* Project Dots */
 .project-dot {
   pointer-events: none;
+  transition: fill var(--transition-hover);
+}
+
+.project-dot-group:hover .project-dot {
+  fill: var(--color-timeline-hover);
 }
 
 /* Project Tooltips (background rect) */
