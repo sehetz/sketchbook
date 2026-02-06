@@ -59,7 +59,7 @@
   --line-solid: var(--line-width) solid var(--color-fg);
   --line-dotted: var(--line-width) dotted var(--color-fg);
   --line-dot-size: 0.1px;
-  --line-dot-gap: 10px;
+  --line-dot-gap: 6px;
   --size-border-thin: 2px;
 
   /* 💫 ANIMATIONS & TRANSITIONS */
@@ -91,6 +91,38 @@
   --size-svg-rx: 6;
   --size-line-dasharray: 0.1;
   --size-line-gap: 4;
+
+  /* 📊 TIMELINE DIMENSIONS */
+  --timeline-dot-radius-desktop: 4px;
+  --timeline-dot-radius-mobile: 2px;
+  --timeline-dot-hit-area: 14px;
+  --timeline-year-spacing-desktop: 96px;
+  --timeline-year-spacing-mobile: 120px;
+  --timeline-project-stack-y: 24px;
+  --timeline-project-stack-y-mobile: 64px;
+  --timeline-bar-width-design: 32px;
+  --timeline-bar-width-nondesign: 12px;
+  --timeline-bar-radius-design: 18px;
+  --timeline-bar-radius-nondesign: 8px;
+  --timeline-bar-overshoot: 12px;
+  --timeline-circle-radius-design: 28px;
+  --timeline-circle-radius-nondesign: 12px;
+  --timeline-circle-offset: 32px;
+  --timeline-label-offset-above-bar: 32px;
+  --timeline-label-line-height: 14px;
+  --timeline-label-line-height-mobile: 24px;
+  --timeline-teams-min-gap: 12px;
+  --timeline-teams-start-x: 96px;
+  --timeline-teams-end-x-offset: 96px;
+  --timeline-tooltip-offset-x: 24px;
+  --timeline-tooltip-offset-x-mobile: 12px;
+  --timeline-tooltip-padding: 8px;
+  --timeline-tooltip-height: 24px;
+  --timeline-tooltip-height-mobile: 52px;
+  --timeline-tooltip-padding-top: 6px;
+  --timeline-mobile-header-margin: 64px;
+  --timeline-year-padding-left-desktop: 20px;
+  --timeline-year-padding-left-mobile: 12px;
 
   /* 📐 LAYOUT DIMENSIONS */
   --layout-image-grid-minmax: 200px;

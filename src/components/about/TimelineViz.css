@@ -2,6 +2,23 @@
    TimelineViz.css – SVG Timeline Styles
    ============================================ */
 
+/* Timeline-specific CSS Variables (derived from tokens) */
+:root {
+  --timeline-padding-top: var(--space-48);
+  --timeline-padding-right: var(--space-24);
+  --timeline-padding-bottom: var(--space-48);
+  --timeline-padding-left: var(--space-6);
+  --timeline-year-font-size: 18px;
+  --timeline-year-font-size-mobile: 18px;
+  --timeline-label-font-size: 12px;
+  --timeline-label-font-size-mobile: var(--space-6);
+  --timeline-project-label-font-size: 12px;
+  --timeline-project-label-font-size-mobile: 32px;
+  --timeline-label-font-weight: 800;
+  --timeline-label-font-weight-mobile: 400;
+
+}
+
 /* Base SVG Elements */
 .project-dot-hit {
   pointer-events: all;
@@ -67,14 +84,14 @@
 
 /* Responsive Mobile */
 @media (max-width: 768px) {
-  /* Show team labels always on mobile (no hover needed) */
-  .team-label {
-    opacity: 1;
-    visibility: visible;
+  /* Hide team labels in the main timeline (only show in header) */
+  .team-group .team-label {
+    opacity: 0;
+    visibility: hidden;
   }
 
-  /* Don't hide on hover on mobile since already visible */
-  .team-group:hover .team-label {
+  /* Show team labels in header only */
+  .team-header-mobile .team-label {
     opacity: 1;
     visibility: visible;
   }

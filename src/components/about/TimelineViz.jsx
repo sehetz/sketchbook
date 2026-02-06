@@ -8,119 +8,26 @@ import "./TimelineViz.css";
 // 
 // Zeigt Teams auf einer Timeline mit zugehörigen Projects.
 // DATEN kommen aus DataContext (teams + projects)
+// STYLING kommt aus globalen CSS Tokens (tokens.css + TimelineViz.css)
 
-// 🎨 TWEAKABLE VALUES – All design constants in one place
-// These are LOCAL to this component. Adjust here without affecting global tokens.
+// Helper function to read CSS custom properties
+function getCSSVar(name, element = document.documentElement) {
+  return getComputedStyle(element).getPropertyValue(name).trim();
+}
 
-const TWEAK_LIGHT = {
-  // 🎨 COLORS (Light Mode)
-  text: "#121212",                // Year labels, team names, project titles
-  line: "#121212",                // Dotted grid lines
-  circle: "#EFEFEF",              // Link circles
-  gradientStart: "#DBDBDB",       // Bar gradient top
-  gradientEnd: "#F6F6F6",         // Bar gradient bottom
-  tooltipBg: "#ffffff",           // Tooltip background (will be updated by component)
-  tooltipStroke: "none",          // Tooltip border
-  tooltipOpacity: 1,              // Tooltip opacity on hover
-  projectLabelText: "#121212",    // Project label text color (dark on light background)
-};
+function parseCSSValue(value) {
+  // getComputedStyle returns computed values in px, so we can safely parse
+  // Handle values like "120px", "7.5rem" etc. - getComputedStyle already converts to px
+  const num = parseFloat(value);
+  return isNaN(num) ? 0 : num;
+}
 
-const TWEAK_DARK = {
-  // 🎨 COLORS (Dark Mode)
-  text: "#ffffff",                // Year labels, team names, project titles
-  line: "#ffffff",                // Dotted grid lines
-  circle: "#3a3a3a",              // Link circles
-  gradientStart: "#2a2a2a",       // Bar gradient top
-  gradientEnd: "#1f1f1f",         // Bar gradient bottom
-  tooltipBg: "#121212",           // Tooltip background (black for dark mode)
-  tooltipStroke: "none",          // Tooltip border
-  tooltipOpacity: 1,              // Tooltip opacity on hover
-  projectLabelText: "#ffffff",    // Project label text color (white, visible on black)
-};
-
-const TWEAK = {
-  // 📊 DOT SIZES
-  dots: {
-    radiusDesktop: 4,    // Project dot size on desktop
-    radiusMobile: 2,     // Project dot size on mobile
-    hitAreaRadius: 14,   // Invisible hit area for better clickability
-    spacingMobile: 20,   // Horizontal spacing between dots on mobile
-  },
-
-  // 🏷 PROJECT LABELS (Projekt-Namen/Titel in Tooltips)
-  projectLabels: {
-    fontSizeDesktop: 12,     // Font size on desktop
-    fontSizeMobile: 32,      // Font size on mobile
-    bgPadding: 8,            // Padding inside tooltip background
-    bgHeight: 24,            // Height of tooltip background rect on desktop
-    bgHeightMobile: 52,      // Height of tooltip background rect on mobile (increased)
-    paddingTop: 6,           // Padding above tooltip background
-    offsetX: 24,             // Horizontal distance from dot to label
-    offsetXMobile: 12,       // Horizontal distance from dot to label on mobile
-  },
-
-  // 🔤 FONT SIZES (typography) – OTHER
-  fonts: {
-    yearDesktop: 24,     // Year label size
-    yearMobile: 20,      // Year label size mobile (if needed)
-    labelDesktop: 12,    // Team label font size
-    labelMobile: 24,     // Team label font size mobile
-  },
-
-  // 📏 SPACING & DIMENSIONS
-  spacing: {
-    padding: { top: 120, right: 96, bottom: 60, left: 24 },
-    yearSpacingDesktop: 96,    // Vertical distance between years
-    yearSpacingMobile: 120,      // Vertical distance between years on mobile
-    projectStackY: 24,          // Vertical stacking distance between multiple project dots per year
-    projectStackYMobile: 64,    // Vertical stacking distance on mobile (more space)
-    projectStackX: 0,           // Horizontal stacking distance between dots (desktop - no offset)
-    projectStackXMobile: 0,     // Horizontal stacking distance on mobile - no offset, only vertical
-    projectVerticalMargin: 16,  // Vertical margin above and below dots from year lines
-    mobileHeaderBottomMargin: 64, // Margin below mobile team header
-  },
-
-  // 📐 BAR STYLING
-  bars: {
-    widthDesign: 32,        // Design work bar width
-    widthNondesign: 12,     // Non-design work bar width
-    radiusDesign: 18,       // Border radius for design bars
-    radiusNondesign: 8,     // Border radius for non-design bars
-    overshoot: 12,          // Extra padding above/below bars
-  },
-
-  // 🔗 LINK CIRCLES
-  circles: {
-    radiusDesign: 28,          // Circle size for design work
-    radiusNondesign: 12,       // Circle size for non-design work
-    offsetDesign: 32,          // Distance above bar for design circles
-    offsetNondesign: 32,       // Distance above bar for non-design circles
-  },
-
-  // 🎯 TEAM LABELS
-  labels: {
-    offsetAboveBar: 32,    // Distance above bar to show team name
-    lineHeight: 14,        // Line height between team name lines (desktop)
-    lineHeightMobile: 24,  // Line height between team name lines (mobile)
-  },
-
-  // 📊 GRID LINES
-  lines: {
-    strokeWidth: 3,        // Width of dotted grid lines
-    dashArrayDesktop: "0.1 8",  // Dash pattern on desktop
-    dashArrayMobile: "0.1 4",   // Dash pattern on mobile
-  },
-
-  // 📐 SVG LAYOUT
-  svgWidth: 1000,          // SVG viewBox width
-  teamsMinGap: 12,         // Minimum gap between teams
-  teamsStartX: 96,         // Left edge of team plotting area
-  teamsEndXOffset: 96,     // Right edge offset
-
-  // 🔤 YEAR LABEL LETTER SPACING
-  yearLetterSpacing: 0,  // Letter spacing for year labels
-  letterSpacingMobile: 0.25, // Extra letter spacing for all text on mobile
-};
+function parseCSSValueInPx(name, element = document.documentElement) {
+  // This gets the computed pixel value directly
+  const value = getComputedStyle(element).getPropertyValue(name).trim();
+  const num = parseFloat(value);
+  return isNaN(num) ? 0 : num;
+}
 
 export default function TimelineViz() {
   const [teams, setTeams] = useState([]);
@@ -129,24 +36,65 @@ export default function TimelineViz() {
   const [projects, setProjects] = useState([]);
   const [isMobile, setIsMobile] = useState(false);
   const [hoveredProjectId, setHoveredProjectId] = useState(null);
-  const [isDark, setIsDark] = useState(false);
 
-  // Detect dark mode
-  useEffect(() => {
-    const checkDarkMode = () => {
-      const isDarkMode = document.documentElement.classList.contains("dark");
-      setIsDark(isDarkMode);
+  // Read CSS variables for colors and dimensions
+  const cssVars = useMemo(() => {
+    const root = document.documentElement;
+    return {
+      // Colors
+      colorFg: getCSSVar('--color-fg', root),
+      colorBg: getCSSVar('--color-bg', root),
+      colorCircle: getCSSVar('--color-timeline-circle', root),
+      colorGradientStart: getCSSVar('--color-timeline-gradient-start', root),
+      colorGradientEnd: getCSSVar('--color-timeline-gradient-end', root),
+      
+      // Dimensions (using direct pixel computation)
+      dotRadiusDesktop: parseCSSValueInPx('--timeline-dot-radius-desktop', root),
+      dotRadiusMobile: parseCSSValueInPx('--timeline-dot-radius-mobile', root),
+      dotHitArea: parseCSSValueInPx('--timeline-dot-hit-area', root),
+      yearSpacingDesktop: parseCSSValueInPx('--timeline-year-spacing-desktop', root),
+      yearSpacingMobile: parseCSSValueInPx('--timeline-year-spacing-mobile', root),
+      projectStackY: parseCSSValueInPx('--timeline-project-stack-y', root),
+      projectStackYMobile: parseCSSValueInPx('--timeline-project-stack-y-mobile', root),
+      barWidthDesign: parseCSSValueInPx('--timeline-bar-width-design', root),
+      barWidthNondesign: parseCSSValueInPx('--timeline-bar-width-nondesign', root),
+      barRadiusDesign: parseCSSValueInPx('--timeline-bar-radius-design', root),
+      barRadiusNondesign: parseCSSValueInPx('--timeline-bar-radius-nondesign', root),
+      barOvershoot: parseCSSValueInPx('--timeline-bar-overshoot', root),
+      circleRadiusDesign: parseCSSValueInPx('--timeline-circle-radius-design', root),
+      circleRadiusNondesign: parseCSSValueInPx('--timeline-circle-radius-nondesign', root),
+      circleOffset: parseCSSValueInPx('--timeline-circle-offset', root),
+      labelOffsetAboveBar: parseCSSValueInPx('--timeline-label-offset-above-bar', root),
+      labelLineHeight: parseCSSValueInPx('--timeline-label-line-height', root),
+      labelLineHeightMobile: parseCSSValueInPx('--timeline-label-line-height-mobile', root),
+      teamsMinGap: parseCSSValueInPx('--timeline-teams-min-gap', root),
+      teamsStartX: parseCSSValueInPx('--timeline-teams-start-x', root),
+      teamsEndXOffset: parseCSSValueInPx('--timeline-teams-end-x-offset', root),
+      tooltipOffsetX: parseCSSValueInPx('--timeline-tooltip-offset-x', root),
+      tooltipOffsetXMobile: parseCSSValueInPx('--timeline-tooltip-offset-x-mobile', root),
+      tooltipPadding: parseCSSValueInPx('--timeline-tooltip-padding', root),
+      tooltipHeight: parseCSSValueInPx('--timeline-tooltip-height', root),
+      tooltipHeightMobile: parseCSSValueInPx('--timeline-tooltip-height-mobile', root),
+      tooltipPaddingTop: parseCSSValueInPx('--timeline-tooltip-padding-top', root),
+      mobileHeaderMargin: parseCSSValueInPx('--timeline-mobile-header-margin', root),
+      paddingTop: parseCSSValueInPx('--timeline-padding-top', root),
+      paddingRight: parseCSSValueInPx('--timeline-padding-right', root),
+      paddingBottom: parseCSSValueInPx('--timeline-padding-bottom', root),
+      paddingLeft: parseCSSValueInPx('--timeline-padding-left', root),
+      yearFontSize: parseCSSValueInPx('--timeline-year-font-size', root),
+      yearFontSizeMobile: parseCSSValueInPx('--timeline-year-font-size-mobile', root),
+      labelFontSize: parseCSSValueInPx('--timeline-label-font-size', root),
+      labelFontSizeMobile: parseCSSValueInPx('--timeline-label-font-size-mobile', root),
+      labelFontWeight: getCSSVar('--timeline-label-font-weight', root),
+      labelFontWeightMobile: getCSSVar('--timeline-label-font-weight-mobile', root),
+      projectLabelFontSize: parseCSSValueInPx('--timeline-project-label-font-size', root),
+      projectLabelFontSizeMobile: parseCSSValueInPx('--timeline-project-label-font-size-mobile', root),
+      lineStrokeWidth: parseCSSValueInPx('--line-width', root),
+      lineDotSize: parseCSSValueInPx('--line-dot-size', root),
+      lineDotGap: parseCSSValueInPx('--line-dot-gap', root),
+      fontSans: getCSSVar('--font-sans', root),
     };
-    checkDarkMode();
-    const observer = new MutationObserver(checkDarkMode);
-    observer.observe(document.documentElement, { attributes: true, attributeFilter: ["class"] });
-    return () => observer.disconnect();
   }, []);
-
-  // Create colors object from theme constants
-  const colors = useMemo(() => {
-    return isDark ? TWEAK_DARK : TWEAK_LIGHT;
-  }, [isDark]);
 
   // ============================================
   // DATEN AUS CONTEXT HOLEN (statt fetch)
@@ -262,13 +210,14 @@ export default function TimelineViz() {
 
   // Derived dimensions
   const yearRange = maxYear - minYear;
-  const width = TWEAK.svgWidth;
-  const mobileHeaderOffset = isMobile ? TWEAK.spacing.mobileHeaderBottomMargin : 0;
-  const height = TWEAK.spacing.padding.top + TWEAK.spacing.padding.bottom + (yearRange * TWEAK.spacing.yearSpacingDesktop) + mobileHeaderOffset;
-  const teamsStartX = TWEAK.teamsStartX;
-  const teamsEndX = width - TWEAK.teamsEndXOffset;
+  const width = 1000; // SVG viewBox width
+  const mobileHeaderOffset = isMobile ? cssVars.mobileHeaderMargin : 0;
+  const heightContent = yearRange * cssVars.yearSpacingDesktop;
+  const height = cssVars.paddingTop + cssVars.paddingBottom + heightContent + mobileHeaderOffset;
+  const teamsStartX = cssVars.teamsStartX;
+  const teamsEndX = width - cssVars.teamsEndXOffset;
   const plotWidth = teamsEndX - teamsStartX;
-  const yearToY = (year) => TWEAK.spacing.padding.top + mobileHeaderOffset + ((maxYear - year) * TWEAK.spacing.yearSpacingDesktop);
+  const yearToY = (year) => cssVars.paddingTop + mobileHeaderOffset + ((maxYear - year) * cssVars.yearSpacingDesktop);
 
   // Memoized computed data
   const uniqueTeams = useMemo(() => [...new Set(teams.map((t) => t.team))], [teams]);
@@ -282,7 +231,7 @@ export default function TimelineViz() {
     });
   }, [uniqueTeams, projects, isMobile]);
   
-  const teamSpacing = Math.max(TWEAK.teamsMinGap, (plotWidth || 1) / Math.max(1, teamsWithProjects.length));
+  const teamSpacing = Math.max(cssVars.teamsMinGap, (plotWidth || 1) / Math.max(1, teamsWithProjects.length));
   const teamToX = (teamIndex, teamName = null) => {
     // On mobile, use filtered teams for spacing
     if (isMobile && teamName) {
@@ -304,17 +253,16 @@ export default function TimelineViz() {
   }, [projects]);
 
   // Responsive config values
-  const yearSpacingD = isMobile ? TWEAK.spacing.yearSpacingMobile : TWEAK.spacing.yearSpacingDesktop;
-  const projectStackYD = isMobile ? TWEAK.spacing.projectStackYMobile : TWEAK.spacing.projectStackY;
-  const projectStackXD = isMobile ? TWEAK.spacing.projectStackXMobile : TWEAK.spacing.projectStackX;
-  const projectDotRadiusD = isMobile ? TWEAK.dots.radiusMobile : TWEAK.dots.radiusDesktop;
-  const lineDashArrayD = isMobile ? TWEAK.lines.dashArrayMobile : TWEAK.lines.dashArrayDesktop;
-  const tooltipOffsetXD = isMobile ? TWEAK.projectLabels.offsetXMobile : TWEAK.projectLabels.offsetX;
-  const labelLineHeight = isMobile ? TWEAK.labels.lineHeightMobile : TWEAK.labels.lineHeight;
-  const letterSpacingMobile = `${TWEAK.letterSpacingMobile}px`;
-  const letterSpacingD = isMobile ? letterSpacingMobile : undefined;
-  const yearLetterSpacingD = isMobile ? letterSpacingMobile : `${TWEAK.yearLetterSpacing}px`;
-  const teamLabelWeight = isMobile ? "400" : "800";
+  const dotRadius = isMobile ? cssVars.dotRadiusMobile : cssVars.dotRadiusDesktop;
+  const projectStackY = isMobile ? cssVars.projectStackYMobile : cssVars.projectStackY;
+  const tooltipOffsetX = isMobile ? cssVars.tooltipOffsetXMobile : cssVars.tooltipOffsetX;
+  const labelLineHeight = isMobile ? cssVars.labelLineHeightMobile : cssVars.labelLineHeight;
+  const labelFontSize = isMobile ? cssVars.labelFontSizeMobile : cssVars.labelFontSize;
+  const projectLabelFontSize = isMobile ? cssVars.projectLabelFontSizeMobile : cssVars.projectLabelFontSize;
+  const labelFontWeight = isMobile ? cssVars.labelFontWeightMobile : cssVars.labelFontWeight;
+  const yearFontSize = isMobile ? cssVars.yearFontSizeMobile : cssVars.yearFontSize;
+  const lineDashArray = `${cssVars.lineDotSize} ${cssVars.lineDotGap}`;
+  const tooltipHeight = isMobile ? cssVars.tooltipHeightMobile : cssVars.tooltipHeight;
 
   // Measure mobile label width to keep exact padding (8px per side)
   const measureMobileLabelWidth = useMemo(() => {
@@ -323,43 +271,41 @@ export default function TimelineViz() {
     const ctx = canvas.getContext("2d");
     if (!ctx) return () => 0;
     const cache = new Map();
-    const fontSize = TWEAK.projectLabels.fontSizeMobile;
-    const letterSpacing = TWEAK.letterSpacingMobile;
-    ctx.font = `${fontSize}px SF Pro Rounded`;
+    const fontSize = isMobile ? cssVars.projectLabelFontSizeMobile : cssVars.projectLabelFontSize;
+    ctx.font = `${fontSize}px ${cssVars.fontSans}`;
     return (text = "") => {
       if (cache.has(text)) return cache.get(text);
       const baseWidth = ctx.measureText(text).width;
-      const width = baseWidth + Math.max(0, text.length - 1) * letterSpacing;
+      const width = baseWidth + Math.max(0, text.length - 1) * 0.25;
       cache.set(text, width);
       return width;
     };
-  }, [isMobile]);
+  }, [isMobile, cssVars.projectLabelFontSizeMobile, cssVars.projectLabelFontSize, cssVars.fontSans]);
 
   if (teams.length === 0) return null;
 
   // ---------- Inner SVG components ----------
 
-  function ProjectTooltip({ x, y, title, colors }) {
-    const tooltipWidth = Math.max(80, Math.min(220, title.length * 7 + TWEAK.projectLabels.bgPadding * 2));
-    const bgHeightD = isMobile ? TWEAK.projectLabels.bgHeightMobile : TWEAK.projectLabels.bgHeight;
+  function ProjectTooltip({ x, y, title }) {
+    const tooltipWidth = Math.max(80, Math.min(220, title.length * 7 + cssVars.tooltipPadding * 2));
     return (
       <rect
         className="project-tooltip-bg"
         x={x}
-        y={y - bgHeightD / 2 - TWEAK.projectLabels.paddingTop}
+        y={y - tooltipHeight / 2 - cssVars.tooltipPaddingTop}
         width={tooltipWidth}
-        height={bgHeightD}
-        rx={bgHeightD / 2}
-        ry={bgHeightD / 2}
-        fill={colors.tooltipBg}
-        stroke={colors.tooltipStroke}
-        opacity={colors.tooltipOpacity}
+        height={tooltipHeight}
+        rx={tooltipHeight / 2}
+        ry={tooltipHeight / 2}
+        fill={cssVars.colorBg}
+        stroke="none"
+        opacity={1}
       />
     );
   }
 
   function ProjectDot({ x, y, title, teamIdx, slug, skillSlug }) {
-    const tx = x + tooltipOffsetXD - TWEAK.projectLabels.bgPadding;
+    const tx = x + tooltipOffsetX - cssVars.tooltipPadding;
     const projectId = `${teamIdx}-${x}-${y}-${title}`;
     
     const handleClick = (e) => {
@@ -380,23 +326,22 @@ export default function TimelineViz() {
         <circle
           cx={x}
           cy={y}
-          r={TWEAK.dots.hitAreaRadius}
+          r={cssVars.dotHitArea}
           fill="transparent"
           className="project-dot-hit"
         />
-        <circle cx={x} cy={y} r={projectDotRadiusD} fill={colors.text} className="project-dot" />
+        <circle cx={x} cy={y} r={dotRadius} fill={cssVars.colorFg} className="project-dot" />
         {/* Only render tooltip on desktop (on mobile it's in the overlay) */}
         {!isMobile && (
           <>
-            <ProjectTooltip x={tx} y={y} title={title} colors={colors} />
+            <ProjectTooltip x={tx} y={y} title={title} />
             <text
-              x={tx + TWEAK.projectLabels.bgPadding}
-              y={y - TWEAK.projectLabels.paddingTop + 5}
-              fontSize={isMobile ? TWEAK.projectLabels.fontSizeMobile : TWEAK.projectLabels.fontSizeDesktop}
-              fontFamily="'TikTok Sans', 'Helvetica', Arial, sans-serif"
-              fontWeight={TWEAK.projectLabels.fontWeight}
+              x={tx + cssVars.tooltipPadding}
+              y={y - cssVars.tooltipPaddingTop + 5}
+              fontSize={cssVars.projectLabelFontSize}
+              fontFamily={cssVars.fontSans}
               textAnchor="start"
-              fill={colors.projectLabelText}
+              fill={cssVars.colorFg}
               className="project-title"
               style={{ pointerEvents: "none" }}
             >
@@ -417,8 +362,8 @@ export default function TimelineViz() {
 
     // Render non-hovered secondary projects
     secondary.forEach((p, sIdx) => {
-      const posY = dotY + (sIdx + 1) * projectStackYD;
-      const posX = teamToX(teamIdx) + (sIdx + 1) * projectStackXD;
+      const posY = dotY + (sIdx + 1) * projectStackY;
+      const posX = teamToX(teamIdx);
       const projectId = `${teamIdx}-${posX}-${posY}-${p.title}`;
       if (hoveredProjectId === projectId) {
         hoveredDot = <ProjectDot key={`sec-${sIdx}`} x={posX} y={posY} title={p.title} teamIdx={teamIdx} slug={p.slug} skillSlug={p.skillSlug} />;
@@ -450,11 +395,10 @@ export default function TimelineViz() {
     const firstBarStartY = yearToY(firstBar.start);
     const firstBarEndY = yearToY(firstBar.end || maxYear);
     const barTopY = Math.min(firstBarStartY, firstBarEndY);
-    const labelY = barTopY - TWEAK.bars.overshoot - TWEAK.labels.offsetAboveBar;
-    const circleOffset = firstBar.designWork ? TWEAK.circles.offsetDesign : TWEAK.circles.offsetNondesign;
-    const circleY = labelY + circleOffset;
+    const labelY = barTopY - cssVars.barOvershoot - cssVars.labelOffsetAboveBar;
+    const circleY = labelY + cssVars.circleOffset;
     const hasLink = Boolean(firstBar.link);
-    const circleRadius = firstBar.designWork ? TWEAK.circles.radiusDesign : TWEAK.circles.radiusNondesign;
+    const circleRadius = firstBar.designWork ? cssVars.circleRadiusDesign : cssVars.circleRadiusNondesign;
 
     const teamProjects = projectsByTeam[teamName] || [];
     const projectsByYear = {};
@@ -471,7 +415,7 @@ export default function TimelineViz() {
               cx={x}
               cy={circleY}
               r={circleRadius}
-              fill={colors.circle}
+              fill={cssVars.colorCircle}
               className="team-circle"
               style={{ cursor: "pointer" }}
             />
@@ -483,15 +427,15 @@ export default function TimelineViz() {
           const startY = yearToY(t.start);
           const endY = yearToY(t.end || maxYear);
           const barHeight = Math.abs(endY - startY);
-          const barWidth = t.designWork ? TWEAK.bars.widthDesign : TWEAK.bars.widthNondesign;
-          const barRadius = t.designWork ? TWEAK.bars.radiusDesign : TWEAK.bars.radiusNondesign;
+          const barWidth = t.designWork ? cssVars.barWidthDesign : cssVars.barWidthNondesign;
+          const barRadius = t.designWork ? cssVars.barRadiusDesign : cssVars.barRadiusNondesign;
           return (
             <rect
               key={`bar-${teamIdx}-${i}`}
               x={x - barWidth / 2}
-              y={Math.min(startY, endY) - TWEAK.bars.overshoot}
+              y={Math.min(startY, endY) - cssVars.barOvershoot}
               width={barWidth}
-              height={barHeight + TWEAK.bars.overshoot * 2}
+              height={barHeight + cssVars.barOvershoot * 2}
               fill={`url(#gradient-${teamIdx})`}
               rx={barRadius}
             />
@@ -512,13 +456,12 @@ export default function TimelineViz() {
         <text
           x={x}
           y={labelY}
-          fontSize={isMobile ? TWEAK.fonts.labelMobile : TWEAK.fonts.labelDesktop}
-          fontFamily="'TikTok Sans', 'Helvetica', Arial, sans-serif"
-          fontWeight={teamLabelWeight}
+          fontSize={labelFontSize}
+          fontFamily={cssVars.fontSans}
+          fontWeight={labelFontWeight}
           textAnchor="middle"
-          fill={colors.text}
+          fill={cssVars.colorFg}
           className="team-label"
-          letterSpacing={letterSpacingD}
           style={{ pointerEvents: "none" }}
         >
           {teamName.split(" ").map((w, idx) => (
@@ -532,7 +475,7 @@ export default function TimelineViz() {
                 key={`role-${rIdx}`}
                 x={x}
                 dy={labelLineHeight}
-                fontSize={isMobile ? TWEAK.fonts.labelMobile : TWEAK.fonts.labelDesktop}
+                fontSize={labelFontSize}
                 fontWeight="400"
               >
                 {rw}
@@ -548,14 +491,14 @@ export default function TimelineViz() {
     <svg
       width="100%"
       height="100%"
-      viewBox={`0 0 ${width} ${height}`}
+      viewBox={`0 ${-cssVars.paddingTop - 120} ${width} ${height + 240}`}
       style={{ maxWidth: "100%", height: "auto" }}
     >
       <defs>
         {teams.map((team, idx) => (
           <linearGradient key={`grad-${idx}`} id={`gradient-${idx}`} x1="0%" y1="0%" x2="0%" y2="100%">
-            <stop offset="0%" stopColor={colors.gradientStart} />
-            <stop offset="100%" stopColor={colors.gradientEnd} />
+            <stop offset="0%" stopColor={cssVars.colorGradientStart} />
+            <stop offset="100%" stopColor={cssVars.colorGradientEnd} />
           </linearGradient>
         ))}
       </defs>
@@ -571,38 +514,16 @@ export default function TimelineViz() {
             y1={y}
             x2={width}
             y2={y}
-            stroke={colors.line}
-            strokeWidth={TWEAK.lines.strokeWidth}
-            strokeDasharray={lineDashArrayD}
+            stroke={cssVars.colorFg}
+            strokeWidth={cssVars.lineStrokeWidth}
+            strokeDasharray={lineDashArray}
             strokeLinecap="round"
             vectorEffect="non-scaling-stroke"
           />
         );
       })}
 
-      {/* Year labels – BACKGROUND */}
-      {Array.from({ length: yearRange + 1 }, (_, i) => {
-        const year = maxYear - i;
-        const y = yearToY(year);
-        return (
-          <text
-            key={`year-${year}`}
-            x={TWEAK.spacing.padding.left}
-            y={y - TWEAK.spacing.yearSpacingDesktop / 5}
-            fontSize={isMobile ? TWEAK.fonts.yearMobile : TWEAK.fonts.yearDesktop}
-            // fontFamily="'TikTok Sans', 'Helvetica', Arial, sans-serif"
-            fontFamily="'TikTok Sans', 'Helvetica', Arial, sans-serif"
-            letterSpacing={yearLetterSpacingD}
-            textAnchor="start"
-            fill={colors.text}
-          >
-            {year}
-          </text>
-        );
-      })}
-
       {/* Team groups (bars + dots + labels) – FOREGROUND */}
-      {/* On desktop: render teams normally with circles positioned above bars */}
       {!isMobile && (
         <>
           {/* Render non-hovered teams first */}
@@ -625,7 +546,7 @@ export default function TimelineViz() {
       {isMobile && (
         <>
           {/* Mobile team header - circles and labels in a row at top */}
-          <g className="team-header-mobile" style={{ transform: `translateY(0)` }}>
+          <g className="team-header-mobile">
             {uniqueTeams.map((teamName, teamIdx) => {
               const teamData = teams.filter((t) => t.team === teamName);
               const teamProjects = projectsByTeam[teamName] || [];
@@ -635,9 +556,9 @@ export default function TimelineViz() {
               
               const firstBar = teamData[0];
               const hasLink = Boolean(firstBar.link);
-              const circleRadius = firstBar.designWork ? TWEAK.circles.radiusDesign : TWEAK.circles.radiusNondesign;
+              const circleRadius = firstBar.designWork ? cssVars.circleRadiusDesign : cssVars.circleRadiusNondesign;
               const x = teamToX(teamIdx, teamName);
-              const headerY = 100; // Fixed position at top (more space)
+              const headerY = -32; // Fixed -32px above the timeline
               
               return (
                 <g key={`header-${teamIdx}`}>
@@ -648,31 +569,26 @@ export default function TimelineViz() {
                         cx={x}
                         cy={headerY}
                         r={circleRadius}
-                        fill={colors.circle}
+                        fill={cssVars.colorCircle}
                         className="team-circle"
                         style={{ cursor: "pointer" }}
                       />
                     </a>
                   )}
                   
-                  {/* Team label */}
+                  {/* Team label - full name on one line, above circle */}
                   <text
                     x={x}
-                    y={headerY - 12}
-                    fontSize={TWEAK.fonts.labelMobile}
-                    fontFamily="'TikTok Sans', 'Helvetica', Arial, sans-serif"
-                    fontWeight={teamLabelWeight}
+                    y={headerY - circleRadius + 32}
+                    fontSize={yearFontSize}
+                    fontFamily={cssVars.fontSans}
+                    fontWeight={labelFontWeight}
                     textAnchor="middle"
-                    fill={colors.text}
+                    fill={cssVars.colorFg}
                     className="team-label"
-                    letterSpacing={letterSpacingMobile}
                     style={{ pointerEvents: "none" }}
                   >
-                    {teamName.split(" ").map((w, idx) => (
-                      <tspan key={idx} x={x} dy={idx === 0 ? 0 : labelLineHeight}>
-                        {w}
-                      </tspan>
-                    ))}
+                    {teamName}
                   </text>
                 </g>
               );
@@ -704,15 +620,15 @@ export default function TimelineViz() {
                   const startY = yearToY(t.start);
                   const endY = yearToY(t.end || maxYear);
                   const barHeight = Math.abs(endY - startY);
-                  const barWidth = t.designWork ? TWEAK.bars.widthDesign : TWEAK.bars.widthNondesign;
-                  const barRadius = t.designWork ? TWEAK.bars.radiusDesign : TWEAK.bars.radiusNondesign;
+                  const barWidth = t.designWork ? cssVars.barWidthDesign : cssVars.barWidthNondesign;
+                  const barRadius = t.designWork ? cssVars.barRadiusDesign : cssVars.barRadiusNondesign;
                   return (
                     <rect
                       key={`bar-${idx}-${i}`}
                       x={x - barWidth / 2}
-                      y={Math.min(startY, endY) - TWEAK.bars.overshoot}
+                      y={Math.min(startY, endY) - cssVars.barOvershoot}
                       width={barWidth}
-                      height={barHeight + TWEAK.bars.overshoot * 2}
+                      height={barHeight + cssVars.barOvershoot * 2}
                       fill={`url(#gradient-${idx})`}
                       rx={barRadius}
                     />
@@ -732,7 +648,6 @@ export default function TimelineViz() {
             );
           })}
 
-          {/* Render hovered team LAST (on top) */}
           {/* Render hovered team LAST (on top) */}
           {uniqueTeams.map((teamName, idx) => {
             const hasHoveredProject = hoveredProjectId?.startsWith(`${idx}-`);
@@ -758,15 +673,15 @@ export default function TimelineViz() {
                   const startY = yearToY(t.start);
                   const endY = yearToY(t.end || maxYear);
                   const barHeight = Math.abs(endY - startY);
-                  const barWidth = t.designWork ? TWEAK.bars.widthDesign : TWEAK.bars.widthNondesign;
-                  const barRadius = t.designWork ? TWEAK.bars.radiusDesign : TWEAK.bars.radiusNondesign;
+                  const barWidth = t.designWork ? cssVars.barWidthDesign : cssVars.barWidthNondesign;
+                  const barRadius = t.designWork ? cssVars.barRadiusDesign : cssVars.barRadiusNondesign;
                   return (
                     <rect
                       key={`bar-${idx}-${i}`}
                       x={x - barWidth / 2}
-                      y={Math.min(startY, endY) - TWEAK.bars.overshoot}
+                      y={Math.min(startY, endY) - cssVars.barOvershoot}
                       width={barWidth}
-                      height={barHeight + TWEAK.bars.overshoot * 2}
+                      height={barHeight + cssVars.barOvershoot * 2}
                       fill={`url(#gradient-${idx})`}
                       rx={barRadius}
                     />
@@ -788,6 +703,31 @@ export default function TimelineViz() {
         </>
       )}
 
+      {/* Year labels – render before project labels */}
+      {Array.from({ length: yearRange + 1 }, (_, i) => {
+        const year = maxYear - i;
+        const y = yearToY(year);
+        const yearPaddingLeft = isMobile 
+          ? parseCSSValueInPx('--timeline-year-padding-left-mobile')
+          : parseCSSValueInPx('--timeline-year-padding-left-desktop');
+        return (
+          <text
+            key={`year-${year}`}
+            x={yearPaddingLeft}
+            y={y - 12}
+            fontSize={yearFontSize}
+            fontFamily={cssVars.fontSans}
+            fontWeight="500"
+            textAnchor="start"
+            fill={cssVars.colorFg}
+            dominantBaseline="middle"
+            style={{ pointerEvents: "none" }}
+          >
+            {year}
+          </text>
+        );
+      })}
+
       {/* On mobile: render all project tooltip backgrounds first, then texts on top */}
       {isMobile && (
         <g className="project-labels-overlay">
@@ -808,9 +748,9 @@ export default function TimelineViz() {
               const posX = teamToX(teamIdx, teamName);
 
               return projs.map((p, idx) => {
-                const posY = dotY + idx * projectStackYD;
+                const posY = dotY + idx * projectStackY;
                 const tx = posX; // Center the label on the team column
-                const labelPadding = 28;
+                const labelPadding = 18;
                 const textWidth = isMobile ? measureMobileLabelWidth(p.title) : 0;
                 const tooltipWidth = isMobile ? textWidth + labelPadding * 2 : 0;
                 
@@ -831,24 +771,23 @@ export default function TimelineViz() {
                     <rect
                       className="project-tooltip-bg"
                       x={posX - tooltipWidth / 2}
-                      y={posY - TWEAK.projectLabels.bgHeightMobile / 2 - TWEAK.projectLabels.paddingTop}
+                      y={posY - cssVars.tooltipHeightMobile / 2 - cssVars.tooltipPaddingTop}
                       width={tooltipWidth}
-                      height={TWEAK.projectLabels.bgHeightMobile}
-                      rx={TWEAK.projectLabels.bgHeightMobile / 2}
-                      ry={TWEAK.projectLabels.bgHeightMobile / 2}
-                      fill={colors.circle}
-                      stroke={colors.tooltipStroke}
-                      opacity={colors.tooltipOpacity}
+                      height={cssVars.tooltipHeightMobile}
+                      rx={cssVars.tooltipHeightMobile / 2}
+                      ry={cssVars.tooltipHeightMobile / 2}
+                      fill={cssVars.colorCircle}
+                      stroke="none"
+                      opacity={1}
                     />
                     <text
                       x={tx}
                       y={posY + 5}
-                      fontSize={TWEAK.projectLabels.fontSizeMobile}
-                      fontFamily="'TikTok Sans', 'Helvetica', Arial, sans-serif"
+                      fontSize={isMobile ? cssVars.projectLabelFontSizeMobile : cssVars.projectLabelFontSize}
+                      fontFamily={cssVars.fontSans}
                       textAnchor="middle"
-                      fill={colors.projectLabelText}
+                      fill={cssVars.colorFg}
                       className="project-title"
-                      letterSpacing={letterSpacingMobile}
                     >
                       {p.title}
                     </text>
