@@ -252,6 +252,29 @@ async function generateStaticPages() {
     await fs.mkdir(impressumDir, { recursive: true });
     await fs.writeFile(path.join(impressumDir, "index.html"), impressumHtml, "utf8");
     console.log(`✅ /impressum/`);
+
+    // Mission Iris page
+    let missionIrisHtml = baseHtml;
+    const missionIrisTitle = "Mission Iris – Sehetz Webcomic";
+    const missionIrisDesc = "Mission Iris – a webcomic by Sarah Heitz. Explore the story.";
+    missionIrisHtml = missionIrisHtml.replace(
+      /<title>.*?<\/title>/,
+      `<title>${missionIrisTitle}</title>`
+    );
+    missionIrisHtml = missionIrisHtml.replace(
+      /<\/head>/,
+      `    <meta name="description" content="${missionIrisDesc}" />
+    <link rel="canonical" href="https://sehetz.ch/mission-iris" />
+    <meta property="og:title" content="${missionIrisTitle}" />
+    <meta property="og:description" content="${missionIrisDesc}" />
+    <meta property="og:url" content="https://sehetz.ch/mission-iris" />
+    <meta property="og:type" content="website" />
+  </head>`
+    );
+    const missionIrisDir = path.resolve(__dirname, "../dist/mission-iris");
+    await fs.mkdir(missionIrisDir, { recursive: true });
+    await fs.writeFile(path.join(missionIrisDir, "index.html"), missionIrisHtml, "utf8");
+    console.log(`✅ /mission-iris/`);
     
     console.log(`\n✨ Generated static policy pages!`);
   } catch (err) {
