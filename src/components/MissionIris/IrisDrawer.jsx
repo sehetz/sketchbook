@@ -1,35 +1,38 @@
 // ============================================
 // IrisDrawer.jsx – Collapsible lore drawer
-// Same visual language as CaseContainer / CaseHeader
+// Controlled: isOpen + onToggle from parent.
+// simple  → no background, no border on open (Synopsis, Project)
+// noPadding → fixed header height, no body padding (World, Characters)
 // ============================================
-import { useState } from "react";
 
-export default function IrisDrawer({ title, children, defaultOpen = false }) {
-  const [isOpen, setIsOpen] = useState(defaultOpen);
+export default function IrisDrawer({ title, children, noPadding = false, simple = false, isOpen, onToggle }) {
+  const classes = [
+    "iris-drawer",
+    isOpen ? "iris-drawer--open" : "",
+    noPadding ? "iris-drawer--fixed-header" : "",
+    simple ? "iris-drawer--simple" : "",
+  ].filter(Boolean).join(" ");
 
   return (
-    <div className={`iris-drawer ${isOpen ? "iris-drawer--open" : ""}`}>
+    <div className={classes}>
       {/* Header row – same pattern as case-header */}
       <div
         className="iris-drawer__header case-header flex text-1 p-6"
-        onClick={() => setIsOpen((v) => !v)}
+        onClick={onToggle}
         role="button"
         aria-expanded={isOpen}
         tabIndex={0}
-        onKeyDown={(e) => (e.key === "Enter" || e.key === " ") && setIsOpen((v) => !v)}
+        onKeyDown={(e) => (e.key === "Enter" || e.key === " ") && onToggle()}
       >
         <div className="flex-1 axis-left">{title}</div>
-        <div className="iris-drawer__arrow axis-right" aria-hidden="true">
-          {isOpen ? "↑" : "↓"}
-        </div>
       </div>
 
-      {/* Collapsible body */}
-      {isOpen && (
-        <div className="iris-drawer__body p-6-all text-3">
+      {/* Collapsible body – wipe animation (same as main page) */}
+      <div className={`wipe${isOpen ? " open" : ""}`}>
+        <div className={`iris-drawer__body text-2${noPadding ? "" : " p-6-all"}`}>
           {children}
         </div>
-      )}
+      </div>
     </div>
   );
 }

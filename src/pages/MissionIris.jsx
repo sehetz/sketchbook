@@ -1,66 +1,120 @@
 // src/pages/MissionIris.jsx
-import Header from "../components/layout/Header/Header";
 import Footer from "../components/layout/Footer/Footer";
+import IrisHeader from "../components/MissionIris/IrisHeader";
 import IrisDrawer from "../components/MissionIris/IrisDrawer";
-import IrisPage from "../components/MissionIris/IrisPage";
-import { useEffect } from "react";
-
-// ── Lore content ──────────────────────────────────────────────
-const LORE = [
-  {
-    title: "Synopsis",
-    content: "Placeholder – the story of Mission Iris in a few sentences.",
-  },
-  {
-    title: "World",
-    content: "Placeholder – setting, lore, rules of the universe.",
-  },
-  {
-    title: "Characters",
-    content: "Placeholder – main cast and their roles.",
-  },
-  {
-    title: "Project",
-    content: "Placeholder – how the comic is made, tools, schedule.",
-  },
-];
+import IrisSubItem from "../components/MissionIris/IrisSubItem";
+import IrisPageViewer from "../components/MissionIris/IrisPageViewer";
+import { useState, useEffect } from "react";
 
 // ── Comic pages – newest first ────────────────────────────────
 const PAGES = [
-  { number: 1, title: "Page title", date: "Feb 2026", imageSrc: null },
+  { number: 1, title: "Page title", date: "Feb 2026", imageSrc: "media/iris/mission-iris-page-001.webp" },
+  { number: 2, title: "Page title", date: "Feb 2026", imageSrc: "media/iris/mission-iris-page-002.webp" },
+  { number: 3, title: "Page title", date: "Feb 2026", imageSrc: "media/iris/mission-iris-page-003.webp" },
 ];
 
 // ─────────────────────────────────────────────────────────────
 
 export default function MissionIris() {
+  const [openDrawer, setOpenDrawer] = useState(null);
+  const [readMode, setReadMode] = useState(false);
+
+  // Apply dark mode for the entire Iris sub-site
+  useEffect(() => {
+    document.documentElement.classList.add("dark");
+    return () => {
+      document.documentElement.classList.remove("dark");
+      document.documentElement.classList.remove("iris-read");
+    };
+  }, []);
+
+  // Toggle reading mode
+  useEffect(() => {
+    if (readMode) {
+      document.documentElement.classList.add("iris-read");
+    } else {
+      document.documentElement.classList.remove("iris-read");
+    }
+  }, [readMode]);
+
+  const handleToggle = (key) => {
+    setOpenDrawer((prev) => (prev === key ? null : key));
+  };
+
   useEffect(() => {
     document.title = "Mission Iris — Sehetz";
   }, []);
 
   return (
     <>
-      <Header />
+      <IrisHeader readMode={readMode} onToggle={() => setReadMode((v) => !v)} />
       <main>
         {/* ── Section 1: Comic page feed ── */}
         <section className="iris-pages">
-          {PAGES.length === 0 ? (
-            <div className="iris-pages__empty flex p-6-all text-3 axis-center border-top-dotted">
-              No pages yet — check back soon.
-            </div>
-          ) : (
-            [...PAGES].reverse().map((page) => (
-              <IrisPage key={page.number} page={page} />
-            ))
-          )}
+          <IrisPageViewer pages={PAGES} />
         </section>
 
         {/* ── Section 2: Lore drawers ── */}
         <section className="iris-lore">
-          {LORE.map((item, i) => (
-            <IrisDrawer key={item.title} title={item.title} defaultOpen={i === 0}>
-              {item.content}
-            </IrisDrawer>
-          ))}
+
+          <IrisDrawer title="Synopsis" simple
+            isOpen={openDrawer === "Synopsis"}
+            onToggle={() => handleToggle("Synopsis")}>
+            Mission Iris is a visual sci-fi rock opera: a story about two women, two gods and one all-seeing eye.
+          </IrisDrawer>
+
+          <IrisDrawer title="World" noPadding
+            isOpen={openDrawer === "World"}
+            onToggle={() => handleToggle("World")}>
+            <IrisSubItem
+              index={0}
+              title="Iris Spaceship"
+              description="The Iris-unit is a lightweight spaceship for long-distance journeys — and it's packed with plenty of fun extras!"
+              imageSrc="media/iris/mission-iris-world-iris-spaceship.webp"
+            />
+          </IrisDrawer>
+
+          <IrisDrawer title="Characters" noPadding
+            isOpen={openDrawer === "Characters"}
+            onToggle={() => handleToggle("Characters")}>
+            <IrisSubItem
+              index={0}
+              title="Verda-Star-WI"
+              description="Verda Star WI may be as wild as her origin, but those who lean toward extremes are often the easiest to control."
+              imageSrc="media/iris/mission-iris-characters-verda.webp"
+            />
+            <IrisSubItem
+              index={1}
+              title="Kat-Shar-OR"
+              description="Kat Shar OR is friendly, reliable, creative, and just. All qualities that would flourish in a fair society. But fate had other plans. None of this applies on the Menemne orbit station, where she lives."
+              imageSrc="media/iris/mission-iris-characters-kat.webp"
+            />
+            <IrisSubItem
+              index={2}
+              title="Iru"
+              description=""
+              imageSrc={null}
+            />
+            <IrisSubItem
+              index={3}
+              title="Menemne"
+              description=""
+              imageSrc={null}
+            />
+            <IrisSubItem
+              index={4}
+              title="IRIS"
+              description=""
+              imageSrc={null}
+            />
+          </IrisDrawer>
+
+          <IrisDrawer title="Project" simple
+            isOpen={openDrawer === "Project"}
+            onToggle={() => handleToggle("Project")}>
+            My plan is to complete three episodes by the end of 2026. I want to publish the work in a small printed edition, ideally using Risograph printing. Before printing, I want to slowly build visibility for Mission Iris through social media, once enough pages exist to allow for a consistent and thoughtful posting rhythm.
+          </IrisDrawer>
+
         </section>
       </main>
       <Footer />
