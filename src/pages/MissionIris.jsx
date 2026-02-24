@@ -89,7 +89,7 @@ const handleToggle = (key) => {
               index={0}
               title="Verda-Star-WI"
               description="Verda Star WI may be as wild as her origin, but those who lean toward extremes are often the easiest to control."
-              imageSrc="media/iris/mission-iris-characters-verda.webp"
+              imageSrc="/media/iris/mission-iris-characters-verda.webp"
             />
             <IrisSubItem
               index={1}
