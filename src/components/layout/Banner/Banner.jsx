@@ -1,17 +1,17 @@
 import "./Banner.css";
 
-export default function Banner({ pdfUrl = "https://raw.githubusercontent.com/sehetz/sketchbook/main/public/Mission%20Iris%20Concept.pdf" }) {
-  const bannerText = "Mission Iris + Comic Concept ";
+export default function Banner({ href = "mailto:hoi@sehetz.ch" }) {
+  const bannerText = "Let's work together!";
 
   return (
     <a 
-      href={pdfUrl}
+      href={href}
       className="banner"
       target="_blank"
       rel="noopener noreferrer"
       role="button"
     >
-      <div className="banner__content">
+      <div className="banner__content text-3">
         <div className="banner__scroll">
           {/* Repeat text multiple times for seamless loop */}
           {[...Array(100)].map((_, i) => (

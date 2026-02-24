@@ -17,6 +17,8 @@
   --color-fg: #121212;
   --color-surface: #f6f6f6;
   --color-link: #121212;
+  --color-yellow: #FFFB78;
+  --color-yellow-highlight: #fff243;
 
   /* 🧱 SPACING SCALE */
   --space-1: 0.25rem; /* 4px */
@@ -55,12 +57,12 @@
   --text-3-letter: 0.12px;
 
   /* 🧩 LINE STYLES */
-  --line-width: 2.5px;
+  --line-width: 2.0px;
   --line-solid: var(--line-width) solid var(--color-fg);
   --line-dotted: var(--line-width) dotted var(--color-fg);
   --line-dot-size: 0.1px;
   --line-dot-gap: 6px;
-  --size-border-thin: 2px;
+  --size-border-thin: 1.5px;
 
   /* 💫 ANIMATIONS & TRANSITIONS */
   --transition-fast: 0.125s ease;

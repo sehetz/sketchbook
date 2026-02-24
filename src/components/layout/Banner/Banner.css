@@ -8,12 +8,12 @@
   height: 64px;
   border: none;
   /* border-bottom: var(--size-border-thin) solid var(--color-fg);  */
-  background: var(--color-bg);
+  background: var(--color-yellow);
   color: var(--color-fg);
 }
 
 .banner:hover {
-  background-color: var(--color-surface);
+  background-color: var(--color-yellow-highlight);
   color: var(--color-fg);
 }
 
@@ -32,9 +32,6 @@
   gap: var(--space-6); /* 24px between repeats */
   animation: scroll-left 1000s linear infinite;
   white-space: nowrap;
-  font-family: var(--font-sans);
-  font-size: var(--text-3-size);
-  line-height: var(--text-1-line);
   will-change: transform;
 }
 
