@@ -35,11 +35,11 @@ function Thumbnail({ page, isCurrent, onClick }) {
 }
 
 export default function IrisPageViewer({ pages }) {
-  // pages are passed newest-first; index 0 = latest
-  const sorted = [...pages].reverse(); // oldest → newest for index logic
+  // pages are passed beliebig; sortiere nach number aufsteigend (alt → neu)
+  const sorted = [...pages].sort((a, b) => a.number - b.number);
   const total = sorted.length;
 
-  // Start on the newest (last in sorted = highest number)
+  // Start auf dem neuesten (höchste Nummer)
   const [currentIndex, setCurrentIndex] = useState(total - 1);
   const [overviewOpen, setOverviewOpen] = useState(false);
 

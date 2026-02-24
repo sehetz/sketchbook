@@ -8,10 +8,18 @@ import { useState, useEffect } from "react";
 
 // ── Comic pages – newest first ────────────────────────────────
 const PAGES = [
-  { number: 1, title: "Page title", date: "Feb 2026", imageSrc: "/media/iris/mission-iris-page-001.webp" },
-  { number: 2, title: "Page title", date: "Feb 2026", imageSrc: "/media/iris/mission-iris-page-002.webp" },
-  { number: 3, title: "Page title", date: "Feb 2026", imageSrc: "/media/iris/mission-iris-page-003.webp" },
+  { number: 1, title: "Page title", date: "Feb 2026", imageSrc: "media/iris/mission-iris-page-001.webp" },
+  { number: 2, title: "Page title", date: "Feb 2026", imageSrc: "media/iris/mission-iris-page-002.webp" },
+  { number: 3, title: "Page title", date: "Feb 2026", imageSrc: "media/iris/mission-iris-page-003.webp" },
 ];
+  { number: 4, title: "Page title", date: "Feb 2026", imageSrc: "/media/iris/mission-iris-page-004.webp" },
+  { number: 5, title: "Page title", date: "Feb 2026", imageSrc: "/media/iris/mission-iris-page-005.webp" },
+  { number: 6, title: "Page title", date: "Feb 2026", imageSrc: "/media/iris/mission-iris-page-006.webp" },
+  { number: 7, title: "Page title", date: "Feb 2026", imageSrc: "/media/iris/mission-iris-page-007.webp" },
+  { number: 8, title: "Page title", date: "Feb 2026", imageSrc: "/media/iris/mission-iris-page-008.webp" },
+  { number: 9, title: "Page title", date: "Feb 2026", imageSrc: "/media/iris/mission-iris-page-009.webp" },
+  { number: 10, title: "Page title", date: "Feb 2026", imageSrc: "/media/iris/mission-iris-page-010.webp" },
+  { number: 11, title: "Page title", date: "Feb 2026", imageSrc: "/media/iris/mission-iris-page-011.webp" },
 
 // ─────────────────────────────────────────────────────────────
 
@@ -38,7 +46,7 @@ export default function MissionIris() {
   }, [readMode]);
 
   const handleToggle = (key) => {
-    setOpenDrawer((prev) => (prev === key ? null : key));
+    setOpenDrawer((prev) => (preprev= key ? null : key));
   };
 
   useEffect(() => {
@@ -70,7 +78,7 @@ export default function MissionIris() {
               index={0}
               title="Iris Spaceship"
               description="The Iris-unit is a lightweight spaceship for long-distance journeys — and it's packed with plenty of fun extras!"
-              imageSrc="/media/iris/mission-iris-world-iris-spaceship.webp"
+              imageSrc="media/iris/mission-iris-world-iris-spaceship.webp"
             />
           </IrisDrawer>
 
@@ -81,13 +89,13 @@ export default function MissionIris() {
               index={0}
               title="Verda-Star-WI"
               description="Verda Star WI may be as wild as her origin, but those who lean toward extremes are often the easiest to control."
-              imageSrc="/media/iris/mission-iris-characters-verda.webp"
+              imageSrc="media/iris/mission-iris-characters-verda.webp"
             />
             <IrisSubItem
               index={1}
               title="Kat-Shar-OR"
               description="Kat Shar OR is friendly, reliable, creative, and just. All qualities that would flourish in a fair society. But fate had other plans. None of this applies on the Menemne orbit station, where she lives."
-              imageSrc="/media/iris/mission-iris-characters-kat.webp"
+              imageSrc="media/iris/mission-iris-characters-kat.webp"
             />
             <IrisSubItem
               index={2}
