@@ -78,7 +78,7 @@ const handleToggle = (key) => {
               index={0}
               title="Iris Spaceship"
               description="The Iris-unit is a lightweight spaceship for long-distance journeys — and it's packed with plenty of fun extras!"
-              imageSrc="media/iris/mission-iris-world-iris-spaceship.webp"
+              imageSrc="/media/iris/mission-iris-world-iris-spaceship.webp"
             />
           </IrisDrawer>
 
@@ -95,7 +95,7 @@ const handleToggle = (key) => {
               index={1}
               title="Kat-Shar-OR"
               description="Kat Shar OR is friendly, reliable, creative, and just. All qualities that would flourish in a fair society. But fate had other plans. None of this applies on the Menemne orbit station, where she lives."
-              imageSrc="media/iris/mission-iris-characters-kat.webp"
+              imageSrc="/media/iris/mission-iris-characters-kat.webp"
             />
             <IrisSubItem
               index={2}
