@@ -73,7 +73,7 @@ export default function IrisPageViewer({ pages }) {
           disabled={!hasPrev}
           aria-label="Previous page"
         >
-          ← prev
+          ←
         </button>
 
         {/* Overview toggle – center */}
@@ -100,7 +100,7 @@ export default function IrisPageViewer({ pages }) {
           disabled={!hasNext}
           aria-label="Next page"
         >
-          next →
+           →
         </button>
       </div>
 
