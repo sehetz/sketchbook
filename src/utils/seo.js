@@ -376,6 +376,7 @@ export function sitemap_generate(projects = [], text_labelToSlug) {
   const urls = [
     { loc: baseUrl, lastmod: new Date().toISOString().split('T')[0], priority: "1.0" },
     { loc: `${baseUrl}/sarah-heitz`, lastmod: new Date().toISOString().split('T')[0], priority: "0.9" },
+    { loc: `${baseUrl}/mission-iris`, lastmod: new Date().toISOString().split('T')[0], priority: "0.8" },
     { loc: `${baseUrl}/impressum`, lastmod: new Date().toISOString().split('T')[0], priority: "0.3" },
     { loc: `${baseUrl}/privacy`, lastmod: new Date().toISOString().split('T')[0], priority: "0.3" },
   ];
