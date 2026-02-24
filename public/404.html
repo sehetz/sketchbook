@@ -13,8 +13,11 @@
     <h1>404 - Page Not Found</h1>
     <p>Redirecting to home page...</p>
     <script>
-      // Ensure this is served with 404 status
-      // and redirect to home for SPA routing
+      // GitHub Pages SPA routing hack:
+      // Save the current path/query/hash to sessionStorage,
+      // then redirect to / so the React app can handle the route.
+      var path = window.location.pathname + window.location.search + window.location.hash;
+      sessionStorage.setItem('spa_redirect', path);
       window.location.replace('/');
     </script>
   </body>
