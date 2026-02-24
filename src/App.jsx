@@ -17,6 +17,7 @@ const DataView = lazy(() => import("./components/DataView/DataView"));
 const Impressum = lazy(() => import("./pages/Impressum"));
 const About = lazy(() => import("./pages/About"));
 const Privacy = lazy(() => import("./pages/Privacy"));
+const MissionIris = lazy(() => import("./pages/MissionIris"));
 
 function App() {
   // Simple client-side page switch (reacts to history / popstate)
@@ -85,6 +86,7 @@ function App() {
   if (normalized === "/about") return <DataProvider><Suspense fallback={<div className="loading">Loading...</div>}><About /></Suspense></DataProvider>;
   if (normalized === "/privacy") return <Suspense fallback={<div className="loading">Loading...</div>}><Privacy /></Suspense>;
   if (normalized === "/impressum") return <Suspense fallback={<div className="loading">Loading...</div>}><Impressum /></Suspense>;
+  if (normalized === "/mission-iris") return <Suspense fallback={<div className="loading">Loading...</div>}><MissionIris /></Suspense>;
 
   return (
     <DataProvider>

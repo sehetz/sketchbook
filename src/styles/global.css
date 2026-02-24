@@ -855,3 +855,42 @@ strong,
     width: 32px;
   }
 }
+
+/* ============================================
+   MISSION IRIS
+   ============================================ */
+
+/* Lore drawers */
+.iris-lore {
+  border-bottom: var(--line-solid);
+}
+.iris-drawer {
+  border-top: var(--line-solid);
+}
+.iris-drawer__header {
+  align-items: center;
+}
+.iris-drawer__arrow {
+  flex: 0 0 auto;
+  padding-left: var(--space-4);
+  font-size: var(--text-3-size);
+  user-select: none;
+}
+.iris-drawer__body {
+  padding-top: var(--space-6);
+  padding-bottom: var(--space-8);
+}
+
+/* Comic page rows */
+.iris-page {
+  align-items: flex-start;
+}
+.iris-page__image {
+  display: block;
+}
+.iris-page__number {
+  opacity: 0.4;
+}
+.iris-pages__empty {
+  opacity: 0.5;
+}
