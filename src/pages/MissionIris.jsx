@@ -8,9 +8,9 @@ import { useState, useEffect } from "react";
 
 // ── Comic pages – newest first ────────────────────────────────
 const PAGES = [
-  { number: 1, title: "Page title", date: "Feb 2026", imageSrc: "media/iris/mission-iris-page-001.webp" },
-  { number: 2, title: "Page title", date: "Feb 2026", imageSrc: "media/iris/mission-iris-page-002.webp" },
-  { number: 3, title: "Page title", date: "Feb 2026", imageSrc: "media/iris/mission-iris-page-003.webp" },
+  { number: 1, title: "Page title", date: "Feb 2026", imageSrc: "/media/iris/mission-iris-page-001.webp" },
+  { number: 2, title: "Page title", date: "Feb 2026", imageSrc: "/media/iris/mission-iris-page-002.webp" },
+  { number: 3, title: "Page title", date: "Feb 2026", imageSrc: "/media/iris/mission-iris-page-003.webp" },
   { number: 4, title: "Page title", date: "Feb 2026", imageSrc: "/media/iris/mission-iris-page-004.webp" },
   { number: 5, title: "Page title", date: "Feb 2026", imageSrc: "/media/iris/mission-iris-page-005.webp" },
   { number: 6, title: "Page title", date: "Feb 2026", imageSrc: "/media/iris/mission-iris-page-006.webp" },
@@ -45,9 +45,9 @@ export default function MissionIris() {
     }
   }, [readMode]);
 
-  const handleToggle = (key) => {
-    setOpenDrawer((prev) => (preprev= key ? null : key));
-  };
+const handleToggle = (key) => {
+  setOpenDrawer((prev) => (prev === key ? null : key));
+};
 
   useEffect(() => {
     document.title = "Mission Iris — Sehetz";

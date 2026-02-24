@@ -1059,3 +1059,7 @@ strong,
     grid-template-columns: repeat(3, 1fr);
   }
 }
+
+.iris-read .header, .iris-read .header * {
+  color: #888 !important;
+}
