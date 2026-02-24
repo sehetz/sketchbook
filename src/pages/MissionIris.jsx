@@ -11,7 +11,6 @@ const PAGES = [
   { number: 1, title: "Page title", date: "Feb 2026", imageSrc: "media/iris/mission-iris-page-001.webp" },
   { number: 2, title: "Page title", date: "Feb 2026", imageSrc: "media/iris/mission-iris-page-002.webp" },
   { number: 3, title: "Page title", date: "Feb 2026", imageSrc: "media/iris/mission-iris-page-003.webp" },
-];
   { number: 4, title: "Page title", date: "Feb 2026", imageSrc: "/media/iris/mission-iris-page-004.webp" },
   { number: 5, title: "Page title", date: "Feb 2026", imageSrc: "/media/iris/mission-iris-page-005.webp" },
   { number: 6, title: "Page title", date: "Feb 2026", imageSrc: "/media/iris/mission-iris-page-006.webp" },
@@ -20,6 +19,7 @@ const PAGES = [
   { number: 9, title: "Page title", date: "Feb 2026", imageSrc: "/media/iris/mission-iris-page-009.webp" },
   { number: 10, title: "Page title", date: "Feb 2026", imageSrc: "/media/iris/mission-iris-page-010.webp" },
   { number: 11, title: "Page title", date: "Feb 2026", imageSrc: "/media/iris/mission-iris-page-011.webp" },
+];
 
 // ─────────────────────────────────────────────────────────────
 
