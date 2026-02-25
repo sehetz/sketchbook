@@ -83,7 +83,7 @@ const handleToggle = (key) => {
             <IrisSubItem
               index={1}
               title="Menemne Station"
-              description="Menemne Station is Humanities last big civilization hub, orbiting around a mostly inhabitable Earth. Ruled by the node council & Menemne humans live in a state of isolated community where everyone serves a purpose (well, they better do!)"
+              description="Menemne Station is Humanities last big civilization hub, orbiting around a mostly uninhabitable Earth. Ruled by the node council & Menemne humans live in a state of isolated community where everyone serves a purpose (well, they better do!)"
               imageSrc="/media/iris/mission-iris-world-menemne-station.webp"
             />
           </IrisDrawer>
