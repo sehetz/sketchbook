@@ -27,7 +27,7 @@ export default function LinkBlock({ text }) {
             href={url}
             target="_blank"
             rel="noopener noreferrer"
-            className="flex axis-left text-2 link-block__link"
+            className=" axis-left text-2 link-block__link"
           >
             <span className="link-block__icon" aria-hidden="true">🔗</span>
             <span className="link-block__text">{label}</span>
