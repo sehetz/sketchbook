@@ -80,6 +80,12 @@ const handleToggle = (key) => {
               description="The Iris-unit is a lightweight spaceship for long-distance journeys — and it's packed with plenty of fun extras!"
               imageSrc="/media/iris/mission-iris-world-iris-spaceship.webp"
             />
+            <IrisSubItem
+              index={1}
+              title="Menemne Station"
+              description="Menemne Station is Humanities last big civilization hub, orbiting around a mostly inhabitable Earth. Ruled by the node council & Menemne humans live in a state of isolated community where everyone serves a purpose (well, they better do!)"
+              imageSrc="/media/iris/mission-iris-world-menemne-station.webp"
+            />
           </IrisDrawer>
 
           <IrisDrawer title="Characters" noPadding
