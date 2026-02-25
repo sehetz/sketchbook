@@ -8,17 +8,17 @@ import { useState, useEffect } from "react";
 
 // ── Comic pages – newest first ────────────────────────────────
 const PAGES = [
-  { number: 1, title: "Page title", date: "Feb 2026", imageSrc: "/media/iris/mission-iris-page-001.webp" },
-  { number: 2, title: "Page title", date: "Feb 2026", imageSrc: "/media/iris/mission-iris-page-002.webp" },
-  { number: 3, title: "Page title", date: "Feb 2026", imageSrc: "/media/iris/mission-iris-page-003.webp" },
-  { number: 4, title: "Page title", date: "Feb 2026", imageSrc: "/media/iris/mission-iris-page-004.webp" },
-  { number: 5, title: "Page title", date: "Feb 2026", imageSrc: "/media/iris/mission-iris-page-005.webp" },
-  { number: 6, title: "Page title", date: "Feb 2026", imageSrc: "/media/iris/mission-iris-page-006.webp" },
-  { number: 7, title: "Page title", date: "Feb 2026", imageSrc: "/media/iris/mission-iris-page-007.webp" },
-  { number: 8, title: "Page title", date: "Feb 2026", imageSrc: "/media/iris/mission-iris-page-008.webp" },
-  { number: 9, title: "Page title", date: "Feb 2026", imageSrc: "/media/iris/mission-iris-page-009.webp" },
-  { number: 10, title: "Page title", date: "Feb 2026", imageSrc: "/media/iris/mission-iris-page-010.webp" },
-  { number: 11, title: "Page title", date: "Feb 2026", imageSrc: "/media/iris/mission-iris-page-011.webp" },
+  { number: 1, title: "The Mechanic", date: "Feb 2026", imageSrc: "/media/iris/mission-iris-page-001.webp" },
+  { number: 2, title: "The Mechanic", date: "Feb 2026", imageSrc: "/media/iris/mission-iris-page-002.webp" },
+  { number: 3, title: "The Mechanic", date: "Feb 2026", imageSrc: "/media/iris/mission-iris-page-003.webp" },
+  { number: 4, title: "The Mechanic", date: "Feb 2026", imageSrc: "/media/iris/mission-iris-page-004.webp" },
+  { number: 5, title: "The Mechanic", date: "Feb 2026", imageSrc: "/media/iris/mission-iris-page-005.webp" },
+  { number: 6, title: "The Mechanic", date: "Feb 2026", imageSrc: "/media/iris/mission-iris-page-006.webp" },
+  { number: 7, title: "The Mechanic", date: "Feb 2026", imageSrc: "/media/iris/mission-iris-page-007.webp" },
+  { number: 8, title: "The Mechanic", date: "Feb 2026", imageSrc: "/media/iris/mission-iris-page-008.webp" },
+  { number: 9, title: "The Mechanic", date: "Feb 2026", imageSrc: "/media/iris/mission-iris-page-009.webp" },
+  { number: 10, title: "The Mechanic", date: "Feb 2026", imageSrc: "/media/iris/mission-iris-page-010.webp" },
+  { number: 11, title: "The Mechanic", date: "Feb 2026", imageSrc: "/media/iris/mission-iris-page-011.webp" },
 ];
 
 // ─────────────────────────────────────────────────────────────

@@ -271,6 +271,7 @@ img {
   background-color: var(--color-surface);
 }
 
+
 @media (max-width: 600px) {
   .btn-text-2 {
     font-size: calc(var(--text-2-size) * var(--text-scale-mobile));
@@ -916,6 +917,7 @@ strong,
   align-items: start;
   gap: var(--space-6);
 }
+
 .iris-page__left  { grid-area: left; }
 .iris-page__center { grid-area: center; }
 .iris-page__right { grid-area: right; }
@@ -934,6 +936,11 @@ strong,
 .iris-pages__empty {
   opacity: 0.5;
 }
+
+.iris-page__right .iris-page__title {
+padding-top: var(--space-2);
+}
+
 
 /* Page viewer – nav bar */
 .iris-viewer__nav {
