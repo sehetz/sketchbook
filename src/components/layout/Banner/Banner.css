@@ -12,9 +12,17 @@
   color: var(--color-fg);
 }
 
+.dark .banner {
+  background: var(--color-yellow-dark);
+}
+
 .banner:hover {
   background-color: var(--color-yellow-highlight);
   color: var(--color-fg);
+}
+
+.dark .banner:hover {
+  background-color: var(--color-yellow-dark-highlight);
 }
 
 .banner__content {

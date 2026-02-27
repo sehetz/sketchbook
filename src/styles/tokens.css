@@ -19,6 +19,8 @@
   --color-link: #121212;
   --color-yellow: #FFFB78;
   --color-yellow-highlight: #fff243;
+  --color-yellow-dark: #766600;
+  --color-yellow-dark-highlight: #938000;
 
   /* 🧱 SPACING SCALE */
   --space-1: 0.25rem; /* 4px */
@@ -148,7 +150,7 @@
   --color-surface: #181818;
   --color-link: #ffffff;
   --color-bg-light: #1e1e1e;
-  --color-timeline-hover: #000c76;
+  --color-timeline-hover: #766600;
   --color-hover-bg: #191919;
   /* --line-width: 1.5px;  */
   /* --size-border-thin: 1.0px; */
