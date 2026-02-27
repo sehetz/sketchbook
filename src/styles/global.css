@@ -630,9 +630,6 @@ a.case-line:hover .case-line__title {
   background-color: var(--color-hover-bg);
 }
 
-.footer p {
-  padding-bottom: 0 !important;
-}
 
 /* Images & Media */
 
@@ -1004,7 +1001,15 @@ strong,
   align-items: stretch;
 }
 .iris-viewer__nav--open {
-  border-bottom: var(--line-width) dotted var(--color-fg);
+    border-bottom: none;
+  border-image: repeating-linear-gradient(
+    to right,
+    var(--color-fg) 0 1.5px,
+    transparent 1px 4px
+  );
+  border-image-slice: 1;
+  border-bottom-width: var(--line-width);
+  border-bottom-style: solid;
 }
 .iris-viewer__nav-btn {
   position: relative;
