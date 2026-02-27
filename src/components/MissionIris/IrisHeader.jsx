@@ -17,8 +17,8 @@ export default function IrisHeader({ readMode, onToggle }) {
           aria-pressed={readMode}
           aria-label={readMode ? "Switch to dark mode" : "Switch to read mode"}
           title={readMode ? "dark mode" : "read mode"}
-        >
-          🤫
+          >
+            {readMode ? <span style={{filter: 'grayscale(100%)'}}>🤫</span> : '🤫'}
         </button>
       </div>
 
