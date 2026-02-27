@@ -192,39 +192,20 @@ export default function MissionIris() {
             isOpen={openDrawer === "Project"}
             onToggle={() => handleToggle("Project")}
           >
-            Mission Iris has been living in my head for about a year now. Kat
-            and Verda moved in quietly at first. They were supposed to be
-            simple. Functional. Contained. That did not last. This project is,
-            in many ways, cathartic. It is my attempt to metabolize the current
-            state of the world through fiction — to take the pressure, the
-            noise, the quiet background dread of the present moment and refract
-            it through distant orbits and artificial stars. I am not interested
-            in space as a new frontier of conquest. Too many futures still
-            unconsciously inherit the old patriarchal script: expansion,
-            domination, extraction, control. Mission Iris asks a different
-            question: What if moving into space required not more control, but
-            more awareness? More restraint. More capacity to observe without
-            immediately reshaping what we find. One thing that keeps haunting me
-            while working on this: When I read Victorian literature, those were
-            humans, but they were also aliens. Different assumptions. Different
-            emotional architectures. Different defaults. Mission Iris leans into
-            that feeling. Time itself produces alienness. And if that is true,
-            then the next step of humanity may not look heroic or triumphant. It
-            may look uncertain, contradictory, and deeply human. Formally, the
-            comic embraces contrast: four colors, four forces, four
-            perspectives. Over time, separation gives way to contamination, and
-            contamination — hopefully — to something that resembles life. The
-            project is intentionally porous. If you have thoughts, patterns,
-            references, or strange ideas that resonate with this world, you are
-            welcome to reach out. I read everything, and if something truly
-            clicks, it may find its way into orbit. At the same time, Mission
-            Iris is structurally anarchic by design. I reserve the right to move
-            backward, redraw, restructure, and re-sequence earlier chapters
-            whenever the story demands sharper closure or deeper resonance. If
-            you are looking for strict linearity, this may occasionally
-            frustrate you. If you are here for a living system that evolves,
-            mutates, and sometimes doubles back on itself in order to become
-            more precise you are in the right place.
+            {`
+Mission Iris has been living in my head for about a year now. Kat and Verda moved in quietly at first. They were supposed to be simple. Functional. Contained. That did not last. This project is, in many ways, cathartic. It is my attempt to metabolize the current state of the world through fiction — to take the pressure, the noise, the quiet background dread of the present moment and refract it through distant orbits and artificial stars.
+
+I am not interested in space as a new frontier of conquest. Too many futures still unconsciously inherit the old patriarchal script: expansion, domination, extraction, control. Mission Iris asks a different question: What if moving into space required not more control, but more awareness? More restraint. More capacity to observe without immediately reshaping what we find.
+
+One thing that keeps haunting me while working on this: When I read Victorian literature, those were humans, but they were also aliens. Different assumptions. Different emotional architectures. Different defaults. Mission Iris leans into that feeling. Time itself produces alienness. And if that is true, then the next step of humanity may not look heroic or triumphant. It may look uncertain, contradictory, and deeply human.
+
+Formally, the comic embraces contrast: four colors, four forces, four perspectives. Over time, separation gives way to contamination, and contamination — hopefully — to something that resembles life. The project is intentionally porous. If you have thoughts, patterns, references, or strange ideas that resonate with this world, you are welcome to reach out. I read everything, and if something truly clicks, it may find its way into orbit. At the same time, Mission Iris is structurally anarchic by design. I reserve the right to move backward, redraw, restructure, and re-sequence earlier chapters whenever the story demands sharper closure or deeper resonance. If you are looking for strict linearity, this may occasionally frustrate you. If you are here for a living system that evolves, mutates, and sometimes doubles back on itself in order to become more precise you are in the right place.
+            `
+              .trim()
+              .split("\n\n")
+              .map((para, i) => (
+                <p key={i} className="iris-project-paragraph">{para}</p>
+              ))}
           </IrisDrawer>
         </section>
       </main>
