@@ -33,7 +33,9 @@ p {
   color: var(--color-fg);
 }
 
-p {
+
+/* Nur für Projekt-Absätze in Mission Iris */
+.iris-project-paragraph {
   margin-bottom: var(--space-3);
 }
 a {
@@ -626,6 +628,10 @@ a.case-line:hover .case-line__title {
 .footer a:hover,
 .footer .footer-link:hover {
   background-color: var(--color-hover-bg);
+}
+
+.footer p {
+  padding-bottom: 0 !important;
 }
 
 /* Images & Media */
