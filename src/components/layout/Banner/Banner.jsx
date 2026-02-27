@@ -1,7 +1,7 @@
 import "./Banner.css";
 
-export default function Banner({ href = "mailto:hoi@sehetz.ch" }) {
-  const bannerText = "Let's work together!";
+export default function Banner({ href = "/mission-iris" }) {
+  const bannerText = "Mission iris Webcomic";
 
   return (
     <a 

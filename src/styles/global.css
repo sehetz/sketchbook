@@ -1066,6 +1066,3 @@ padding-top: var(--space-2);
   }
 }
 
-.iris-read .header, .iris-read .header * {
-  color: #888 !important;
-}

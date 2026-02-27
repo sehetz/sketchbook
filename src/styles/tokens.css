@@ -143,13 +143,13 @@
 
 /* Dark mode overrides */
 :root.dark {
-  --color-bg: #121212;
+  --color-bg: #111111;
   --color-fg: #fff;
   --color-surface: #181818;
   --color-link: #ffffff;
   --color-bg-light: #1e1e1e;
-  --color-timeline-hover: #766400;
-  --color-hover-bg: #1e1e1e;
+  --color-timeline-hover: #000c76;
+  --color-hover-bg: #191919;
   /* --line-width: 1.5px;  */
   /* --size-border-thin: 1.0px; */
 
@@ -161,10 +161,10 @@
 
 /* 🤫 READING MODE – Mission Iris (dark + muted grey) */
 :root.dark.iris-read {
-  --color-fg: #888888;
+  --color-fg: #70727a;
   --color-surface: #161616;
-  --color-hover-bg: #1a1a1a;
-  --line-solid: var(--line-width) solid #888888;
-  --line-dotted: var(--line-width) dotted #888888;
-  --color-stroke: #888888;
+  --color-hover-bg: #151515;
+  --line-solid: var(--line-width) solid #58595f;
+  --line-dotted: var(--line-width) dotted #58595f;
+  --color-stroke: #58595f;
 }

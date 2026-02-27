@@ -90,7 +90,7 @@ function App() {
 
   return (
     <DataProvider>
-      {/* <Banner/> */}
+      <Banner/>
       <Header />
       <main>
         <Suspense fallback={<div className="loading">Loading content...</div>}>
