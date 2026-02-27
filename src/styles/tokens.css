@@ -52,11 +52,13 @@
   --text-scale-mobile: 0.75;
   --text-1-size: 3rem;
   --text-1-line: 1.05;
+  --text-1-letter: -0.00625em;
   --text-2-size: 2rem;
   --text-2-line: 1.15;
+  --text-2-letter: 0.015em;
   --text-3-size: 1.5rem;
   --text-3-line: 1.15;
-  --text-3-letter: 0.12px;
+  --text-3-letter: 0.0125em;
 
   /* 🧩 LINE STYLES */
   --line-width: 2.0px;
@@ -152,8 +154,12 @@
   --color-bg-light: #1e1e1e;
   --color-timeline-hover: #766600;
   --color-hover-bg: #191919;
-  /* --line-width: 1.5px;  */
-  /* --size-border-thin: 1.0px; */
+  --line-width: 1.5px;
+   --size-border-thin: 1.0px;
+   --text-1-letter: 0.015em;
+   --text-2-letter: 0.025em;
+   --text-3-letter: 0.035em;
+  /* --size-border-thin: 0.8px; */
 
   /* 📊 TIMELINE COLORS – Dark Mode */
   --color-timeline-circle: #3a3a3a;

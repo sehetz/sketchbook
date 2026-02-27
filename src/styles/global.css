@@ -62,14 +62,14 @@ img {
   line-height: var(--text-1-line);
   color: var(--color-fg);
   font-weight: 365; 
-  letter-spacing: -0.00625em;
+  letter-spacing: var(--text-1-letter);
 }
 .text-1-narrow {
   font-size: var(--text-1-size);
   line-height: var(--text-1-line);
   color: var(--color-fg);
   font-weight: 300;
-  letter-spacing: -0.00625em;
+  letter-spacing: var(--text-1-letter);
   font-family: var(--font-sans);
   font-variation-settings:
     "slnt" 0,
@@ -80,6 +80,7 @@ img {
   line-height: var(--text-2-line);
   color: var(--color-fg);
   font-weight: 425;
+  letter-spacing: var(--text-2-letter);
 }
 .text-3 {
   font-size: var(--text-3-size);
