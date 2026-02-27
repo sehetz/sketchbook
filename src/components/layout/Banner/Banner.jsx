@@ -1,7 +1,7 @@
 import "./Banner.css";
 
 export default function Banner({ href = "/mission-iris" }) {
-  const bannerText = "Mission iris Webcomic";
+  const bannerText = "Mission Iris Webcomic";
 
   return (
     <a 
