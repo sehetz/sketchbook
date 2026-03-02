@@ -257,6 +257,7 @@ async function generateStaticPages() {
     let missionIrisHtml = baseHtml;
     const missionIrisTitle = "Mission Iris – Sehetz Webcomic";
     const missionIrisDesc = "Mission Iris – a webcomic by Sarah Heitz. Explore the story.";
+    const missionIrisOgImage = "https://sehetz.ch/og/mission-iris-og-image.webp";
     missionIrisHtml = missionIrisHtml.replace(
       /<title>.*?<\/title>/,
       `<title>${missionIrisTitle}</title>`
@@ -269,6 +270,13 @@ async function generateStaticPages() {
     <meta property="og:description" content="${missionIrisDesc}" />
     <meta property="og:url" content="https://sehetz.ch/mission-iris" />
     <meta property="og:type" content="website" />
+    <meta property="og:image" content="${missionIrisOgImage}" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="${missionIrisTitle}" />
+    <meta name="twitter:description" content="${missionIrisDesc}" />
+    <meta name="twitter:image" content="${missionIrisOgImage}" />
   </head>`
     );
     const missionIrisDir = path.resolve(__dirname, "../dist/mission-iris");
