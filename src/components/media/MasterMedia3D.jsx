@@ -174,17 +174,17 @@ export default function MasterMedia3D({
     }
     
     // Debug logging für 3D-Dateien
-    const ext = getFileExtension(primary);
-    if (ext === 'fbx' || ext === 'glb' || ext === 'gltf') {
-      console.log('[MasterMedia3D] Loading 3D model:', {
-        rawFilename,
-        localSrc,
-        computedRemoteSrc,
-        primary,
-        secondary,
-        format: ext
-      });
-    }
+    // const ext = getFileExtension(primary);
+    // if (ext === 'fbx' || ext === 'glb' || ext === 'gltf') {
+    //   console.log('[MasterMedia3D] Loading 3D model:', {
+    //     rawFilename,
+    //     localSrc,
+    //     computedRemoteSrc,
+    //     primary,
+    //     secondary,
+    //     format: ext
+    //   });
+    // }
     
     return { rawFilename, localSrc, computedRemoteSrc, primary, secondary };
   })();
