@@ -382,7 +382,7 @@ export function sitemap_generate(projects = [], text_labelToSlug) {
   ];
 
   // Add project URLs from data
-  const onlineProjects = projects.filter(p => p.is_online === 1 || !p.is_online);
+  const onlineProjects = projects.filter(p => p.is_online === 1 || p.is_online === true || p.is_online === "1" || typeof p.is_online === 'undefined');
   
   console.log(`[Sitemap] Total projects: ${projects.length}`);
   console.log(`[Sitemap] is_online values:`, projects.map((p, i) => `${i}: ${p.is_online}`).join(', '));
@@ -392,43 +392,52 @@ export function sitemap_generate(projects = [], text_labelToSlug) {
     const title = project.Title || "";
     const slug = text_labelToSlug(title);
     const datum = project.Datum || new Date().toISOString().split('T')[0];
-    
-    // Get skills/gears/teams - simple string fields
-    const skillStr = project.skill ? (typeof project.skill === 'string' ? project.skill : '') : '';
-    const gearStr = project.Gear ? (typeof project.Gear === 'string' ? project.Gear : '') : '';
-    const teamStr = project.Team ? (typeof project.Team === 'string' ? project.Team : '') : '';
-    
-    console.log(`[Sitemap] Project ${idx + 1}: "${title}" | skill="${skillStr}" gear="${gearStr}" team="${teamStr}"`);
-    
-    // Add skill URL
-    if (skillStr) {
-      const skillSlug = text_labelToSlug(skillStr);
+
+    // Skills (M2M)
+    const skills = Array.isArray(project._nc_m2m_sehetz_skills)
+      ? project._nc_m2m_sehetz_skills.map(s => s.skill?.Skill).filter(Boolean)
+      : [];
+    // Gears (M2M)
+    const gears = Array.isArray(project._nc_m2m_sehetz_gears)
+      ? project._nc_m2m_sehetz_gears.map(g => g.gear?.Gear).filter(Boolean)
+      : [];
+    // Teams (M2M)
+    const teams = Array.isArray(project._nc_m2m_sehetz_teams)
+      ? project._nc_m2m_sehetz_teams.map(t => t.team?.Team).filter(Boolean)
+      : [];
+
+    // Logging for debug
+    console.log(`[Sitemap] Project ${idx + 1}: "${title}" | skills=[${skills.join(', ')}] gears=[${gears.join(', ')}] teams=[${teams.join(', ')}]`);
+
+    // Add skill URLs
+    skills.forEach(skillName => {
+      const skillSlug = text_labelToSlug(skillName);
       urls.push({
         loc: `${baseUrl}/skills/${skillSlug}/${slug}`,
         lastmod: datum,
         priority: "0.8"
       });
-    }
-    
-    // Add gear URL
-    if (gearStr) {
-      const gearSlug = text_labelToSlug(gearStr);
+    });
+
+    // Add gear URLs
+    gears.forEach(gearName => {
+      const gearSlug = text_labelToSlug(gearName);
       urls.push({
         loc: `${baseUrl}/gears/${gearSlug}`,
         lastmod: datum,
         priority: "0.7"
       });
-    }
-    
-    // Add team URL
-    if (teamStr) {
-      const teamSlug = text_labelToSlug(teamStr);
+    });
+
+    // Add team URLs
+    teams.forEach(teamName => {
+      const teamSlug = text_labelToSlug(teamName);
       urls.push({
         loc: `${baseUrl}/teams/${teamSlug}`,
         lastmod: datum,
         priority: "0.6"
       });
-    }
+    });
   });
 
   // Remove duplicates (use Map to keep first occurrence)
