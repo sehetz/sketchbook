@@ -6,7 +6,7 @@ import { initGA, trackPageView } from "./utils/analytics.js";
 import { DataProvider } from "./contexts/DataContext.jsx";
 
 // Core Components
-import Banner from "./components/layout/Banner/Banner";
+// import Banner from "./components/layout/Banner/Banner";
 import Header from "./components/layout/Header/Header";
 import Footer from "./components/layout/Footer/Footer";
 
