@@ -43,12 +43,13 @@ async function generateStaticPages() {
       const skillName = skills[0]?.skill?.Skill || "";
       const skillSlug = slugify(skillName);
       
-      // Extract description from blocks
-      const blocks = project.blocks || [];
-      const textBlock = blocks.find(b => b.type?.includes('text'));
+      // Extract description: use dedicated description field, then fall back to first text content block
       let description = "Explore this project in the Sehetz creative portfolio.";
-      if (textBlock?.data) {
-        const text = textBlock.data.replace(/<[^>]*>/g, '').replace(/\s+/g, ' ').trim();
+      if (project.description) {
+        const text = project.description.replace(/<[^>]*>/g, '').replace(/\s+/g, ' ').trim();
+        description = text.substring(0, 160) + (text.length > 160 ? '...' : '');
+      } else if (project.content_01_text) {
+        const text = project.content_01_text.replace(/<[^>]*>/g, '').replace(/\s+/g, ' ').trim();
         description = text.substring(0, 160) + (text.length > 160 ? '...' : '');
       }
 
@@ -285,6 +286,98 @@ async function generateStaticPages() {
     console.log(`✅ /mission-iris/`);
     
     console.log(`\n✨ Generated static policy pages!`);
+
+    // ────────────────────────────────────────────────────────────
+    // Generate static pages for GEARS
+    // ────────────────────────────────────────────────────────────
+    console.log("\n📄 Generating static gear pages...\n");
+
+    const gearsMap = new Map();
+    for (const proj of projects) {
+      if (!proj.is_online) continue;
+      for (const g of (proj._nc_m2m_sehetz_gears || [])) {
+        if (g.gear && g.gear.Gear) gearsMap.set(g.gear.Gear, g.gear);
+      }
+    }
+
+    for (const [gearName, gear] of gearsMap) {
+      const gearSlug = slugify(gearName);
+      if (!gearSlug) continue;
+
+      const gearTitle = `${gearName} – Sehetz Creative Tools`;
+      let gearDesc = `${gearName} is one of the creative tools used by Sarah Heitz in her illustration and design projects.`;
+      if (gear.description) {
+        const cleaned = gear.description.replace(/<[^>]*>/g, '').replace(/\s+/g, ' ').trim();
+        gearDesc = cleaned.substring(0, 160) + (cleaned.length > 160 ? '...' : '');
+      }
+      const gearUrl = `https://sehetz.ch/gears/${gearSlug}`;
+
+      let gearHtml = baseHtml;
+      gearHtml = gearHtml.replace(/<title>.*?<\/title>/, `<title>${gearTitle}</title>`);
+      gearHtml = gearHtml.replace(
+        /<\/head>/,
+        `    <meta name="description" content="${gearDesc.replace(/"/g, '&quot;')}" />
+    <link rel="canonical" href="${gearUrl}" />
+    <meta property="og:title" content="${gearTitle}" />
+    <meta property="og:description" content="${gearDesc.replace(/"/g, '&quot;')}" />
+    <meta property="og:url" content="${gearUrl}" />
+    <meta property="og:type" content="website" />
+  </head>`
+      );
+
+      const gearDir = path.resolve(__dirname, `../dist/gears/${gearSlug}`);
+      await fs.mkdir(gearDir, { recursive: true });
+      await fs.writeFile(path.join(gearDir, "index.html"), gearHtml, "utf8");
+      console.log(`✅ /gears/${gearSlug}/`);
+    }
+
+    // ────────────────────────────────────────────────────────────
+    // Generate static pages for TEAMS
+    // ────────────────────────────────────────────────────────────
+    console.log("\n📄 Generating static team pages...\n");
+
+    const teamsMap = new Map();
+    for (const proj of projects) {
+      if (!proj.is_online) continue;
+      for (const t of (proj._nc_m2m_sehetz_teams || [])) {
+        if (t.team && t.team.Team) teamsMap.set(t.team.Team, t.team);
+      }
+    }
+
+    for (const [teamName, team] of teamsMap) {
+      const teamSlug = slugify(teamName);
+      if (!teamSlug) continue;
+
+      const teamTitle = `${teamName} – Sehetz Team`;
+      let teamDesc = `Projects and work done by Sarah Heitz together with ${teamName}.`;
+      if (team.description) {
+        const cleaned = team.description.replace(/<[^>]*>/g, '').replace(/\s+/g, ' ').trim();
+        teamDesc = cleaned.substring(0, 160) + (cleaned.length > 160 ? '...' : '');
+      } else if (team.role && team.location) {
+        teamDesc = `Sarah Heitz worked as ${team.role} at ${teamName} in ${team.location}.`;
+      }
+      const teamUrl = `https://sehetz.ch/teams/${teamSlug}`;
+
+      let teamHtml = baseHtml;
+      teamHtml = teamHtml.replace(/<title>.*?<\/title>/, `<title>${teamTitle}</title>`);
+      teamHtml = teamHtml.replace(
+        /<\/head>/,
+        `    <meta name="description" content="${teamDesc.replace(/"/g, '&quot;')}" />
+    <link rel="canonical" href="${teamUrl}" />
+    <meta property="og:title" content="${teamTitle}" />
+    <meta property="og:description" content="${teamDesc.replace(/"/g, '&quot;')}" />
+    <meta property="og:url" content="${teamUrl}" />
+    <meta property="og:type" content="website" />
+  </head>`
+      );
+
+      const teamDir = path.resolve(__dirname, `../dist/teams/${teamSlug}`);
+      await fs.mkdir(teamDir, { recursive: true });
+      await fs.writeFile(path.join(teamDir, "index.html"), teamHtml, "utf8");
+      console.log(`✅ /teams/${teamSlug}/`);
+    }
+
+    console.log(`\n✨ Generated static gear and team pages!`);
   } catch (err) {
     console.error("❌ Error generating static pages:", err.message);
     process.exit(1);
