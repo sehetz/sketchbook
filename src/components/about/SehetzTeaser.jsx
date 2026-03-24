@@ -5,7 +5,7 @@ export default function SehetzTeaser() {
   // Hardcoded content for SEO
   const title = "Sarah Heitz";
   const altDescription = "Sarah Heitz, a graphic designer and illustrator";
-  const description = "If you skipped the site tour and landed straight here in the hidden section below the visualization: Congratulations and welcome! I'm Sarah, a graphic designer and illustrator, and I've done nothing else my entire professional life (wow!). ";
+  const description = "If you skipped the site tour and landed straight here in the hidden section below the visualization: Congratulations and welcome! I'm Sarah, a graphic designer and illustrator, and according to this timeline I've been doing nothing else my entire professional life (wow!).";
   const imageUrl = "/media/Sarah-Heitz-sehetz.jpg";
 
   return (
