@@ -70,7 +70,7 @@ async function generateStaticPages() {
     <meta property="og:description" content="${description}" />
     <meta property="og:image" content="${ogImage}" />
     <meta property="og:url" content="${url}" />
-    <meta property="og:type" content="website" />
+    <meta property="og:type" content="article" />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
     
@@ -83,6 +83,28 @@ async function generateStaticPages() {
     <!-- Standard Meta Tags -->
     <meta name="description" content="${description}" />
     <link rel="canonical" href="${url}" />
+
+    <!-- JSON-LD Structured Data (for Google Image Search) -->
+    <script type="application/ld+json">${JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "CreativeWork",
+      "name": title,
+      "description": description,
+      "url": url,
+      "datePublished": project.Datum || new Date().toISOString().split('T')[0],
+      "author": { "@type": "Person", "name": "Sarah Heitz", "url": "https://sehetz.ch/sarah-heitz" },
+      "keywords": (project._nc_m2m_sehetz_skills || []).map(s => s.skill?.Skill).filter(Boolean).join(", "),
+      "image": [
+        {
+          "@type": "ImageObject",
+          "url": ogImage,
+          "name": project.Title,
+          "description": description,
+          "width": 1200,
+          "height": 630
+        }
+      ]
+    })}</script>
   </head>`;
       
       projectHtml = projectHtml.replace(/<\/head>/, metaTags);

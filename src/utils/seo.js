@@ -294,26 +294,55 @@ export function schema_getOrganization() {
 export function schema_getCreativeWork(project) {
   const {
     Title = "Untitled Project",
-    description = "",
     teaserImage = "",
+    teaserImageMeta = null,
     Datum = "",
-    nc_3zu8___nc_m2m_nc_3zu8__Projec_Skills = []
+    _nc_m2m_sehetz_skills = [],
+    blocks = []
   } = project;
 
-  const skills = nc_3zu8___nc_m2m_nc_3zu8__Projec_Skills
-    ?.map(s => s.Skills?.Skill)
+  const skills = _nc_m2m_sehetz_skills
+    ?.map(s => s.skill?.Skill)
     .filter(Boolean) || [];
+
+  const description = desc_extractFirst(blocks, 500) || `A creative project by Sehetz`;
+
+  // Build teaserImage as ImageObject if dimensions are available
+  const imageUrl = teaserImage || "https://sehetz.ch/og-image.jpg";
+  const imageObject = {
+    "@type": "ImageObject",
+    "url": imageUrl,
+    "name": Title,
+    "description": description,
+    ...(teaserImageMeta?.width ? { "width": teaserImageMeta.width } : {}),
+    ...(teaserImageMeta?.height ? { "height": teaserImageMeta.height } : {}),
+  };
+
+  // Collect all block images as additional ImageObjects for Google
+  const blockImages = blocks
+    .filter(b => b.type?.includes("image") || b.type?.includes("gallery"))
+    .flatMap(b => Array.isArray(b.data) ? b.data : [])
+    .filter(img => img?.url || img?.path)
+    .map((img, i) => ({
+      "@type": "ImageObject",
+      "url": img.url || `https://sehetz.ch/${img.path}`,
+      "name": img.title || `${Title} – Image ${i + 1}`,
+      ...(img.width ? { "width": img.width } : {}),
+      ...(img.height ? { "height": img.height } : {}),
+    }));
 
   return {
     "@context": "https://schema.org",
     "@type": "CreativeWork",
     "name": Title,
-    "description": description?.substring(0, 500) || `A creative project by Sehetz`,
-    "image": teaserImage || "https://sehetz.ch/og-image.jpg",
+    "description": description,
+    "image": [imageObject, ...blockImages],
     "datePublished": Datum || new Date().toISOString(),
+    "url": typeof window !== "undefined" ? window.location.href : "",
     "author": {
-      "@type": "Organization",
-      "name": "Sehetz"
+      "@type": "Person",
+      "name": "Sarah Heitz",
+      "url": "https://sehetz.ch/sarah-heitz"
     },
     "keywords": skills.join(", ")
   };
