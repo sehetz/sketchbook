@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Roller Skate Dataviz</title>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=National+Park:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+  <!-- Master Styles -->
+  <link rel="stylesheet" href="styles/main.css" />
+
+  <!-- Component Styles -->
+  <link rel="stylesheet" href="components/rows.css" />
+  <link rel="stylesheet" href="components/skates.css" />
+</head>
+<body>
+  <div class="dataviz-wrapper">
+    <!--
+      Zugängliche Tabelle (für Screen Reader).
+      Wird via CSS visuell ausgeblendet, bleibt aber im DOM.
+    -->
+      <!-- <h1 class="title">Roller Skate Übersicht nach Anbieter und Preis</h1> -->
+      <!-- Tabelle wird in einer späteren Komponente befüllt -->
+
+    <!--
+      Visuelle Dataviz.
+      aria-hidden="true" – Inhalt wird von der Tabelle oben abgedeckt.
+    -->
+    <div
+      id="chart"
+      class="chart"
+      role="img"
+      aria-label="Roller Skate Dataviz – visuelle Preisübersicht nach Anbieter"
+    >
+      <!-- Wird durch rows.js befüllt -->
+    </div>
+  </div>
+
+  <!-- Component Scripts (ES Modules) -->
+  <script type="module">
+    import { initRows }   from './components/rows.js';
+    import { initSkates } from './components/skates.js';
+
+    // Erst Zeilen, dann Symbole (Skates brauchen die DOM-Elemente der Zeilen)
+    await initRows('./data/skates_v2.csv', 'chart');
+    await initSkates('./data/skates_v2.csv');
+
+    // Höhe an Parent-Seite melden (für iframe-Resize)
+    const wrapper = document.querySelector('.dataviz-wrapper');
+    const reportHeight = () => {
+      const h = wrapper ? wrapper.scrollHeight : document.documentElement.scrollHeight;
+      window.parent.postMessage({ type: 'embed-height', height: h }, '*');
+    };
+    // Warten bis Fonts geladen → korrekte Textmasse
+    await document.fonts.ready;
+    reportHeight();
+    new ResizeObserver(reportHeight).observe(wrapper || document.body);
+
+    // Scroll-Events an Parent-Seite weiterleiten (verhindert Scroll-Capture im iframe)
+    window.addEventListener('wheel', (e) => {
+      e.preventDefault();
+      window.parent.postMessage({ type: 'wheel', deltaY: e.deltaY, deltaX: e.deltaX }, '*');
+    }, { passive: false });
+  </script>
+</body>
+</html>

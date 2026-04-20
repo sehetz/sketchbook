@@ -1,0 +1,178 @@
+/* =============================================
+   COMPONENT: Rows
+   Brand-Zeilen mit Preisskala (0–500 USD)
+   ============================================= */
+
+/* ---- Chart Container ------------------------ */
+.chart {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+/* ---- Scale Header (volle Breite, kein Label-Spacer) --- */
+.chart__scale {
+  display: flex;
+  align-items: flex-end;
+  padding-bottom: var(--space-sm);
+  /* border-bottom: 1px solid var(--color-brand); */
+}
+
+.chart__scale-track {
+  flex: 1;
+  position: relative;
+  height: 24px;
+}
+
+/* Tick-Markierungen (0, 50, 100 … 500) */
+.chart__tick {
+  position: absolute;
+  top: 0;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+}
+
+.chart__tick-line {
+  display: none;
+}
+
+.chart__tick-label {
+  font-family:    var(--text-label-font);
+  font-size:      var(--text-label-size);
+  font-weight:    var(--text-label-weight);
+  letter-spacing: var(--text-label-spacing);
+  color: var(--color-brand);
+  opacity: 0.7;
+  white-space: nowrap;
+}
+
+/* Erster und letzter Tick: kein clipping */
+.chart__tick:first-child  { transform: translateX(0); }
+.chart__tick:last-child   { transform: translateX(-100%); }
+
+/* ---- Brand Row ------------------------------ */
+.chart__row {
+  position: relative;
+  min-height: var(--chart-row-height);
+}
+
+/* ---- Preis-Labels an Major-Dots im Track ---- */
+.chart__price-label {
+  position: absolute;
+  bottom: var(--space-xs);
+  transform: translateX(-50%);
+  font-family:    var(--text-label-font);
+  font-size:      var(--text-label-size);
+  font-weight:    var(--text-label-weight);
+  letter-spacing: var(--text-label-spacing);
+  color: var(--color-brand);
+  opacity: 0.5;
+  white-space: nowrap;
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* ---- Trenn-Dots (unten an der Row) ---------- */
+.chart__sep-dot {
+  position: absolute;
+  bottom: 0;
+  transform: translateX(-50%);
+  border-radius: 50%;
+  background: var(--color-brand);
+  pointer-events: none;
+}
+
+.chart__sep-dot--minor {
+  width: var(--dot-minor-size);
+  height: var(--dot-minor-size);
+  opacity: var(--dot-minor-opacity);
+}
+
+.chart__sep-dot--major {
+  width: var(--dot-major-size);
+  height: var(--dot-major-size);
+  opacity: var(--dot-major-opacity);
+}
+
+/* Brand-Label innerhalb des Tracks (linke Leerzone < $100) */
+.chart__brand {
+  position: absolute;
+  left: var(--space-sm);
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 3;
+  pointer-events: none;
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+}
+
+.chart__brand-name {
+  font-family:    var(--text-brand-font);
+  font-size:      var(--text-brand-size);
+  font-weight:    var(--text-brand-weight);
+  letter-spacing: var(--text-brand-spacing);
+  color: var(--color-brand);
+  line-height: 1.1;
+}
+
+.chart__brand-country {
+  font-family:    var(--text-country-font);
+  font-size:      var(--text-country-size);
+  font-weight:    var(--text-country-weight);
+  letter-spacing: var(--text-country-spacing);
+  color: var(--color-brand);
+  opacity: 0.65;
+  line-height: 1;
+}
+
+/* Zeichen-Fläche für Datenpunkte */
+.chart__track {
+  width: 100%;
+  min-height: var(--chart-row-height);
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+/* ---- Hintergrundstreifen (50 USD Slots) ----- */
+.chart__stripe {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+}
+
+.chart__stripe--odd  { background: var(--color-bg-1); }
+.chart__stripe--even { background: var(--color-bg-2); }
+
+/* ---- Dots (alle 10 USD klein, alle 50 USD groß) ---------- */
+.chart__dot {
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  background: var(--color-brand);
+  pointer-events: none;
+}
+
+.chart__dot--minor {
+  width: var(--dot-minor-size);
+  height: var(--dot-minor-size);
+  opacity: var(--dot-minor-opacity);
+}
+
+.chart__dot--major {
+  width: var(--dot-major-size);
+  height: var(--dot-major-size);
+  opacity: var(--dot-major-opacity);
+}
+
+/* ---- Responsive: Mobile → nur 100er-Ticks zeigen ---------- */
+@media (max-width: 700px) {
+  .chart__tick--minor {
+    display: none;
+  }
+}

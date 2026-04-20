@@ -650,6 +650,10 @@ a.case-line:hover .case-line__title {
   overflow: hidden;
   background-color: var(--color-surface);
 }
+
+.case-detail[data-project-slug="rollerskating"] .image-wrapper {
+  background-color: transparent;
+}
 .image-wrapper--16x9 {
   aspect-ratio: 16 / 9;
 }

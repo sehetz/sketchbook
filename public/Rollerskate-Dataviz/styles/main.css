@@ -1,0 +1,117 @@
+/* =============================================
+   ROLLER SKATE DATAVIZ – Master Styles
+   ============================================= */
+
+/* ---- Fonts ---------------------------------- */
+/* National Park wird via Google Fonts in index.html geladen */
+
+/* ---- Custom Properties (Design Tokens) ------ */
+:root {
+  /* Farben */
+  --color-brand:       #ff5d4b;
+  --color-bg-1:        rgba(255, 93, 75, 0.05);
+  --color-bg-2:        rgba(255, 93, 75, 0.025);
+  --color-highlight:   #ffeb0a;
+  --color-white:       #ffffff;
+  --color-text:        #ff5d4b;
+
+  /* Typografie – Basis-Fonts */
+  --font-sans:  'National Park', system-ui, sans-serif;
+  --font-mono:  'DM Mono', monospace;
+
+  /* Typografie – Text-Rollen (hier tweaken) */
+  --text-badge-font:    var(--font-sans);
+  --text-badge-size:    var(--font-size-xs);
+  --text-badge-weight:  700;
+  --text-badge-spacing: 0.01em;
+
+  --text-price-font:    var(--font-mono);
+  --text-price-size:    var(--font-size-xs);
+  --text-price-weight:  400;
+  --text-price-spacing: 0em;
+
+  --text-label-font:    var(--font-mono);
+  --text-label-size:    var(--font-size-xs);
+  --text-label-weight:  400;
+  --text-label-spacing: 0em;
+
+  --text-brand-font:    var(--font-sans);
+  --text-brand-size:    var(--font-size-base);
+  --text-brand-weight:  600;
+  --text-brand-spacing: 0em;
+
+  --text-country-font:  var(--font-sans);
+  --text-country-size:  var(--font-size-xs);
+  --text-country-weight: 400;
+  --text-country-spacing: 0.02em;
+
+  /* Größen */
+  --font-size-xs:   10px;
+  --font-size-sm:   12px;
+  --font-size-base: 14px;
+  --font-size-lg:   16px;
+  --font-size-xl:   24px;
+
+  /* Chart-Layout */
+  --chart-label-width:  140px;   /* Breite der Brand-Labels links */
+  --chart-row-height:    80px;   /* Höhe einer Brand-Zeile */
+  --scale-min:            0;
+  --scale-max:          500;
+  --scale-step:          50;     /* Hintergrundstreifen alle 50 USD */
+
+  /* Spacing */
+  --space-xs:   4px;
+  --space-sm:   8px;
+  --space-md:  16px;
+  --space-lg:  32px;
+
+  /* Dots (Track + Separator) */
+  --dot-minor-size:    2px;
+  --dot-minor-opacity: 0.25;
+  --dot-major-size:    2px;
+  --dot-major-opacity: 1;
+}
+
+/* ---- Reset / Base --------------------------- */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  overflow: hidden;
+}
+
+html, body {
+  width: 100%;
+  height: auto;
+  overflow: hidden;
+  background: transparent;
+  scrollbar-width: none;
+}
+
+html::-webkit-scrollbar,
+body::-webkit-scrollbar {
+  display: none;
+}
+  color: var(--color-text);
+  font-family: var(--font-sans);
+  font-size: var(--font-size-base);
+  line-height: 1.4;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ---- Wrapper -------------------------------- */
+.dataviz-wrapper {
+  width: 100%;
+  overflow-x: hidden;
+  /* padding: var(--space-lg) 0; */
+}
+
+/* ---- Titel über der Tabelle (visuell) --------- */
+.title {
+  font-size: var(--font-size-xl);
+  font-weight: 700;
+  margin-bottom: var(--space-lg);
+}

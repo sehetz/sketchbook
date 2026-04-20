@@ -1,0 +1,120 @@
+/* =============================================
+   COMPONENT: Skates
+   Datenpunkte – zusammengesetzte SVG-Symbole
+   ============================================= */
+
+/* ---- Skate-Wrapper: positioniert auf der Preisskala --- */
+.skate {
+  position: absolute;
+  top: calc(50% + 8px);
+  cursor: default;
+  z-index: 2;
+  touch-action: manipulation; /* kein 300ms-Tap-Delay */
+}
+
+.skate:hover,
+.skate--active {
+  z-index: 20;
+}
+
+/* SVG-Symbol darf über die Zeile hinausragen */
+.skate__svg {
+  display: block;
+  overflow: visible;
+  flex-shrink: 0;
+}
+
+/* ---- Badge-Container: absolut rechts vom SVG, ein Pill pro Wort --- */
+.skate__badges {
+  position: absolute;
+  left: 28px;               /* direkt am SVG-Rand – kein Gap */
+  padding-left: 5px;        /* optischer Abstand innerhalb des hover-Bereichs */
+  top: 0;
+  --badge-gap: -4px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0;
+  pointer-events: auto;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+/* Badges links vom SVG wenn rechts kein Platz ist */
+.skate--badges-left .skate__badges {
+  left: auto;
+  right: 28px;              /* direkt am SVG-Rand */
+  padding-left: 0;
+  padding-right: 5px;
+  align-items: flex-end;
+}
+
+/* ---- Preis unter den Badges ---------------- */
+.skate__price {
+  font-family:    var(--text-price-font);
+  font-size:      var(--text-price-size);
+  font-weight:    var(--text-price-weight);
+  letter-spacing: var(--text-price-spacing);
+  color: var(--color-brand);
+  opacity: 0.6;
+  white-space: nowrap;
+  pointer-events: none;
+  margin-top: 2px;
+  padding-left: 6px; /* links-ausgerichtete Badges */
+}
+
+.skate--badges-left .skate__price {
+  padding-left: 0;
+  padding-right: 6px; /* rechts-ausgerichtete Badges */
+}
+
+/* ---- Einzelne Wort-Pille ------------------- */
+.skate__badge {
+  display: inline-block;
+  background: var(--color-highlight);
+  color: var(--color-brand);
+  font-family:    var(--text-badge-font);
+  font-size:      var(--text-badge-size);
+  font-weight:    var(--text-badge-weight);
+  letter-spacing: var(--text-badge-spacing);
+  line-height: 1.2;
+  padding: 2px 6px 3px;
+  border-radius: 20px;
+  white-space: nowrap;
+  pointer-events: none;
+  margin-top: var(--badge-gap);
+}
+
+.skate__badge:first-child {
+  margin-top: 0;
+}
+
+a.skate__badges:hover .skate__badge {
+  background: #ffef5f;
+}
+
+/* ---- Responsive: kleinerer Desktop → Badges on Hover --- */
+@media (max-width: 1280px) and (hover: hover) {
+  .skate__badges {
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.15s ease;
+  }
+  .skate:hover .skate__badges {
+    opacity: 1;
+    pointer-events: auto;
+  }
+}
+
+/* ---- Touch: Badges on Tap (.skate--active per JS) ------- */
+@media (hover: none) {
+  .skate__badges {
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.15s ease;
+  }
+  .skate--active .skate__badges {
+    opacity: 1;
+    pointer-events: auto;
+  }
+}

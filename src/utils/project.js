@@ -102,6 +102,21 @@ export function project_normalize(project, NOCO_BASE_URL) {
     return b;
   });
 
+  const rawEmbedUrl = project["teaser_embed_url"]
+    ? `/${project["teaser_embed_url"].replace(/^\//, "").replace(/\/?$/, "/index.html")}`
+    : null;
+
+  if (rawEmbedUrl) {
+    const embedBlock = { type: "content_embed", data: rawEmbedUrl };
+    const idx = blocks.findIndex((b) => b.type === "content_02_image");
+    if (idx >= 0) {
+      blocks.splice(idx, 1, embedBlock);
+    } else {
+      const afterText = blocks.findIndex((b) => b.type === "content_01_text");
+      blocks.splice(afterText + 1, 0, embedBlock);
+    }
+  }
+
   return { ...project, teaserImageFile, teaserVideoFile, blocks };
 }
 

@@ -4,6 +4,7 @@ import { text_labelToSlug } from "../../../../utils/routing.js";
 import TextBlock from "../Blocks/TextBlock.jsx";
 import ImageBlock from "../Blocks/ImageBlock.jsx"; 
 import LinkBlock from "../Blocks/LinkBlock.jsx";
+import MasterMediaEmbed from "../../../media/MasterMediaEmbed.jsx";
 
 export default function CaseDetail({ project }) {
   const blocks = project.blocks || [];
@@ -37,7 +38,7 @@ export default function CaseDetail({ project }) {
   });
 
   return (
-    <div className="case-detail flex-col w-full">
+    <div className="case-detail flex-col w-full" data-project-slug={projectSlug}>
       {blocks.length === 0 ? null : (
         blocks.map((block, index) => {
           // Extract data based on block type
@@ -51,6 +52,9 @@ export default function CaseDetail({ project }) {
               {(block.type.includes("text")) && <TextBlock text={blockData} />}
               {(block.type.includes("image") || block.type.includes("gallery")) && (
                 <ImageBlock images={blockData} projectTitle={projectTitle} blockIndex={index} />
+              )}
+              {block.type === "content_embed" && (
+                <MasterMediaEmbed src={blockData} title={projectTitle} />
               )}
               {(block.type.includes("link")) && <LinkBlock text={blockData} />}
             </div>
