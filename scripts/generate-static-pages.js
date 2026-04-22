@@ -4,6 +4,7 @@
 import fs from "node:fs/promises";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
+import sharp from "sharp";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -31,8 +32,20 @@ function resolveLocalMediaPath(filename, manifest) {
   return null;
 }
 
+// Read image dimensions using sharp (returns null on error)
+async function getImageDimensions(localPath) {
+  if (!localPath) return null;
+  const absPath = path.resolve(__dirname, "../public", localPath.replace(/^\//, ""));
+  try {
+    const { width, height } = await sharp(absPath).metadata();
+    return { width, height };
+  } catch {
+    return null;
+  }
+}
+
 // Build prerendered body HTML for Googlebot (React overwrites on load)
-function buildProjectBody(project, title, description, skills, gears, teams, manifest) {
+async function buildProjectBody(project, title, description, skills, gears, teams, manifest) {
   const textFields = [
     "content_01_text",
     "content_03_text",
@@ -48,8 +61,10 @@ function buildProjectBody(project, title, description, skills, gears, teams, man
   const teaserFile = Array.isArray(project["Teaser-Image"]) ? project["Teaser-Image"][0] : null;
   const teaserFilename = teaserFile?.name || teaserFile?.title || null;
   const teaserLocalPath = teaserFilename ? resolveLocalMediaPath(teaserFilename, manifest) : null;
+  const dims = await getImageDimensions(teaserLocalPath);
+  const dimsAttr = dims ? ` width="${dims.width}" height="${dims.height}"` : "";
   const teaserImg = teaserLocalPath
-    ? `<img src="${teaserLocalPath}" alt="${title}" style="max-width:100%;height:auto;display:block;" />`
+    ? `<img src="${teaserLocalPath}" alt="${title}"${dimsAttr} style="max-width:100%;height:auto;display:block;" />`
     : "";
 
   const tagsHtml = [
@@ -123,7 +138,7 @@ async function generateStaticPages() {
       const ogImage = `https://sehetz.ch/og/${projectSlug}.jpg`;
 
       // Build prerendered body content for Googlebot
-      const prerenderBody = buildProjectBody(project, project.Title, description, skillsList, gearsList, teamsList, mediaManifest);
+      const prerenderBody = await buildProjectBody(project, project.Title, description, skillsList, gearsList, teamsList, mediaManifest);
 
       // Create HTML with meta tags
       let projectHtml = baseHtml;
