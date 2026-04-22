@@ -21,7 +21,17 @@ export default function CaseContainer({
   onUpdateUrl,
   requestedProjectSlug,
 }) {
-  const [openProjectIndex, setOpenProjectIndex] = useState(null);
+  // ⭐ Initialize openProjectIndex eagerly from URL state to prevent CLS
+  // If we wait for useEffect to set it, the container renders closed first,
+  // then expands – shifting all containers below it (CLS 0.417).
+  const [openProjectIndex, setOpenProjectIndex] = useState(() => {
+    if (!isOpen) return null;
+    if (requestedProjectSlug && projects.length > 0) {
+      const idx = projects.findIndex(p => text_labelToSlug(p.Title) === requestedProjectSlug);
+      if (idx !== -1) return idx;
+    }
+    return DEFAULT_FIRST_OPEN_INDEX;
+  });
   const queuedProjectRef = useRef(null);
   const transitionTimerRef = useRef(null);
   const containerRef = useRef(null);

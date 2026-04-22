@@ -72,6 +72,11 @@ export default function MasterMediaImage({
     return null;
   }
 
+  // Look up intrinsic dimensions for CLS prevention (reserves space before image loads)
+  const dims = typeof window !== "undefined"
+    ? (window.__MEDIA_DIMENSIONS || {})[computed.primary]
+    : null;
+
   return (
     <img
       src={computed.primary}
@@ -83,6 +88,8 @@ export default function MasterMediaImage({
         aspectRatio: style?.aspectRatio || 'auto',
         objectFit: style?.objectFit || 'cover',
       }}
+      width={dims?.width}
+      height={dims?.height}
       loading={loading}
       decoding={decoding}
       fetchPriority={loading === 'eager' ? 'high' : 'auto'}

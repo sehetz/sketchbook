@@ -64,7 +64,7 @@ async function buildProjectBody(project, title, description, skills, gears, team
   const dims = await getImageDimensions(teaserLocalPath);
   const dimsAttr = dims ? ` width="${dims.width}" height="${dims.height}"` : "";
   const teaserImg = teaserLocalPath
-    ? `<img src="${teaserLocalPath}" alt="${title}"${dimsAttr} style="max-width:100%;height:auto;display:block;" />`
+    ? `<img src="${teaserLocalPath}" alt="${title}"${dimsAttr} fetchpriority="high" loading="eager" style="max-width:100%;height:auto;display:block;" />`
     : "";
 
   const tagsHtml = [

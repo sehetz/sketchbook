@@ -6,14 +6,18 @@ import App from "./App.jsx";
 
 // Load media manifest synchronously before rendering
 async function init() {
-  // Load media manifest
+  // Load media manifest and dimensions in parallel
   if (typeof window !== "undefined") {
     try {
-      const res = await fetch("/media-manifest.json");
-      const manifest = await res.json();
-      window.__MEDIA_MANIFEST = manifest;
+      const [manifestRes, dimsRes] = await Promise.all([
+        fetch("/media-manifest.json"),
+        fetch("/media-dimensions.json"),
+      ]);
+      window.__MEDIA_MANIFEST = await manifestRes.json();
+      window.__MEDIA_DIMENSIONS = dimsRes.ok ? await dimsRes.json() : {};
     } catch (err) {
       window.__MEDIA_MANIFEST = {};
+      window.__MEDIA_DIMENSIONS = {};
     }
   }
 
