@@ -10,6 +10,10 @@ export function initGA() {
     return;
   }
 
+  // Prevent double initialization
+  if (window.__gaInitialized) return;
+  window.__gaInitialized = true;
+
   // Lazy load GA after page is interactive (improves LCP)
   if ('requestIdleCallback' in window) {
     requestIdleCallback(() => loadGA(measurementId), { timeout: 2000 });

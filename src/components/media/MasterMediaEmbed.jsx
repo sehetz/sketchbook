@@ -34,7 +34,7 @@ export default function MasterMediaEmbed({ src, title = "" }) {
           }}
           loading="lazy"
           scrolling="no"
-          allowTransparency="true"
+          allowtransparency="true"
         />
       </div>
     </div>
