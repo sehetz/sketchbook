@@ -9,11 +9,11 @@ import { DataProvider } from "./contexts/DataContext.jsx";
 // import Banner from "./components/layout/Banner/Banner";
 import Header from "./components/layout/Header/Header";
 import Footer from "./components/layout/Footer/Footer";
+import DataView from "./components/DataView/DataView";
 
 // Lazy load non-critical pages for better performance
 import { useState, useEffect, lazy, Suspense } from "react";
 
-const DataView = lazy(() => import("./components/DataView/DataView"));
 const Impressum = lazy(() => import("./pages/Impressum"));
 const About = lazy(() => import("./pages/About"));
 const Privacy = lazy(() => import("./pages/Privacy"));
@@ -93,10 +93,8 @@ function App() {
       {/* <Banner/> */}
       <Header />
       <main>
-        <Suspense fallback={<div className="loading">Loading content...</div>}>
           <DataView urlState={urlState} currentPath={currentPath} />
-        </Suspense>
-      </main>
+        </main>
       <Footer />
     </DataProvider>
   );

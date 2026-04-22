@@ -56,18 +56,6 @@ export default function DataView({ urlState, currentPath }) {
     );
   }
 
-  if (isLoading || !projects || projects.length === 0) {
-    return (
-      <main className="data-view">
-        <Intro filter={filter} />
-        <FilterNav filter={filter} setFilter={() => {}} />
-        <div style={{ padding: "2rem", textAlign: "center" }}>
-          Lade Projekte...
-        </div>
-      </main>
-    );
-  }
-
   // ============================================
   // DATA PROCESSING
   // ============================================
@@ -175,11 +163,7 @@ export default function DataView({ urlState, currentPath }) {
       <Intro filter={filter} />
       <FilterNav filter={filter} setFilter={handleFilterChange} />
       
-      {containers.length === 0 ? (
-        <div style={{ padding: "2rem", textAlign: "center" }}>
-          Keine Projekte gefunden für "{filter}"
-        </div>
-      ) : (
+      {containers.length === 0 ? null : (
         containers.map((container, index) => (
           <CaseContainer
             key={`${container.type}-${container.label}`}

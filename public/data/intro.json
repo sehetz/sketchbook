@@ -1,0 +1,39 @@
+{
+  "list": [
+    {
+      "Id": 1,
+      "CreatedAt": "2025-12-20 13:22:30+00:00",
+      "UpdatedAt": "2025-12-20 13:22:40+00:00",
+      "name": "skill",
+      "description": "Do you ever finish a sketchbook? This page is not about perfection, it's an continiously growing archive of my body of work. Explore my skills, learn from my mistakes & findings!"
+    },
+    {
+      "Id": 2,
+      "CreatedAt": "2025-12-20 13:22:33+00:00",
+      "UpdatedAt": "2025-12-20 13:22:40+00:00",
+      "name": "gear",
+      "description": "Tinkering, crafting, exploring. I like to challenge myself with something I am not familiar with wether it may be a camera or rollerskates—as long as it is in the means of expression."
+    },
+    {
+      "Id": 3,
+      "CreatedAt": "2025-12-20 13:22:33+00:00",
+      "UpdatedAt": "2025-12-20 13:22:40+00:00",
+      "name": "team",
+      "description": "On my life's journey I've encountered amazing people. Shared experiences, pushing visions forward together. I might be proud on every journey I've partaken."
+    },
+    {
+      "Id": 4,
+      "CreatedAt": "2025-12-20 13:22:33+00:00",
+      "UpdatedAt": "2026-03-11 08:28:02+00:00",
+      "name": "about",
+      "description": "Every project, place and team leaves a mark. Over time those marks form patterns. Instead of hiding them in bullet points, I mapped them into a visual timeline: follow the stations of my professional life."
+    }
+  ],
+  "pageInfo": {
+    "totalRows": 4,
+    "page": 1,
+    "pageSize": 25,
+    "isFirstPage": true,
+    "isLastPage": true
+  }
+}

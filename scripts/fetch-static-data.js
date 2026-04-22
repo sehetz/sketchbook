@@ -12,8 +12,10 @@ const NOCO_BASE_URL = process.env.VITE_NOCO_BASE_URL || "https://sehetz-noco.onr
 const NOCO_TOKEN = process.env.VITE_API_TOKEN;
 const PROJECTS_TABLE_ID = "mieh9d1y7a7ls74";
 const TEAMS_TABLE_ID = "mpz7ywybfxm3isa";
+const INTRO_TABLE_ID = "m1usrhdmzjt7qo8";
 const PROJECTS_API_URL = `${NOCO_BASE_URL}/api/v2/tables/${PROJECTS_TABLE_ID}/records`;
 const TEAMS_API_URL = `${NOCO_BASE_URL}/api/v2/tables/${TEAMS_TABLE_ID}/records`;
+const INTRO_API_URL = `${NOCO_BASE_URL}/api/v2/tables/${INTRO_TABLE_ID}/records`;
 
 async function fetchStaticData() {
   console.log("📦 Fetching latest data from NocoDB...\n");
@@ -56,6 +58,20 @@ async function fetchStaticData() {
     const teamsData = await teamsResponse.json();
     console.log(`✅ Fetched ${teamsData.list?.length || 0} teams\n`);
 
+    // Fetch intro texts
+    console.log(`🔗 Fetching intro texts: ${INTRO_API_URL}`);
+
+    const introResponse = await fetch(INTRO_API_URL, {
+      headers: { "xc-token": NOCO_TOKEN }
+    });
+
+    if (!introResponse.ok) {
+      throw new Error(`Intro: HTTP ${introResponse.status}: ${introResponse.statusText}`);
+    }
+
+    const introData = await introResponse.json();
+    console.log(`✅ Fetched ${introData.list?.length || 0} intro texts\n`);
+
     // Save to public/data/
     const outputDir = path.resolve(__dirname, "../public/data");
     await fs.mkdir(outputDir, { recursive: true });
@@ -71,7 +87,13 @@ async function fetchStaticData() {
     await fs.writeFile(teamsPath, JSON.stringify(teamsData, null, 2), "utf8");
     console.log(`💾 Saved teams: ${teamsPath}`);
     console.log(`   Size: ${(JSON.stringify(teamsData).length / 1024).toFixed(2)} KB`);
-    
+
+    // Save intro.json
+    const introPath = path.resolve(outputDir, "intro.json");
+    await fs.writeFile(introPath, JSON.stringify(introData, null, 2), "utf8");
+    console.log(`💾 Saved intro: ${introPath}`);
+    console.log(`   Size: ${(JSON.stringify(introData).length / 1024).toFixed(2)} KB`);
+
     console.log("\n✨ Static data updated successfully!");
     
   } catch (err) {

@@ -3,7 +3,7 @@
 
 @font-face {
   font-family: Arial;
-  font-display: swap; /* Prevent FOIT, improve CLS */
+  font-display: block;
 }
 
 :root {

@@ -37,15 +37,34 @@ export function useData() {
 // DATA PROVIDER COMPONENT
 // ============================================
 
+// Liest synchron aus sessionStorage (für lazy useState-Initialisierung)
+function readCache(key) {
+  try {
+    const raw = sessionStorage.getItem(key);
+    if (raw) return JSON.parse(raw);
+  } catch {}
+  return null;
+}
+
 export function DataProvider({ children }) {
   // ============================================
-  // STATE
+  // STATE – lazy init aus sessionStorage, damit der erste Render
+  // bereits gecachte Daten hat und kein Blitzer entsteht
   // ============================================
   
-  const [projects, setProjects] = useState([]);
-  const [teams, setTeams] = useState([]);
-  const [introTexts, setIntroTexts] = useState({});
-  const [isLoading, setIsLoading] = useState(true);
+  const [projects, setProjects] = useState(() => {
+    const c = readCache("sehetz-projects-cache-v2");
+    return Array.isArray(c) && c.length > 0 ? c : [];
+  });
+  const [teams, setTeams] = useState(() => {
+    const c = readCache("sehetz-teams-cache-v1");
+    return Array.isArray(c) && c.length > 0 ? c : [];
+  });
+  const [introTexts, setIntroTexts] = useState(() => {
+    const c = readCache("sehetz-intro-cache-v1");
+    return c && Object.keys(c).length > 0 ? c : {};
+  });
+  const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
 
   // ============================================
@@ -72,15 +91,7 @@ export function DataProvider({ children }) {
   // ============================================
   
   function loadFromCache(key) {
-    try {
-      const cached = sessionStorage.getItem(key);
-      if (cached) {
-        return JSON.parse(cached);
-      }
-    } catch (err) {
-      // Silent error handling
-    }
-    return null;
+    return readCache(key);
   }
 
   // ============================================
@@ -221,7 +232,31 @@ export function DataProvider({ children }) {
       setIntroTexts(cached);
     }
 
-    // 2) Im Hintergrund: Live-Fetch
+    // 2) Falls kein Cache: Static JSON laden
+    if (!localData) {
+      try {
+        const res = await fetch("/data/intro.json", { cache: "force-cache" });
+        if (res.ok) {
+          const json = await res.json();
+          const rows = json.list || [];
+          const textsMap = {};
+          rows.forEach(row => {
+            if (row.name && row.description) {
+              textsMap[row.name.toLowerCase()] = row.description;
+            }
+          });
+          if (Object.keys(textsMap).length > 0) {
+            localData = textsMap;
+            setIntroTexts(textsMap);
+            saveToCache(CACHE_KEYS.intro, textsMap);
+          }
+        }
+      } catch (err) {
+        // Silent error handling
+      }
+    }
+
+    // 3) Im Hintergrund: Live-Fetch von NocoDB für Updates
     try {
       const url = `${NOCO_BASE}/api/v2/tables/${INTRO_TABLE_ID}/records`;
       const res = await fetch(url, { 
@@ -257,8 +292,6 @@ export function DataProvider({ children }) {
   
   useEffect(() => {
     async function loadAllData() {
-      setIsLoading(true);
-      
       // Alle Daten parallel laden für maximale Performance
       // isInitialLoad=true sorgt dafür, dass lokale Daten sofort angezeigt werden
       await Promise.all([
