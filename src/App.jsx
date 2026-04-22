@@ -11,11 +11,10 @@ import Header from "./components/layout/Header/Header";
 import Footer from "./components/layout/Footer/Footer";
 import DataView from "./components/DataView/DataView";
 
-// Lazy load non-critical pages for better performance
+import About from "./pages/About";
 import { useState, useEffect, lazy, Suspense } from "react";
 
 const Impressum = lazy(() => import("./pages/Impressum"));
-const About = lazy(() => import("./pages/About"));
 const Privacy = lazy(() => import("./pages/Privacy"));
 const MissionIris = lazy(() => import("./pages/MissionIris"));
 
@@ -82,8 +81,8 @@ function App() {
 
   // normalize trailing slash, then route
   const normalized = currentPath.replace(/\/$/, "");
-  if (normalized === "/sarah-heitz") return <DataProvider><Suspense fallback={<div className="loading">Loading...</div>}><About /></Suspense></DataProvider>;
-  if (normalized === "/about") return <DataProvider><Suspense fallback={<div className="loading">Loading...</div>}><About /></Suspense></DataProvider>;
+  if (normalized === "/sarah-heitz") return <DataProvider><About /></DataProvider>;
+  if (normalized === "/about") return <DataProvider><About /></DataProvider>;
   if (normalized === "/privacy") return <Suspense fallback={<div className="loading">Loading...</div>}><Privacy /></Suspense>;
   if (normalized === "/impressum") return <Suspense fallback={<div className="loading">Loading...</div>}><Impressum /></Suspense>;
   if (normalized === "/mission-iris") return <Suspense fallback={<div className="loading">Loading...</div>}><MissionIris /></Suspense>;
