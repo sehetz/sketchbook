@@ -79,6 +79,7 @@ function buildDots(trackEl) {
   for (let i = 0; i <= steps; i++) {
     const value   = SCALE_MIN + i * SCALE_DOT_STEP;
     const isMajor = value % SCALE_STEP === 0;
+    if (isMajor && (value === SCALE_MIN || value === SCALE_MAX)) continue;
     const dot = document.createElement('div');
     dot.className = `chart__dot chart__dot--${isMajor ? 'major' : 'minor'}`;
     dot.style.left = priceToPercent(value);
@@ -113,6 +114,7 @@ function buildSepDots(rowEl) {
   for (let i = 0; i <= steps; i++) {
     const value   = SCALE_MIN + i * SCALE_DOT_STEP;
     const isMajor = value % SCALE_STEP === 0;
+    if (isMajor && (value === SCALE_MIN || value === SCALE_MAX)) continue;
     const dot = document.createElement('div');
     dot.className = `chart__sep-dot chart__sep-dot--${isMajor ? 'major' : 'minor'}`;
     dot.style.left = priceToPercent(value);

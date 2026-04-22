@@ -110,6 +110,13 @@
   gap: 1px;
 }
 
+@media (hover: none) {
+  .chart__brand {
+    pointer-events: auto;
+    cursor: pointer;
+  }
+}
+
 .chart__brand-name {
   font-family:    var(--text-brand-font);
   font-size:      var(--text-brand-size);
