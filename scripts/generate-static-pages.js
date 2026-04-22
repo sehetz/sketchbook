@@ -19,10 +19,20 @@ function stripHtml(html) {
   return (html || "").replace(/<[^>]*>/g, " ").replace(/\s+/g, " ").trim();
 }
 
-// Build prerendered body HTML for Googlebot (React overwrites on load)
-function buildProjectBody(project, title, description, skills, gears, teams, noco_base) {
-  const NOCO_BASE = noco_base || "https://sehetz-noco.onrender.com";
+// Resolve a NocoDB filename to a local /media/ path using the manifest
+// Strips NocoDB hash suffixes like "_7bpC2" to match canonical filenames
+function resolveLocalMediaPath(filename, manifest) {
+  if (!filename || !manifest) return null;
+  // Direct match
+  if (manifest[filename]) return manifest[filename];
+  // Strip NocoDB hash suffix: "name_HASH.ext" -> "name.ext"
+  const stripped = filename.replace(/_[A-Za-z0-9]{4,}(\.[^.]+)$/i, "$1");
+  if (stripped !== filename && manifest[stripped]) return manifest[stripped];
+  return null;
+}
 
+// Build prerendered body HTML for Googlebot (React overwrites on load)
+function buildProjectBody(project, title, description, skills, gears, teams, manifest) {
   const textFields = [
     "content_01_text",
     "content_03_text",
@@ -36,9 +46,10 @@ function buildProjectBody(project, title, description, skills, gears, teams, noc
     .join("\n    ");
 
   const teaserFile = Array.isArray(project["Teaser-Image"]) ? project["Teaser-Image"][0] : null;
-  const teaserSrc = teaserFile ? `${NOCO_BASE}/${teaserFile.signedPath || teaserFile.path}` : null;
-  const teaserImg = teaserSrc
-    ? `<img src="${teaserSrc}" alt="${title}" style="max-width:100%;height:auto;display:block;" />`
+  const teaserFilename = teaserFile?.name || teaserFile?.title || null;
+  const teaserLocalPath = teaserFilename ? resolveLocalMediaPath(teaserFilename, manifest) : null;
+  const teaserImg = teaserLocalPath
+    ? `<img src="${teaserLocalPath}" alt="${title}" style="max-width:100%;height:auto;display:block;" />`
     : "";
 
   const tagsHtml = [
@@ -68,6 +79,15 @@ async function generateStaticPages() {
     const projectsPath = path.resolve(__dirname, "../public/data/projects.json");
     const projectsData = JSON.parse(await fs.readFile(projectsPath, "utf8"));
     const projects = projectsData.list || [];
+
+    // Load media manifest for local path resolution (avoids expired NocoDB signed URLs)
+    let mediaManifest = {};
+    try {
+      const manifestPath = path.resolve(__dirname, "../public/media-manifest.json");
+      mediaManifest = JSON.parse(await fs.readFile(manifestPath, "utf8"));
+    } catch (e) {
+      console.warn("⚠️  media-manifest.json not found, teaser images will be skipped in prerender");
+    }
 
     // Read base HTML template
     const distIndexPath = path.resolve(__dirname, "../dist/index.html");
@@ -103,7 +123,7 @@ async function generateStaticPages() {
       const ogImage = `https://sehetz.ch/og/${projectSlug}.jpg`;
 
       // Build prerendered body content for Googlebot
-      const prerenderBody = buildProjectBody(project, project.Title, description, skillsList, gearsList, teamsList);
+      const prerenderBody = buildProjectBody(project, project.Title, description, skillsList, gearsList, teamsList, mediaManifest);
 
       // Create HTML with meta tags
       let projectHtml = baseHtml;
