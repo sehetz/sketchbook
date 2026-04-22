@@ -15,6 +15,51 @@ function slugify(text) {
     .replace(/^-+|-+$/g, "");
 }
 
+function stripHtml(html) {
+  return (html || "").replace(/<[^>]*>/g, " ").replace(/\s+/g, " ").trim();
+}
+
+// Build prerendered body HTML for Googlebot (React overwrites on load)
+function buildProjectBody(project, title, description, skills, gears, teams, noco_base) {
+  const NOCO_BASE = noco_base || "https://sehetz-noco.onrender.com";
+
+  const textFields = [
+    "content_01_text",
+    "content_03_text",
+    "content_05_text",
+  ];
+
+  const textBlocks = textFields
+    .map(f => project[f])
+    .filter(Boolean)
+    .map(t => `<p>${stripHtml(t)}</p>`)
+    .join("\n    ");
+
+  const teaserFile = Array.isArray(project["Teaser-Image"]) ? project["Teaser-Image"][0] : null;
+  const teaserSrc = teaserFile ? `${NOCO_BASE}/${teaserFile.signedPath || teaserFile.path}` : null;
+  const teaserImg = teaserSrc
+    ? `<img src="${teaserSrc}" alt="${title}" style="max-width:100%;height:auto;display:block;" />`
+    : "";
+
+  const tagsHtml = [
+    ...skills.map(s => `<span>${s}</span>`),
+    ...gears.map(g => `<span>${g}</span>`),
+    ...teams.map(t => `<span>${t}</span>`),
+  ].join(" ");
+
+  const datum = project.Datum ? `<time datetime="${project.Datum}">${project.Datum}</time>` : "";
+
+  return `<article>
+    <h1>${title}</h1>
+    ${datum}
+    ${teaserImg}
+    <p>${description}</p>
+    ${textBlocks}
+    <nav aria-label="Tags">${tagsHtml}</nav>
+    <a href="https://sehetz.ch">← Sehetz Portfolio</a>
+  </article>`;
+}
+
 async function generateStaticPages() {
   console.log("📄 Generating static project pages...\n");
 
@@ -36,26 +81,29 @@ async function generateStaticPages() {
       const projectSlug = slugify(project.Title || "");
       if (!projectSlug) continue;
 
-      // Get first skill for URL structure
-      const skills = project._nc_m2m_sehetz_skills || [];
-      if (skills.length === 0) continue;
+      // Get skills/gears/teams
+      const skillsList = (project._nc_m2m_sehetz_skills || []).map(s => s.skill?.Skill).filter(Boolean);
+      const gearsList  = (project._nc_m2m_sehetz_gears || []).map(g => g.gear?.Gear).filter(Boolean);
+      const teamsList  = (project._nc_m2m_sehetz_teams || []).map(t => t.team?.Team).filter(Boolean);
+
+      if (skillsList.length === 0) continue;
       
-      const skillName = skills[0]?.skill?.Skill || "";
-      const skillSlug = slugify(skillName);
+      const skillSlug = slugify(skillsList[0]);
       
-      // Extract description: use dedicated description field, then fall back to first text content block
+      // Extract description
       let description = "Explore this project in the Sehetz creative portfolio.";
-      if (project.description) {
-        const text = project.description.replace(/<[^>]*>/g, '').replace(/\s+/g, ' ').trim();
-        description = text.substring(0, 160) + (text.length > 160 ? '...' : '');
-      } else if (project.content_01_text) {
-        const text = project.content_01_text.replace(/<[^>]*>/g, '').replace(/\s+/g, ' ').trim();
-        description = text.substring(0, 160) + (text.length > 160 ? '...' : '');
+      const rawDesc = project.description || project.content_01_text || "";
+      if (rawDesc) {
+        const text = rawDesc.replace(/<[^>]*>/g, "").replace(/\s+/g, " ").trim();
+        description = text.substring(0, 160) + (text.length > 160 ? "..." : "");
       }
 
       const title = `${project.Title} – Sehetz Sketchbook`;
       const url = `https://sehetz.ch/skills/${skillSlug}/${projectSlug}`;
       const ogImage = `https://sehetz.ch/og/${projectSlug}.jpg`;
+
+      // Build prerendered body content for Googlebot
+      const prerenderBody = buildProjectBody(project, project.Title, description, skillsList, gearsList, teamsList);
 
       // Create HTML with meta tags
       let projectHtml = baseHtml;
@@ -91,9 +139,9 @@ async function generateStaticPages() {
       "name": title,
       "description": description,
       "url": url,
-      "datePublished": project.Datum || new Date().toISOString().split('T')[0],
+      "datePublished": project.Datum || new Date().toISOString().split("T")[0],
       "author": { "@type": "Person", "name": "Sarah Heitz", "url": "https://sehetz.ch/sarah-heitz" },
-      "keywords": (project._nc_m2m_sehetz_skills || []).map(s => s.skill?.Skill).filter(Boolean).join(", "),
+      "keywords": skillsList.join(", "),
       "image": [
         {
           "@type": "ImageObject",
@@ -108,6 +156,13 @@ async function generateStaticPages() {
   </head>`;
       
       projectHtml = projectHtml.replace(/<\/head>/, metaTags);
+
+      // Inject prerendered content into #root for Googlebot
+      // React will overwrite this on load, but crawlers see real text immediately
+      projectHtml = projectHtml.replace(
+        /<div id="root"><\/div>/,
+        `<div id="root">${prerenderBody}</div>`
+      );
 
       // Create directory structure: skills/{skillSlug}/{projectSlug}/
       const outputDir = path.resolve(__dirname, `../dist/skills/${skillSlug}/${projectSlug}`);

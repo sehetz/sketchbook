@@ -426,19 +426,11 @@ export function sitemap_generate(projects = [], text_labelToSlug) {
     const skills = Array.isArray(project._nc_m2m_sehetz_skills)
       ? project._nc_m2m_sehetz_skills.map(s => s.skill?.Skill).filter(Boolean)
       : [];
-    // Gears (M2M)
-    const gears = Array.isArray(project._nc_m2m_sehetz_gears)
-      ? project._nc_m2m_sehetz_gears.map(g => g.gear?.Gear).filter(Boolean)
-      : [];
-    // Teams (M2M)
-    const teams = Array.isArray(project._nc_m2m_sehetz_teams)
-      ? project._nc_m2m_sehetz_teams.map(t => t.team?.Team).filter(Boolean)
-      : [];
 
     // Logging for debug
     console.log(`[Sitemap] Project ${idx + 1}: "${title}" | skills=[${skills.join(', ')}] gears=[${gears.join(', ')}] teams=[${teams.join(', ')}]`);
 
-    // Add skill URLs
+    // Add skill URLs (have real static HTML pages)
     skills.forEach(skillName => {
       const skillSlug = text_labelToSlug(skillName);
       urls.push({
@@ -448,25 +440,7 @@ export function sitemap_generate(projects = [], text_labelToSlug) {
       });
     });
 
-    // Add gear URLs
-    gears.forEach(gearName => {
-      const gearSlug = text_labelToSlug(gearName);
-      urls.push({
-        loc: `${baseUrl}/gears/${gearSlug}`,
-        lastmod: datum,
-        priority: "0.7"
-      });
-    });
-
-    // Add team URLs
-    teams.forEach(teamName => {
-      const teamSlug = text_labelToSlug(teamName);
-      urls.push({
-        loc: `${baseUrl}/teams/${teamSlug}`,
-        lastmod: datum,
-        priority: "0.6"
-      });
-    });
+    // Note: /gears/ and /teams/ filter pages are SPA-only, no static HTML → excluded from sitemap
   });
 
   // Remove duplicates (use Map to keep first occurrence)
