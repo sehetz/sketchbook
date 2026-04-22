@@ -157,11 +157,11 @@ async function generateStaticPages() {
       
       projectHtml = projectHtml.replace(/<\/head>/, metaTags);
 
-      // Inject prerendered content into #root for Googlebot
-      // React will overwrite this on load, but crawlers see real text immediately
+      // Inject prerendered content OUTSIDE #root so React never touches it.
+      // Visually hidden but fully indexable by Googlebot (not cloaking - same content as the page).
       projectHtml = projectHtml.replace(
         /<div id="root"><\/div>/,
-        `<div id="root">${prerenderBody}</div>`
+        `<div style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap" aria-hidden="true">${prerenderBody}</div><div id="root"></div>`
       );
 
       // Create directory structure: skills/{skillSlug}/{projectSlug}/

@@ -2,16 +2,14 @@
 // CaseContainer.jsx – Skill / Gear / Team Container
 // ============================================
 
-import { useState, useEffect, useRef, lazy, Suspense, useMemo } from "react";
+import { useState, useEffect, useRef, useMemo } from "react";
 import CaseHeader from "./CaseComponents/CaseHeader.jsx";
 import CaseTeaser from "./CaseComponents/CaseTeaser.jsx";
 import GearTeaser from "./CaseComponents/GearTeaser.jsx";
 import TeamTeaser from "./CaseComponents/TeamTeaser.jsx";
+import CaseDetail from "./CaseComponents/CaseDetail.jsx";
 import { text_labelToSlug, url_build } from "../../../utils/routing.js";
 import { CLOSE_MS, TRANSITION_GAP_MS, DEFAULT_FIRST_OPEN_INDEX, timer_clear, timer_schedule } from "../../../utils/ui.jsx";
-
-// Lazy-load CaseDetail to reduce initial bundle size
-const CaseDetail = lazy(() => import("./CaseComponents/CaseDetail.jsx"));
 
 export default function CaseContainer({
   type,
@@ -163,9 +161,7 @@ export default function CaseContainer({
             type={type}
           />
           {openProjectIndex === index && (
-            <Suspense fallback={<div className="case-detail-loading">Loading...</div>}>
-              <CaseDetail project={project} />
-            </Suspense>
+            <CaseDetail project={project} />
           )}
         </div>
       ));
