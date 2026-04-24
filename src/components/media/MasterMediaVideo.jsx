@@ -24,6 +24,7 @@ export default function MasterMediaVideo({
   loop = true,
   muted = true,
   playsInline = true,
+  aspectRatio = "",
   onError: externalOnError,
 }) {
   const NOCO = import.meta.env.VITE_NOCO_BASE_URL || "http://localhost:8080";
@@ -64,11 +65,13 @@ export default function MasterMediaVideo({
 
   return (
     <div style={{ 
-      backgroundColor: 'var(--color-surface)', 
       width: '100%', 
       height: '100%',
       display: 'block',
-      position: 'relative'
+      position: 'relative',
+      overflow: 'hidden',
+      fontSize: 0,
+      lineHeight: 0,
     }}>
       <video
         ref={videoRef}
@@ -79,8 +82,19 @@ export default function MasterMediaVideo({
         muted={muted}
         playsInline={playsInline}
         onError={handleError}
-        style={{ display: 'block', width: '100%', height: '100%', position: 'relative', zIndex: 1 }}
+        style={{ display: 'block', width: '100%', height: '100%', verticalAlign: 'bottom' }}
       />
+      {aspectRatio === '16x9' && (
+        <div style={{
+          position: 'absolute',
+          bottom: 0,
+          left: 0,
+          right: 0,
+          height: '2px',
+          background: 'var(--color-bg)',
+          pointerEvents: 'none',
+        }} />
+      )}
     </div>
   );
 }

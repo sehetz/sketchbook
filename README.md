@@ -225,3 +225,6 @@ npm run build
 
 alles auf einmal:
 npm run fetch-static-data && npm run download-noco-media && npm run build:full
+
+Handy Dev
+http://192.168.1.156:5174/

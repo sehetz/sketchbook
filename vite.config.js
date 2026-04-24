@@ -8,6 +8,7 @@ export default defineConfig({
     port: 5174,
     strictPort: false,
     open: false,
+    host: true, // expose to local network
   },
   build: {
     // Performance optimizations

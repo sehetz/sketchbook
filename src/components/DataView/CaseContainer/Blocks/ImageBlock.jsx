@@ -80,6 +80,7 @@ export default function ImageBlock({ images, projectTitle = "" }) {
             <MasterMediaVideo
               file={item}
               className="image-media"
+              aspectRatio="16x9"
               autoPlay
               loop
               muted
