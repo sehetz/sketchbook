@@ -564,9 +564,9 @@
       "recordId": 17,
       "recordTitle": "This website",
       "field": "content_04_images[0]",
-      "filename": "3x4_Sehetz_website_coding_project_still_image.png",
-      "matched": "3x4_Sehetz_website_coding_project_still_image.png",
-      "localPath": "/media/sehetz/3x4_Sehetz_website_coding_project_still_image.png"
+      "filename": "3x4_Sehetz_website_coding_still_image.png",
+      "matched": "3x4_Sehetz_website_coding_still_image.png",
+      "localPath": "/media/sehetz/3x4_Sehetz_website_coding_still_image.png"
     },
     {
       "recordId": 17,
@@ -575,6 +575,30 @@
       "filename": "3x4_Sehetz_website_coding_project_video_2.webm",
       "matched": "3x4_Sehetz_website_coding_project_video_2.webm",
       "localPath": "/media/sehetz/3x4_Sehetz_website_coding_project_video_2.webm"
+    },
+    {
+      "recordId": 17,
+      "recordTitle": "This website",
+      "field": "content_06_gallery[0]",
+      "filename": "3x4_Sehetz_website_coding_gear_03.png",
+      "matched": "3x4_Sehetz_website_coding_gear_03.png",
+      "localPath": "/media/Gear/3x4_Sehetz_website_coding_gear_03.png"
+    },
+    {
+      "recordId": 17,
+      "recordTitle": "This website",
+      "field": "content_06_gallery[1]",
+      "filename": "3x4_Sehetz_website_coding_skills_03.png",
+      "matched": "3x4_Sehetz_website_coding_skills_03.png",
+      "localPath": "/media/sehetz/3x4_Sehetz_website_coding_skills_03.png"
+    },
+    {
+      "recordId": 17,
+      "recordTitle": "This website",
+      "field": "content_06_gallery[2]",
+      "filename": "3x4_Sehetz_website_coding_Teams_03.png",
+      "matched": "3x4_Sehetz_website_coding_Teams_03.png",
+      "localPath": "/media/Teams/3x4_Sehetz_website_coding_Teams_03.png"
     },
     {
       "recordId": 18,
@@ -714,37 +738,7 @@
       "candidates": [
         "16x9_Sehetz_website_coding_skills_T_T.webm"
       ],
-      "remotePath": "dltemp/EQVac9KEAXBFhzMG/1777054200000/noco/pv3c5ekh1fjoihu/mieh9d1y7a7ls74/cchl73funp4pj7t/16x9_Sehetz_website_coding_skills_T_T_RdXFY.webm"
-    },
-    {
-      "recordId": 17,
-      "recordTitle": "This website",
-      "field": "content_06_gallery[0]",
-      "filename": "3x4_Sehetz_website_coding_gear_03.png",
-      "candidates": [
-        "3x4_Sehetz_website_coding_gear_03.png"
-      ],
-      "remotePath": "dltemp/k548zyyoNgb484Dn/1777054200000/noco/pv3c5ekh1fjoihu/mieh9d1y7a7ls74/c2r1kl5m90m6ple/3x4_Sehetz_website_coding_gear_03_3Q4eZ.png"
-    },
-    {
-      "recordId": 17,
-      "recordTitle": "This website",
-      "field": "content_06_gallery[1]",
-      "filename": "3x4_Sehetz_website_coding_skills_03.png",
-      "candidates": [
-        "3x4_Sehetz_website_coding_skills_03.png"
-      ],
-      "remotePath": "dltemp/pnm2imBTMhdYkxr0/1777054200000/noco/pv3c5ekh1fjoihu/mieh9d1y7a7ls74/c2r1kl5m90m6ple/3x4_Sehetz_website_coding_skills_03_HHz4D.png"
-    },
-    {
-      "recordId": 17,
-      "recordTitle": "This website",
-      "field": "content_06_gallery[2]",
-      "filename": "3x4_Sehetz_website_coding_Teams_03.png",
-      "candidates": [
-        "3x4_Sehetz_website_coding_Teams_03.png"
-      ],
-      "remotePath": "dltemp/tJt2xd1NuDqgcja4/1777054200000/noco/pv3c5ekh1fjoihu/mieh9d1y7a7ls74/c2r1kl5m90m6ple/3x4_Sehetz_website_coding_Teams_03_eXYo1.png"
+      "remotePath": "dltemp/mVLVqmEuq_shL0yv/1777054800000/noco/pv3c5ekh1fjoihu/mieh9d1y7a7ls74/cchl73funp4pj7t/16x9_Sehetz_website_coding_skills_T_T_RdXFY.webm"
     }
   ],
   "noFilename": []
