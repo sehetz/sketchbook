@@ -393,14 +393,6 @@
       "localPath": "/media/Sehetz Sarah Heitz Gear Creative Cloud Crop.svg"
     },
     {
-      "recordId": 7,
-      "recordTitle": "Nightwalker",
-      "field": "_nc_m2m_sehetz_gears[0].gear.Teaser-Image[0]",
-      "filename": "Sehetz Sarah Heitz Gear Sony A6100 Crop.svg",
-      "matched": "Sehetz Sarah Heitz Gear Sony A6100 Crop.svg",
-      "localPath": "/media/Sehetz Sarah Heitz Gear Sony A6100 Crop.svg"
-    },
-    {
       "recordId": 9,
       "recordTitle": "Web Illustrations",
       "field": "Teaser-Image[0]",
@@ -566,7 +558,7 @@
       "field": "Teaser-Image[0]",
       "filename": "3x4_sehetz_MM_Phone_PH-FLM2-02.jpg",
       "matched": "3x4_sehetz_MM_Phone_PH-FLM2-02.jpg",
-      "localPath": "/media/sehetz/3x4_sehetz_MM_Phone_PH-FLM2-02.jpg"
+      "localPath": "/media/3x4_sehetz_MM_Phone_PH-FLM2-02.jpg"
     },
     {
       "recordId": 18,
@@ -574,69 +566,199 @@
       "field": "Teaser-Image[0]",
       "filename": "3x4_Sehetz_Rollerskate_Dataviz_Legend_00.jpg",
       "matched": "3x4_Sehetz_Rollerskate_Dataviz_Legend_00.jpg",
-      "localPath": "/media/sehetz/3x4_Sehetz_Rollerskate_Dataviz_Legend_00.jpg"
-    }
-  ],
-  "missing": [
+      "localPath": "/media/3x4_Sehetz_Rollerskate_Dataviz_Legend_00.jpg"
+    },
     {
       "recordId": 18,
       "recordTitle": "Rollerskating",
       "field": "content_06_gallery[0]",
       "filename": "3x4_Sehetz_Rollerskate_Dataviz_Legend_04.png",
-      "candidates": [
-        "3x4_Sehetz_Rollerskate_Dataviz_Legend_04.png"
-      ],
-      "remotePath": "dltemp/iXfsnOrsU60tuH23/1776882000000/noco/pv3c5ekh1fjoihu/mieh9d1y7a7ls74/c2r1kl5m90m6ple/3x4_Sehetz_Rollerskate_Dataviz_Legend_04__l-sH.png"
+      "matched": "3x4_Sehetz_Rollerskate_Dataviz_Legend_04.png",
+      "localPath": "/media/3x4_Sehetz_Rollerskate_Dataviz_Legend_04.png"
     },
     {
       "recordId": 18,
       "recordTitle": "Rollerskating",
       "field": "content_06_gallery[1]",
       "filename": "3x4_Sehetz_Rollerskate_Dataviz_Legend_05.png",
-      "candidates": [
-        "3x4_Sehetz_Rollerskate_Dataviz_Legend_05.png"
-      ],
-      "remotePath": "dltemp/JGrG83QcOOSfobVQ/1776882000000/noco/pv3c5ekh1fjoihu/mieh9d1y7a7ls74/c2r1kl5m90m6ple/3x4_Sehetz_Rollerskate_Dataviz_Legend_05_yU3G_.png"
+      "matched": "3x4_Sehetz_Rollerskate_Dataviz_Legend_05.png",
+      "localPath": "/media/3x4_Sehetz_Rollerskate_Dataviz_Legend_05.png"
     },
     {
       "recordId": 18,
       "recordTitle": "Rollerskating",
       "field": "content_06_gallery[2]",
       "filename": "3x4_Sehetz_Rollerskate_Dataviz_Legend_06.png",
-      "candidates": [
-        "3x4_Sehetz_Rollerskate_Dataviz_Legend_06.png"
-      ],
-      "remotePath": "dltemp/JGvwFtiJY0w8Szia/1776882000000/noco/pv3c5ekh1fjoihu/mieh9d1y7a7ls74/c2r1kl5m90m6ple/3x4_Sehetz_Rollerskate_Dataviz_Legend_06_APE0W.png"
+      "matched": "3x4_Sehetz_Rollerskate_Dataviz_Legend_06.png",
+      "localPath": "/media/3x4_Sehetz_Rollerskate_Dataviz_Legend_06.png"
     },
     {
       "recordId": 18,
       "recordTitle": "Rollerskating",
       "field": "content_06_gallery[3]",
       "filename": "3x4_Sehetz_Rollerskate_Dataviz_Legend_07.png",
-      "candidates": [
-        "3x4_Sehetz_Rollerskate_Dataviz_Legend_07.png"
-      ],
-      "remotePath": "dltemp/mQTK39lBURZTv3tV/1776882000000/noco/pv3c5ekh1fjoihu/mieh9d1y7a7ls74/c2r1kl5m90m6ple/3x4_Sehetz_Rollerskate_Dataviz_Legend_07_hzfz7.png"
+      "matched": "3x4_Sehetz_Rollerskate_Dataviz_Legend_07.png",
+      "localPath": "/media/3x4_Sehetz_Rollerskate_Dataviz_Legend_07.png"
     },
     {
       "recordId": 18,
       "recordTitle": "Rollerskating",
       "field": "content_06_gallery[4]",
       "filename": "3x4_Sehetz_Rollerskate_Dataviz_Legend_08.png",
-      "candidates": [
-        "3x4_Sehetz_Rollerskate_Dataviz_Legend_08.png"
-      ],
-      "remotePath": "dltemp/wBHlx_IoZzkJHpxQ/1776882000000/noco/pv3c5ekh1fjoihu/mieh9d1y7a7ls74/c2r1kl5m90m6ple/3x4_Sehetz_Rollerskate_Dataviz_Legend_08_x9QjL.png"
+      "matched": "3x4_Sehetz_Rollerskate_Dataviz_Legend_08.png",
+      "localPath": "/media/3x4_Sehetz_Rollerskate_Dataviz_Legend_08.png"
     },
     {
       "recordId": 18,
       "recordTitle": "Rollerskating",
       "field": "content_06_gallery[5]",
       "filename": "3x4_Sehetz_Rollerskate_Dataviz_Legend_09.png",
+      "matched": "3x4_Sehetz_Rollerskate_Dataviz_Legend_09.png",
+      "localPath": "/media/3x4_Sehetz_Rollerskate_Dataviz_Legend_09.png"
+    },
+    {
+      "recordId": 19,
+      "recordTitle": "Carnault Icons",
+      "field": "_nc_m2m_sehetz_teams[0].team.Teaser-Image[0]",
+      "filename": "Sehetz-Team-carnault.webp",
+      "matched": "Sehetz-Team-carnault.webp",
+      "localPath": "/media/Sehetz-Team-carnault.webp"
+    },
+    {
+      "recordId": 19,
+      "recordTitle": "Carnault Icons",
+      "field": "_nc_m2m_sehetz_gears[0].gear.Teaser-Image[0]",
+      "filename": "Sehetz Sarah Heitz Gear Creative Cloud Crop.svg",
+      "matched": "Sehetz Sarah Heitz Gear Creative Cloud Crop.svg",
+      "localPath": "/media/Sehetz Sarah Heitz Gear Creative Cloud Crop.svg"
+    },
+    {
+      "recordId": 20,
+      "recordTitle": "MID Icons",
+      "field": "_nc_m2m_sehetz_teams[0].team.Teaser-Image[0]",
+      "filename": "Sehetz-Team-Superdot.webp",
+      "matched": "Sehetz-Team-Superdot.webp",
+      "localPath": "/media/Sehetz-Team-Superdot.webp"
+    },
+    {
+      "recordId": 20,
+      "recordTitle": "MID Icons",
+      "field": "_nc_m2m_sehetz_gears[0].gear.Teaser-Image[0]",
+      "filename": "Sehetz Sarah Heitz Gear Creative Cloud Crop.svg",
+      "matched": "Sehetz Sarah Heitz Gear Creative Cloud Crop.svg",
+      "localPath": "/media/Sehetz Sarah Heitz Gear Creative Cloud Crop.svg"
+    },
+    {
+      "recordId": 21,
+      "recordTitle": "Carnault Website",
+      "field": "_nc_m2m_sehetz_teams[0].team.Teaser-Image[0]",
+      "filename": "Sehetz-Team-carnault.webp",
+      "matched": "Sehetz-Team-carnault.webp",
+      "localPath": "/media/Sehetz-Team-carnault.webp"
+    },
+    {
+      "recordId": 22,
+      "recordTitle": "MID Kickstarter",
+      "field": "_nc_m2m_sehetz_teams[0].team.Teaser-Image[0]",
+      "filename": "Sehetz-Team-Superdot.webp",
+      "matched": "Sehetz-Team-Superdot.webp",
+      "localPath": "/media/Sehetz-Team-Superdot.webp"
+    },
+    {
+      "recordId": 22,
+      "recordTitle": "MID Kickstarter",
+      "field": "_nc_m2m_sehetz_gears[0].gear.Teaser-Image[0]",
+      "filename": "Sehetz Sarah Heitz Gear Creative Cloud Crop.svg",
+      "matched": "Sehetz Sarah Heitz Gear Creative Cloud Crop.svg",
+      "localPath": "/media/Sehetz Sarah Heitz Gear Creative Cloud Crop.svg"
+    }
+  ],
+  "missing": [
+    {
+      "recordId": 17,
+      "recordTitle": "This website",
+      "field": "content_02_image[0]",
+      "filename": "16x9_Sehetz_website_coding_skills.webm",
       "candidates": [
-        "3x4_Sehetz_Rollerskate_Dataviz_Legend_09.png"
+        "16x9_Sehetz_website_coding_skills.webm",
+        "16x9_Sehetz_website_coding.webm",
+        "16x9_Sehetz_website.webm",
+        "16x9_Sehetz.webm",
+        "16x9.webm"
       ],
-      "remotePath": "dltemp/ZktidIJt6t8oy9Cz/1776882000000/noco/pv3c5ekh1fjoihu/mieh9d1y7a7ls74/c2r1kl5m90m6ple/3x4_Sehetz_Rollerskate_Dataviz_Legend_09_yfNHP.png"
+      "remotePath": "dltemp/JqJzc25nG49SfuDA/1777034400000/noco/pv3c5ekh1fjoihu/mieh9d1y7a7ls74/cchl73funp4pj7t/16x9_Sehetz_website_coding_skills_Us-bh.webm"
+    },
+    {
+      "recordId": 17,
+      "recordTitle": "This website",
+      "field": "content_04_images[0]",
+      "filename": "3x4_Sehetz_website_coding_still_image.png",
+      "candidates": [
+        "3x4_Sehetz_website_coding_still_image.png",
+        "3x4_Sehetz_website_coding_still.png",
+        "3x4_Sehetz_website_coding.png",
+        "3x4_Sehetz_website.png",
+        "3x4_Sehetz.png",
+        "3x4.png"
+      ],
+      "remotePath": "dltemp/e7gQlJEGuR9zlp5V/1777034400000/noco/pv3c5ekh1fjoihu/mieh9d1y7a7ls74/cj599155ucoggob/3x4_Sehetz_website_coding_still_image_6P39i.png"
+    },
+    {
+      "recordId": 17,
+      "recordTitle": "This website",
+      "field": "content_04_images[1]",
+      "filename": "3x4_Sehetz_website_coding_project_video.webm",
+      "candidates": [
+        "3x4_Sehetz_website_coding_project_video.webm",
+        "3x4_Sehetz_website_coding_project.webm",
+        "3x4_Sehetz_website_coding.webm",
+        "3x4_Sehetz_website.webm",
+        "3x4_Sehetz.webm",
+        "3x4.webm"
+      ],
+      "remotePath": "dltemp/6qvoAQ3x6SHOK9go/1777034400000/noco/pv3c5ekh1fjoihu/mieh9d1y7a7ls74/cj599155ucoggob/3x4_Sehetz_website_coding_project_video_yc5q7.webm"
+    },
+    {
+      "recordId": 17,
+      "recordTitle": "This website",
+      "field": "content_06_gallery[0]",
+      "filename": "3x4_Sehetz_website_coding_skills.png",
+      "candidates": [
+        "3x4_Sehetz_website_coding_skills.png",
+        "3x4_Sehetz_website_coding.png",
+        "3x4_Sehetz_website.png",
+        "3x4_Sehetz.png",
+        "3x4.png"
+      ],
+      "remotePath": "dltemp/RVXzHnh_u7ipQ9ZW/1777034400000/noco/pv3c5ekh1fjoihu/mieh9d1y7a7ls74/c2r1kl5m90m6ple/3x4_Sehetz_website_coding_skills_gJLLB.png"
+    },
+    {
+      "recordId": 17,
+      "recordTitle": "This website",
+      "field": "content_06_gallery[1]",
+      "filename": "3x4_Sehetz_website_coding_gear.png",
+      "candidates": [
+        "3x4_Sehetz_website_coding_gear.png",
+        "3x4_Sehetz_website_coding.png",
+        "3x4_Sehetz_website.png",
+        "3x4_Sehetz.png",
+        "3x4.png"
+      ],
+      "remotePath": "dltemp/Gp-eETPKdrN-1U7V/1777034400000/noco/pv3c5ekh1fjoihu/mieh9d1y7a7ls74/c2r1kl5m90m6ple/3x4_Sehetz_website_coding_gear_a4zHA.png"
+    },
+    {
+      "recordId": 17,
+      "recordTitle": "This website",
+      "field": "content_06_gallery[2]",
+      "filename": "3x4_Sehetz_website_coding_Teams.png",
+      "candidates": [
+        "3x4_Sehetz_website_coding_Teams.png",
+        "3x4_Sehetz_website_coding.png",
+        "3x4_Sehetz_website.png",
+        "3x4_Sehetz.png",
+        "3x4.png"
+      ],
+      "remotePath": "dltemp/JxDTSkdI_uiZajHr/1777034400000/noco/pv3c5ekh1fjoihu/mieh9d1y7a7ls74/c2r1kl5m90m6ple/3x4_Sehetz_website_coding_Teams_P-TF_.png"
     }
   ],
   "noFilename": []
