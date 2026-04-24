@@ -106,7 +106,11 @@ export function project_normalize(project, NOCO_BASE_URL) {
     ? `/${project["teaser_embed_url"].replace(/^\//, "").replace(/\/?$/, "/index.html")}`
     : null;
 
-  if (rawEmbedUrl) {
+  const teaserEmbedRatio = project["teaser_embed_ratio"] || null;
+
+  // Only inject as teaser when explicitly set to "3x4"
+  // Otherwise (null / "16x9") → inject as content block (original behaviour)
+  if (rawEmbedUrl && teaserEmbedRatio !== "3x4") {
     const embedBlock = { type: "content_embed", data: rawEmbedUrl };
     const idx = blocks.findIndex((b) => b.type === "content_02_image");
     if (idx >= 0) {
@@ -117,7 +121,9 @@ export function project_normalize(project, NOCO_BASE_URL) {
     }
   }
 
-  return { ...project, teaserImageFile, teaserVideoFile, blocks };
+  const teaserEmbedUrl = rawEmbedUrl && teaserEmbedRatio === "3x4" ? rawEmbedUrl : null;
+
+  return { ...project, teaserImageFile, teaserVideoFile, teaserEmbedUrl, teaserEmbedRatio, blocks };
 }
 
 // ============================================

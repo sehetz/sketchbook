@@ -112,7 +112,14 @@ export default function CaseTeaser({
           </div>
 
           {isOpen ? (
-            videoSrc ? (
+            project.teaserEmbedUrl ? (
+              <iframe
+                src={project.teaserEmbedUrl}
+                className={`teaser__iframe${project.teaserEmbedRatio === "16x9" ? " teaser__iframe--wide" : " teaser__image"}`}
+                title={project.Title}
+                loading="lazy"
+              />
+            ) : videoSrc ? (
               <video
                 src={videoSrc}
                 className="teaser__image"

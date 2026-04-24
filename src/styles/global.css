@@ -578,6 +578,19 @@ a.case-line:hover .case-line__title {
 .teaser__image_small.placeholder {
   background: var(--color-surface);
 }
+.teaser__iframe {
+  border: none;
+  display: block;
+  overflow: hidden;
+}
+.teaser__iframe--wide {
+  border: none;
+  display: block;
+  overflow: hidden;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  flex-shrink: 0;
+}
 .teaser__image_small.placeholder {
   width: 100%;
 }
