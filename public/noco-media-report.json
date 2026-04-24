@@ -563,10 +563,26 @@
     {
       "recordId": 17,
       "recordTitle": "This website",
+      "field": "content_02_image[0]",
+      "filename": "16x9_Sehetz_website_coding_skills.webm",
+      "matched": "16x9_Sehetz_website_coding_skills.webm",
+      "localPath": "/media/sehetz/16x9_Sehetz_website_coding_skills.webm"
+    },
+    {
+      "recordId": 17,
+      "recordTitle": "This website",
       "field": "content_04_images[0]",
       "filename": "3x4_Sehetz_website_coding_project_still_image.png",
       "matched": "3x4_Sehetz_website_coding_project_still_image.png",
       "localPath": "/media/sehetz/3x4_Sehetz_website_coding_project_still_image.png"
+    },
+    {
+      "recordId": 17,
+      "recordTitle": "This website",
+      "field": "content_04_images[1]",
+      "filename": "3x4_Sehetz_website_coding_project_video_2.webm",
+      "matched": "3x4_Sehetz_website_coding_project_video_2.webm",
+      "localPath": "/media/sehetz/3x4_Sehetz_website_coding_project_video_2.webm"
     },
     {
       "recordId": 17,
@@ -721,27 +737,6 @@
       "localPath": "/media/Sehetz-Team-Superdot.webp"
     }
   ],
-  "missing": [
-    {
-      "recordId": 17,
-      "recordTitle": "This website",
-      "field": "content_02_image[0]",
-      "filename": "16x9_Sehetz_website_coding_skills_2.webm",
-      "candidates": [
-        "16x9_Sehetz_website_coding_skills_2.webm"
-      ],
-      "remotePath": "dltemp/6XRyQbtMXkTxLAmp/1777044000000/noco/pv3c5ekh1fjoihu/mieh9d1y7a7ls74/cchl73funp4pj7t/16x9_Sehetz_website_coding_skills_2_SyS8t.webm"
-    },
-    {
-      "recordId": 17,
-      "recordTitle": "This website",
-      "field": "content_04_images[1]",
-      "filename": "3x4_Sehetz_website_coding_project_video_2.webm",
-      "candidates": [
-        "3x4_Sehetz_website_coding_project_video_2.webm"
-      ],
-      "remotePath": "dltemp/dd_8xVt7WrqDxfB-/1777044000000/noco/pv3c5ekh1fjoihu/mieh9d1y7a7ls74/cj599155ucoggob/3x4_Sehetz_website_coding_project_video_2_xo-cA.webm"
-    }
-  ],
+  "missing": [],
   "noFilename": []
 }
