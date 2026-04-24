@@ -151,40 +151,6 @@
       "call_to_action": null,
       "teaser_embed_url": null,
       "teaser_embed_ratio": null,
-      "_nc_m2m_sehetz_skills": [
-        {
-          "skill_id": 10,
-          "sehetz_id": 1,
-          "skill": {
-            "Projects": 2,
-            "Id": 10,
-            "CreatedAt": "2025-12-20 13:24:00+00:00",
-            "UpdatedAt": "2025-12-20 13:26:37+00:00",
-            "Skill": "Foto"
-          }
-        }
-      ],
-      "_nc_m2m_sehetz_teams": [
-        {
-          "team_id": 5,
-          "sehetz_id": 1,
-          "team": {
-            "Projects": 5,
-            "Id": 5,
-            "CreatedAt": "2025-12-20 13:23:35+00:00",
-            "UpdatedAt": "2026-04-19 17:10:33+00:00",
-            "Team": "sehetz",
-            "design-work": true,
-            "description": null,
-            "Teaser-Image": null,
-            "start-date": 2015,
-            "end-date": null,
-            "role": "Courious Twad",
-            "location": "Basel",
-            "link": null
-          }
-        }
-      ],
       "_nc_m2m_sehetz_gears": [
         {
           "gear_id": 1,
@@ -219,6 +185,40 @@
                 "signedPath": "dltemp/mrO0_xTe_MJ7JTEE/1777044600000/noco/pv3c5ekh1fjoihu/mb2io0hhb8mzae6/cqax9ua61uqjooh/Sehetz Sarah Heitz Gear Sony A6100 Crop__5Kmf.svg"
               }
             ]
+          }
+        }
+      ],
+      "_nc_m2m_sehetz_teams": [
+        {
+          "team_id": 5,
+          "sehetz_id": 1,
+          "team": {
+            "Projects": 5,
+            "Id": 5,
+            "CreatedAt": "2025-12-20 13:23:35+00:00",
+            "UpdatedAt": "2026-04-19 17:10:33+00:00",
+            "Team": "sehetz",
+            "design-work": true,
+            "description": null,
+            "Teaser-Image": null,
+            "start-date": 2015,
+            "end-date": null,
+            "role": "Courious Twad",
+            "location": "Basel",
+            "link": null
+          }
+        }
+      ],
+      "_nc_m2m_sehetz_skills": [
+        {
+          "skill_id": 10,
+          "sehetz_id": 1,
+          "skill": {
+            "Projects": 2,
+            "Id": 10,
+            "CreatedAt": "2025-12-20 13:24:00+00:00",
+            "UpdatedAt": "2025-12-20 13:26:37+00:00",
+            "Skill": "Foto"
           }
         }
       ]
@@ -267,40 +267,6 @@
       "call_to_action": "[read the webcomic](https://sehetz.ch/mission-iris/)",
       "teaser_embed_url": null,
       "teaser_embed_ratio": null,
-      "_nc_m2m_sehetz_skills": [
-        {
-          "skill_id": 2,
-          "sehetz_id": 2,
-          "skill": {
-            "Projects": 3,
-            "Id": 2,
-            "CreatedAt": "2025-12-20 13:24:00+00:00",
-            "UpdatedAt": "2026-04-24 11:20:04+00:00",
-            "Skill": "Illustration"
-          }
-        }
-      ],
-      "_nc_m2m_sehetz_teams": [
-        {
-          "team_id": 5,
-          "sehetz_id": 2,
-          "team": {
-            "Projects": 5,
-            "Id": 5,
-            "CreatedAt": "2025-12-20 13:23:35+00:00",
-            "UpdatedAt": "2026-04-19 17:10:33+00:00",
-            "Team": "sehetz",
-            "design-work": true,
-            "description": null,
-            "Teaser-Image": null,
-            "start-date": 2015,
-            "end-date": null,
-            "role": "Courious Twad",
-            "location": "Basel",
-            "link": null
-          }
-        }
-      ],
       "_nc_m2m_sehetz_gears": [
         {
           "gear_id": 2,
@@ -335,6 +301,40 @@
                 "signedPath": "dltemp/b90OxsKUrexu8oXQ/1777044600000/noco/pv3c5ekh1fjoihu/mb2io0hhb8mzae6/cqax9ua61uqjooh/Sehetz Sarah Heitz Gear Ipad Crop_p1Tho.svg"
               }
             ]
+          }
+        }
+      ],
+      "_nc_m2m_sehetz_teams": [
+        {
+          "team_id": 5,
+          "sehetz_id": 2,
+          "team": {
+            "Projects": 5,
+            "Id": 5,
+            "CreatedAt": "2025-12-20 13:23:35+00:00",
+            "UpdatedAt": "2026-04-19 17:10:33+00:00",
+            "Team": "sehetz",
+            "design-work": true,
+            "description": null,
+            "Teaser-Image": null,
+            "start-date": 2015,
+            "end-date": null,
+            "role": "Courious Twad",
+            "location": "Basel",
+            "link": null
+          }
+        }
+      ],
+      "_nc_m2m_sehetz_skills": [
+        {
+          "skill_id": 2,
+          "sehetz_id": 2,
+          "skill": {
+            "Projects": 3,
+            "Id": 2,
+            "CreatedAt": "2025-12-20 13:24:00+00:00",
+            "UpdatedAt": "2026-04-24 11:20:04+00:00",
+            "Skill": "Illustration"
           }
         }
       ]
@@ -469,16 +469,40 @@
       "call_to_action": null,
       "teaser_embed_url": null,
       "teaser_embed_ratio": null,
-      "_nc_m2m_sehetz_skills": [
+      "_nc_m2m_sehetz_gears": [
         {
-          "skill_id": 10,
+          "gear_id": 8,
           "sehetz_id": 3,
-          "skill": {
-            "Projects": 2,
-            "Id": 10,
-            "CreatedAt": "2025-12-20 13:24:00+00:00",
-            "UpdatedAt": "2025-12-20 13:26:37+00:00",
-            "Skill": "Foto"
+          "gear": {
+            "Projects": 1,
+            "Id": 8,
+            "CreatedAt": "2025-12-20 13:23:46+00:00",
+            "UpdatedAt": "2025-12-20 19:30:03+00:00",
+            "Gear": "Canon 70D",
+            "description": "My trusty Canon 70D accompanied me through my inexperienced student years. I must have taken 10,000 pictures with it, and 9,999 of them were blurry. Sadly, it spent its life below its potential, but it was always a loyal and well loved partner. (And yes, it's quite a weighty companion)",
+            "Teaser-Image": [
+              {
+                "path": "download/noco/pv3c5ekh1fjoihu/mb2io0hhb8mzae6/cqax9ua61uqjooh/Sehetz Sarah Heitz Gear Canon 70 D_AQqa7.svg",
+                "title": "Sehetz Sarah Heitz Gear Canon 70 D.svg",
+                "mimetype": "image/svg+xml",
+                "size": 37769,
+                "width": 260,
+                "height": 346,
+                "id": "atbx0f7unxcsv4fx",
+                "thumbnails": {
+                  "tiny": {
+                    "signedPath": "dltemp/SDl8-8ym9pNhFSvD/1777044600000/thumbnails/noco/pv3c5ekh1fjoihu/mb2io0hhb8mzae6/cqax9ua61uqjooh/Sehetz Sarah Heitz Gear Canon 70 D_AQqa7.svg/tiny.jpg"
+                  },
+                  "small": {
+                    "signedPath": "dltemp/XKgu2IHkXeHKMARQ/1777044600000/thumbnails/noco/pv3c5ekh1fjoihu/mb2io0hhb8mzae6/cqax9ua61uqjooh/Sehetz Sarah Heitz Gear Canon 70 D_AQqa7.svg/small.jpg"
+                  },
+                  "card_cover": {
+                    "signedPath": "dltemp/POc6z-yvE8r-533o/1777044600000/thumbnails/noco/pv3c5ekh1fjoihu/mb2io0hhb8mzae6/cqax9ua61uqjooh/Sehetz Sarah Heitz Gear Canon 70 D_AQqa7.svg/card_cover.jpg"
+                  }
+                },
+                "signedPath": "dltemp/goPOPYZhPRAApssH/1777044600000/noco/pv3c5ekh1fjoihu/mb2io0hhb8mzae6/cqax9ua61uqjooh/Sehetz Sarah Heitz Gear Canon 70 D_AQqa7.svg"
+              }
+            ]
           }
         }
       ],
@@ -525,40 +549,16 @@
           }
         }
       ],
-      "_nc_m2m_sehetz_gears": [
+      "_nc_m2m_sehetz_skills": [
         {
-          "gear_id": 8,
+          "skill_id": 10,
           "sehetz_id": 3,
-          "gear": {
-            "Projects": 1,
-            "Id": 8,
-            "CreatedAt": "2025-12-20 13:23:46+00:00",
-            "UpdatedAt": "2025-12-20 19:30:03+00:00",
-            "Gear": "Canon 70D",
-            "description": "My trusty Canon 70D accompanied me through my inexperienced student years. I must have taken 10,000 pictures with it, and 9,999 of them were blurry. Sadly, it spent its life below its potential, but it was always a loyal and well loved partner. (And yes, it's quite a weighty companion)",
-            "Teaser-Image": [
-              {
-                "path": "download/noco/pv3c5ekh1fjoihu/mb2io0hhb8mzae6/cqax9ua61uqjooh/Sehetz Sarah Heitz Gear Canon 70 D_AQqa7.svg",
-                "title": "Sehetz Sarah Heitz Gear Canon 70 D.svg",
-                "mimetype": "image/svg+xml",
-                "size": 37769,
-                "width": 260,
-                "height": 346,
-                "id": "atbx0f7unxcsv4fx",
-                "thumbnails": {
-                  "tiny": {
-                    "signedPath": "dltemp/SDl8-8ym9pNhFSvD/1777044600000/thumbnails/noco/pv3c5ekh1fjoihu/mb2io0hhb8mzae6/cqax9ua61uqjooh/Sehetz Sarah Heitz Gear Canon 70 D_AQqa7.svg/tiny.jpg"
-                  },
-                  "small": {
-                    "signedPath": "dltemp/XKgu2IHkXeHKMARQ/1777044600000/thumbnails/noco/pv3c5ekh1fjoihu/mb2io0hhb8mzae6/cqax9ua61uqjooh/Sehetz Sarah Heitz Gear Canon 70 D_AQqa7.svg/small.jpg"
-                  },
-                  "card_cover": {
-                    "signedPath": "dltemp/POc6z-yvE8r-533o/1777044600000/thumbnails/noco/pv3c5ekh1fjoihu/mb2io0hhb8mzae6/cqax9ua61uqjooh/Sehetz Sarah Heitz Gear Canon 70 D_AQqa7.svg/card_cover.jpg"
-                  }
-                },
-                "signedPath": "dltemp/goPOPYZhPRAApssH/1777044600000/noco/pv3c5ekh1fjoihu/mb2io0hhb8mzae6/cqax9ua61uqjooh/Sehetz Sarah Heitz Gear Canon 70 D_AQqa7.svg"
-              }
-            ]
+          "skill": {
+            "Projects": 2,
+            "Id": 10,
+            "CreatedAt": "2025-12-20 13:24:00+00:00",
+            "UpdatedAt": "2025-12-20 13:26:37+00:00",
+            "Skill": "Foto"
           }
         }
       ]
@@ -806,16 +806,40 @@
       "call_to_action": null,
       "teaser_embed_url": null,
       "teaser_embed_ratio": null,
-      "_nc_m2m_sehetz_skills": [
+      "_nc_m2m_sehetz_gears": [
         {
-          "skill_id": 2,
+          "gear_id": 7,
           "sehetz_id": 4,
-          "skill": {
-            "Projects": 3,
-            "Id": 2,
-            "CreatedAt": "2025-12-20 13:24:00+00:00",
-            "UpdatedAt": "2026-04-24 11:20:04+00:00",
-            "Skill": "Illustration"
+          "gear": {
+            "Projects": 1,
+            "Id": 7,
+            "CreatedAt": "2025-12-20 13:23:46+00:00",
+            "UpdatedAt": "2025-12-20 19:29:52+00:00",
+            "Gear": "Pen & Paper",
+            "description": "The comfort of a pencil lead on paper, the beautiful accidental effects that occur when the pigment rubs off onto the canvas, the smell of paint. All of that is simply put: my comfort zone. Things get exciting when you combine media: modeling clay, watercolors, pencil drawings? Why not!",
+            "Teaser-Image": [
+              {
+                "path": "download/noco/pv3c5ekh1fjoihu/mb2io0hhb8mzae6/cqax9ua61uqjooh/Sehetz Sarah Heitz Gear Pen & Paper_KuxBN.svg",
+                "title": "Sehetz Sarah Heitz Gear Pen & Paper.svg",
+                "mimetype": "image/svg+xml",
+                "size": 22331,
+                "width": 260,
+                "height": 346,
+                "id": "atmsrp682z115k1h",
+                "thumbnails": {
+                  "tiny": {
+                    "signedPath": "dltemp/6TYI5dhRWLp8ogE9/1777044600000/thumbnails/noco/pv3c5ekh1fjoihu/mb2io0hhb8mzae6/cqax9ua61uqjooh/Sehetz Sarah Heitz Gear Pen & Paper_KuxBN.svg/tiny.jpg"
+                  },
+                  "small": {
+                    "signedPath": "dltemp/C-k8QlVnpFsa96M8/1777044600000/thumbnails/noco/pv3c5ekh1fjoihu/mb2io0hhb8mzae6/cqax9ua61uqjooh/Sehetz Sarah Heitz Gear Pen & Paper_KuxBN.svg/small.jpg"
+                  },
+                  "card_cover": {
+                    "signedPath": "dltemp/le8ZDJUSVSTW1ZDD/1777044600000/thumbnails/noco/pv3c5ekh1fjoihu/mb2io0hhb8mzae6/cqax9ua61uqjooh/Sehetz Sarah Heitz Gear Pen & Paper_KuxBN.svg/card_cover.jpg"
+                  }
+                },
+                "signedPath": "dltemp/c5FT4GPvn_x9DORI/1777044600000/noco/pv3c5ekh1fjoihu/mb2io0hhb8mzae6/cqax9ua61uqjooh/Sehetz Sarah Heitz Gear Pen & Paper_KuxBN.svg"
+              }
+            ]
           }
         }
       ],
@@ -862,40 +886,16 @@
           }
         }
       ],
-      "_nc_m2m_sehetz_gears": [
+      "_nc_m2m_sehetz_skills": [
         {
-          "gear_id": 7,
+          "skill_id": 2,
           "sehetz_id": 4,
-          "gear": {
-            "Projects": 1,
-            "Id": 7,
-            "CreatedAt": "2025-12-20 13:23:46+00:00",
-            "UpdatedAt": "2025-12-20 19:29:52+00:00",
-            "Gear": "Pen & Paper",
-            "description": "The comfort of a pencil lead on paper, the beautiful accidental effects that occur when the pigment rubs off onto the canvas, the smell of paint. All of that is simply put: my comfort zone. Things get exciting when you combine media: modeling clay, watercolors, pencil drawings? Why not!",
-            "Teaser-Image": [
-              {
-                "path": "download/noco/pv3c5ekh1fjoihu/mb2io0hhb8mzae6/cqax9ua61uqjooh/Sehetz Sarah Heitz Gear Pen & Paper_KuxBN.svg",
-                "title": "Sehetz Sarah Heitz Gear Pen & Paper.svg",
-                "mimetype": "image/svg+xml",
-                "size": 22331,
-                "width": 260,
-                "height": 346,
-                "id": "atmsrp682z115k1h",
-                "thumbnails": {
-                  "tiny": {
-                    "signedPath": "dltemp/6TYI5dhRWLp8ogE9/1777044600000/thumbnails/noco/pv3c5ekh1fjoihu/mb2io0hhb8mzae6/cqax9ua61uqjooh/Sehetz Sarah Heitz Gear Pen & Paper_KuxBN.svg/tiny.jpg"
-                  },
-                  "small": {
-                    "signedPath": "dltemp/C-k8QlVnpFsa96M8/1777044600000/thumbnails/noco/pv3c5ekh1fjoihu/mb2io0hhb8mzae6/cqax9ua61uqjooh/Sehetz Sarah Heitz Gear Pen & Paper_KuxBN.svg/small.jpg"
-                  },
-                  "card_cover": {
-                    "signedPath": "dltemp/le8ZDJUSVSTW1ZDD/1777044600000/thumbnails/noco/pv3c5ekh1fjoihu/mb2io0hhb8mzae6/cqax9ua61uqjooh/Sehetz Sarah Heitz Gear Pen & Paper_KuxBN.svg/card_cover.jpg"
-                  }
-                },
-                "signedPath": "dltemp/c5FT4GPvn_x9DORI/1777044600000/noco/pv3c5ekh1fjoihu/mb2io0hhb8mzae6/cqax9ua61uqjooh/Sehetz Sarah Heitz Gear Pen & Paper_KuxBN.svg"
-              }
-            ]
+          "skill": {
+            "Projects": 3,
+            "Id": 2,
+            "CreatedAt": "2025-12-20 13:24:00+00:00",
+            "UpdatedAt": "2026-04-24 11:20:04+00:00",
+            "Skill": "Illustration"
           }
         }
       ]
@@ -1060,16 +1060,40 @@
       "call_to_action": "[Hans Rosling Diagram?](https://www.youtube.com/watch?v=jbkSRLYSojo)",
       "teaser_embed_url": null,
       "teaser_embed_ratio": null,
-      "_nc_m2m_sehetz_skills": [
+      "_nc_m2m_sehetz_gears": [
         {
-          "skill_id": 6,
+          "gear_id": 3,
           "sehetz_id": 5,
-          "skill": {
+          "gear": {
             "Projects": 1,
-            "Id": 6,
-            "CreatedAt": "2025-12-20 13:24:00+00:00",
-            "UpdatedAt": "2025-12-20 13:26:19+00:00",
-            "Skill": "3D"
+            "Id": 3,
+            "CreatedAt": "2025-12-20 13:23:46+00:00",
+            "UpdatedAt": "2025-12-20 19:28:56+00:00",
+            "Gear": "Blender",
+            "description": "Ahhh, Blender. I love you and your community, the many tutorials, the helpful users who will still be answering questions in forums even in 2025. I love that you're improving the industry standard and constantly working on yourself. You're the best tool, and I'm grateful you exist.",
+            "Teaser-Image": [
+              {
+                "path": "download/noco/pv3c5ekh1fjoihu/mb2io0hhb8mzae6/cqax9ua61uqjooh/Sehetz Sarah Heitz Gear Blender_ymjy-.svg",
+                "title": "Sehetz Sarah Heitz Gear Blender.svg",
+                "mimetype": "image/svg+xml",
+                "size": 110411,
+                "width": 260,
+                "height": 346,
+                "id": "at3tylgpmk18fs59",
+                "thumbnails": {
+                  "tiny": {
+                    "signedPath": "dltemp/ltMmS2eBxVsNI-H2/1777044600000/thumbnails/noco/pv3c5ekh1fjoihu/mb2io0hhb8mzae6/cqax9ua61uqjooh/Sehetz Sarah Heitz Gear Blender_ymjy-.svg/tiny.jpg"
+                  },
+                  "small": {
+                    "signedPath": "dltemp/PftciHV-79KzsOhv/1777044600000/thumbnails/noco/pv3c5ekh1fjoihu/mb2io0hhb8mzae6/cqax9ua61uqjooh/Sehetz Sarah Heitz Gear Blender_ymjy-.svg/small.jpg"
+                  },
+                  "card_cover": {
+                    "signedPath": "dltemp/fwU10-CLrKqf-9vd/1777044600000/thumbnails/noco/pv3c5ekh1fjoihu/mb2io0hhb8mzae6/cqax9ua61uqjooh/Sehetz Sarah Heitz Gear Blender_ymjy-.svg/card_cover.jpg"
+                  }
+                },
+                "signedPath": "dltemp/bhl0_VrBJ7qAi-F2/1777044600000/noco/pv3c5ekh1fjoihu/mb2io0hhb8mzae6/cqax9ua61uqjooh/Sehetz Sarah Heitz Gear Blender_ymjy-.svg"
+              }
+            ]
           }
         }
       ],
@@ -1116,40 +1140,16 @@
           }
         }
       ],
-      "_nc_m2m_sehetz_gears": [
+      "_nc_m2m_sehetz_skills": [
         {
-          "gear_id": 3,
+          "skill_id": 6,
           "sehetz_id": 5,
-          "gear": {
+          "skill": {
             "Projects": 1,
-            "Id": 3,
-            "CreatedAt": "2025-12-20 13:23:46+00:00",
-            "UpdatedAt": "2025-12-20 19:28:56+00:00",
-            "Gear": "Blender",
-            "description": "Ahhh, Blender. I love you and your community, the many tutorials, the helpful users who will still be answering questions in forums even in 2025. I love that you're improving the industry standard and constantly working on yourself. You're the best tool, and I'm grateful you exist.",
-            "Teaser-Image": [
-              {
-                "path": "download/noco/pv3c5ekh1fjoihu/mb2io0hhb8mzae6/cqax9ua61uqjooh/Sehetz Sarah Heitz Gear Blender_ymjy-.svg",
-                "title": "Sehetz Sarah Heitz Gear Blender.svg",
-                "mimetype": "image/svg+xml",
-                "size": 110411,
-                "width": 260,
-                "height": 346,
-                "id": "at3tylgpmk18fs59",
-                "thumbnails": {
-                  "tiny": {
-                    "signedPath": "dltemp/ltMmS2eBxVsNI-H2/1777044600000/thumbnails/noco/pv3c5ekh1fjoihu/mb2io0hhb8mzae6/cqax9ua61uqjooh/Sehetz Sarah Heitz Gear Blender_ymjy-.svg/tiny.jpg"
-                  },
-                  "small": {
-                    "signedPath": "dltemp/PftciHV-79KzsOhv/1777044600000/thumbnails/noco/pv3c5ekh1fjoihu/mb2io0hhb8mzae6/cqax9ua61uqjooh/Sehetz Sarah Heitz Gear Blender_ymjy-.svg/small.jpg"
-                  },
-                  "card_cover": {
-                    "signedPath": "dltemp/fwU10-CLrKqf-9vd/1777044600000/thumbnails/noco/pv3c5ekh1fjoihu/mb2io0hhb8mzae6/cqax9ua61uqjooh/Sehetz Sarah Heitz Gear Blender_ymjy-.svg/card_cover.jpg"
-                  }
-                },
-                "signedPath": "dltemp/bhl0_VrBJ7qAi-F2/1777044600000/noco/pv3c5ekh1fjoihu/mb2io0hhb8mzae6/cqax9ua61uqjooh/Sehetz Sarah Heitz Gear Blender_ymjy-.svg"
-              }
-            ]
+            "Id": 6,
+            "CreatedAt": "2025-12-20 13:24:00+00:00",
+            "UpdatedAt": "2025-12-20 13:26:19+00:00",
+            "Skill": "3D"
           }
         }
       ]
@@ -1355,16 +1355,40 @@
       "call_to_action": null,
       "teaser_embed_url": null,
       "teaser_embed_ratio": null,
-      "_nc_m2m_sehetz_skills": [
+      "_nc_m2m_sehetz_gears": [
         {
-          "skill_id": 7,
+          "gear_id": 4,
           "sehetz_id": 6,
-          "skill": {
-            "Projects": 3,
-            "Id": 7,
-            "CreatedAt": "2025-12-20 13:24:00+00:00",
-            "UpdatedAt": "2026-04-24 11:20:13+00:00",
-            "Skill": "Graphic"
+          "gear": {
+            "Projects": 5,
+            "Id": 4,
+            "CreatedAt": "2025-12-20 13:23:46+00:00",
+            "UpdatedAt": "2026-04-24 09:07:13+00:00",
+            "Gear": "Creative Cloud",
+            "description": "After Effects, Bridge, Illustrator, InDesign, Lightroom, Photoshop, Premiere – that's my Adobe ABC. We designers need you, but we don't love you. For years, there was far too little innovation in these programs (thanks for the color search in InDesign, tho; the rest is peanuts), but I'm grateful for a tool that reliably lets me complete all my creative tasks. ",
+            "Teaser-Image": [
+              {
+                "path": "download/noco/pv3c5ekh1fjoihu/mb2io0hhb8mzae6/cqax9ua61uqjooh/Sehetz Sarah Heitz Gear Creative Cloud Crop_HcVgW.svg",
+                "title": "Sehetz Sarah Heitz Gear Creative Cloud Crop.svg",
+                "mimetype": "image/svg+xml",
+                "size": 35617,
+                "width": 217,
+                "height": 290,
+                "id": "atz2hn76vfda3dvr",
+                "thumbnails": {
+                  "tiny": {
+                    "signedPath": "dltemp/ZmFGlHsdNLJ_KuCN/1777044600000/thumbnails/noco/pv3c5ekh1fjoihu/mb2io0hhb8mzae6/cqax9ua61uqjooh/Sehetz Sarah Heitz Gear Creative Cloud Crop_HcVgW.svg/tiny.jpg"
+                  },
+                  "small": {
+                    "signedPath": "dltemp/7ziMNqguueaCnEot/1777044600000/thumbnails/noco/pv3c5ekh1fjoihu/mb2io0hhb8mzae6/cqax9ua61uqjooh/Sehetz Sarah Heitz Gear Creative Cloud Crop_HcVgW.svg/small.jpg"
+                  },
+                  "card_cover": {
+                    "signedPath": "dltemp/Sw7i_uwd3QB7ltXk/1777044600000/thumbnails/noco/pv3c5ekh1fjoihu/mb2io0hhb8mzae6/cqax9ua61uqjooh/Sehetz Sarah Heitz Gear Creative Cloud Crop_HcVgW.svg/card_cover.jpg"
+                  }
+                },
+                "signedPath": "dltemp/w746N39r2WWQjl_k/1777044600000/noco/pv3c5ekh1fjoihu/mb2io0hhb8mzae6/cqax9ua61uqjooh/Sehetz Sarah Heitz Gear Creative Cloud Crop_HcVgW.svg"
+              }
+            ]
           }
         }
       ],
@@ -1411,40 +1435,16 @@
           }
         }
       ],
-      "_nc_m2m_sehetz_gears": [
+      "_nc_m2m_sehetz_skills": [
         {
-          "gear_id": 4,
+          "skill_id": 7,
           "sehetz_id": 6,
-          "gear": {
-            "Projects": 5,
-            "Id": 4,
-            "CreatedAt": "2025-12-20 13:23:46+00:00",
-            "UpdatedAt": "2026-04-24 09:07:13+00:00",
-            "Gear": "Creative Cloud",
-            "description": "After Effects, Bridge, Illustrator, InDesign, Lightroom, Photoshop, Premiere – that's my Adobe ABC. We designers need you, but we don't love you. For years, there was far too little innovation in these programs (thanks for the color search in InDesign, tho; the rest is peanuts), but I'm grateful for a tool that reliably lets me complete all my creative tasks. ",
-            "Teaser-Image": [
-              {
-                "path": "download/noco/pv3c5ekh1fjoihu/mb2io0hhb8mzae6/cqax9ua61uqjooh/Sehetz Sarah Heitz Gear Creative Cloud Crop_HcVgW.svg",
-                "title": "Sehetz Sarah Heitz Gear Creative Cloud Crop.svg",
-                "mimetype": "image/svg+xml",
-                "size": 35617,
-                "width": 217,
-                "height": 290,
-                "id": "atz2hn76vfda3dvr",
-                "thumbnails": {
-                  "tiny": {
-                    "signedPath": "dltemp/ZmFGlHsdNLJ_KuCN/1777044600000/thumbnails/noco/pv3c5ekh1fjoihu/mb2io0hhb8mzae6/cqax9ua61uqjooh/Sehetz Sarah Heitz Gear Creative Cloud Crop_HcVgW.svg/tiny.jpg"
-                  },
-                  "small": {
-                    "signedPath": "dltemp/7ziMNqguueaCnEot/1777044600000/thumbnails/noco/pv3c5ekh1fjoihu/mb2io0hhb8mzae6/cqax9ua61uqjooh/Sehetz Sarah Heitz Gear Creative Cloud Crop_HcVgW.svg/small.jpg"
-                  },
-                  "card_cover": {
-                    "signedPath": "dltemp/Sw7i_uwd3QB7ltXk/1777044600000/thumbnails/noco/pv3c5ekh1fjoihu/mb2io0hhb8mzae6/cqax9ua61uqjooh/Sehetz Sarah Heitz Gear Creative Cloud Crop_HcVgW.svg/card_cover.jpg"
-                  }
-                },
-                "signedPath": "dltemp/w746N39r2WWQjl_k/1777044600000/noco/pv3c5ekh1fjoihu/mb2io0hhb8mzae6/cqax9ua61uqjooh/Sehetz Sarah Heitz Gear Creative Cloud Crop_HcVgW.svg"
-              }
-            ]
+          "skill": {
+            "Projects": 3,
+            "Id": 7,
+            "CreatedAt": "2025-12-20 13:24:00+00:00",
+            "UpdatedAt": "2026-04-24 11:20:13+00:00",
+            "Skill": "Graphic"
           }
         }
       ]
@@ -1685,40 +1685,6 @@
       "call_to_action": null,
       "teaser_embed_url": null,
       "teaser_embed_ratio": null,
-      "_nc_m2m_sehetz_skills": [
-        {
-          "skill_id": 2,
-          "sehetz_id": 9,
-          "skill": {
-            "Projects": 3,
-            "Id": 2,
-            "CreatedAt": "2025-12-20 13:24:00+00:00",
-            "UpdatedAt": "2026-04-24 11:20:04+00:00",
-            "Skill": "Illustration"
-          }
-        }
-      ],
-      "_nc_m2m_sehetz_teams": [
-        {
-          "team_id": 5,
-          "sehetz_id": 9,
-          "team": {
-            "Projects": 5,
-            "Id": 5,
-            "CreatedAt": "2025-12-20 13:23:35+00:00",
-            "UpdatedAt": "2026-04-19 17:10:33+00:00",
-            "Team": "sehetz",
-            "design-work": true,
-            "description": null,
-            "Teaser-Image": null,
-            "start-date": 2015,
-            "end-date": null,
-            "role": "Courious Twad",
-            "location": "Basel",
-            "link": null
-          }
-        }
-      ],
       "_nc_m2m_sehetz_gears": [
         {
           "gear_id": 4,
@@ -1753,6 +1719,40 @@
                 "signedPath": "dltemp/w746N39r2WWQjl_k/1777044600000/noco/pv3c5ekh1fjoihu/mb2io0hhb8mzae6/cqax9ua61uqjooh/Sehetz Sarah Heitz Gear Creative Cloud Crop_HcVgW.svg"
               }
             ]
+          }
+        }
+      ],
+      "_nc_m2m_sehetz_teams": [
+        {
+          "team_id": 5,
+          "sehetz_id": 9,
+          "team": {
+            "Projects": 5,
+            "Id": 5,
+            "CreatedAt": "2025-12-20 13:23:35+00:00",
+            "UpdatedAt": "2026-04-19 17:10:33+00:00",
+            "Team": "sehetz",
+            "design-work": true,
+            "description": null,
+            "Teaser-Image": null,
+            "start-date": 2015,
+            "end-date": null,
+            "role": "Courious Twad",
+            "location": "Basel",
+            "link": null
+          }
+        }
+      ],
+      "_nc_m2m_sehetz_skills": [
+        {
+          "skill_id": 2,
+          "sehetz_id": 9,
+          "skill": {
+            "Projects": 3,
+            "Id": 2,
+            "CreatedAt": "2025-12-20 13:24:00+00:00",
+            "UpdatedAt": "2026-04-24 11:20:04+00:00",
+            "Skill": "Illustration"
           }
         }
       ]
@@ -1917,16 +1917,40 @@
       "call_to_action": null,
       "teaser_embed_url": null,
       "teaser_embed_ratio": null,
-      "_nc_m2m_sehetz_skills": [
+      "_nc_m2m_sehetz_gears": [
         {
-          "skill_id": 12,
+          "gear_id": 2,
           "sehetz_id": 16,
-          "skill": {
-            "Projects": 1,
-            "Id": 12,
-            "CreatedAt": "2025-12-31 10:36:33+00:00",
-            "UpdatedAt": "2025-12-31 12:56:25+00:00",
-            "Skill": "Packaging"
+          "gear": {
+            "Projects": 2,
+            "Id": 2,
+            "CreatedAt": "2025-12-20 13:23:46+00:00",
+            "UpdatedAt": "2025-12-31 12:56:26+00:00",
+            "Gear": "Ipad Pro",
+            "description": "Who wouldn't love having their favorite tool always at hand? I grew up with digital drawing, from my first Wacom Bamboo Fun tablet at age eleven to over two Wacom Cintiqs (12 UX, 24 pro) that I lugged across Europe in my hand luggage several times. The iPad? For me, a lifelong dream.",
+            "Teaser-Image": [
+              {
+                "path": "download/noco/pv3c5ekh1fjoihu/mb2io0hhb8mzae6/cqax9ua61uqjooh/Sehetz Sarah Heitz Gear Ipad Crop_p1Tho.svg",
+                "title": "Sehetz Sarah Heitz Gear Ipad Crop.svg",
+                "mimetype": "image/svg+xml",
+                "size": 24558,
+                "width": 217,
+                "height": 290,
+                "id": "atvswn606y1mjzop",
+                "thumbnails": {
+                  "tiny": {
+                    "signedPath": "dltemp/hKBgwrrEfwa6gUNj/1777044600000/thumbnails/noco/pv3c5ekh1fjoihu/mb2io0hhb8mzae6/cqax9ua61uqjooh/Sehetz Sarah Heitz Gear Ipad Crop_p1Tho.svg/tiny.jpg"
+                  },
+                  "small": {
+                    "signedPath": "dltemp/TQ6p1edYQNAjNfKW/1777044600000/thumbnails/noco/pv3c5ekh1fjoihu/mb2io0hhb8mzae6/cqax9ua61uqjooh/Sehetz Sarah Heitz Gear Ipad Crop_p1Tho.svg/small.jpg"
+                  },
+                  "card_cover": {
+                    "signedPath": "dltemp/jkBmjeD4otP-yStN/1777044600000/thumbnails/noco/pv3c5ekh1fjoihu/mb2io0hhb8mzae6/cqax9ua61uqjooh/Sehetz Sarah Heitz Gear Ipad Crop_p1Tho.svg/card_cover.jpg"
+                  }
+                },
+                "signedPath": "dltemp/b90OxsKUrexu8oXQ/1777044600000/noco/pv3c5ekh1fjoihu/mb2io0hhb8mzae6/cqax9ua61uqjooh/Sehetz Sarah Heitz Gear Ipad Crop_p1Tho.svg"
+              }
+            ]
           }
         }
       ],
@@ -1973,40 +1997,16 @@
           }
         }
       ],
-      "_nc_m2m_sehetz_gears": [
+      "_nc_m2m_sehetz_skills": [
         {
-          "gear_id": 2,
+          "skill_id": 12,
           "sehetz_id": 16,
-          "gear": {
-            "Projects": 2,
-            "Id": 2,
-            "CreatedAt": "2025-12-20 13:23:46+00:00",
-            "UpdatedAt": "2025-12-31 12:56:26+00:00",
-            "Gear": "Ipad Pro",
-            "description": "Who wouldn't love having their favorite tool always at hand? I grew up with digital drawing, from my first Wacom Bamboo Fun tablet at age eleven to over two Wacom Cintiqs (12 UX, 24 pro) that I lugged across Europe in my hand luggage several times. The iPad? For me, a lifelong dream.",
-            "Teaser-Image": [
-              {
-                "path": "download/noco/pv3c5ekh1fjoihu/mb2io0hhb8mzae6/cqax9ua61uqjooh/Sehetz Sarah Heitz Gear Ipad Crop_p1Tho.svg",
-                "title": "Sehetz Sarah Heitz Gear Ipad Crop.svg",
-                "mimetype": "image/svg+xml",
-                "size": 24558,
-                "width": 217,
-                "height": 290,
-                "id": "atvswn606y1mjzop",
-                "thumbnails": {
-                  "tiny": {
-                    "signedPath": "dltemp/hKBgwrrEfwa6gUNj/1777044600000/thumbnails/noco/pv3c5ekh1fjoihu/mb2io0hhb8mzae6/cqax9ua61uqjooh/Sehetz Sarah Heitz Gear Ipad Crop_p1Tho.svg/tiny.jpg"
-                  },
-                  "small": {
-                    "signedPath": "dltemp/TQ6p1edYQNAjNfKW/1777044600000/thumbnails/noco/pv3c5ekh1fjoihu/mb2io0hhb8mzae6/cqax9ua61uqjooh/Sehetz Sarah Heitz Gear Ipad Crop_p1Tho.svg/small.jpg"
-                  },
-                  "card_cover": {
-                    "signedPath": "dltemp/jkBmjeD4otP-yStN/1777044600000/thumbnails/noco/pv3c5ekh1fjoihu/mb2io0hhb8mzae6/cqax9ua61uqjooh/Sehetz Sarah Heitz Gear Ipad Crop_p1Tho.svg/card_cover.jpg"
-                  }
-                },
-                "signedPath": "dltemp/b90OxsKUrexu8oXQ/1777044600000/noco/pv3c5ekh1fjoihu/mb2io0hhb8mzae6/cqax9ua61uqjooh/Sehetz Sarah Heitz Gear Ipad Crop_p1Tho.svg"
-              }
-            ]
+          "skill": {
+            "Projects": 1,
+            "Id": 12,
+            "CreatedAt": "2025-12-31 10:36:33+00:00",
+            "UpdatedAt": "2025-12-31 12:56:25+00:00",
+            "Skill": "Packaging"
           }
         }
       ]
@@ -2014,7 +2014,7 @@
     {
       "Id": 17,
       "CreatedAt": "2026-01-31 14:02:11+00:00",
-      "UpdatedAt": "2026-04-24 13:20:18+00:00",
+      "UpdatedAt": "2026-04-24 13:23:10+00:00",
       "Title": "This website",
       "description": "As you might have noticed, this website isn’t something you’ll find right out of the box. It is indeed self-coded (with a lot of help from AI, of course). Nevertheless, I tested the boundaries of what’s possible with my basic knowledge of syntax, libraries, and systems across various JavaScript dialects.",
       "Datum": "2026-01-01",
@@ -2047,12 +2047,12 @@
       "content_01_text": "My website features a well-designed filtering system that helps you explore my projects in different ways: whether through my skills, gear, or teams. All sections are interconnected and provide additional context.",
       "content_02_image": [
         {
-          "path": "download/noco/pv3c5ekh1fjoihu/mieh9d1y7a7ls74/cchl73funp4pj7t/16x9_Sehetz_website_coding_skills_6UlBX.webm",
-          "title": "16x9_Sehetz_website_coding_skills.webm",
+          "path": "download/noco/pv3c5ekh1fjoihu/mieh9d1y7a7ls74/cchl73funp4pj7t/16x9_Sehetz_website_coding_skills_T_T_RdXFY.webm",
+          "title": "16x9_Sehetz_website_coding_skills_T_T.webm",
           "mimetype": "video/webm",
-          "size": 506906,
-          "id": "at18t0htedbf0asv",
-          "signedPath": "dltemp/RwIwKz5LCCcN9zpd/1777044600000/noco/pv3c5ekh1fjoihu/mieh9d1y7a7ls74/cchl73funp4pj7t/16x9_Sehetz_website_coding_skills_6UlBX.webm"
+          "size": 504242,
+          "id": "atu2mt7ym1usz5rk",
+          "signedPath": "dltemp/Y6WL7L0ljcBqZNN2/1777044600000/noco/pv3c5ekh1fjoihu/mieh9d1y7a7ls74/cchl73funp4pj7t/16x9_Sehetz_website_coding_skills_T_T_RdXFY.webm"
         }
       ],
       "content_03_text": "My projects are fully optimized for mobile use and perform reliably across all devices. For visual content, I use modern formats like WebM and WebP to support transparency in both light and dark modes. Images adapt dynamically and shift into a single-column feed layout on smaller screens. The focus is on speed and intuitive navigation, allowing users to quickly browse, click, and explore content without friction.",
@@ -2158,16 +2158,18 @@
       "call_to_action": null,
       "teaser_embed_url": null,
       "teaser_embed_ratio": null,
-      "_nc_m2m_sehetz_skills": [
+      "_nc_m2m_sehetz_gears": [
         {
-          "skill_id": 8,
+          "gear_id": 5,
           "sehetz_id": 17,
-          "skill": {
-            "Projects": 3,
-            "Id": 8,
-            "CreatedAt": "2025-12-20 13:24:00+00:00",
-            "UpdatedAt": "2026-04-24 11:29:26+00:00",
-            "Skill": "Coding"
+          "gear": {
+            "Projects": 4,
+            "Id": 5,
+            "CreatedAt": "2025-12-20 13:23:46+00:00",
+            "UpdatedAt": "2026-04-24 11:29:34+00:00",
+            "Gear": "My Dev Stack",
+            "description": "Isn't it wonderful to be able to talk to computers? Okay, that's romanticized, but anyone who understands the basic logic of programming languages ​​and how they are connected will quickly find their way around. Before Vibe Coding, I started with a short frontend training at Superdot: React, JS, P5(.js), Python, R, and the basics. This foundation helps me build more complex systems.",
+            "Teaser-Image": null
           }
         }
       ],
@@ -2192,18 +2194,16 @@
           }
         }
       ],
-      "_nc_m2m_sehetz_gears": [
+      "_nc_m2m_sehetz_skills": [
         {
-          "gear_id": 5,
+          "skill_id": 8,
           "sehetz_id": 17,
-          "gear": {
-            "Projects": 4,
-            "Id": 5,
-            "CreatedAt": "2025-12-20 13:23:46+00:00",
-            "UpdatedAt": "2026-04-24 11:29:34+00:00",
-            "Gear": "My Dev Stack",
-            "description": "Isn't it wonderful to be able to talk to computers? Okay, that's romanticized, but anyone who understands the basic logic of programming languages ​​and how they are connected will quickly find their way around. Before Vibe Coding, I started with a short frontend training at Superdot: React, JS, P5(.js), Python, R, and the basics. This foundation helps me build more complex systems.",
-            "Teaser-Image": null
+          "skill": {
+            "Projects": 3,
+            "Id": 8,
+            "CreatedAt": "2025-12-20 13:24:00+00:00",
+            "UpdatedAt": "2026-04-24 11:29:26+00:00",
+            "Skill": "Coding"
           }
         }
       ]
@@ -2379,16 +2379,18 @@
       "call_to_action": null,
       "teaser_embed_url": "Rollerskate-Dataviz",
       "teaser_embed_ratio": "16x9",
-      "_nc_m2m_sehetz_skills": [
+      "_nc_m2m_sehetz_gears": [
         {
-          "skill_id": 5,
+          "gear_id": 5,
           "sehetz_id": 18,
-          "skill": {
-            "Projects": 1,
+          "gear": {
+            "Projects": 4,
             "Id": 5,
-            "CreatedAt": "2025-12-20 13:24:00+00:00",
-            "UpdatedAt": "2026-04-19 17:10:12+00:00",
-            "Skill": "Dataviz"
+            "CreatedAt": "2025-12-20 13:23:46+00:00",
+            "UpdatedAt": "2026-04-24 11:29:34+00:00",
+            "Gear": "My Dev Stack",
+            "description": "Isn't it wonderful to be able to talk to computers? Okay, that's romanticized, but anyone who understands the basic logic of programming languages ​​and how they are connected will quickly find their way around. Before Vibe Coding, I started with a short frontend training at Superdot: React, JS, P5(.js), Python, R, and the basics. This foundation helps me build more complex systems.",
+            "Teaser-Image": null
           }
         }
       ],
@@ -2413,18 +2415,16 @@
           }
         }
       ],
-      "_nc_m2m_sehetz_gears": [
+      "_nc_m2m_sehetz_skills": [
         {
-          "gear_id": 5,
+          "skill_id": 5,
           "sehetz_id": 18,
-          "gear": {
-            "Projects": 4,
+          "skill": {
+            "Projects": 1,
             "Id": 5,
-            "CreatedAt": "2025-12-20 13:23:46+00:00",
-            "UpdatedAt": "2026-04-24 11:29:34+00:00",
-            "Gear": "My Dev Stack",
-            "description": "Isn't it wonderful to be able to talk to computers? Okay, that's romanticized, but anyone who understands the basic logic of programming languages ​​and how they are connected will quickly find their way around. Before Vibe Coding, I started with a short frontend training at Superdot: React, JS, P5(.js), Python, R, and the basics. This foundation helps me build more complex systems.",
-            "Teaser-Image": null
+            "CreatedAt": "2025-12-20 13:24:00+00:00",
+            "UpdatedAt": "2026-04-19 17:10:12+00:00",
+            "Skill": "Dataviz"
           }
         }
       ]
@@ -2473,16 +2473,40 @@
       "call_to_action": null,
       "teaser_embed_url": null,
       "teaser_embed_ratio": null,
-      "_nc_m2m_sehetz_skills": [
+      "_nc_m2m_sehetz_gears": [
         {
-          "skill_id": 7,
+          "gear_id": 4,
           "sehetz_id": 19,
-          "skill": {
-            "Projects": 3,
-            "Id": 7,
-            "CreatedAt": "2025-12-20 13:24:00+00:00",
-            "UpdatedAt": "2026-04-24 11:20:13+00:00",
-            "Skill": "Graphic"
+          "gear": {
+            "Projects": 5,
+            "Id": 4,
+            "CreatedAt": "2025-12-20 13:23:46+00:00",
+            "UpdatedAt": "2026-04-24 09:07:13+00:00",
+            "Gear": "Creative Cloud",
+            "description": "After Effects, Bridge, Illustrator, InDesign, Lightroom, Photoshop, Premiere – that's my Adobe ABC. We designers need you, but we don't love you. For years, there was far too little innovation in these programs (thanks for the color search in InDesign, tho; the rest is peanuts), but I'm grateful for a tool that reliably lets me complete all my creative tasks. ",
+            "Teaser-Image": [
+              {
+                "path": "download/noco/pv3c5ekh1fjoihu/mb2io0hhb8mzae6/cqax9ua61uqjooh/Sehetz Sarah Heitz Gear Creative Cloud Crop_HcVgW.svg",
+                "title": "Sehetz Sarah Heitz Gear Creative Cloud Crop.svg",
+                "mimetype": "image/svg+xml",
+                "size": 35617,
+                "width": 217,
+                "height": 290,
+                "id": "atz2hn76vfda3dvr",
+                "thumbnails": {
+                  "tiny": {
+                    "signedPath": "dltemp/ZmFGlHsdNLJ_KuCN/1777044600000/thumbnails/noco/pv3c5ekh1fjoihu/mb2io0hhb8mzae6/cqax9ua61uqjooh/Sehetz Sarah Heitz Gear Creative Cloud Crop_HcVgW.svg/tiny.jpg"
+                  },
+                  "small": {
+                    "signedPath": "dltemp/7ziMNqguueaCnEot/1777044600000/thumbnails/noco/pv3c5ekh1fjoihu/mb2io0hhb8mzae6/cqax9ua61uqjooh/Sehetz Sarah Heitz Gear Creative Cloud Crop_HcVgW.svg/small.jpg"
+                  },
+                  "card_cover": {
+                    "signedPath": "dltemp/Sw7i_uwd3QB7ltXk/1777044600000/thumbnails/noco/pv3c5ekh1fjoihu/mb2io0hhb8mzae6/cqax9ua61uqjooh/Sehetz Sarah Heitz Gear Creative Cloud Crop_HcVgW.svg/card_cover.jpg"
+                  }
+                },
+                "signedPath": "dltemp/w746N39r2WWQjl_k/1777044600000/noco/pv3c5ekh1fjoihu/mb2io0hhb8mzae6/cqax9ua61uqjooh/Sehetz Sarah Heitz Gear Creative Cloud Crop_HcVgW.svg"
+              }
+            ]
           }
         }
       ],
@@ -2529,40 +2553,16 @@
           }
         }
       ],
-      "_nc_m2m_sehetz_gears": [
+      "_nc_m2m_sehetz_skills": [
         {
-          "gear_id": 4,
+          "skill_id": 7,
           "sehetz_id": 19,
-          "gear": {
-            "Projects": 5,
-            "Id": 4,
-            "CreatedAt": "2025-12-20 13:23:46+00:00",
-            "UpdatedAt": "2026-04-24 09:07:13+00:00",
-            "Gear": "Creative Cloud",
-            "description": "After Effects, Bridge, Illustrator, InDesign, Lightroom, Photoshop, Premiere – that's my Adobe ABC. We designers need you, but we don't love you. For years, there was far too little innovation in these programs (thanks for the color search in InDesign, tho; the rest is peanuts), but I'm grateful for a tool that reliably lets me complete all my creative tasks. ",
-            "Teaser-Image": [
-              {
-                "path": "download/noco/pv3c5ekh1fjoihu/mb2io0hhb8mzae6/cqax9ua61uqjooh/Sehetz Sarah Heitz Gear Creative Cloud Crop_HcVgW.svg",
-                "title": "Sehetz Sarah Heitz Gear Creative Cloud Crop.svg",
-                "mimetype": "image/svg+xml",
-                "size": 35617,
-                "width": 217,
-                "height": 290,
-                "id": "atz2hn76vfda3dvr",
-                "thumbnails": {
-                  "tiny": {
-                    "signedPath": "dltemp/ZmFGlHsdNLJ_KuCN/1777044600000/thumbnails/noco/pv3c5ekh1fjoihu/mb2io0hhb8mzae6/cqax9ua61uqjooh/Sehetz Sarah Heitz Gear Creative Cloud Crop_HcVgW.svg/tiny.jpg"
-                  },
-                  "small": {
-                    "signedPath": "dltemp/7ziMNqguueaCnEot/1777044600000/thumbnails/noco/pv3c5ekh1fjoihu/mb2io0hhb8mzae6/cqax9ua61uqjooh/Sehetz Sarah Heitz Gear Creative Cloud Crop_HcVgW.svg/small.jpg"
-                  },
-                  "card_cover": {
-                    "signedPath": "dltemp/Sw7i_uwd3QB7ltXk/1777044600000/thumbnails/noco/pv3c5ekh1fjoihu/mb2io0hhb8mzae6/cqax9ua61uqjooh/Sehetz Sarah Heitz Gear Creative Cloud Crop_HcVgW.svg/card_cover.jpg"
-                  }
-                },
-                "signedPath": "dltemp/w746N39r2WWQjl_k/1777044600000/noco/pv3c5ekh1fjoihu/mb2io0hhb8mzae6/cqax9ua61uqjooh/Sehetz Sarah Heitz Gear Creative Cloud Crop_HcVgW.svg"
-              }
-            ]
+          "skill": {
+            "Projects": 3,
+            "Id": 7,
+            "CreatedAt": "2025-12-20 13:24:00+00:00",
+            "UpdatedAt": "2026-04-24 11:20:13+00:00",
+            "Skill": "Graphic"
           }
         }
       ]
@@ -2589,16 +2589,40 @@
       "call_to_action": null,
       "teaser_embed_url": null,
       "teaser_embed_ratio": null,
-      "_nc_m2m_sehetz_skills": [
+      "_nc_m2m_sehetz_gears": [
         {
-          "skill_id": 7,
+          "gear_id": 4,
           "sehetz_id": 20,
-          "skill": {
-            "Projects": 3,
-            "Id": 7,
-            "CreatedAt": "2025-12-20 13:24:00+00:00",
-            "UpdatedAt": "2026-04-24 11:20:13+00:00",
-            "Skill": "Graphic"
+          "gear": {
+            "Projects": 5,
+            "Id": 4,
+            "CreatedAt": "2025-12-20 13:23:46+00:00",
+            "UpdatedAt": "2026-04-24 09:07:13+00:00",
+            "Gear": "Creative Cloud",
+            "description": "After Effects, Bridge, Illustrator, InDesign, Lightroom, Photoshop, Premiere – that's my Adobe ABC. We designers need you, but we don't love you. For years, there was far too little innovation in these programs (thanks for the color search in InDesign, tho; the rest is peanuts), but I'm grateful for a tool that reliably lets me complete all my creative tasks. ",
+            "Teaser-Image": [
+              {
+                "path": "download/noco/pv3c5ekh1fjoihu/mb2io0hhb8mzae6/cqax9ua61uqjooh/Sehetz Sarah Heitz Gear Creative Cloud Crop_HcVgW.svg",
+                "title": "Sehetz Sarah Heitz Gear Creative Cloud Crop.svg",
+                "mimetype": "image/svg+xml",
+                "size": 35617,
+                "width": 217,
+                "height": 290,
+                "id": "atz2hn76vfda3dvr",
+                "thumbnails": {
+                  "tiny": {
+                    "signedPath": "dltemp/ZmFGlHsdNLJ_KuCN/1777044600000/thumbnails/noco/pv3c5ekh1fjoihu/mb2io0hhb8mzae6/cqax9ua61uqjooh/Sehetz Sarah Heitz Gear Creative Cloud Crop_HcVgW.svg/tiny.jpg"
+                  },
+                  "small": {
+                    "signedPath": "dltemp/7ziMNqguueaCnEot/1777044600000/thumbnails/noco/pv3c5ekh1fjoihu/mb2io0hhb8mzae6/cqax9ua61uqjooh/Sehetz Sarah Heitz Gear Creative Cloud Crop_HcVgW.svg/small.jpg"
+                  },
+                  "card_cover": {
+                    "signedPath": "dltemp/Sw7i_uwd3QB7ltXk/1777044600000/thumbnails/noco/pv3c5ekh1fjoihu/mb2io0hhb8mzae6/cqax9ua61uqjooh/Sehetz Sarah Heitz Gear Creative Cloud Crop_HcVgW.svg/card_cover.jpg"
+                  }
+                },
+                "signedPath": "dltemp/w746N39r2WWQjl_k/1777044600000/noco/pv3c5ekh1fjoihu/mb2io0hhb8mzae6/cqax9ua61uqjooh/Sehetz Sarah Heitz Gear Creative Cloud Crop_HcVgW.svg"
+              }
+            ]
           }
         }
       ],
@@ -2645,40 +2669,16 @@
           }
         }
       ],
-      "_nc_m2m_sehetz_gears": [
+      "_nc_m2m_sehetz_skills": [
         {
-          "gear_id": 4,
+          "skill_id": 7,
           "sehetz_id": 20,
-          "gear": {
-            "Projects": 5,
-            "Id": 4,
-            "CreatedAt": "2025-12-20 13:23:46+00:00",
-            "UpdatedAt": "2026-04-24 09:07:13+00:00",
-            "Gear": "Creative Cloud",
-            "description": "After Effects, Bridge, Illustrator, InDesign, Lightroom, Photoshop, Premiere – that's my Adobe ABC. We designers need you, but we don't love you. For years, there was far too little innovation in these programs (thanks for the color search in InDesign, tho; the rest is peanuts), but I'm grateful for a tool that reliably lets me complete all my creative tasks. ",
-            "Teaser-Image": [
-              {
-                "path": "download/noco/pv3c5ekh1fjoihu/mb2io0hhb8mzae6/cqax9ua61uqjooh/Sehetz Sarah Heitz Gear Creative Cloud Crop_HcVgW.svg",
-                "title": "Sehetz Sarah Heitz Gear Creative Cloud Crop.svg",
-                "mimetype": "image/svg+xml",
-                "size": 35617,
-                "width": 217,
-                "height": 290,
-                "id": "atz2hn76vfda3dvr",
-                "thumbnails": {
-                  "tiny": {
-                    "signedPath": "dltemp/ZmFGlHsdNLJ_KuCN/1777044600000/thumbnails/noco/pv3c5ekh1fjoihu/mb2io0hhb8mzae6/cqax9ua61uqjooh/Sehetz Sarah Heitz Gear Creative Cloud Crop_HcVgW.svg/tiny.jpg"
-                  },
-                  "small": {
-                    "signedPath": "dltemp/7ziMNqguueaCnEot/1777044600000/thumbnails/noco/pv3c5ekh1fjoihu/mb2io0hhb8mzae6/cqax9ua61uqjooh/Sehetz Sarah Heitz Gear Creative Cloud Crop_HcVgW.svg/small.jpg"
-                  },
-                  "card_cover": {
-                    "signedPath": "dltemp/Sw7i_uwd3QB7ltXk/1777044600000/thumbnails/noco/pv3c5ekh1fjoihu/mb2io0hhb8mzae6/cqax9ua61uqjooh/Sehetz Sarah Heitz Gear Creative Cloud Crop_HcVgW.svg/card_cover.jpg"
-                  }
-                },
-                "signedPath": "dltemp/w746N39r2WWQjl_k/1777044600000/noco/pv3c5ekh1fjoihu/mb2io0hhb8mzae6/cqax9ua61uqjooh/Sehetz Sarah Heitz Gear Creative Cloud Crop_HcVgW.svg"
-              }
-            ]
+          "skill": {
+            "Projects": 3,
+            "Id": 7,
+            "CreatedAt": "2025-12-20 13:24:00+00:00",
+            "UpdatedAt": "2026-04-24 11:20:13+00:00",
+            "Skill": "Graphic"
           }
         }
       ]
@@ -2705,16 +2705,18 @@
       "call_to_action": null,
       "teaser_embed_url": null,
       "teaser_embed_ratio": null,
-      "_nc_m2m_sehetz_skills": [
+      "_nc_m2m_sehetz_gears": [
         {
-          "skill_id": 8,
+          "gear_id": 5,
           "sehetz_id": 21,
-          "skill": {
-            "Projects": 3,
-            "Id": 8,
-            "CreatedAt": "2025-12-20 13:24:00+00:00",
-            "UpdatedAt": "2026-04-24 11:29:26+00:00",
-            "Skill": "Coding"
+          "gear": {
+            "Projects": 4,
+            "Id": 5,
+            "CreatedAt": "2025-12-20 13:23:46+00:00",
+            "UpdatedAt": "2026-04-24 11:29:34+00:00",
+            "Gear": "My Dev Stack",
+            "description": "Isn't it wonderful to be able to talk to computers? Okay, that's romanticized, but anyone who understands the basic logic of programming languages ​​and how they are connected will quickly find their way around. Before Vibe Coding, I started with a short frontend training at Superdot: React, JS, P5(.js), Python, R, and the basics. This foundation helps me build more complex systems.",
+            "Teaser-Image": null
           }
         }
       ],
@@ -2761,18 +2763,16 @@
           }
         }
       ],
-      "_nc_m2m_sehetz_gears": [
+      "_nc_m2m_sehetz_skills": [
         {
-          "gear_id": 5,
+          "skill_id": 8,
           "sehetz_id": 21,
-          "gear": {
-            "Projects": 4,
-            "Id": 5,
-            "CreatedAt": "2025-12-20 13:23:46+00:00",
-            "UpdatedAt": "2026-04-24 11:29:34+00:00",
-            "Gear": "My Dev Stack",
-            "description": "Isn't it wonderful to be able to talk to computers? Okay, that's romanticized, but anyone who understands the basic logic of programming languages ​​and how they are connected will quickly find their way around. Before Vibe Coding, I started with a short frontend training at Superdot: React, JS, P5(.js), Python, R, and the basics. This foundation helps me build more complex systems.",
-            "Teaser-Image": null
+          "skill": {
+            "Projects": 3,
+            "Id": 8,
+            "CreatedAt": "2025-12-20 13:24:00+00:00",
+            "UpdatedAt": "2026-04-24 11:29:26+00:00",
+            "Skill": "Coding"
           }
         }
       ]
@@ -2799,62 +2799,6 @@
       "call_to_action": null,
       "teaser_embed_url": null,
       "teaser_embed_ratio": null,
-      "_nc_m2m_sehetz_skills": [
-        {
-          "skill_id": 1,
-          "sehetz_id": 22,
-          "skill": {
-            "Projects": 1,
-            "Id": 1,
-            "CreatedAt": "2025-12-20 13:23:58+00:00",
-            "UpdatedAt": "2026-04-24 09:07:04+00:00",
-            "Skill": "Video"
-          }
-        }
-      ],
-      "_nc_m2m_sehetz_teams": [
-        {
-          "team_id": 2,
-          "sehetz_id": 22,
-          "team": {
-            "Projects": 5,
-            "Id": 2,
-            "CreatedAt": "2025-12-20 13:23:35+00:00",
-            "UpdatedAt": "2026-04-24 11:29:38+00:00",
-            "Team": "Superdot",
-            "design-work": true,
-            "description": "It is hard to overstate how important my time at Superdot has been for me. Fresh out of a bachelor’s program in a small German province, I found myself working in a studio where the art director had still studied typography directly under Weingart. What started as a traineeship grew into the most formative learning experience of my early career. Darjan and Nicole shaped my development and supported my strengths, for which I remain deeply grateful.",
-            "Teaser-Image": [
-              {
-                "path": "download/noco/pv3c5ekh1fjoihu/mpz7ywybfxm3isa/cjpjpyar26z9u70/Sehetz-Team-Superdot__3NTb.webp",
-                "title": "Sehetz-Team-Superdot.webp",
-                "mimetype": "image/webp",
-                "size": 498384,
-                "width": 1350,
-                "height": 1800,
-                "id": "atzkx6ez0vjuzzv2",
-                "thumbnails": {
-                  "tiny": {
-                    "signedPath": "dltemp/cmvaiqnXxndmdVzZ/1777044600000/thumbnails/noco/pv3c5ekh1fjoihu/mpz7ywybfxm3isa/cjpjpyar26z9u70/Sehetz-Team-Superdot__3NTb.webp/tiny.jpg"
-                  },
-                  "small": {
-                    "signedPath": "dltemp/Ml2w99n56l1nw3dc/1777044600000/thumbnails/noco/pv3c5ekh1fjoihu/mpz7ywybfxm3isa/cjpjpyar26z9u70/Sehetz-Team-Superdot__3NTb.webp/small.jpg"
-                  },
-                  "card_cover": {
-                    "signedPath": "dltemp/w40gsLJ7Xc5abiPd/1777044600000/thumbnails/noco/pv3c5ekh1fjoihu/mpz7ywybfxm3isa/cjpjpyar26z9u70/Sehetz-Team-Superdot__3NTb.webp/card_cover.jpg"
-                  }
-                },
-                "signedPath": "dltemp/oyhmnX-uhK5i-yeP/1777044600000/noco/pv3c5ekh1fjoihu/mpz7ywybfxm3isa/cjpjpyar26z9u70/Sehetz-Team-Superdot__3NTb.webp"
-              }
-            ],
-            "start-date": 2020,
-            "end-date": null,
-            "role": "Information Designer",
-            "location": "Basel",
-            "link": "https://www.superdot.studio/"
-          }
-        }
-      ],
       "_nc_m2m_sehetz_gears": [
         {
           "gear_id": 4,
@@ -2891,6 +2835,62 @@
             ]
           }
         }
+      ],
+      "_nc_m2m_sehetz_teams": [
+        {
+          "team_id": 2,
+          "sehetz_id": 22,
+          "team": {
+            "Projects": 5,
+            "Id": 2,
+            "CreatedAt": "2025-12-20 13:23:35+00:00",
+            "UpdatedAt": "2026-04-24 11:29:38+00:00",
+            "Team": "Superdot",
+            "design-work": true,
+            "description": "It is hard to overstate how important my time at Superdot has been for me. Fresh out of a bachelor’s program in a small German province, I found myself working in a studio where the art director had still studied typography directly under Weingart. What started as a traineeship grew into the most formative learning experience of my early career. Darjan and Nicole shaped my development and supported my strengths, for which I remain deeply grateful.",
+            "Teaser-Image": [
+              {
+                "path": "download/noco/pv3c5ekh1fjoihu/mpz7ywybfxm3isa/cjpjpyar26z9u70/Sehetz-Team-Superdot__3NTb.webp",
+                "title": "Sehetz-Team-Superdot.webp",
+                "mimetype": "image/webp",
+                "size": 498384,
+                "width": 1350,
+                "height": 1800,
+                "id": "atzkx6ez0vjuzzv2",
+                "thumbnails": {
+                  "tiny": {
+                    "signedPath": "dltemp/cmvaiqnXxndmdVzZ/1777044600000/thumbnails/noco/pv3c5ekh1fjoihu/mpz7ywybfxm3isa/cjpjpyar26z9u70/Sehetz-Team-Superdot__3NTb.webp/tiny.jpg"
+                  },
+                  "small": {
+                    "signedPath": "dltemp/Ml2w99n56l1nw3dc/1777044600000/thumbnails/noco/pv3c5ekh1fjoihu/mpz7ywybfxm3isa/cjpjpyar26z9u70/Sehetz-Team-Superdot__3NTb.webp/small.jpg"
+                  },
+                  "card_cover": {
+                    "signedPath": "dltemp/w40gsLJ7Xc5abiPd/1777044600000/thumbnails/noco/pv3c5ekh1fjoihu/mpz7ywybfxm3isa/cjpjpyar26z9u70/Sehetz-Team-Superdot__3NTb.webp/card_cover.jpg"
+                  }
+                },
+                "signedPath": "dltemp/oyhmnX-uhK5i-yeP/1777044600000/noco/pv3c5ekh1fjoihu/mpz7ywybfxm3isa/cjpjpyar26z9u70/Sehetz-Team-Superdot__3NTb.webp"
+              }
+            ],
+            "start-date": 2020,
+            "end-date": null,
+            "role": "Information Designer",
+            "location": "Basel",
+            "link": "https://www.superdot.studio/"
+          }
+        }
+      ],
+      "_nc_m2m_sehetz_skills": [
+        {
+          "skill_id": 1,
+          "sehetz_id": 22,
+          "skill": {
+            "Projects": 1,
+            "Id": 1,
+            "CreatedAt": "2025-12-20 13:23:58+00:00",
+            "UpdatedAt": "2026-04-24 09:07:04+00:00",
+            "Skill": "Video"
+          }
+        }
       ]
     },
     {
@@ -2915,16 +2915,18 @@
       "call_to_action": "[Join the community](https://www.ondataanddesign.com/)",
       "teaser_embed_url": "odad-sketch",
       "teaser_embed_ratio": "3x4",
-      "_nc_m2m_sehetz_skills": [
+      "_nc_m2m_sehetz_gears": [
         {
-          "skill_id": 8,
+          "gear_id": 5,
           "sehetz_id": 23,
-          "skill": {
-            "Projects": 3,
-            "Id": 8,
-            "CreatedAt": "2025-12-20 13:24:00+00:00",
-            "UpdatedAt": "2026-04-24 11:29:26+00:00",
-            "Skill": "Coding"
+          "gear": {
+            "Projects": 4,
+            "Id": 5,
+            "CreatedAt": "2025-12-20 13:23:46+00:00",
+            "UpdatedAt": "2026-04-24 11:29:34+00:00",
+            "Gear": "My Dev Stack",
+            "description": "Isn't it wonderful to be able to talk to computers? Okay, that's romanticized, but anyone who understands the basic logic of programming languages ​​and how they are connected will quickly find their way around. Before Vibe Coding, I started with a short frontend training at Superdot: React, JS, P5(.js), Python, R, and the basics. This foundation helps me build more complex systems.",
+            "Teaser-Image": null
           }
         }
       ],
@@ -2971,18 +2973,16 @@
           }
         }
       ],
-      "_nc_m2m_sehetz_gears": [
+      "_nc_m2m_sehetz_skills": [
         {
-          "gear_id": 5,
+          "skill_id": 8,
           "sehetz_id": 23,
-          "gear": {
-            "Projects": 4,
-            "Id": 5,
-            "CreatedAt": "2025-12-20 13:23:46+00:00",
-            "UpdatedAt": "2026-04-24 11:29:34+00:00",
-            "Gear": "My Dev Stack",
-            "description": "Isn't it wonderful to be able to talk to computers? Okay, that's romanticized, but anyone who understands the basic logic of programming languages ​​and how they are connected will quickly find their way around. Before Vibe Coding, I started with a short frontend training at Superdot: React, JS, P5(.js), Python, R, and the basics. This foundation helps me build more complex systems.",
-            "Teaser-Image": null
+          "skill": {
+            "Projects": 3,
+            "Id": 8,
+            "CreatedAt": "2025-12-20 13:24:00+00:00",
+            "UpdatedAt": "2026-04-24 11:29:26+00:00",
+            "Skill": "Coding"
           }
         }
       ]
