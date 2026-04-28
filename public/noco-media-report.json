@@ -563,10 +563,18 @@
     {
       "recordId": 17,
       "recordTitle": "This website",
+      "field": "content_02_image[0]",
+      "filename": "16x9_Sehetz_website_coding_skills_T_T.webm",
+      "matched": "16x9_Sehetz_website_coding_skills_T_T.webm",
+      "localPath": "/media/16x9_Sehetz_website_coding_skills_T_T.webm"
+    },
+    {
+      "recordId": 17,
+      "recordTitle": "This website",
       "field": "content_04_images[0]",
       "filename": "3x4_Sehetz_website_coding_still_image.png",
       "matched": "3x4_Sehetz_website_coding_still_image.png",
-      "localPath": "/media/sehetz/3x4_Sehetz_website_coding_still_image.png"
+      "localPath": "/media/3x4_Sehetz_website_coding_still_image.png"
     },
     {
       "recordId": 17,
@@ -574,7 +582,7 @@
       "field": "content_04_images[1]",
       "filename": "3x4_Sehetz_website_coding_project_video_2.webm",
       "matched": "3x4_Sehetz_website_coding_project_video_2.webm",
-      "localPath": "/media/sehetz/3x4_Sehetz_website_coding_project_video_2.webm"
+      "localPath": "/media/3x4_Sehetz_website_coding_project_video_2.webm"
     },
     {
       "recordId": 17,
@@ -582,7 +590,7 @@
       "field": "content_06_gallery[0]",
       "filename": "3x4_Sehetz_website_coding_gear_03.png",
       "matched": "3x4_Sehetz_website_coding_gear_03.png",
-      "localPath": "/media/Gear/3x4_Sehetz_website_coding_gear_03.png"
+      "localPath": "/media/3x4_Sehetz_website_coding_gear_03.png"
     },
     {
       "recordId": 17,
@@ -590,7 +598,7 @@
       "field": "content_06_gallery[1]",
       "filename": "3x4_Sehetz_website_coding_skills_03.png",
       "matched": "3x4_Sehetz_website_coding_skills_03.png",
-      "localPath": "/media/sehetz/3x4_Sehetz_website_coding_skills_03.png"
+      "localPath": "/media/3x4_Sehetz_website_coding_skills_03.png"
     },
     {
       "recordId": 17,
@@ -598,7 +606,15 @@
       "field": "content_06_gallery[2]",
       "filename": "3x4_Sehetz_website_coding_Teams_03.png",
       "matched": "3x4_Sehetz_website_coding_Teams_03.png",
-      "localPath": "/media/Teams/3x4_Sehetz_website_coding_Teams_03.png"
+      "localPath": "/media/3x4_Sehetz_website_coding_Teams_03.png"
+    },
+    {
+      "recordId": 17,
+      "recordTitle": "This website",
+      "field": "_nc_m2m_sehetz_gears[0].gear.Teaser-Image[0]",
+      "filename": "Sehetz Sarah Heitz Gear My Dev Stack.svg",
+      "matched": "Sehetz Sarah Heitz Gear My Dev Stack.svg",
+      "localPath": "/media/Sehetz Sarah Heitz Gear My Dev Stack.svg"
     },
     {
       "recordId": 18,
@@ -606,7 +622,7 @@
       "field": "Teaser-Image[0]",
       "filename": "3x4_Sehetz_Rollerskate_Dataviz_Legend_.svg",
       "matched": "3x4_Sehetz_Rollerskate_Dataviz_Legend_.svg",
-      "localPath": "/media/sehetz/3x4_Sehetz_Rollerskate_Dataviz_Legend_.svg"
+      "localPath": "/media/3x4_Sehetz_Rollerskate_Dataviz_Legend_.svg"
     },
     {
       "recordId": 18,
@@ -657,12 +673,20 @@
       "localPath": "/media/3x4_Sehetz_Rollerskate_Dataviz_Legend_09.png"
     },
     {
+      "recordId": 18,
+      "recordTitle": "Rollerskating",
+      "field": "_nc_m2m_sehetz_gears[0].gear.Teaser-Image[0]",
+      "filename": "Sehetz Sarah Heitz Gear My Dev Stack.svg",
+      "matched": "Sehetz Sarah Heitz Gear My Dev Stack.svg",
+      "localPath": "/media/Sehetz Sarah Heitz Gear My Dev Stack.svg"
+    },
+    {
       "recordId": 19,
       "recordTitle": "Carnault Icons",
       "field": "Teaser-Image[0]",
       "filename": "3x4 sehetz Carnault Technical Illustrations.svg",
       "matched": "3x4 sehetz Carnault Technical Illustrations.svg",
-      "localPath": "/media/sehetz/3x4 sehetz Carnault Technical Illustrations.svg"
+      "localPath": "/media/3x4 sehetz Carnault Technical Illustrations.svg"
     },
     {
       "recordId": 19,
@@ -705,6 +729,14 @@
       "localPath": "/media/Sehetz-Team-carnault.webp"
     },
     {
+      "recordId": 21,
+      "recordTitle": "Carnault Website",
+      "field": "_nc_m2m_sehetz_gears[0].gear.Teaser-Image[0]",
+      "filename": "Sehetz Sarah Heitz Gear My Dev Stack.svg",
+      "matched": "Sehetz Sarah Heitz Gear My Dev Stack.svg",
+      "localPath": "/media/Sehetz Sarah Heitz Gear My Dev Stack.svg"
+    },
+    {
       "recordId": 22,
       "recordTitle": "MID Kickstarter",
       "field": "_nc_m2m_sehetz_teams[0].team.Teaser-Image[0]",
@@ -727,58 +759,102 @@
       "filename": "Sehetz-Team-Superdot.webp",
       "matched": "Sehetz-Team-Superdot.webp",
       "localPath": "/media/Sehetz-Team-Superdot.webp"
+    },
+    {
+      "recordId": 23,
+      "recordTitle": "ODAD",
+      "field": "_nc_m2m_sehetz_gears[0].gear.Teaser-Image[0]",
+      "filename": "Sehetz Sarah Heitz Gear My Dev Stack.svg",
+      "matched": "Sehetz Sarah Heitz Gear My Dev Stack.svg",
+      "localPath": "/media/Sehetz Sarah Heitz Gear My Dev Stack.svg"
+    },
+    {
+      "recordId": 24,
+      "recordTitle": "MID Teaching",
+      "field": "_nc_m2m_sehetz_teams[0].team.Teaser-Image[0]",
+      "filename": "Sehetz-Team-Superdot.webp",
+      "matched": "Sehetz-Team-Superdot.webp",
+      "localPath": "/media/Sehetz-Team-Superdot.webp"
+    },
+    {
+      "recordId": 24,
+      "recordTitle": "MID Teaching",
+      "field": "_nc_m2m_sehetz_gears[0].gear.Teaser-Image[0]",
+      "filename": "Sehetz Sarah Heitz Gear Creative Cloud Crop.svg",
+      "matched": "Sehetz Sarah Heitz Gear Creative Cloud Crop.svg",
+      "localPath": "/media/Sehetz Sarah Heitz Gear Creative Cloud Crop.svg"
     }
   ],
   "missing": [
     {
-      "recordId": 17,
-      "recordTitle": "This website",
+      "recordId": 24,
+      "recordTitle": "MID Teaching",
+      "field": "Teaser-Image[0]",
+      "filename": "3x4_sehetz_Superdot_Modular_Information_Design_Teaching_01.jpg",
+      "candidates": [
+        "3x4_sehetz_Superdot_Modular_Information_Design_Teaching_01.jpg"
+      ],
+      "remotePath": "dltemp/-y9EgD22wrhwc2el/1777377000000/noco/pv3c5ekh1fjoihu/mieh9d1y7a7ls74/c18fm6jyb2wfvqr/3x4_sehetz_Superdot_Modular_Information_Design_Teaching_01_6ESs-.jpg"
+    },
+    {
+      "recordId": 24,
+      "recordTitle": "MID Teaching",
       "field": "content_02_image[0]",
-      "filename": "16x9_Sehetz_website_coding_skills_T_T.webm",
+      "filename": "16x9_sehetz_Superdot_Modular_Information_Design_Teaching_02.jpg",
       "candidates": [
-        "16x9_Sehetz_website_coding_skills_T_T.webm"
+        "16x9_sehetz_Superdot_Modular_Information_Design_Teaching_02.jpg"
       ],
-      "remotePath": "dltemp/Ng6UKEoE1mktA7pt/1777112400000/noco/pv3c5ekh1fjoihu/mieh9d1y7a7ls74/cchl73funp4pj7t/16x9_Sehetz_website_coding_skills_T_T_RdXFY.webm"
+      "remotePath": "dltemp/TXJT3Qn4_8YT6buT/1777377000000/noco/pv3c5ekh1fjoihu/mieh9d1y7a7ls74/cchl73funp4pj7t/16x9_sehetz_Superdot_Modular_Information_Design_Teaching_02_b4nwy.jpg"
     },
     {
-      "recordId": 17,
-      "recordTitle": "This website",
-      "field": "_nc_m2m_sehetz_gears[0].gear.Teaser-Image[0]",
-      "filename": "Sehetz Sarah Heitz Gear My Dev Stack.svg",
+      "recordId": 24,
+      "recordTitle": "MID Teaching",
+      "field": "content_04_images[0]",
+      "filename": "3x4_sehetz_Superdot_Modular_Information_Design_Teaching_03.jpg",
       "candidates": [
-        "Sehetz Sarah Heitz Gear My Dev Stack.svg"
+        "3x4_sehetz_Superdot_Modular_Information_Design_Teaching_03.jpg"
       ],
-      "remotePath": "dltemp/HooHotEwaO_FsTmU/1777112400000/noco/pv3c5ekh1fjoihu/mb2io0hhb8mzae6/cqax9ua61uqjooh/Sehetz Sarah Heitz Gear My Dev Stack_4R6R0.svg"
+      "remotePath": "dltemp/a0Yeb5AF4X7_8tjk/1777377000000/noco/pv3c5ekh1fjoihu/mieh9d1y7a7ls74/cj599155ucoggob/3x4_sehetz_Superdot_Modular_Information_Design_Teaching_03_79a96.jpg"
     },
     {
-      "recordId": 18,
-      "recordTitle": "Rollerskating",
-      "field": "_nc_m2m_sehetz_gears[0].gear.Teaser-Image[0]",
-      "filename": "Sehetz Sarah Heitz Gear My Dev Stack.svg",
+      "recordId": 24,
+      "recordTitle": "MID Teaching",
+      "field": "content_04_images[1]",
+      "filename": "3x4_sehetz_Superdot_Modular_Information_Design_Teaching_04.jpg",
       "candidates": [
-        "Sehetz Sarah Heitz Gear My Dev Stack.svg"
+        "3x4_sehetz_Superdot_Modular_Information_Design_Teaching_04.jpg"
       ],
-      "remotePath": "dltemp/HooHotEwaO_FsTmU/1777112400000/noco/pv3c5ekh1fjoihu/mb2io0hhb8mzae6/cqax9ua61uqjooh/Sehetz Sarah Heitz Gear My Dev Stack_4R6R0.svg"
+      "remotePath": "dltemp/TdNCHUIPWoUuJ159/1777377000000/noco/pv3c5ekh1fjoihu/mieh9d1y7a7ls74/cj599155ucoggob/3x4_sehetz_Superdot_Modular_Information_Design_Teaching_04_hLJdv.jpg"
     },
     {
-      "recordId": 21,
-      "recordTitle": "Carnault Website",
-      "field": "_nc_m2m_sehetz_gears[0].gear.Teaser-Image[0]",
-      "filename": "Sehetz Sarah Heitz Gear My Dev Stack.svg",
+      "recordId": 24,
+      "recordTitle": "MID Teaching",
+      "field": "content_06_gallery[0]",
+      "filename": "3x4_sehetz_Superdot_Modular_Information_Design_Teaching_05.jpg",
       "candidates": [
-        "Sehetz Sarah Heitz Gear My Dev Stack.svg"
+        "3x4_sehetz_Superdot_Modular_Information_Design_Teaching_05.jpg"
       ],
-      "remotePath": "dltemp/HooHotEwaO_FsTmU/1777112400000/noco/pv3c5ekh1fjoihu/mb2io0hhb8mzae6/cqax9ua61uqjooh/Sehetz Sarah Heitz Gear My Dev Stack_4R6R0.svg"
+      "remotePath": "dltemp/N2wfkRxO3TDebu_d/1777377000000/noco/pv3c5ekh1fjoihu/mieh9d1y7a7ls74/c2r1kl5m90m6ple/3x4_sehetz_Superdot_Modular_Information_Design_Teaching_05_DwloY.jpg"
     },
     {
-      "recordId": 23,
-      "recordTitle": "ODAD",
-      "field": "_nc_m2m_sehetz_gears[0].gear.Teaser-Image[0]",
-      "filename": "Sehetz Sarah Heitz Gear My Dev Stack.svg",
+      "recordId": 24,
+      "recordTitle": "MID Teaching",
+      "field": "content_06_gallery[1]",
+      "filename": "3x4_sehetz_Superdot_Modular_Information_Design_Teaching_06.jpg",
       "candidates": [
-        "Sehetz Sarah Heitz Gear My Dev Stack.svg"
+        "3x4_sehetz_Superdot_Modular_Information_Design_Teaching_06.jpg"
       ],
-      "remotePath": "dltemp/HooHotEwaO_FsTmU/1777112400000/noco/pv3c5ekh1fjoihu/mb2io0hhb8mzae6/cqax9ua61uqjooh/Sehetz Sarah Heitz Gear My Dev Stack_4R6R0.svg"
+      "remotePath": "dltemp/vjBwLJvlEqPdrU6r/1777377000000/noco/pv3c5ekh1fjoihu/mieh9d1y7a7ls74/c2r1kl5m90m6ple/3x4_sehetz_Superdot_Modular_Information_Design_Teaching_06_5Wj_l.jpg"
+    },
+    {
+      "recordId": 24,
+      "recordTitle": "MID Teaching",
+      "field": "content_06_gallery[2]",
+      "filename": "3x4_sehetz_Superdot_Modular_Information_Design_Teaching_07.jpg",
+      "candidates": [
+        "3x4_sehetz_Superdot_Modular_Information_Design_Teaching_07.jpg"
+      ],
+      "remotePath": "dltemp/rBGTXvK7EQ2th_3a/1777377000000/noco/pv3c5ekh1fjoihu/mieh9d1y7a7ls74/c2r1kl5m90m6ple/3x4_sehetz_Superdot_Modular_Information_Design_Teaching_07_pXfpI.jpg"
     }
   ],
   "noFilename": []
