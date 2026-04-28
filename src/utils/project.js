@@ -61,18 +61,17 @@ export function content_build(project) {
  * @returns {Object} Normalized project with { teaserImageFile, teaserVideoFile, blocks, ... }
  */
 export function project_normalize(project, NOCO_BASE_URL) {
-  const file = project["Teaser-Image"]?.[0];
+  const files = project["Teaser-Image"] || [];
   let teaserImageFile = null;
   let teaserVideoFile = null;
 
-  if (file) {
+  for (const file of files) {
     const mime = file.mimetype || file.type || "";
-    const ext = (file.name || "").toLowerCase();
+    const ext = (file.name || file.title || "").toLowerCase();
     const isVideo = mime.startsWith("video/") || /\.(mp4|webm|mov|m4v)$/i.test(ext);
-    
-    if (isVideo) {
+    if (isVideo && !teaserVideoFile) {
       teaserVideoFile = file;
-    } else {
+    } else if (!isVideo && !teaserImageFile) {
       teaserImageFile = file;
     }
   }
