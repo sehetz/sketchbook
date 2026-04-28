@@ -151,19 +151,6 @@
       "call_to_action": null,
       "teaser_embed_url": null,
       "teaser_embed_ratio": null,
-      "_nc_m2m_sehetz_skills": [
-        {
-          "skill_id": 10,
-          "sehetz_id": 1,
-          "skill": {
-            "Projects": 2,
-            "Id": 10,
-            "CreatedAt": "2025-12-20 13:24:00+00:00",
-            "UpdatedAt": "2025-12-20 13:26:37+00:00",
-            "Skill": "Foto"
-          }
-        }
-      ],
       "_nc_m2m_sehetz_gears": [
         {
           "gear_id": 1,
@@ -221,6 +208,19 @@
             "link": null
           }
         }
+      ],
+      "_nc_m2m_sehetz_skills": [
+        {
+          "skill_id": 10,
+          "sehetz_id": 1,
+          "skill": {
+            "Projects": 2,
+            "Id": 10,
+            "CreatedAt": "2025-12-20 13:24:00+00:00",
+            "UpdatedAt": "2025-12-20 13:26:37+00:00",
+            "Skill": "Foto"
+          }
+        }
       ]
     },
     {
@@ -267,19 +267,6 @@
       "call_to_action": "[read the webcomic](https://sehetz.ch/mission-iris/)",
       "teaser_embed_url": null,
       "teaser_embed_ratio": null,
-      "_nc_m2m_sehetz_skills": [
-        {
-          "skill_id": 2,
-          "sehetz_id": 2,
-          "skill": {
-            "Projects": 3,
-            "Id": 2,
-            "CreatedAt": "2025-12-20 13:24:00+00:00",
-            "UpdatedAt": "2026-04-24 11:20:04+00:00",
-            "Skill": "Illustration"
-          }
-        }
-      ],
       "_nc_m2m_sehetz_gears": [
         {
           "gear_id": 2,
@@ -335,6 +322,19 @@
             "role": "Courious Twad",
             "location": "Basel",
             "link": null
+          }
+        }
+      ],
+      "_nc_m2m_sehetz_skills": [
+        {
+          "skill_id": 2,
+          "sehetz_id": 2,
+          "skill": {
+            "Projects": 3,
+            "Id": 2,
+            "CreatedAt": "2025-12-20 13:24:00+00:00",
+            "UpdatedAt": "2026-04-24 11:20:04+00:00",
+            "Skill": "Illustration"
           }
         }
       ]
@@ -469,19 +469,6 @@
       "call_to_action": null,
       "teaser_embed_url": null,
       "teaser_embed_ratio": null,
-      "_nc_m2m_sehetz_skills": [
-        {
-          "skill_id": 10,
-          "sehetz_id": 3,
-          "skill": {
-            "Projects": 2,
-            "Id": 10,
-            "CreatedAt": "2025-12-20 13:24:00+00:00",
-            "UpdatedAt": "2025-12-20 13:26:37+00:00",
-            "Skill": "Foto"
-          }
-        }
-      ],
       "_nc_m2m_sehetz_gears": [
         {
           "gear_id": 8,
@@ -559,6 +546,19 @@
             "role": "Student",
             "location": "Trier",
             "link": "https://www.hochschule-trier.de/en/"
+          }
+        }
+      ],
+      "_nc_m2m_sehetz_skills": [
+        {
+          "skill_id": 10,
+          "sehetz_id": 3,
+          "skill": {
+            "Projects": 2,
+            "Id": 10,
+            "CreatedAt": "2025-12-20 13:24:00+00:00",
+            "UpdatedAt": "2025-12-20 13:26:37+00:00",
+            "Skill": "Foto"
           }
         }
       ]
@@ -806,19 +806,6 @@
       "call_to_action": null,
       "teaser_embed_url": null,
       "teaser_embed_ratio": null,
-      "_nc_m2m_sehetz_skills": [
-        {
-          "skill_id": 2,
-          "sehetz_id": 4,
-          "skill": {
-            "Projects": 3,
-            "Id": 2,
-            "CreatedAt": "2025-12-20 13:24:00+00:00",
-            "UpdatedAt": "2026-04-24 11:20:04+00:00",
-            "Skill": "Illustration"
-          }
-        }
-      ],
       "_nc_m2m_sehetz_gears": [
         {
           "gear_id": 7,
@@ -896,6 +883,19 @@
             "role": "Protagonist",
             "location": "Berlin",
             "link": "https://endlich-tacheles.org/"
+          }
+        }
+      ],
+      "_nc_m2m_sehetz_skills": [
+        {
+          "skill_id": 2,
+          "sehetz_id": 4,
+          "skill": {
+            "Projects": 3,
+            "Id": 2,
+            "CreatedAt": "2025-12-20 13:24:00+00:00",
+            "UpdatedAt": "2026-04-24 11:20:04+00:00",
+            "Skill": "Illustration"
           }
         }
       ]
@@ -1060,19 +1060,6 @@
       "call_to_action": "[Hans Rosling Diagram?](https://www.youtube.com/watch?v=jbkSRLYSojo)",
       "teaser_embed_url": null,
       "teaser_embed_ratio": null,
-      "_nc_m2m_sehetz_skills": [
-        {
-          "skill_id": 6,
-          "sehetz_id": 5,
-          "skill": {
-            "Projects": 1,
-            "Id": 6,
-            "CreatedAt": "2025-12-20 13:24:00+00:00",
-            "UpdatedAt": "2025-12-20 13:26:19+00:00",
-            "Skill": "3D"
-          }
-        }
-      ],
       "_nc_m2m_sehetz_gears": [
         {
           "gear_id": 3,
@@ -1150,6 +1137,19 @@
             "role": "Information Designer",
             "location": "Basel",
             "link": "https://www.superdot.studio/"
+          }
+        }
+      ],
+      "_nc_m2m_sehetz_skills": [
+        {
+          "skill_id": 6,
+          "sehetz_id": 5,
+          "skill": {
+            "Projects": 1,
+            "Id": 6,
+            "CreatedAt": "2025-12-20 13:24:00+00:00",
+            "UpdatedAt": "2025-12-20 13:26:19+00:00",
+            "Skill": "3D"
           }
         }
       ]
@@ -1355,19 +1355,6 @@
       "call_to_action": null,
       "teaser_embed_url": null,
       "teaser_embed_ratio": null,
-      "_nc_m2m_sehetz_skills": [
-        {
-          "skill_id": 7,
-          "sehetz_id": 6,
-          "skill": {
-            "Projects": 3,
-            "Id": 7,
-            "CreatedAt": "2025-12-20 13:24:00+00:00",
-            "UpdatedAt": "2026-04-24 11:20:13+00:00",
-            "Skill": "Graphic"
-          }
-        }
-      ],
       "_nc_m2m_sehetz_gears": [
         {
           "gear_id": 4,
@@ -1445,6 +1432,19 @@
             "role": "Information Designer",
             "location": "Basel",
             "link": "https://www.superdot.studio/"
+          }
+        }
+      ],
+      "_nc_m2m_sehetz_skills": [
+        {
+          "skill_id": 7,
+          "sehetz_id": 6,
+          "skill": {
+            "Projects": 3,
+            "Id": 7,
+            "CreatedAt": "2025-12-20 13:24:00+00:00",
+            "UpdatedAt": "2026-04-24 11:20:13+00:00",
+            "Skill": "Graphic"
           }
         }
       ]
@@ -1685,19 +1685,6 @@
       "call_to_action": null,
       "teaser_embed_url": null,
       "teaser_embed_ratio": null,
-      "_nc_m2m_sehetz_skills": [
-        {
-          "skill_id": 2,
-          "sehetz_id": 9,
-          "skill": {
-            "Projects": 3,
-            "Id": 2,
-            "CreatedAt": "2025-12-20 13:24:00+00:00",
-            "UpdatedAt": "2026-04-24 11:20:04+00:00",
-            "Skill": "Illustration"
-          }
-        }
-      ],
       "_nc_m2m_sehetz_gears": [
         {
           "gear_id": 4,
@@ -1753,6 +1740,19 @@
             "role": "Courious Twad",
             "location": "Basel",
             "link": null
+          }
+        }
+      ],
+      "_nc_m2m_sehetz_skills": [
+        {
+          "skill_id": 2,
+          "sehetz_id": 9,
+          "skill": {
+            "Projects": 3,
+            "Id": 2,
+            "CreatedAt": "2025-12-20 13:24:00+00:00",
+            "UpdatedAt": "2026-04-24 11:20:04+00:00",
+            "Skill": "Illustration"
           }
         }
       ]
@@ -1917,19 +1917,6 @@
       "call_to_action": null,
       "teaser_embed_url": null,
       "teaser_embed_ratio": null,
-      "_nc_m2m_sehetz_skills": [
-        {
-          "skill_id": 12,
-          "sehetz_id": 16,
-          "skill": {
-            "Projects": 1,
-            "Id": 12,
-            "CreatedAt": "2025-12-31 10:36:33+00:00",
-            "UpdatedAt": "2025-12-31 12:56:25+00:00",
-            "Skill": "Packaging"
-          }
-        }
-      ],
       "_nc_m2m_sehetz_gears": [
         {
           "gear_id": 2,
@@ -2007,6 +1994,19 @@
             "role": "Graphic Designer",
             "location": "Basel",
             "link": "https://carnault.com/en"
+          }
+        }
+      ],
+      "_nc_m2m_sehetz_skills": [
+        {
+          "skill_id": 12,
+          "sehetz_id": 16,
+          "skill": {
+            "Projects": 1,
+            "Id": 12,
+            "CreatedAt": "2025-12-31 10:36:33+00:00",
+            "UpdatedAt": "2025-12-31 12:56:25+00:00",
+            "Skill": "Packaging"
           }
         }
       ]
@@ -2158,19 +2158,6 @@
       "call_to_action": null,
       "teaser_embed_url": null,
       "teaser_embed_ratio": null,
-      "_nc_m2m_sehetz_skills": [
-        {
-          "skill_id": 8,
-          "sehetz_id": 17,
-          "skill": {
-            "Projects": 3,
-            "Id": 8,
-            "CreatedAt": "2025-12-20 13:24:00+00:00",
-            "UpdatedAt": "2026-04-24 11:29:26+00:00",
-            "Skill": "Coding"
-          }
-        }
-      ],
       "_nc_m2m_sehetz_gears": [
         {
           "gear_id": 5,
@@ -2226,6 +2213,19 @@
             "role": "Courious Twad",
             "location": "Basel",
             "link": null
+          }
+        }
+      ],
+      "_nc_m2m_sehetz_skills": [
+        {
+          "skill_id": 8,
+          "sehetz_id": 17,
+          "skill": {
+            "Projects": 3,
+            "Id": 8,
+            "CreatedAt": "2025-12-20 13:24:00+00:00",
+            "UpdatedAt": "2026-04-24 11:29:26+00:00",
+            "Skill": "Coding"
           }
         }
       ]
@@ -2401,19 +2401,6 @@
       "call_to_action": null,
       "teaser_embed_url": "Rollerskate-Dataviz",
       "teaser_embed_ratio": "16x9",
-      "_nc_m2m_sehetz_skills": [
-        {
-          "skill_id": 5,
-          "sehetz_id": 18,
-          "skill": {
-            "Projects": 2,
-            "Id": 5,
-            "CreatedAt": "2025-12-20 13:24:00+00:00",
-            "UpdatedAt": "2026-04-28 08:35:45+00:00",
-            "Skill": "Dataviz"
-          }
-        }
-      ],
       "_nc_m2m_sehetz_gears": [
         {
           "gear_id": 5,
@@ -2471,6 +2458,19 @@
             "link": null
           }
         }
+      ],
+      "_nc_m2m_sehetz_skills": [
+        {
+          "skill_id": 5,
+          "sehetz_id": 18,
+          "skill": {
+            "Projects": 2,
+            "Id": 5,
+            "CreatedAt": "2025-12-20 13:24:00+00:00",
+            "UpdatedAt": "2026-04-28 08:35:45+00:00",
+            "Skill": "Dataviz"
+          }
+        }
       ]
     },
     {
@@ -2517,19 +2517,6 @@
       "call_to_action": null,
       "teaser_embed_url": null,
       "teaser_embed_ratio": null,
-      "_nc_m2m_sehetz_skills": [
-        {
-          "skill_id": 7,
-          "sehetz_id": 19,
-          "skill": {
-            "Projects": 3,
-            "Id": 7,
-            "CreatedAt": "2025-12-20 13:24:00+00:00",
-            "UpdatedAt": "2026-04-24 11:20:13+00:00",
-            "Skill": "Graphic"
-          }
-        }
-      ],
       "_nc_m2m_sehetz_gears": [
         {
           "gear_id": 4,
@@ -2607,6 +2594,19 @@
             "role": "Graphic Designer",
             "location": "Basel",
             "link": "https://carnault.com/en"
+          }
+        }
+      ],
+      "_nc_m2m_sehetz_skills": [
+        {
+          "skill_id": 7,
+          "sehetz_id": 19,
+          "skill": {
+            "Projects": 3,
+            "Id": 7,
+            "CreatedAt": "2025-12-20 13:24:00+00:00",
+            "UpdatedAt": "2026-04-24 11:20:13+00:00",
+            "Skill": "Graphic"
           }
         }
       ]
@@ -2633,19 +2633,6 @@
       "call_to_action": null,
       "teaser_embed_url": null,
       "teaser_embed_ratio": null,
-      "_nc_m2m_sehetz_skills": [
-        {
-          "skill_id": 7,
-          "sehetz_id": 20,
-          "skill": {
-            "Projects": 3,
-            "Id": 7,
-            "CreatedAt": "2025-12-20 13:24:00+00:00",
-            "UpdatedAt": "2026-04-24 11:20:13+00:00",
-            "Skill": "Graphic"
-          }
-        }
-      ],
       "_nc_m2m_sehetz_gears": [
         {
           "gear_id": 4,
@@ -2725,6 +2712,19 @@
             "link": "https://www.superdot.studio/"
           }
         }
+      ],
+      "_nc_m2m_sehetz_skills": [
+        {
+          "skill_id": 7,
+          "sehetz_id": 20,
+          "skill": {
+            "Projects": 3,
+            "Id": 7,
+            "CreatedAt": "2025-12-20 13:24:00+00:00",
+            "UpdatedAt": "2026-04-24 11:20:13+00:00",
+            "Skill": "Graphic"
+          }
+        }
       ]
     },
     {
@@ -2749,19 +2749,6 @@
       "call_to_action": null,
       "teaser_embed_url": null,
       "teaser_embed_ratio": null,
-      "_nc_m2m_sehetz_skills": [
-        {
-          "skill_id": 8,
-          "sehetz_id": 21,
-          "skill": {
-            "Projects": 3,
-            "Id": 8,
-            "CreatedAt": "2025-12-20 13:24:00+00:00",
-            "UpdatedAt": "2026-04-24 11:29:26+00:00",
-            "Skill": "Coding"
-          }
-        }
-      ],
       "_nc_m2m_sehetz_gears": [
         {
           "gear_id": 5,
@@ -2841,6 +2828,19 @@
             "link": "https://carnault.com/en"
           }
         }
+      ],
+      "_nc_m2m_sehetz_skills": [
+        {
+          "skill_id": 8,
+          "sehetz_id": 21,
+          "skill": {
+            "Projects": 3,
+            "Id": 8,
+            "CreatedAt": "2025-12-20 13:24:00+00:00",
+            "UpdatedAt": "2026-04-24 11:29:26+00:00",
+            "Skill": "Coding"
+          }
+        }
       ]
     },
     {
@@ -2865,19 +2865,6 @@
       "call_to_action": null,
       "teaser_embed_url": null,
       "teaser_embed_ratio": null,
-      "_nc_m2m_sehetz_skills": [
-        {
-          "skill_id": 1,
-          "sehetz_id": 22,
-          "skill": {
-            "Projects": 1,
-            "Id": 1,
-            "CreatedAt": "2025-12-20 13:23:58+00:00",
-            "UpdatedAt": "2026-04-24 09:07:04+00:00",
-            "Skill": "Video"
-          }
-        }
-      ],
       "_nc_m2m_sehetz_gears": [
         {
           "gear_id": 4,
@@ -2957,6 +2944,19 @@
             "link": "https://www.superdot.studio/"
           }
         }
+      ],
+      "_nc_m2m_sehetz_skills": [
+        {
+          "skill_id": 1,
+          "sehetz_id": 22,
+          "skill": {
+            "Projects": 1,
+            "Id": 1,
+            "CreatedAt": "2025-12-20 13:23:58+00:00",
+            "UpdatedAt": "2026-04-24 09:07:04+00:00",
+            "Skill": "Video"
+          }
+        }
       ]
     },
     {
@@ -2981,19 +2981,6 @@
       "call_to_action": "[Join the community](https://www.ondataanddesign.com/)",
       "teaser_embed_url": "odad-sketch",
       "teaser_embed_ratio": "3x4",
-      "_nc_m2m_sehetz_skills": [
-        {
-          "skill_id": 8,
-          "sehetz_id": 23,
-          "skill": {
-            "Projects": 3,
-            "Id": 8,
-            "CreatedAt": "2025-12-20 13:24:00+00:00",
-            "UpdatedAt": "2026-04-24 11:29:26+00:00",
-            "Skill": "Coding"
-          }
-        }
-      ],
       "_nc_m2m_sehetz_gears": [
         {
           "gear_id": 5,
@@ -3073,12 +3060,25 @@
             "link": "https://www.superdot.studio/"
           }
         }
+      ],
+      "_nc_m2m_sehetz_skills": [
+        {
+          "skill_id": 8,
+          "sehetz_id": 23,
+          "skill": {
+            "Projects": 3,
+            "Id": 8,
+            "CreatedAt": "2025-12-20 13:24:00+00:00",
+            "UpdatedAt": "2026-04-24 11:29:26+00:00",
+            "Skill": "Coding"
+          }
+        }
       ]
     },
     {
       "Id": 24,
       "CreatedAt": "2026-04-28 08:22:10+00:00",
-      "UpdatedAt": "2026-04-28 09:48:06+00:00",
+      "UpdatedAt": "2026-04-28 09:49:16+00:00",
       "Title": "MID Teaching",
       "description": "During my time at Superdot, I had the opportunity, under guidance and together with my team, to teach several modules on Modular Information Design at HSLU in Digital Ideation as well as in Data Design and Art.",
       "Datum": "2021-04-01",
@@ -3244,23 +3244,10 @@
         }
       ],
       "content_07_links": "[The first course](https://www.superdot.studio/teaching-dataviz-an-experience-report)\n\n[The latest course](https://www.instagram.com/p/DJ6R-oqMefD/?img_index=6)",
-      "is_online": true,
+      "is_online": false,
       "call_to_action": null,
       "teaser_embed_url": null,
       "teaser_embed_ratio": null,
-      "_nc_m2m_sehetz_skills": [
-        {
-          "skill_id": 5,
-          "sehetz_id": 24,
-          "skill": {
-            "Projects": 2,
-            "Id": 5,
-            "CreatedAt": "2025-12-20 13:24:00+00:00",
-            "UpdatedAt": "2026-04-28 08:35:45+00:00",
-            "Skill": "Dataviz"
-          }
-        }
-      ],
       "_nc_m2m_sehetz_gears": [
         {
           "gear_id": 4,
@@ -3338,6 +3325,19 @@
             "role": "Information Designer",
             "location": "Basel",
             "link": "https://www.superdot.studio/"
+          }
+        }
+      ],
+      "_nc_m2m_sehetz_skills": [
+        {
+          "skill_id": 5,
+          "sehetz_id": 24,
+          "skill": {
+            "Projects": 2,
+            "Id": 5,
+            "CreatedAt": "2025-12-20 13:24:00+00:00",
+            "UpdatedAt": "2026-04-28 08:35:45+00:00",
+            "Skill": "Dataviz"
           }
         }
       ]
