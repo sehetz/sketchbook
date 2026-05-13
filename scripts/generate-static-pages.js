@@ -108,6 +108,16 @@ async function generateStaticPages() {
     const distIndexPath = path.resolve(__dirname, "../dist/index.html");
     let baseHtml = await fs.readFile(distIndexPath, "utf8");
 
+    // Strip homepage-level SEO meta tags from the template so project/policy
+    // pages don't end up with duplicate description, canonical, OG, etc.
+    baseHtml = baseHtml
+      .replace(/<meta name="description"[^>]*>\n?/gi, '')
+      .replace(/<meta name="keywords"[^>]*>\n?/gi, '')
+      .replace(/<meta name="author"[^>]*>\n?/gi, '')
+      .replace(/<link rel="canonical"[^>]*>\n?/gi, '')
+      .replace(/<meta property="og:[^>]*>\n?/gi, '')
+      .replace(/<meta name="twitter:[^>]*>\n?/gi, '');
+
     let generated = 0;
 
     for (const project of projects) {
