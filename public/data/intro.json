@@ -10,9 +10,9 @@
     {
       "Id": 2,
       "CreatedAt": "2025-12-20 13:22:33+00:00",
-      "UpdatedAt": "2025-12-20 13:22:40+00:00",
+      "UpdatedAt": "2026-05-13 08:45:41+00:00",
       "name": "gear",
-      "description": "Tinkering, crafting, exploring. I like to challenge myself with something I am not familiar with wether it may be a camera or rollerskates—as long as it is in the means of expression."
+      "description": "Tinkering, crafting, exploring. I like to challenge myself with something I am not familiar with whether it may be a camera or rollerskates—as long as it is in the means of expression."
     },
     {
       "Id": 3,
@@ -24,9 +24,9 @@
     {
       "Id": 4,
       "CreatedAt": "2025-12-20 13:22:33+00:00",
-      "UpdatedAt": "2026-03-11 08:28:02+00:00",
+      "UpdatedAt": "2026-05-13 08:50:45+00:00",
       "name": "about",
-      "description": "Every project, place and team leaves a mark. Over time those marks form patterns. Instead of hiding them in bullet points, I mapped them into a visual timeline: follow the stations of my professional life."
+      "description": "There have been amazing teams I’ve crossed paths with. Shared experiences and collective visions shape the milestones of my professional life into a pattern when visualized. Please explore my interactive curriculum vitae."
     }
   ],
   "pageInfo": {
