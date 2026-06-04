@@ -13,9 +13,11 @@ const NOCO_TOKEN = process.env.VITE_API_TOKEN;
 const PROJECTS_TABLE_ID = "mieh9d1y7a7ls74";
 const TEAMS_TABLE_ID = "mpz7ywybfxm3isa";
 const INTRO_TABLE_ID = "m1usrhdmzjt7qo8";
+const SEHETZ_TABLE_ID = "m34cva2ry5iiyro";
 const PROJECTS_API_URL = `${NOCO_BASE_URL}/api/v2/tables/${PROJECTS_TABLE_ID}/records`;
 const TEAMS_API_URL = `${NOCO_BASE_URL}/api/v2/tables/${TEAMS_TABLE_ID}/records`;
 const INTRO_API_URL = `${NOCO_BASE_URL}/api/v2/tables/${INTRO_TABLE_ID}/records`;
+const SEHETZ_API_URL = `${NOCO_BASE_URL}/api/v2/tables/${SEHETZ_TABLE_ID}/records`;
 
 async function fetchStaticData() {
   console.log("📦 Fetching latest data from NocoDB...\n");
@@ -72,6 +74,20 @@ async function fetchStaticData() {
     const introData = await introResponse.json();
     console.log(`✅ Fetched ${introData.list?.length || 0} intro texts\n`);
 
+    // Fetch sehetz profile
+    console.log(`🔗 Fetching sehetz profile: ${SEHETZ_API_URL}`);
+
+    const sehetzResponse = await fetch(SEHETZ_API_URL, {
+      headers: { "xc-token": NOCO_TOKEN }
+    });
+
+    if (!sehetzResponse.ok) {
+      throw new Error(`Sehetz: HTTP ${sehetzResponse.status}: ${sehetzResponse.statusText}`);
+    }
+
+    const sehetzData = await sehetzResponse.json();
+    console.log(`✅ Fetched sehetz profile\n`);
+
     // Save to public/data/
     const outputDir = path.resolve(__dirname, "../public/data");
     await fs.mkdir(outputDir, { recursive: true });
@@ -93,6 +109,12 @@ async function fetchStaticData() {
     await fs.writeFile(introPath, JSON.stringify(introData, null, 2), "utf8");
     console.log(`💾 Saved intro: ${introPath}`);
     console.log(`   Size: ${(JSON.stringify(introData).length / 1024).toFixed(2)} KB`);
+
+    // Save sehetz.json
+    const sehetzPath = path.resolve(outputDir, "sehetz.json");
+    await fs.writeFile(sehetzPath, JSON.stringify(sehetzData, null, 2), "utf8");
+    console.log(`💾 Saved sehetz: ${sehetzPath}`);
+    console.log(`   Size: ${(JSON.stringify(sehetzData).length / 1024).toFixed(2)} KB`);
 
     console.log("\n✨ Static data updated successfully!");
     

@@ -477,11 +477,14 @@ img {
 }
 .case-header {
   line-height: 1.2;
+  width: 100%;
 }
-.case-header:hover,
 .case-header-wrapper:hover,
 .case-header-wrapper--selected {
   background-color: var(--color-hover-bg);
+}
+.case-header-wrapper--selected:hover {
+  background-image: linear-gradient(var(--color-hover-bg), var(--color-hover-bg));
 }
 .case-header-wrapper--selected {
   border-bottom: none;
@@ -505,7 +508,7 @@ img {
   box-sizing: border-box;
   transition:
     height var(--transition-interact),
-    background-color var(--transition-fast);
+    background-color var(--transition-smooth);
   will-change:
     height, background-color; /* Optimize for frequent hover interactions */
 }
@@ -624,6 +627,12 @@ a.case-line:hover .case-line__title {
   font-weight: 400;
   letter-spacing: var(--text-3-letter);
 }
+.sehetz-teaser__achievements {
+  padding: var(--space-6) 0 var(--space-8)0;
+  width: calc(100% * 4 / 6);
+
+}
+
 
 /* Footer */
 .footer {
@@ -673,6 +682,7 @@ a.case-line:hover .case-line__title {
 
 /* Mobile: 16x9 images in 3x4 container with horizontal swipe */
 @media (max-width: 768px) {
+  
   .image-wrapper--16x9 {
     aspect-ratio: 3 / 4;
     overflow-x: auto;

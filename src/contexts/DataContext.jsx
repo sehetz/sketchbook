@@ -64,6 +64,9 @@ export function DataProvider({ children }) {
     const c = readCache("sehetz-intro-cache-v1");
     return c && Object.keys(c).length > 0 ? c : {};
   });
+  const [sehetz, setSehetz] = useState(() => {
+    return readCache("sehetz-sehetz-cache-v1") || null;
+  });
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
 
@@ -78,12 +81,14 @@ export function DataProvider({ children }) {
   const PROJECTS_TABLE_ID = "mieh9d1y7a7ls74";
   const TEAMS_TABLE_ID = "mpz7ywybfxm3isa";
   const INTRO_TABLE_ID = "m1usrhdmzjt7qo8";
+  const SEHETZ_TABLE_ID = "m34cva2ry5iiyro";
 
   // Cache Keys für sessionStorage
   const CACHE_KEYS = {
     projects: "sehetz-projects-cache-v2",
     teams: "sehetz-teams-cache-v1",
     intro: "sehetz-intro-cache-v1",
+    sehetz: "sehetz-sehetz-cache-v1",
   };
 
   // ============================================
@@ -287,6 +292,55 @@ export function DataProvider({ children }) {
   }
 
   // ============================================
+  // LOAD SEHETZ
+  // ============================================
+
+  async function loadSehetz(isInitialLoad = false) {
+    let localData = null;
+
+    const cached = loadFromCache(CACHE_KEYS.sehetz);
+    if (cached) {
+      localData = cached;
+      setSehetz(cached);
+    }
+
+    if (!localData) {
+      try {
+        const res = await fetch("/data/sehetz.json", { cache: "force-cache" });
+        if (res.ok) {
+          const json = await res.json();
+          const record = (json.list || [])[0] || null;
+          if (record) {
+            localData = record;
+            setSehetz(record);
+            saveToCache(CACHE_KEYS.sehetz, record);
+          }
+        }
+      } catch (err) {
+        // Silent error handling
+      }
+    }
+
+    try {
+      const url = `${NOCO_BASE}/api/v2/tables/${SEHETZ_TABLE_ID}/records?limit=1`;
+      const res = await fetch(url, {
+        headers: { "xc-token": API_TOKEN },
+        signal: AbortSignal.timeout(10000)
+      });
+      if (res.ok) {
+        const json = await res.json();
+        const record = (json.list || [])[0] || null;
+        if (record && JSON.stringify(record) !== JSON.stringify(localData)) {
+          setSehetz(record);
+          saveToCache(CACHE_KEYS.sehetz, record);
+        }
+      }
+    } catch (err) {
+      // Silent error handling
+    }
+  }
+
+  // ============================================
   // INITIAL DATA LOAD
   // ============================================
   
@@ -298,6 +352,7 @@ export function DataProvider({ children }) {
         loadProjects(true),
         loadTeams(true),
         loadIntroTexts(true),
+        loadSehetz(true),
       ]);
       
       setIsLoading(false);
@@ -310,6 +365,7 @@ export function DataProvider({ children }) {
       loadProjects(false);
       loadTeams(false);
       loadIntroTexts(false);
+      loadSehetz(false);
     }, 60000);
     
     return () => clearInterval(refreshInterval);
@@ -324,6 +380,7 @@ export function DataProvider({ children }) {
     projects,
     teams,
     introTexts,
+    sehetz,
     
     // Status
     isLoading,

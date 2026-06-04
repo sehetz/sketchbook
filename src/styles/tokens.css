@@ -13,9 +13,9 @@
 
 :root {
   /* 🎨 COLORS */ 
-  --color-bg: #ffffff;
+  --color-bg: #fff;
   --color-fg: #121212;
-  --color-surface: #f6f6f6;
+  --color-surface: rgba(0, 0, 0, 0.025);
   --color-link: #121212;
   --color-yellow: #FFFB78;
   --color-yellow-highlight: #fff243;
@@ -72,6 +72,7 @@
   --transition-fast: 0.125s ease;
   --transition-smooth: 0.25s ease;
   --transition-wipe: 0.45s ease;
+  --transition-interact: 0.2s ease;
 
   /* 🎨 INTERACTION COLORS */
   --color-hover-bg: var(--color-surface);
