@@ -2,15 +2,51 @@
   "list": [
     {
       "Id": 1,
+      "CreatedAt": "2025-12-20 13:21:35+00:00",
+      "UpdatedAt": "2026-06-04 07:55:31+00:00",
       "title": "Sarah Heitz",
-      "description": "If you skipped the site tour and landed straight here in the hidden section below the visualization: Congratulations and welcome! I'm Sarah, a graphic designer and illustrator, and according to this timeline I've been doing nothing else my entire professional life (wow!).",
+      "description": "If you skipped the site tour and landed straight here in the hidden section below the visualization: Congratulations and welcome! I'm Sarah, a graphic designer and illustrator, and I've done nothing else my entire professional life (wow!). ",
+      "image": [
+        {
+          "id": "atilmu97ykwyyc72",
+          "path": "download/noco/pv3c5ekh1fjoihu/m34cva2ry5iiyro/chlpuggdhb12gak/Sarah-Heitz-sehetz_c0YoU.jpg",
+          "title": "Sarah-Heitz-sehetz.jpg",
+          "mimetype": "image/jpeg",
+          "size": 3377356,
+          "width": 2160,
+          "height": 2880,
+          "thumbnails": {
+            "tiny": {
+              "signedPath": "dltemp/T91UmkmGXEKNQ0Gk/1780761000000/thumbnails/noco/pv3c5ekh1fjoihu/m34cva2ry5iiyro/chlpuggdhb12gak/Sarah-Heitz-sehetz_c0YoU.jpg/tiny.jpg"
+            },
+            "small": {
+              "signedPath": "dltemp/dUQNKildyIBGtTHi/1780761000000/thumbnails/noco/pv3c5ekh1fjoihu/m34cva2ry5iiyro/chlpuggdhb12gak/Sarah-Heitz-sehetz_c0YoU.jpg/small.jpg"
+            },
+            "card_cover": {
+              "signedPath": "dltemp/M9rSiWWCM2BQHsox/1780761000000/thumbnails/noco/pv3c5ekh1fjoihu/m34cva2ry5iiyro/chlpuggdhb12gak/Sarah-Heitz-sehetz_c0YoU.jpg/card_cover.jpg"
+            }
+          },
+          "signedPath": "dltemp/NT7gwEO9TGI-qr3z/1780761000000/noco/pv3c5ekh1fjoihu/m34cva2ry5iiyro/chlpuggdhb12gak/Sarah-Heitz-sehetz_c0YoU.jpg"
+        }
+      ],
       "Achievment_1": "As a part of Superdot I was able to teach Information Design at HSLU Lucerne.",
-      "Achievment_2": "I am a member of the Comic Crew BS / BL",
+      "Achievment_2": "I am an active member of the Comic Crew BS / BL",
       "Achievment_3": "My Concept art is featured in the Documentary Endlich Tacheles."
+    },
+    {
+      "Id": 2,
+      "CreatedAt": "2026-06-04 07:27:56+00:00",
+      "UpdatedAt": null,
+      "title": null,
+      "description": null,
+      "image": null,
+      "Achievment_1": null,
+      "Achievment_2": null,
+      "Achievment_3": null
     }
   ],
   "pageInfo": {
-    "totalRows": 1,
+    "totalRows": 2,
     "page": 1,
     "pageSize": 25,
     "isFirstPage": true,

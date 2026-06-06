@@ -3,9 +3,9 @@
     {
       "Id": 1,
       "CreatedAt": "2025-12-20 13:23:33+00:00",
-      "UpdatedAt": "2026-04-24 09:06:19+00:00",
+      "UpdatedAt": "2026-06-06 13:27:03+00:00",
       "Team": "Carnault",
-      "Projects": 3,
+      "Projects": 4,
       "design-work": true,
       "description": "Three brothers, one cigarette, and the entire Black Forest. Carnault is an electronic cigarette, developed and largely manufactured in Switzerland. It's a shared dream that we've continually expanded, refreshed, revitalized, and fueled over the past years. I joined the crew in 2021, when the ship had already been sailing for a good 10 years, just in time for the first working prototypes. Whether it's webshops, physical stores, or the design for the products surrounding the cigarette, in a startup, diverse collaboration and a strong team are essential!",
       "Teaser-Image": [
@@ -19,16 +19,16 @@
           "id": "at22fp4fqf851lih",
           "thumbnails": {
             "tiny": {
-              "signedPath": "dltemp/_6GFqrYpzwpQXlOB/1778670600000/thumbnails/noco/pv3c5ekh1fjoihu/mpz7ywybfxm3isa/cjpjpyar26z9u70/Sehetz-Team-carnault_qmVCH.webp/tiny.jpg"
+              "signedPath": "dltemp/3NDfz_r3ADcrDe2h/1780761000000/thumbnails/noco/pv3c5ekh1fjoihu/mpz7ywybfxm3isa/cjpjpyar26z9u70/Sehetz-Team-carnault_qmVCH.webp/tiny.jpg"
             },
             "small": {
-              "signedPath": "dltemp/UMZdIMA4Zz1AV8M6/1778670600000/thumbnails/noco/pv3c5ekh1fjoihu/mpz7ywybfxm3isa/cjpjpyar26z9u70/Sehetz-Team-carnault_qmVCH.webp/small.jpg"
+              "signedPath": "dltemp/FRAo7fyPJS5SWh3p/1780761000000/thumbnails/noco/pv3c5ekh1fjoihu/mpz7ywybfxm3isa/cjpjpyar26z9u70/Sehetz-Team-carnault_qmVCH.webp/small.jpg"
             },
             "card_cover": {
-              "signedPath": "dltemp/xUsO5n5lX9l46WUW/1778670600000/thumbnails/noco/pv3c5ekh1fjoihu/mpz7ywybfxm3isa/cjpjpyar26z9u70/Sehetz-Team-carnault_qmVCH.webp/card_cover.jpg"
+              "signedPath": "dltemp/Faw6S0lpGI4hhS6I/1780761000000/thumbnails/noco/pv3c5ekh1fjoihu/mpz7ywybfxm3isa/cjpjpyar26z9u70/Sehetz-Team-carnault_qmVCH.webp/card_cover.jpg"
             }
           },
-          "signedPath": "dltemp/D7ylprEFEcaXb7Q2/1778670600000/noco/pv3c5ekh1fjoihu/mpz7ywybfxm3isa/cjpjpyar26z9u70/Sehetz-Team-carnault_qmVCH.webp"
+          "signedPath": "dltemp/8HrWTni4BENqqiQ3/1780761000000/noco/pv3c5ekh1fjoihu/mpz7ywybfxm3isa/cjpjpyar26z9u70/Sehetz-Team-carnault_qmVCH.webp"
         }
       ],
       "start-date": 2021,
@@ -41,10 +41,10 @@
           "team_id": 1,
           "sehetz_id": 16,
           "team": {
-            "Projects": 3,
+            "Projects": 4,
             "Id": 1,
             "CreatedAt": "2025-12-20 13:23:33+00:00",
-            "UpdatedAt": "2026-04-24 09:06:19+00:00",
+            "UpdatedAt": "2026-06-06 13:27:03+00:00",
             "Team": "Carnault",
             "design-work": true,
             "description": "Three brothers, one cigarette, and the entire Black Forest. Carnault is an electronic cigarette, developed and largely manufactured in Switzerland. It's a shared dream that we've continually expanded, refreshed, revitalized, and fueled over the past years. I joined the crew in 2021, when the ship had already been sailing for a good 10 years, just in time for the first working prototypes. Whether it's webshops, physical stores, or the design for the products surrounding the cigarette, in a startup, diverse collaboration and a strong team are essential!",
@@ -59,16 +59,16 @@
                 "id": "at22fp4fqf851lih",
                 "thumbnails": {
                   "tiny": {
-                    "signedPath": "dltemp/_6GFqrYpzwpQXlOB/1778670600000/thumbnails/noco/pv3c5ekh1fjoihu/mpz7ywybfxm3isa/cjpjpyar26z9u70/Sehetz-Team-carnault_qmVCH.webp/tiny.jpg"
+                    "signedPath": "dltemp/3NDfz_r3ADcrDe2h/1780761000000/thumbnails/noco/pv3c5ekh1fjoihu/mpz7ywybfxm3isa/cjpjpyar26z9u70/Sehetz-Team-carnault_qmVCH.webp/tiny.jpg"
                   },
                   "small": {
-                    "signedPath": "dltemp/UMZdIMA4Zz1AV8M6/1778670600000/thumbnails/noco/pv3c5ekh1fjoihu/mpz7ywybfxm3isa/cjpjpyar26z9u70/Sehetz-Team-carnault_qmVCH.webp/small.jpg"
+                    "signedPath": "dltemp/FRAo7fyPJS5SWh3p/1780761000000/thumbnails/noco/pv3c5ekh1fjoihu/mpz7ywybfxm3isa/cjpjpyar26z9u70/Sehetz-Team-carnault_qmVCH.webp/small.jpg"
                   },
                   "card_cover": {
-                    "signedPath": "dltemp/xUsO5n5lX9l46WUW/1778670600000/thumbnails/noco/pv3c5ekh1fjoihu/mpz7ywybfxm3isa/cjpjpyar26z9u70/Sehetz-Team-carnault_qmVCH.webp/card_cover.jpg"
+                    "signedPath": "dltemp/Faw6S0lpGI4hhS6I/1780761000000/thumbnails/noco/pv3c5ekh1fjoihu/mpz7ywybfxm3isa/cjpjpyar26z9u70/Sehetz-Team-carnault_qmVCH.webp/card_cover.jpg"
                   }
                 },
-                "signedPath": "dltemp/D7ylprEFEcaXb7Q2/1778670600000/noco/pv3c5ekh1fjoihu/mpz7ywybfxm3isa/cjpjpyar26z9u70/Sehetz-Team-carnault_qmVCH.webp"
+                "signedPath": "dltemp/8HrWTni4BENqqiQ3/1780761000000/noco/pv3c5ekh1fjoihu/mpz7ywybfxm3isa/cjpjpyar26z9u70/Sehetz-Team-carnault_qmVCH.webp"
               }
             ],
             "start-date": 2021,
@@ -82,10 +82,10 @@
           "team_id": 1,
           "sehetz_id": 19,
           "team": {
-            "Projects": 3,
+            "Projects": 4,
             "Id": 1,
             "CreatedAt": "2025-12-20 13:23:33+00:00",
-            "UpdatedAt": "2026-04-24 09:06:19+00:00",
+            "UpdatedAt": "2026-06-06 13:27:03+00:00",
             "Team": "Carnault",
             "design-work": true,
             "description": "Three brothers, one cigarette, and the entire Black Forest. Carnault is an electronic cigarette, developed and largely manufactured in Switzerland. It's a shared dream that we've continually expanded, refreshed, revitalized, and fueled over the past years. I joined the crew in 2021, when the ship had already been sailing for a good 10 years, just in time for the first working prototypes. Whether it's webshops, physical stores, or the design for the products surrounding the cigarette, in a startup, diverse collaboration and a strong team are essential!",
@@ -100,16 +100,16 @@
                 "id": "at22fp4fqf851lih",
                 "thumbnails": {
                   "tiny": {
-                    "signedPath": "dltemp/_6GFqrYpzwpQXlOB/1778670600000/thumbnails/noco/pv3c5ekh1fjoihu/mpz7ywybfxm3isa/cjpjpyar26z9u70/Sehetz-Team-carnault_qmVCH.webp/tiny.jpg"
+                    "signedPath": "dltemp/3NDfz_r3ADcrDe2h/1780761000000/thumbnails/noco/pv3c5ekh1fjoihu/mpz7ywybfxm3isa/cjpjpyar26z9u70/Sehetz-Team-carnault_qmVCH.webp/tiny.jpg"
                   },
                   "small": {
-                    "signedPath": "dltemp/UMZdIMA4Zz1AV8M6/1778670600000/thumbnails/noco/pv3c5ekh1fjoihu/mpz7ywybfxm3isa/cjpjpyar26z9u70/Sehetz-Team-carnault_qmVCH.webp/small.jpg"
+                    "signedPath": "dltemp/FRAo7fyPJS5SWh3p/1780761000000/thumbnails/noco/pv3c5ekh1fjoihu/mpz7ywybfxm3isa/cjpjpyar26z9u70/Sehetz-Team-carnault_qmVCH.webp/small.jpg"
                   },
                   "card_cover": {
-                    "signedPath": "dltemp/xUsO5n5lX9l46WUW/1778670600000/thumbnails/noco/pv3c5ekh1fjoihu/mpz7ywybfxm3isa/cjpjpyar26z9u70/Sehetz-Team-carnault_qmVCH.webp/card_cover.jpg"
+                    "signedPath": "dltemp/Faw6S0lpGI4hhS6I/1780761000000/thumbnails/noco/pv3c5ekh1fjoihu/mpz7ywybfxm3isa/cjpjpyar26z9u70/Sehetz-Team-carnault_qmVCH.webp/card_cover.jpg"
                   }
                 },
-                "signedPath": "dltemp/D7ylprEFEcaXb7Q2/1778670600000/noco/pv3c5ekh1fjoihu/mpz7ywybfxm3isa/cjpjpyar26z9u70/Sehetz-Team-carnault_qmVCH.webp"
+                "signedPath": "dltemp/8HrWTni4BENqqiQ3/1780761000000/noco/pv3c5ekh1fjoihu/mpz7ywybfxm3isa/cjpjpyar26z9u70/Sehetz-Team-carnault_qmVCH.webp"
               }
             ],
             "start-date": 2021,
@@ -123,10 +123,10 @@
           "team_id": 1,
           "sehetz_id": 21,
           "team": {
-            "Projects": 3,
+            "Projects": 4,
             "Id": 1,
             "CreatedAt": "2025-12-20 13:23:33+00:00",
-            "UpdatedAt": "2026-04-24 09:06:19+00:00",
+            "UpdatedAt": "2026-06-06 13:27:03+00:00",
             "Team": "Carnault",
             "design-work": true,
             "description": "Three brothers, one cigarette, and the entire Black Forest. Carnault is an electronic cigarette, developed and largely manufactured in Switzerland. It's a shared dream that we've continually expanded, refreshed, revitalized, and fueled over the past years. I joined the crew in 2021, when the ship had already been sailing for a good 10 years, just in time for the first working prototypes. Whether it's webshops, physical stores, or the design for the products surrounding the cigarette, in a startup, diverse collaboration and a strong team are essential!",
@@ -141,16 +141,57 @@
                 "id": "at22fp4fqf851lih",
                 "thumbnails": {
                   "tiny": {
-                    "signedPath": "dltemp/_6GFqrYpzwpQXlOB/1778670600000/thumbnails/noco/pv3c5ekh1fjoihu/mpz7ywybfxm3isa/cjpjpyar26z9u70/Sehetz-Team-carnault_qmVCH.webp/tiny.jpg"
+                    "signedPath": "dltemp/3NDfz_r3ADcrDe2h/1780761000000/thumbnails/noco/pv3c5ekh1fjoihu/mpz7ywybfxm3isa/cjpjpyar26z9u70/Sehetz-Team-carnault_qmVCH.webp/tiny.jpg"
                   },
                   "small": {
-                    "signedPath": "dltemp/UMZdIMA4Zz1AV8M6/1778670600000/thumbnails/noco/pv3c5ekh1fjoihu/mpz7ywybfxm3isa/cjpjpyar26z9u70/Sehetz-Team-carnault_qmVCH.webp/small.jpg"
+                    "signedPath": "dltemp/FRAo7fyPJS5SWh3p/1780761000000/thumbnails/noco/pv3c5ekh1fjoihu/mpz7ywybfxm3isa/cjpjpyar26z9u70/Sehetz-Team-carnault_qmVCH.webp/small.jpg"
                   },
                   "card_cover": {
-                    "signedPath": "dltemp/xUsO5n5lX9l46WUW/1778670600000/thumbnails/noco/pv3c5ekh1fjoihu/mpz7ywybfxm3isa/cjpjpyar26z9u70/Sehetz-Team-carnault_qmVCH.webp/card_cover.jpg"
+                    "signedPath": "dltemp/Faw6S0lpGI4hhS6I/1780761000000/thumbnails/noco/pv3c5ekh1fjoihu/mpz7ywybfxm3isa/cjpjpyar26z9u70/Sehetz-Team-carnault_qmVCH.webp/card_cover.jpg"
                   }
                 },
-                "signedPath": "dltemp/D7ylprEFEcaXb7Q2/1778670600000/noco/pv3c5ekh1fjoihu/mpz7ywybfxm3isa/cjpjpyar26z9u70/Sehetz-Team-carnault_qmVCH.webp"
+                "signedPath": "dltemp/8HrWTni4BENqqiQ3/1780761000000/noco/pv3c5ekh1fjoihu/mpz7ywybfxm3isa/cjpjpyar26z9u70/Sehetz-Team-carnault_qmVCH.webp"
+              }
+            ],
+            "start-date": 2021,
+            "end-date": null,
+            "role": "Graphic Designer",
+            "location": "Basel",
+            "link": "https://carnault.com/en"
+          }
+        },
+        {
+          "team_id": 1,
+          "sehetz_id": 25,
+          "team": {
+            "Projects": 4,
+            "Id": 1,
+            "CreatedAt": "2025-12-20 13:23:33+00:00",
+            "UpdatedAt": "2026-06-06 13:27:03+00:00",
+            "Team": "Carnault",
+            "design-work": true,
+            "description": "Three brothers, one cigarette, and the entire Black Forest. Carnault is an electronic cigarette, developed and largely manufactured in Switzerland. It's a shared dream that we've continually expanded, refreshed, revitalized, and fueled over the past years. I joined the crew in 2021, when the ship had already been sailing for a good 10 years, just in time for the first working prototypes. Whether it's webshops, physical stores, or the design for the products surrounding the cigarette, in a startup, diverse collaboration and a strong team are essential!",
+            "Teaser-Image": [
+              {
+                "path": "download/noco/pv3c5ekh1fjoihu/mpz7ywybfxm3isa/cjpjpyar26z9u70/Sehetz-Team-carnault_qmVCH.webp",
+                "title": "Sehetz-Team-carnault.webp",
+                "mimetype": "image/webp",
+                "size": 691446,
+                "width": 1080,
+                "height": 1440,
+                "id": "at22fp4fqf851lih",
+                "thumbnails": {
+                  "tiny": {
+                    "signedPath": "dltemp/3NDfz_r3ADcrDe2h/1780761000000/thumbnails/noco/pv3c5ekh1fjoihu/mpz7ywybfxm3isa/cjpjpyar26z9u70/Sehetz-Team-carnault_qmVCH.webp/tiny.jpg"
+                  },
+                  "small": {
+                    "signedPath": "dltemp/FRAo7fyPJS5SWh3p/1780761000000/thumbnails/noco/pv3c5ekh1fjoihu/mpz7ywybfxm3isa/cjpjpyar26z9u70/Sehetz-Team-carnault_qmVCH.webp/small.jpg"
+                  },
+                  "card_cover": {
+                    "signedPath": "dltemp/Faw6S0lpGI4hhS6I/1780761000000/thumbnails/noco/pv3c5ekh1fjoihu/mpz7ywybfxm3isa/cjpjpyar26z9u70/Sehetz-Team-carnault_qmVCH.webp/card_cover.jpg"
+                  }
+                },
+                "signedPath": "dltemp/8HrWTni4BENqqiQ3/1780761000000/noco/pv3c5ekh1fjoihu/mpz7ywybfxm3isa/cjpjpyar26z9u70/Sehetz-Team-carnault_qmVCH.webp"
               }
             ],
             "start-date": 2021,
@@ -181,16 +222,16 @@
           "id": "atzkx6ez0vjuzzv2",
           "thumbnails": {
             "tiny": {
-              "signedPath": "dltemp/YNvl2v11nDrQ0rhd/1778670600000/thumbnails/noco/pv3c5ekh1fjoihu/mpz7ywybfxm3isa/cjpjpyar26z9u70/Sehetz-Team-Superdot__3NTb.webp/tiny.jpg"
+              "signedPath": "dltemp/rrsoSfkKgRxLoNeX/1780761000000/thumbnails/noco/pv3c5ekh1fjoihu/mpz7ywybfxm3isa/cjpjpyar26z9u70/Sehetz-Team-Superdot__3NTb.webp/tiny.jpg"
             },
             "small": {
-              "signedPath": "dltemp/3j9NKcOhpm5mPTDi/1778670600000/thumbnails/noco/pv3c5ekh1fjoihu/mpz7ywybfxm3isa/cjpjpyar26z9u70/Sehetz-Team-Superdot__3NTb.webp/small.jpg"
+              "signedPath": "dltemp/zfxp3KXcTqQTCvEY/1780761000000/thumbnails/noco/pv3c5ekh1fjoihu/mpz7ywybfxm3isa/cjpjpyar26z9u70/Sehetz-Team-Superdot__3NTb.webp/small.jpg"
             },
             "card_cover": {
-              "signedPath": "dltemp/xA-NKuwT7E8dbj1U/1778670600000/thumbnails/noco/pv3c5ekh1fjoihu/mpz7ywybfxm3isa/cjpjpyar26z9u70/Sehetz-Team-Superdot__3NTb.webp/card_cover.jpg"
+              "signedPath": "dltemp/eujbihVDPPXJeo4K/1780761000000/thumbnails/noco/pv3c5ekh1fjoihu/mpz7ywybfxm3isa/cjpjpyar26z9u70/Sehetz-Team-Superdot__3NTb.webp/card_cover.jpg"
             }
           },
-          "signedPath": "dltemp/4D3LXa2MolncYMpj/1778670600000/noco/pv3c5ekh1fjoihu/mpz7ywybfxm3isa/cjpjpyar26z9u70/Sehetz-Team-Superdot__3NTb.webp"
+          "signedPath": "dltemp/tq_khKbjXBH1K821/1780761000000/noco/pv3c5ekh1fjoihu/mpz7ywybfxm3isa/cjpjpyar26z9u70/Sehetz-Team-Superdot__3NTb.webp"
         }
       ],
       "start-date": 2019,
@@ -221,16 +262,16 @@
                 "id": "atzkx6ez0vjuzzv2",
                 "thumbnails": {
                   "tiny": {
-                    "signedPath": "dltemp/YNvl2v11nDrQ0rhd/1778670600000/thumbnails/noco/pv3c5ekh1fjoihu/mpz7ywybfxm3isa/cjpjpyar26z9u70/Sehetz-Team-Superdot__3NTb.webp/tiny.jpg"
+                    "signedPath": "dltemp/rrsoSfkKgRxLoNeX/1780761000000/thumbnails/noco/pv3c5ekh1fjoihu/mpz7ywybfxm3isa/cjpjpyar26z9u70/Sehetz-Team-Superdot__3NTb.webp/tiny.jpg"
                   },
                   "small": {
-                    "signedPath": "dltemp/3j9NKcOhpm5mPTDi/1778670600000/thumbnails/noco/pv3c5ekh1fjoihu/mpz7ywybfxm3isa/cjpjpyar26z9u70/Sehetz-Team-Superdot__3NTb.webp/small.jpg"
+                    "signedPath": "dltemp/zfxp3KXcTqQTCvEY/1780761000000/thumbnails/noco/pv3c5ekh1fjoihu/mpz7ywybfxm3isa/cjpjpyar26z9u70/Sehetz-Team-Superdot__3NTb.webp/small.jpg"
                   },
                   "card_cover": {
-                    "signedPath": "dltemp/xA-NKuwT7E8dbj1U/1778670600000/thumbnails/noco/pv3c5ekh1fjoihu/mpz7ywybfxm3isa/cjpjpyar26z9u70/Sehetz-Team-Superdot__3NTb.webp/card_cover.jpg"
+                    "signedPath": "dltemp/eujbihVDPPXJeo4K/1780761000000/thumbnails/noco/pv3c5ekh1fjoihu/mpz7ywybfxm3isa/cjpjpyar26z9u70/Sehetz-Team-Superdot__3NTb.webp/card_cover.jpg"
                   }
                 },
-                "signedPath": "dltemp/4D3LXa2MolncYMpj/1778670600000/noco/pv3c5ekh1fjoihu/mpz7ywybfxm3isa/cjpjpyar26z9u70/Sehetz-Team-Superdot__3NTb.webp"
+                "signedPath": "dltemp/tq_khKbjXBH1K821/1780761000000/noco/pv3c5ekh1fjoihu/mpz7ywybfxm3isa/cjpjpyar26z9u70/Sehetz-Team-Superdot__3NTb.webp"
               }
             ],
             "start-date": 2019,
@@ -262,16 +303,16 @@
                 "id": "atzkx6ez0vjuzzv2",
                 "thumbnails": {
                   "tiny": {
-                    "signedPath": "dltemp/YNvl2v11nDrQ0rhd/1778670600000/thumbnails/noco/pv3c5ekh1fjoihu/mpz7ywybfxm3isa/cjpjpyar26z9u70/Sehetz-Team-Superdot__3NTb.webp/tiny.jpg"
+                    "signedPath": "dltemp/rrsoSfkKgRxLoNeX/1780761000000/thumbnails/noco/pv3c5ekh1fjoihu/mpz7ywybfxm3isa/cjpjpyar26z9u70/Sehetz-Team-Superdot__3NTb.webp/tiny.jpg"
                   },
                   "small": {
-                    "signedPath": "dltemp/3j9NKcOhpm5mPTDi/1778670600000/thumbnails/noco/pv3c5ekh1fjoihu/mpz7ywybfxm3isa/cjpjpyar26z9u70/Sehetz-Team-Superdot__3NTb.webp/small.jpg"
+                    "signedPath": "dltemp/zfxp3KXcTqQTCvEY/1780761000000/thumbnails/noco/pv3c5ekh1fjoihu/mpz7ywybfxm3isa/cjpjpyar26z9u70/Sehetz-Team-Superdot__3NTb.webp/small.jpg"
                   },
                   "card_cover": {
-                    "signedPath": "dltemp/xA-NKuwT7E8dbj1U/1778670600000/thumbnails/noco/pv3c5ekh1fjoihu/mpz7ywybfxm3isa/cjpjpyar26z9u70/Sehetz-Team-Superdot__3NTb.webp/card_cover.jpg"
+                    "signedPath": "dltemp/eujbihVDPPXJeo4K/1780761000000/thumbnails/noco/pv3c5ekh1fjoihu/mpz7ywybfxm3isa/cjpjpyar26z9u70/Sehetz-Team-Superdot__3NTb.webp/card_cover.jpg"
                   }
                 },
-                "signedPath": "dltemp/4D3LXa2MolncYMpj/1778670600000/noco/pv3c5ekh1fjoihu/mpz7ywybfxm3isa/cjpjpyar26z9u70/Sehetz-Team-Superdot__3NTb.webp"
+                "signedPath": "dltemp/tq_khKbjXBH1K821/1780761000000/noco/pv3c5ekh1fjoihu/mpz7ywybfxm3isa/cjpjpyar26z9u70/Sehetz-Team-Superdot__3NTb.webp"
               }
             ],
             "start-date": 2019,
@@ -303,16 +344,16 @@
                 "id": "atzkx6ez0vjuzzv2",
                 "thumbnails": {
                   "tiny": {
-                    "signedPath": "dltemp/YNvl2v11nDrQ0rhd/1778670600000/thumbnails/noco/pv3c5ekh1fjoihu/mpz7ywybfxm3isa/cjpjpyar26z9u70/Sehetz-Team-Superdot__3NTb.webp/tiny.jpg"
+                    "signedPath": "dltemp/rrsoSfkKgRxLoNeX/1780761000000/thumbnails/noco/pv3c5ekh1fjoihu/mpz7ywybfxm3isa/cjpjpyar26z9u70/Sehetz-Team-Superdot__3NTb.webp/tiny.jpg"
                   },
                   "small": {
-                    "signedPath": "dltemp/3j9NKcOhpm5mPTDi/1778670600000/thumbnails/noco/pv3c5ekh1fjoihu/mpz7ywybfxm3isa/cjpjpyar26z9u70/Sehetz-Team-Superdot__3NTb.webp/small.jpg"
+                    "signedPath": "dltemp/zfxp3KXcTqQTCvEY/1780761000000/thumbnails/noco/pv3c5ekh1fjoihu/mpz7ywybfxm3isa/cjpjpyar26z9u70/Sehetz-Team-Superdot__3NTb.webp/small.jpg"
                   },
                   "card_cover": {
-                    "signedPath": "dltemp/xA-NKuwT7E8dbj1U/1778670600000/thumbnails/noco/pv3c5ekh1fjoihu/mpz7ywybfxm3isa/cjpjpyar26z9u70/Sehetz-Team-Superdot__3NTb.webp/card_cover.jpg"
+                    "signedPath": "dltemp/eujbihVDPPXJeo4K/1780761000000/thumbnails/noco/pv3c5ekh1fjoihu/mpz7ywybfxm3isa/cjpjpyar26z9u70/Sehetz-Team-Superdot__3NTb.webp/card_cover.jpg"
                   }
                 },
-                "signedPath": "dltemp/4D3LXa2MolncYMpj/1778670600000/noco/pv3c5ekh1fjoihu/mpz7ywybfxm3isa/cjpjpyar26z9u70/Sehetz-Team-Superdot__3NTb.webp"
+                "signedPath": "dltemp/tq_khKbjXBH1K821/1780761000000/noco/pv3c5ekh1fjoihu/mpz7ywybfxm3isa/cjpjpyar26z9u70/Sehetz-Team-Superdot__3NTb.webp"
               }
             ],
             "start-date": 2019,
@@ -344,16 +385,16 @@
                 "id": "atzkx6ez0vjuzzv2",
                 "thumbnails": {
                   "tiny": {
-                    "signedPath": "dltemp/YNvl2v11nDrQ0rhd/1778670600000/thumbnails/noco/pv3c5ekh1fjoihu/mpz7ywybfxm3isa/cjpjpyar26z9u70/Sehetz-Team-Superdot__3NTb.webp/tiny.jpg"
+                    "signedPath": "dltemp/rrsoSfkKgRxLoNeX/1780761000000/thumbnails/noco/pv3c5ekh1fjoihu/mpz7ywybfxm3isa/cjpjpyar26z9u70/Sehetz-Team-Superdot__3NTb.webp/tiny.jpg"
                   },
                   "small": {
-                    "signedPath": "dltemp/3j9NKcOhpm5mPTDi/1778670600000/thumbnails/noco/pv3c5ekh1fjoihu/mpz7ywybfxm3isa/cjpjpyar26z9u70/Sehetz-Team-Superdot__3NTb.webp/small.jpg"
+                    "signedPath": "dltemp/zfxp3KXcTqQTCvEY/1780761000000/thumbnails/noco/pv3c5ekh1fjoihu/mpz7ywybfxm3isa/cjpjpyar26z9u70/Sehetz-Team-Superdot__3NTb.webp/small.jpg"
                   },
                   "card_cover": {
-                    "signedPath": "dltemp/xA-NKuwT7E8dbj1U/1778670600000/thumbnails/noco/pv3c5ekh1fjoihu/mpz7ywybfxm3isa/cjpjpyar26z9u70/Sehetz-Team-Superdot__3NTb.webp/card_cover.jpg"
+                    "signedPath": "dltemp/eujbihVDPPXJeo4K/1780761000000/thumbnails/noco/pv3c5ekh1fjoihu/mpz7ywybfxm3isa/cjpjpyar26z9u70/Sehetz-Team-Superdot__3NTb.webp/card_cover.jpg"
                   }
                 },
-                "signedPath": "dltemp/4D3LXa2MolncYMpj/1778670600000/noco/pv3c5ekh1fjoihu/mpz7ywybfxm3isa/cjpjpyar26z9u70/Sehetz-Team-Superdot__3NTb.webp"
+                "signedPath": "dltemp/tq_khKbjXBH1K821/1780761000000/noco/pv3c5ekh1fjoihu/mpz7ywybfxm3isa/cjpjpyar26z9u70/Sehetz-Team-Superdot__3NTb.webp"
               }
             ],
             "start-date": 2019,
@@ -385,16 +426,16 @@
                 "id": "atzkx6ez0vjuzzv2",
                 "thumbnails": {
                   "tiny": {
-                    "signedPath": "dltemp/YNvl2v11nDrQ0rhd/1778670600000/thumbnails/noco/pv3c5ekh1fjoihu/mpz7ywybfxm3isa/cjpjpyar26z9u70/Sehetz-Team-Superdot__3NTb.webp/tiny.jpg"
+                    "signedPath": "dltemp/rrsoSfkKgRxLoNeX/1780761000000/thumbnails/noco/pv3c5ekh1fjoihu/mpz7ywybfxm3isa/cjpjpyar26z9u70/Sehetz-Team-Superdot__3NTb.webp/tiny.jpg"
                   },
                   "small": {
-                    "signedPath": "dltemp/3j9NKcOhpm5mPTDi/1778670600000/thumbnails/noco/pv3c5ekh1fjoihu/mpz7ywybfxm3isa/cjpjpyar26z9u70/Sehetz-Team-Superdot__3NTb.webp/small.jpg"
+                    "signedPath": "dltemp/zfxp3KXcTqQTCvEY/1780761000000/thumbnails/noco/pv3c5ekh1fjoihu/mpz7ywybfxm3isa/cjpjpyar26z9u70/Sehetz-Team-Superdot__3NTb.webp/small.jpg"
                   },
                   "card_cover": {
-                    "signedPath": "dltemp/xA-NKuwT7E8dbj1U/1778670600000/thumbnails/noco/pv3c5ekh1fjoihu/mpz7ywybfxm3isa/cjpjpyar26z9u70/Sehetz-Team-Superdot__3NTb.webp/card_cover.jpg"
+                    "signedPath": "dltemp/eujbihVDPPXJeo4K/1780761000000/thumbnails/noco/pv3c5ekh1fjoihu/mpz7ywybfxm3isa/cjpjpyar26z9u70/Sehetz-Team-Superdot__3NTb.webp/card_cover.jpg"
                   }
                 },
-                "signedPath": "dltemp/4D3LXa2MolncYMpj/1778670600000/noco/pv3c5ekh1fjoihu/mpz7ywybfxm3isa/cjpjpyar26z9u70/Sehetz-Team-Superdot__3NTb.webp"
+                "signedPath": "dltemp/tq_khKbjXBH1K821/1780761000000/noco/pv3c5ekh1fjoihu/mpz7ywybfxm3isa/cjpjpyar26z9u70/Sehetz-Team-Superdot__3NTb.webp"
               }
             ],
             "start-date": 2019,
@@ -426,16 +467,16 @@
                 "id": "atzkx6ez0vjuzzv2",
                 "thumbnails": {
                   "tiny": {
-                    "signedPath": "dltemp/YNvl2v11nDrQ0rhd/1778670600000/thumbnails/noco/pv3c5ekh1fjoihu/mpz7ywybfxm3isa/cjpjpyar26z9u70/Sehetz-Team-Superdot__3NTb.webp/tiny.jpg"
+                    "signedPath": "dltemp/rrsoSfkKgRxLoNeX/1780761000000/thumbnails/noco/pv3c5ekh1fjoihu/mpz7ywybfxm3isa/cjpjpyar26z9u70/Sehetz-Team-Superdot__3NTb.webp/tiny.jpg"
                   },
                   "small": {
-                    "signedPath": "dltemp/3j9NKcOhpm5mPTDi/1778670600000/thumbnails/noco/pv3c5ekh1fjoihu/mpz7ywybfxm3isa/cjpjpyar26z9u70/Sehetz-Team-Superdot__3NTb.webp/small.jpg"
+                    "signedPath": "dltemp/zfxp3KXcTqQTCvEY/1780761000000/thumbnails/noco/pv3c5ekh1fjoihu/mpz7ywybfxm3isa/cjpjpyar26z9u70/Sehetz-Team-Superdot__3NTb.webp/small.jpg"
                   },
                   "card_cover": {
-                    "signedPath": "dltemp/xA-NKuwT7E8dbj1U/1778670600000/thumbnails/noco/pv3c5ekh1fjoihu/mpz7ywybfxm3isa/cjpjpyar26z9u70/Sehetz-Team-Superdot__3NTb.webp/card_cover.jpg"
+                    "signedPath": "dltemp/eujbihVDPPXJeo4K/1780761000000/thumbnails/noco/pv3c5ekh1fjoihu/mpz7ywybfxm3isa/cjpjpyar26z9u70/Sehetz-Team-Superdot__3NTb.webp/card_cover.jpg"
                   }
                 },
-                "signedPath": "dltemp/4D3LXa2MolncYMpj/1778670600000/noco/pv3c5ekh1fjoihu/mpz7ywybfxm3isa/cjpjpyar26z9u70/Sehetz-Team-Superdot__3NTb.webp"
+                "signedPath": "dltemp/tq_khKbjXBH1K821/1780761000000/noco/pv3c5ekh1fjoihu/mpz7ywybfxm3isa/cjpjpyar26z9u70/Sehetz-Team-Superdot__3NTb.webp"
               }
             ],
             "start-date": 2019,
@@ -482,16 +523,16 @@
           "id": "atwlypr242xj95a4",
           "thumbnails": {
             "tiny": {
-              "signedPath": "dltemp/U_-_eTHaeXW1hVH5/1778670600000/thumbnails/noco/pv3c5ekh1fjoihu/mpz7ywybfxm3isa/cjpjpyar26z9u70/Sehetz-team-Endlich-Tacheles-2_LeHd6.jpg/tiny.jpg"
+              "signedPath": "dltemp/nghFLN6qLJgjWIGT/1780761000000/thumbnails/noco/pv3c5ekh1fjoihu/mpz7ywybfxm3isa/cjpjpyar26z9u70/Sehetz-team-Endlich-Tacheles-2_LeHd6.jpg/tiny.jpg"
             },
             "small": {
-              "signedPath": "dltemp/9KV_b-LLnPnki2Up/1778670600000/thumbnails/noco/pv3c5ekh1fjoihu/mpz7ywybfxm3isa/cjpjpyar26z9u70/Sehetz-team-Endlich-Tacheles-2_LeHd6.jpg/small.jpg"
+              "signedPath": "dltemp/23UnBgKnVzv6N3iO/1780761000000/thumbnails/noco/pv3c5ekh1fjoihu/mpz7ywybfxm3isa/cjpjpyar26z9u70/Sehetz-team-Endlich-Tacheles-2_LeHd6.jpg/small.jpg"
             },
             "card_cover": {
-              "signedPath": "dltemp/fW5aZXFpJXHQy4hm/1778670600000/thumbnails/noco/pv3c5ekh1fjoihu/mpz7ywybfxm3isa/cjpjpyar26z9u70/Sehetz-team-Endlich-Tacheles-2_LeHd6.jpg/card_cover.jpg"
+              "signedPath": "dltemp/8_-fO4dcStsMs4OH/1780761000000/thumbnails/noco/pv3c5ekh1fjoihu/mpz7ywybfxm3isa/cjpjpyar26z9u70/Sehetz-team-Endlich-Tacheles-2_LeHd6.jpg/card_cover.jpg"
             }
           },
-          "signedPath": "dltemp/cOhpJs6xN0tNv0Us/1778670600000/noco/pv3c5ekh1fjoihu/mpz7ywybfxm3isa/cjpjpyar26z9u70/Sehetz-team-Endlich-Tacheles-2_LeHd6.jpg"
+          "signedPath": "dltemp/jLpR3wwvN6IjZAT5/1780761000000/noco/pv3c5ekh1fjoihu/mpz7ywybfxm3isa/cjpjpyar26z9u70/Sehetz-team-Endlich-Tacheles-2_LeHd6.jpg"
         }
       ],
       "start-date": 2018,
@@ -522,16 +563,16 @@
                 "id": "atwlypr242xj95a4",
                 "thumbnails": {
                   "tiny": {
-                    "signedPath": "dltemp/U_-_eTHaeXW1hVH5/1778670600000/thumbnails/noco/pv3c5ekh1fjoihu/mpz7ywybfxm3isa/cjpjpyar26z9u70/Sehetz-team-Endlich-Tacheles-2_LeHd6.jpg/tiny.jpg"
+                    "signedPath": "dltemp/nghFLN6qLJgjWIGT/1780761000000/thumbnails/noco/pv3c5ekh1fjoihu/mpz7ywybfxm3isa/cjpjpyar26z9u70/Sehetz-team-Endlich-Tacheles-2_LeHd6.jpg/tiny.jpg"
                   },
                   "small": {
-                    "signedPath": "dltemp/9KV_b-LLnPnki2Up/1778670600000/thumbnails/noco/pv3c5ekh1fjoihu/mpz7ywybfxm3isa/cjpjpyar26z9u70/Sehetz-team-Endlich-Tacheles-2_LeHd6.jpg/small.jpg"
+                    "signedPath": "dltemp/23UnBgKnVzv6N3iO/1780761000000/thumbnails/noco/pv3c5ekh1fjoihu/mpz7ywybfxm3isa/cjpjpyar26z9u70/Sehetz-team-Endlich-Tacheles-2_LeHd6.jpg/small.jpg"
                   },
                   "card_cover": {
-                    "signedPath": "dltemp/fW5aZXFpJXHQy4hm/1778670600000/thumbnails/noco/pv3c5ekh1fjoihu/mpz7ywybfxm3isa/cjpjpyar26z9u70/Sehetz-team-Endlich-Tacheles-2_LeHd6.jpg/card_cover.jpg"
+                    "signedPath": "dltemp/8_-fO4dcStsMs4OH/1780761000000/thumbnails/noco/pv3c5ekh1fjoihu/mpz7ywybfxm3isa/cjpjpyar26z9u70/Sehetz-team-Endlich-Tacheles-2_LeHd6.jpg/card_cover.jpg"
                   }
                 },
-                "signedPath": "dltemp/cOhpJs6xN0tNv0Us/1778670600000/noco/pv3c5ekh1fjoihu/mpz7ywybfxm3isa/cjpjpyar26z9u70/Sehetz-team-Endlich-Tacheles-2_LeHd6.jpg"
+                "signedPath": "dltemp/jLpR3wwvN6IjZAT5/1780761000000/noco/pv3c5ekh1fjoihu/mpz7ywybfxm3isa/cjpjpyar26z9u70/Sehetz-team-Endlich-Tacheles-2_LeHd6.jpg"
               }
             ],
             "start-date": 2018,
@@ -690,16 +731,16 @@
           "id": "atzwjmqrp9hwqlbc",
           "thumbnails": {
             "tiny": {
-              "signedPath": "dltemp/0Z5pCGWp3Ldlx3HF/1778670600000/thumbnails/noco/pv3c5ekh1fjoihu/mpz7ywybfxm3isa/cjpjpyar26z9u70/Sehetz-Team-Hochschule-Trier-3_hqbuA.jpg/tiny.jpg"
+              "signedPath": "dltemp/AB9QXn6qGXYZk-Q0/1780761000000/thumbnails/noco/pv3c5ekh1fjoihu/mpz7ywybfxm3isa/cjpjpyar26z9u70/Sehetz-Team-Hochschule-Trier-3_hqbuA.jpg/tiny.jpg"
             },
             "small": {
-              "signedPath": "dltemp/MgaMFVfDjXnQFPK9/1778670600000/thumbnails/noco/pv3c5ekh1fjoihu/mpz7ywybfxm3isa/cjpjpyar26z9u70/Sehetz-Team-Hochschule-Trier-3_hqbuA.jpg/small.jpg"
+              "signedPath": "dltemp/pkt4ol0Bivrxk3OS/1780761000000/thumbnails/noco/pv3c5ekh1fjoihu/mpz7ywybfxm3isa/cjpjpyar26z9u70/Sehetz-Team-Hochschule-Trier-3_hqbuA.jpg/small.jpg"
             },
             "card_cover": {
-              "signedPath": "dltemp/tHAZ0LJdj4y9wito/1778670600000/thumbnails/noco/pv3c5ekh1fjoihu/mpz7ywybfxm3isa/cjpjpyar26z9u70/Sehetz-Team-Hochschule-Trier-3_hqbuA.jpg/card_cover.jpg"
+              "signedPath": "dltemp/QdCBbUu26oihneef/1780761000000/thumbnails/noco/pv3c5ekh1fjoihu/mpz7ywybfxm3isa/cjpjpyar26z9u70/Sehetz-Team-Hochschule-Trier-3_hqbuA.jpg/card_cover.jpg"
             }
           },
-          "signedPath": "dltemp/bao5ObjceEEMobMb/1778670600000/noco/pv3c5ekh1fjoihu/mpz7ywybfxm3isa/cjpjpyar26z9u70/Sehetz-Team-Hochschule-Trier-3_hqbuA.jpg"
+          "signedPath": "dltemp/HgY6zEJk5kCBWL-B/1780761000000/noco/pv3c5ekh1fjoihu/mpz7ywybfxm3isa/cjpjpyar26z9u70/Sehetz-Team-Hochschule-Trier-3_hqbuA.jpg"
         }
       ],
       "start-date": 2015,
@@ -730,16 +771,16 @@
                 "id": "atzwjmqrp9hwqlbc",
                 "thumbnails": {
                   "tiny": {
-                    "signedPath": "dltemp/0Z5pCGWp3Ldlx3HF/1778670600000/thumbnails/noco/pv3c5ekh1fjoihu/mpz7ywybfxm3isa/cjpjpyar26z9u70/Sehetz-Team-Hochschule-Trier-3_hqbuA.jpg/tiny.jpg"
+                    "signedPath": "dltemp/AB9QXn6qGXYZk-Q0/1780761000000/thumbnails/noco/pv3c5ekh1fjoihu/mpz7ywybfxm3isa/cjpjpyar26z9u70/Sehetz-Team-Hochschule-Trier-3_hqbuA.jpg/tiny.jpg"
                   },
                   "small": {
-                    "signedPath": "dltemp/MgaMFVfDjXnQFPK9/1778670600000/thumbnails/noco/pv3c5ekh1fjoihu/mpz7ywybfxm3isa/cjpjpyar26z9u70/Sehetz-Team-Hochschule-Trier-3_hqbuA.jpg/small.jpg"
+                    "signedPath": "dltemp/pkt4ol0Bivrxk3OS/1780761000000/thumbnails/noco/pv3c5ekh1fjoihu/mpz7ywybfxm3isa/cjpjpyar26z9u70/Sehetz-Team-Hochschule-Trier-3_hqbuA.jpg/small.jpg"
                   },
                   "card_cover": {
-                    "signedPath": "dltemp/tHAZ0LJdj4y9wito/1778670600000/thumbnails/noco/pv3c5ekh1fjoihu/mpz7ywybfxm3isa/cjpjpyar26z9u70/Sehetz-Team-Hochschule-Trier-3_hqbuA.jpg/card_cover.jpg"
+                    "signedPath": "dltemp/QdCBbUu26oihneef/1780761000000/thumbnails/noco/pv3c5ekh1fjoihu/mpz7ywybfxm3isa/cjpjpyar26z9u70/Sehetz-Team-Hochschule-Trier-3_hqbuA.jpg/card_cover.jpg"
                   }
                 },
-                "signedPath": "dltemp/bao5ObjceEEMobMb/1778670600000/noco/pv3c5ekh1fjoihu/mpz7ywybfxm3isa/cjpjpyar26z9u70/Sehetz-Team-Hochschule-Trier-3_hqbuA.jpg"
+                "signedPath": "dltemp/HgY6zEJk5kCBWL-B/1780761000000/noco/pv3c5ekh1fjoihu/mpz7ywybfxm3isa/cjpjpyar26z9u70/Sehetz-Team-Hochschule-Trier-3_hqbuA.jpg"
               }
             ],
             "start-date": 2015,
