@@ -9,6 +9,7 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 const NOCO_BASE = process.env.VITE_NOCO_BASE_URL || "https://sehetz-noco.onrender.com";
+const API_TOKEN = process.env.VITE_API_TOKEN || "";
 
 /**
  * Normalize filename: remove scale tags, hash suffixes
@@ -25,11 +26,12 @@ function normalizeName(rawName) {
 
 /**
  * Download file from URL to local path
+ * Optionally pass extra headers (e.g. xc-token for authenticated NocoDB paths)
  */
-async function downloadFile(url, localPath) {
+async function downloadFile(url, localPath, headers = {}) {
   try {
     console.log(`  ⬇️  Downloading: ${url}`);
-    const response = await fetch(url);
+    const response = await fetch(url, { headers });
     if (!response.ok) {
       throw new Error(`HTTP ${response.status}: ${response.statusText}`);
     }
@@ -124,7 +126,14 @@ async function main() {
     console.log(`📁 ${normalized || filename}`);
     console.log(`   Subfolder: ${subfolder}`);
     
-    const success = await downloadFile(url, localPath);
+    let success = await downloadFile(url, localPath);
+
+    // If signed URL failed, fall back to the permanent path with auth token
+    if (!success && item.rawPath && API_TOKEN) {
+      const authUrl = `${NOCO_BASE}/${item.rawPath}`;
+      console.log(`  🔑 Retrying with authenticated path...`);
+      success = await downloadFile(authUrl, localPath, { "xc-token": API_TOKEN });
+    }
     
     if (success) {
       // Add to manifest

@@ -212,6 +212,7 @@ async function main() {
         filename: rawFilename,
         candidates: buildCandidates(rawFilename),
         remotePath: file.signedPath || file.path,
+        rawPath: file.path || null,
       });
     }
   });

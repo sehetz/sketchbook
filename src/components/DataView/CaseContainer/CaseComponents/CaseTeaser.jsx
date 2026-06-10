@@ -64,18 +64,15 @@ export default function CaseTeaser({
     onToggle(index); // ⭐ Pass index to parent
   };
 
-  // Resolve video path (local first, then remote)
+  // Resolve video path (local manifest first, then remote NocoDB)
   const NOCO_BASE_URL = import.meta.env.VITE_NOCO_BASE_URL || "http://localhost:8080";
   const getVideoSrc = () => {
     if (!project.teaserVideoFile) return null;
     const filename = project.teaserVideoFile.name || project.teaserVideoFile.title;
-    const localPath = filename ? resolveMediaPath(filename) : null;
-    if (localPath) return localPath;
-    // Fallback to remote
+    if (filename) return resolveMediaPath(filename); // always returns a path (manifest or fallback)
     const remotePath = project.teaserVideoFile.signedPath || project.teaserVideoFile.path;
     return remotePath ? `${NOCO_BASE_URL}/${remotePath}` : null;
   };
-
   const videoSrc = getVideoSrc();
 
   return (
@@ -119,7 +116,7 @@ export default function CaseTeaser({
                 title={project.Title}
                 loading="lazy"
               />
-            ) : videoSrc ? (
+            ) : project.teaserVideoFile ? (
               <video
                 src={videoSrc}
                 className="teaser__image"
@@ -127,7 +124,6 @@ export default function CaseTeaser({
                 loop
                 muted
                 playsInline
-                preload="none"
               />
             ) : project.teaserImageFile ? (
               <MasterMediaImage

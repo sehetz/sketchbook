@@ -29,7 +29,14 @@ function resolveLocalMediaPath(filename, manifest) {
   // Strip NocoDB hash suffix: "name_HASH.ext" -> "name.ext"
   const stripped = filename.replace(/_[A-Za-z0-9]{4,}(\.[^.]+)$/i, "$1");
   if (stripped !== filename && manifest[stripped]) return manifest[stripped];
-  return null;
+  // Match the runtime frontend fallback when the manifest is stale or missing an entry.
+  return `/media/${encodeURIComponent(filename)}`;
+}
+
+function isVideoFile(file) {
+  const mime = (file?.mimetype || file?.type || "").toLowerCase();
+  const name = (file?.name || file?.title || "").toLowerCase();
+  return mime.startsWith("video/") || /\.(mp4|webm|mov|m4v)$/i.test(name);
 }
 
 // Read image dimensions using sharp (returns null on error)
@@ -61,10 +68,13 @@ async function buildProjectBody(project, title, description, skills, gears, team
   const teaserFile = Array.isArray(project["Teaser-Image"]) ? project["Teaser-Image"][0] : null;
   const teaserFilename = teaserFile?.name || teaserFile?.title || null;
   const teaserLocalPath = teaserFilename ? resolveLocalMediaPath(teaserFilename, manifest) : null;
-  const dims = await getImageDimensions(teaserLocalPath);
+  const teaserIsVideo = isVideoFile(teaserFile);
+  const dims = !teaserIsVideo ? await getImageDimensions(teaserLocalPath) : null;
   const dimsAttr = dims ? ` width="${dims.width}" height="${dims.height}"` : "";
-  const teaserImg = teaserLocalPath
-    ? `<img src="${teaserLocalPath}" alt="${title}"${dimsAttr} fetchpriority="high" loading="eager" style="max-width:100%;height:auto;display:block;" />`
+  const teaserMedia = teaserLocalPath
+    ? teaserIsVideo
+      ? `<video src="${teaserLocalPath}" aria-label="${title} teaser" autoplay loop muted playsinline preload="metadata" style="max-width:100%;height:auto;display:block;" ></video>`
+      : `<img src="${teaserLocalPath}" alt="${title}"${dimsAttr} fetchpriority="high" loading="eager" style="max-width:100%;height:auto;display:block;" />`
     : "";
 
   const tagsHtml = [
@@ -78,7 +88,7 @@ async function buildProjectBody(project, title, description, skills, gears, team
   return `<article>
     <h1>${title}</h1>
     ${datum}
-    ${teaserImg}
+    ${teaserMedia}
     <p>${description}</p>
     ${textBlocks}
     <nav aria-label="Tags">${tagsHtml}</nav>
