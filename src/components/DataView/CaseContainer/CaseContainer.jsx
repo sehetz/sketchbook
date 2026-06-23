@@ -4,9 +4,7 @@
 
 import { useState, useEffect, useRef, useMemo } from "react";
 import CaseHeader from "./CaseComponents/CaseHeader.jsx";
-import CaseTeaser from "./CaseComponents/CaseTeaser.jsx";
-import GearTeaser from "./CaseComponents/GearTeaser.jsx";
-import TeamTeaser from "./CaseComponents/TeamTeaser.jsx";
+import Teaser from "./CaseComponents/Teaser.jsx";
 import CaseDetail from "./CaseComponents/CaseDetail.jsx";
 import { text_labelToSlug, url_build } from "../../../utils/routing.js";
 import { CLOSE_MS, TRANSITION_GAP_MS, DEFAULT_FIRST_OPEN_INDEX, timer_clear, timer_schedule } from "../../../utils/ui.jsx";
@@ -162,13 +160,14 @@ export default function CaseContainer({
     if (type === "skills") {
       return displayProjects.map((project, index) => (
         <div key={project.id || index} className={`w-full flex-col ${openProjectIndex === index ? "project-wrapper--open" : ""}`}>
-          <CaseTeaser
-            project={project}
+          <Teaser
+            type="case"
+            data={project}
             index={index}
             isOpen={openProjectIndex === index}
             skillIsOpen={isOpen}
             onToggle={handleProjectToggle}
-            type={type}
+            filterType={type}
           />
           {openProjectIndex === index && (
             <CaseDetail project={project} />
@@ -182,7 +181,7 @@ export default function CaseContainer({
       const gearData = primary.__gearData || primary._nc_m2m_sehetz_gears?.[0]?.gear || null;
       return (
         <>
-          <GearTeaser gear={gearData} />
+          <Teaser type="gear" data={gearData} />
           {/* Show all projects for this gear as links */}
           {displayProjects.map((project, index) => {
             const firstSkill = project["_nc_m2m_sehetz_skills"]?.[0]?.skill?.Skill || "";
@@ -218,7 +217,7 @@ export default function CaseContainer({
       const teamData = primary.__teamData || primary._nc_m2m_sehetz_teams?.[0]?.team || null;
       return (
         <>
-          <TeamTeaser team={teamData} />
+          <Teaser type="team" data={teamData} />
           {/* Show all projects for this team as links */}
           {displayProjects.map((project, index) => {
             const firstSkill = project["_nc_m2m_sehetz_skills"]?.[0]?.skill?.Skill || "";
