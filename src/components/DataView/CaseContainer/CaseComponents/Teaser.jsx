@@ -150,7 +150,7 @@ export default function Teaser({
 
         {/* EXPANDABLE CONTENT – slides open/closed with animation */}
         <div className={`teaser-wipe ${isOpen ? "open" : ""}`}>
-          <div className="flex gap-6 p-6-all">
+          <div className="flex gap-16 p-6">
             {/* LEFT COLUMN: Description & CTA Button */}
             <div className="flex-col flex-1">
               <div className="pr-8 text-2">{project["description"]}</div>

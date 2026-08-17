@@ -1,0 +1,178 @@
+/* =======================================
+   Sketchbook – Core Design Tokens (minimal)
+   ======================================= */
+
+/* Local Variable Font with all axes */
+@font-face {
+  font-family: "TikTok Sans";
+  src: url("/fonts/TikTokSans-VariableFont.ttf") format("truetype-variations");
+  font-weight: 100 900;
+  font-stretch: 75% 150%;
+  font-display: block;
+}
+
+:root {
+  /* 🎨 COLORS */
+  --color-bg: #fff;
+  --color-fg: #0f0f0f;
+  --color-surface: rgba(0, 0, 0, 0.025);
+  --color-link: #0f0f0f;
+  --color-yellow: #fffb78;
+  --color-yellow-highlight: #fff243;
+  --color-yellow-dark: #766600;
+  --color-yellow-dark-highlight: #938000;
+
+  /* 🧱 SPACING SCALE */
+  --space-1: 0.25rem; /* 4px */
+  --space-1-5: 0.375rem; /* 6px */
+  --space-2: 0.5rem; /* 8px */
+  --space-3: 0.75rem; /* 12px */
+  --space-4: 1rem; /* 16px */
+  --space-5: 1.25rem; /* 20px */
+  --space-6: 1.5rem; /* 24px */
+  --space-7: 1.6rem; /* 26px */
+  --space-8: 2rem; /* 32px */
+  --space-10: 2.5rem; /* 40px */
+  --space-12: 3rem; /* 48px */
+  --space-14: 3.5rem; /* 56px */
+  --space-16: 4rem; /* 64px */
+  --space-24: 6rem; /* 96px */
+  --space-30: 7.5rem; /* 120px */
+  --space-32: 8rem; /* 128px */
+  --space-36: 9rem; /* 144px */
+  --space-48: 12rem; /* 192px */
+
+  /* 🔠 TYPOGRAPHY */
+  --font-sans: "TikTok Sans", Helvetica, Arial, sans-serif;
+
+  /* Prevent invisible text during font load (better CLS) */
+  font-display: swap;
+
+  /* TEXT STYLES */
+  --text-scale-mobile: 0.75;
+  --text-1-size: 3rem;
+  --text-1-line: 1.05;
+  --text-1-letter: -0.00625em;
+  --text-2-size: 2rem;
+  --text-2-line: 1.15;
+  --text-2-letter: 0.015em;
+  --text-3-size: 1.5rem;
+  --text-3-line: 1.15;
+  --text-3-letter: 0.0125em;
+
+  /* 🧩 LINE STYLES */
+  --line-width: 2px;
+  --line-solid: var(--line-width) solid var(--color-fg);
+  --line-dotted: var(--line-width) dotted var(--color-fg);
+  --line-dot-size: 0.1px;
+  --line-dot-gap: 6px;
+  --size-border-thin: 1.5px;
+
+  /* 💫 ANIMATIONS & TRANSITIONS */
+  --transition-fast: 0.125s ease;
+  --transition-smooth: 0.25s ease;
+  --transition-wipe: 0.45s ease;
+  --transition-interact: 0.2s ease;
+
+  /* 🎨 INTERACTION COLORS */
+  --color-hover-bg: var(--color-surface);
+  --color-timeline-hover: #fffb78;
+  --color-stroke: var(--color-fg);
+  --color-bg-light: #ffffff;
+
+  /* 📊 TIMELINE COLORS */
+  --color-timeline-circle: #efefef;
+  --color-timeline-gradient-start: #dbdbdb;
+  --color-timeline-gradient-end: #f6f6f6;
+
+  /* 🔢 TYPOGRAPHY – Mobile Sizes */
+  --size-team-label-mobile: 13px;
+  --size-project-title-mobile: 12px;
+
+  /* 🔴 STROKE & BORDER WIDTHS */
+  --stroke-thin: 1.5px;
+  --stroke-mobile: 1.5px;
+
+  /* 🎯 SVG & INTERACTION VALUES */
+  --size-project-dot-mobile: 8px;
+  --size-svg-rx: 6;
+  --size-line-dasharray: 0.1;
+  --size-line-gap: 4;
+
+  /* 📊 TIMELINE DIMENSIONS */
+  --timeline-dot-radius-desktop: 4px;
+  --timeline-dot-radius-mobile: 2px;
+  --timeline-dot-hit-area: 14px;
+  --timeline-year-spacing-desktop: 96px;
+  --timeline-year-spacing-mobile: 120px;
+  --timeline-project-stack-y: 24px;
+  --timeline-project-stack-y-mobile: 64px;
+  --timeline-bar-width-design: 32px;
+  --timeline-bar-width-nondesign: 12px;
+  --timeline-bar-radius-design: 18px;
+  --timeline-bar-radius-nondesign: 8px;
+  --timeline-bar-overshoot: 12px;
+  --timeline-circle-radius-design: 28px;
+  --timeline-circle-radius-nondesign: 12px;
+  --timeline-circle-offset: 32px;
+  --timeline-label-offset-above-bar: 32px;
+  --timeline-label-line-height: 14px;
+  --timeline-label-line-height-mobile: 24px;
+  --timeline-teams-min-gap: 12px;
+  --timeline-teams-start-x: 96px;
+  --timeline-teams-end-x-offset: 96px;
+  --timeline-tooltip-offset-x: 24px;
+  --timeline-tooltip-offset-x-mobile: 12px;
+  --timeline-tooltip-padding: 8px;
+  --timeline-tooltip-height: 24px;
+  --timeline-tooltip-height-mobile: 52px;
+  --timeline-tooltip-padding-top: 6px;
+  --timeline-mobile-header-margin: 64px;
+  --timeline-year-padding-left-desktop: 20px;
+  --timeline-year-padding-left-mobile: 12px;
+
+  /* 📐 LAYOUT DIMENSIONS */
+  --layout-image-grid-minmax: 200px;
+
+  /* 📋 CASE CONTAINER SIZES */
+  --size-case-line-height: 4rem;
+  --size-case-line-height-open: 7.5rem;
+
+  /* 📏 BREAKPOINTS */
+  --breakpoint-lg: 1200px;
+  --breakpoint-md: 900px;
+  --breakpoint-sm: 768px;
+  --breakpoint-xs: 600px;
+}
+
+/* Dark mode overrides */
+:root.dark {
+  --color-bg: #0f0f0f;
+  --color-fg: #fff;
+  --color-surface: #181818;
+  --color-link: #ffffff;
+  --color-bg-light: #1e1e1e;
+  --color-timeline-hover: #766600;
+  --color-hover-bg: #191919;
+  --line-width: 1.5px;
+  --size-border-thin: 1px;
+  --text-1-letter: 0.015em;
+  --text-2-letter: 0.025em;
+  --text-3-letter: 0.025em;
+  /* --size-border-thin: 0.8px; */
+
+  /* 📊 TIMELINE COLORS – Dark Mode */
+  --color-timeline-circle: #3a3a3a;
+  --color-timeline-gradient-start: #2a2a2a;
+  --color-timeline-gradient-end: #1f1f1f;
+}
+
+/* 🤫 READING MODE – Mission Iris (dark + muted grey) */
+:root.dark.iris-read {
+  --color-fg: #70727a;
+  --color-surface: #161616;
+  --color-hover-bg: #151515;
+  --line-solid: var(--line-width) solid #58595f;
+  --line-dotted: var(--line-width) dotted #58595f;
+  --color-stroke: #58595f;
+}

@@ -4,8 +4,14 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>ODAD Sketch</title>
-  <link rel="stylesheet" href="../../src/styles/tokens.css" />
   <style>
+    /* CSS Variables inline */
+    :root {
+      --font-sans: "TikTok Sans", Helvetica, Arial, sans-serif;
+      --space-3: 0.75rem;
+      --space-4: 1rem;
+    }
+
     * { margin: 0; padding: 0; box-sizing: border-box; }
     html, body { width: 100%; height: 100%; overflow: hidden; background: #1e1e1e; font-family: var(--font-sans); }
     #p5-container { width: 100%; height: 100%; }
@@ -105,40 +111,51 @@
     </div>
   </div>
   <script>
-    // Configuration Constants
+    // Configuration
     const COLORS = {
-      SDblue: '#0064FF',
-      SDred: '#FF4132',
-      SDyellow: '#ffe600'
+      blue: '#0064FF',
+      red: '#FF4132',
+      yellow: '#ffe600'
     };
 
-    // Names for each color (hard-coded)
-    const NAME_BLUE = "superdot";
-    const NAME_RED = "information";
-    const NAME_YELLOW = "designsystem";
+    // Names define bubble count
+    const NAMES = {
+      blue: "designsystem",
+      red: "information",
+      yellow: "superdot"
+    };
 
-    // Create noise offsets for each character
+    // Size mapping: letter count -> bubble size
+    const SIZE_MAP = [0, 50, 100, 200, 400, 800];
+
+    // State
+    let speedMultiplier = 1.0;
+    let sizeMultiplier = 1.0;
+    const baseIncrement = 0.0025;
+
+    // Count how often each letter appears in text
+    function countLetters(text) {
+      const letters = 'abcdefghijklmnopqrstuvwxyz'.split('');
+      return letters.map(letter =>
+        (text.toLowerCase().split(letter).length - 1)
+      );
+    }
+
+    // Create noise offsets for each unique letter count
     function createNoiseOffsets(text) {
+      const counts = countLetters(text);
+      const activeDots = counts.filter(count => count > 0).length;
       return {
-        x: Array(text.length).fill().map((_, i) => i * 100 + Math.random() * 1000),
-        y: Array(text.length).fill().map((_, i) => i * 1000 + Math.random() * 1000)
+        x: Array(activeDots).fill().map(() => Math.random() * 2000),
+        y: Array(activeDots).fill().map(() => Math.random() * 2000)
       };
     }
 
     const noiseOffsets = {
-      blue: createNoiseOffsets(NAME_BLUE),
-      red: createNoiseOffsets(NAME_RED),
-      yellow: createNoiseOffsets(NAME_YELLOW)
+      blue: createNoiseOffsets(NAMES.blue),
+      red: createNoiseOffsets(NAMES.red),
+      yellow: createNoiseOffsets(NAMES.yellow)
     };
-
-    // Map each letter to a size (a-z)
-    const letterSizes = {};
-    for (let i = 0; i < 26; i++) {
-      letterSizes[String.fromCharCode(97 + i)] = 20 + (i % 5) * 30;
-    }
-    let speedMultiplier = 1.0;
-    let sizeMultiplier = 1.0;
-    const baseIncrement = 0.0025;
 
     function setup() {
       const canvas = createCanvas(windowWidth, windowHeight);
@@ -164,25 +181,30 @@
 
     function draw() {
       background(30, 10);
-      generateCircles(NAME_BLUE, COLORS.SDblue, noiseOffsets.blue);
-      generateCircles(NAME_RED, COLORS.SDred, noiseOffsets.red);
-      generateCircles(NAME_YELLOW, COLORS.SDyellow, noiseOffsets.yellow);
+      generateCircles('blue', COLORS.blue, NAMES.blue, noiseOffsets.blue);
+      generateCircles('red', COLORS.red, NAMES.red, noiseOffsets.red);
+      generateCircles('yellow', COLORS.yellow, NAMES.yellow, noiseOffsets.yellow);
     }
 
-    function generateCircles(name, color, noiseOffset) {
+    function generateCircles(key, color, name, noiseOffset) {
+      const letterCounts = countLetters(name);
+      const activeDots = letterCounts.filter(count => count > 0);
+
       blendMode(LIGHTEST);
 
-      for (let i = 0; i < name.length; i++) {
-        const letter = name[i].toLowerCase();
-        if (!/[a-z]/.test(letter)) continue; // Skip non-letters
-
+      for (let i = 0; i < activeDots.length; i++) {
+        // Update position
         noiseOffset.x[i] += baseIncrement * speedMultiplier;
         noiseOffset.y[i] += baseIncrement * speedMultiplier;
 
-        const maxSize = 200;
-        const x = map(noise(noiseOffset.x[i]), 0, 1, -maxSize, width + maxSize);
-        const y = map(noise(noiseOffset.y[i]), 0, 1, -maxSize, height + maxSize);
-        const baseSize = letterSizes[letter] || 40;
+        // Calculate position with bleed
+        const maxBleed = 200;
+        const x = map(noise(noiseOffset.x[i]), 0, 1, -maxBleed, width + maxBleed);
+        const y = map(noise(noiseOffset.y[i]), 0, 1, -maxBleed, height + maxBleed);
+
+        // Size based on letter frequency: 1x=50, 2x=100, 3x=200, etc.
+        const count = activeDots[i];
+        const baseSize = SIZE_MAP[Math.min(count, SIZE_MAP.length - 1)];
         const size = baseSize * sizeMultiplier;
 
         displayDot(x, y, size, color);

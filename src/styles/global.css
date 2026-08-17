@@ -165,9 +165,15 @@ img {
 .gap-8 {
   gap: var(--space-8);
 }
+.gap-12 {
+  gap: var(--space-12);
+}
+.gap-16 {
+  gap: var(--space-16);
+}
 
 .p-text {
-  padding: var(--space-14) var(--space-6) var(--space-16) var(--space-6);
+  padding: var(--space-16) var(--space-6) var(--space-16) var(--space-6);
 }
 .p-teaser {
   padding: var(--space-12) var(--space-6) var(--space-12) var(--space-6);
@@ -295,7 +301,7 @@ img {
 }
 
 .btn-text-2 > div {
-  padding: var(--space-2) 0;
+  padding: 0 0 var(--space-2) 0;
 }
 
 .btn-text-2:hover > div {
