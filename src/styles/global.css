@@ -301,7 +301,7 @@ img {
 }
 
 .btn-text-2 > div {
-  padding: 0 0 var(--space-2) 0;
+  padding: 0;
 }
 
 .btn-text-2:hover > div {
