@@ -64,7 +64,7 @@ const html = `<!DOCTYPE html>
       font-family: "TikTok Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
       font-size: 10.5pt;
       line-height: 1.5;
-      color: #121212;
+      color: #0f0f0f;
       background: white;
     }
     
@@ -81,7 +81,7 @@ const html = `<!DOCTYPE html>
       gap: 24px;
       margin-bottom: 32px;
       padding-bottom: 24px;
-      border-bottom: 2px solid #121212;
+      border-bottom: 2px solid #0f0f0f;
     }
     
     .profile-image {
@@ -115,7 +115,7 @@ const html = `<!DOCTYPE html>
     }
     
     .contact a {
-      color: #121212;
+      color: #0f0f0f;
       text-decoration: none;
     }
     
@@ -130,7 +130,7 @@ const html = `<!DOCTYPE html>
       font-weight: 700;
       margin-bottom: 12px;
       padding-bottom: 6px;
-      border-bottom: 1.5px solid #121212;
+      border-bottom: 1.5px solid #0f0f0f;
     }
     
     /* Experience Entry */
@@ -176,7 +176,7 @@ const html = `<!DOCTYPE html>
     }
     
     .entry-link a {
-      color: #121212;
+      color: #0f0f0f;
       text-decoration: none;
     }
     

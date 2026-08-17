@@ -30,7 +30,7 @@
       }
 
       .cls-3 {
-        stroke: #121212;
+        stroke: #0f0f0f;
         stroke-width: .9px;
       }
     </style>

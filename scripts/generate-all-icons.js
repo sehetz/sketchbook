@@ -75,7 +75,7 @@ async function generateIcons() {
           purpose: "any maskable"
         }
       ],
-      theme_color: "#121212",
+      theme_color: "#0f0f0f",
       background_color: "#ffffff",
       display: "standalone",
       start_url: "/",

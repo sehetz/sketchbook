@@ -14,9 +14,9 @@
 :root {
   /* 🎨 COLORS */ 
   --color-bg: #fff;
-  --color-fg: #121212;
+  --color-fg: #0f0f0f;
   --color-surface: rgba(0, 0, 0, 0.025);
-  --color-link: #121212;
+  --color-link: #0f0f0f;
   --color-yellow: #FFFB78;
   --color-yellow-highlight: #fff243;
   --color-yellow-dark: #766600;
@@ -148,7 +148,7 @@
 
 /* Dark mode overrides */
 :root.dark {
-  --color-bg: #111111;
+  --color-bg: #0f0f0f;
   --color-fg: #fff;
   --color-surface: #181818;
   --color-link: #ffffff;

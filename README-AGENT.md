@@ -148,7 +148,7 @@ Erlaubt sind nur:
 
 Niemals:
 
-#000000
+#0f0f0f
 
 #ffffff
 

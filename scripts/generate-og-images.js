@@ -121,6 +121,7 @@ async function generateOGImages() {
           fit: 'cover',
           position: 'center'
         })
+        .flatten({ background: { r: 255, g: 255, b: 255 } })
         .jpeg({ quality: 85 })
         .toFile(ogPath);
 
