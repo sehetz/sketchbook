@@ -158,22 +158,26 @@ export default function CaseContainer({
   // ============================================
   const renderContent = () => {
     if (type === "skills") {
-      return displayProjects.map((project, index) => (
-        <div key={project.id || index} className={`w-full flex-col ${openProjectIndex === index ? "project-wrapper--open" : ""}`}>
-          <Teaser
-            type="case"
-            data={project}
-            index={index}
-            isOpen={openProjectIndex === index}
-            skillIsOpen={isOpen}
-            onToggle={handleProjectToggle}
-            filterType={type}
-          />
-          {openProjectIndex === index && (
-            <CaseDetail project={project} />
-          )}
-        </div>
-      ));
+      return displayProjects.map((project, index) => {
+        const hasContentAfter = (project.blocks || []).length > 0;
+        return (
+          <div key={project.id || index} className={`w-full flex-col ${openProjectIndex === index ? "project-wrapper--open" : ""}`}>
+            <Teaser
+              type="case"
+              data={project}
+              index={index}
+              isOpen={openProjectIndex === index}
+              skillIsOpen={isOpen}
+              onToggle={handleProjectToggle}
+              filterType={type}
+              hasContentAfter={hasContentAfter}
+            />
+            {openProjectIndex === index && (
+              <CaseDetail project={project} />
+            )}
+          </div>
+        );
+      });
     }
 
     if (type === "gears") {

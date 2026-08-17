@@ -56,6 +56,7 @@ export default function Teaser({
   skillIsOpen,
   onToggle,
   filterType, // for determining layout (e.g., "skills" vs. "gear")
+  hasContentAfter = false, // whether content (CaseDetail/blocks) follows this teaser
 }) {
   const caseLineRef = useRef(null);
   const NOCO_BASE_URL = import.meta.env.VITE_NOCO_BASE_URL || "http://localhost:8080";
@@ -150,7 +151,10 @@ export default function Teaser({
 
         {/* EXPANDABLE CONTENT – slides open/closed with animation */}
         <div className={`teaser-wipe ${isOpen ? "open" : ""}`}>
-          <div className="flex gap-16 p-6">
+          <div
+            className="flex gap-16 p-6"
+            style={isOpen && !hasContentAfter ? { paddingBottom: 'var(--space-6)' } : undefined}
+          >
             {/* LEFT COLUMN: Description & CTA Button */}
             <div className="flex-col flex-1">
               <div className="pr-8 text-2">{project["description"]}</div>
