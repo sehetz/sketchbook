@@ -39,6 +39,10 @@
     "width": 1920,
     "height": 1080
   },
+  "/media/16x9_sehetz_sketchbook_buehne1_der-kommende-Aufstand_01.jpg": {
+    "width": 1920,
+    "height": 1080
+  },
   "/media/16x9_sehetz_sketchbook_carnault_dreamscape_number_1_chilli.webp": {
     "width": 1920,
     "height": 1076
@@ -303,6 +307,30 @@
     "width": 1080,
     "height": 1440
   },
+  "/media/3x4_sehetz_sketchbook_buehne1_der-kommende-Aufstand_01.jpg": {
+    "width": 1080,
+    "height": 1440
+  },
+  "/media/3x4_sehetz_sketchbook_buehne1_der-kommende-Aufstand_02.jpg": {
+    "width": 1080,
+    "height": 1440
+  },
+  "/media/3x4_sehetz_sketchbook_buehne1_der-kommende-Aufstand_03.jpg": {
+    "width": 1080,
+    "height": 1440
+  },
+  "/media/3x4_sehetz_sketchbook_buehne1_der-kommende-Aufstand_04.jpg": {
+    "width": 1080,
+    "height": 1440
+  },
+  "/media/3x4_sehetz_sketchbook_buehne1_der-kommende-Aufstand_05.jpg": {
+    "width": 1080,
+    "height": 1440
+  },
+  "/media/3x4_sehetz_sketchbook_buehne1_der-kommende-Aufstand_06.jpg": {
+    "width": 1080,
+    "height": 1440
+  },
   "/media/3x4_sehetz_sketchbook_carnault_dreamscape_Box_full_of_Carnault.jpg": {
     "width": 1440,
     "height": 1919
@@ -418,6 +446,10 @@
   "/media/Sehetz-Team-Superdot.webp": {
     "width": 1350,
     "height": 1800
+  },
+  "/media/Sehetz-Team-buehne-1.webp": {
+    "width": 1080,
+    "height": 1440
   },
   "/media/Sehetz-Team-carnault.webp": {
     "width": 1080,
