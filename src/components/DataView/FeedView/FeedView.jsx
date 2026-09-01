@@ -5,6 +5,7 @@
 
 import MasterMediaImage from "../../media/MasterMediaImage.jsx";
 import MasterMediaVideo from "../../media/MasterMediaVideo.jsx";
+import { text_labelToSlug } from "../../../utils/routing.js";
 
 export default function FeedView({ projects, groupLabel, filterType }) {
   if (!projects || projects.length === 0) return null;
@@ -14,6 +15,29 @@ export default function FeedView({ projects, groupLabel, filterType }) {
     if (!file) return false;
     const filename = file.name || file.title || "";
     return /\.(mp4|webm|mov)$/i.test(filename);
+  };
+
+  // Handle project card click - navigate to project detail view
+  const handleProjectClick = (project) => {
+    if (!project || !project.Title) return;
+
+    const projectSlug = text_labelToSlug(project.Title);
+
+    // For gears/teams: navigate to the project's first skill category instead
+    if (filterType === "gears" || filterType === "teams") {
+      const firstSkill = project["_nc_m2m_sehetz_skills"]?.[0]?.skill?.Skill || "";
+      if (firstSkill) {
+        const url = `/skills/${text_labelToSlug(firstSkill)}/${projectSlug}`;
+        window.history.pushState(null, "", url);
+        window.dispatchEvent(new PopStateEvent("popstate"));
+      }
+      return;
+    }
+
+    // For skills: navigate to project within current category (without view=feed)
+    const url = `/${filterType}/${text_labelToSlug(groupLabel)}/${projectSlug}`;
+    window.history.pushState(null, "", url);
+    window.dispatchEvent(new PopStateEvent("popstate"));
   };
 
   return (
@@ -36,7 +60,12 @@ export default function FeedView({ projects, groupLabel, filterType }) {
           const embedRatio = project.teaserEmbedRatio || "3x4";
 
           return (
-            <div key={project.id || index} className="feed-card">
+            <div
+              key={project.id || index}
+              className="feed-card"
+              onClick={() => handleProjectClick(project)}
+              style={{ cursor: 'pointer' }}
+            >
               {/* Title above image */}
               <h3 className="text-2">{title}</h3>
 

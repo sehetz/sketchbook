@@ -129,12 +129,14 @@ export function text_slugToLabel(slug) {
 /**
  * Push new URL state to browser history
  * Used in: CaseContainer.jsx (handleProjectToggle, auto-open)
- * Side effect: Updates window.history + URL bar
+ * Side effect: Updates window.history + URL bar + triggers popstate for React
  */
 export function url_push(state) {
   if (typeof window === "undefined") return;
   const url = url_build(state);
   window.history.pushState(null, "", url);
+  // Notify App about navigation (triggers React re-render)
+  window.dispatchEvent(new PopStateEvent("popstate"));
 }
 
 /**

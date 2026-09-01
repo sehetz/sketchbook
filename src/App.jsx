@@ -62,7 +62,12 @@ function App() {
   }, [currentPath]);
   
   useEffect(() => {
-    const onPop = () => setCurrentPath(window.location.pathname);
+    const onPop = () => {
+      setCurrentPath(window.location.pathname);
+      // Update viewMode based on URL query parameter
+      const params = new URLSearchParams(window.location.search);
+      setViewMode(params.get("view") === "feed" ? "feed" : "list");
+    };
     window.addEventListener("popstate", onPop);
     return () => window.removeEventListener("popstate", onPop);
   }, []);

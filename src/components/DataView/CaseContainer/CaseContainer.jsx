@@ -48,14 +48,21 @@ export default function CaseContainer({
 
   // Auto-open first project when group opens
   useEffect(() => {
-    if (isOpen && openProjectIndex === null) {
-      // Container just opened → open first project
+    if (isOpen && openProjectIndex === null && viewMode === "list") {
+      // Container just opened in list mode → open first project
       setOpenProjectIndex(DEFAULT_FIRST_OPEN_INDEX);
     } else if (!isOpen) {
       // Container closed → clear project
       setOpenProjectIndex(null);
     }
-  }, [isOpen]);
+  }, [isOpen, viewMode]);
+
+  // Reset project index when switching to feed mode
+  useEffect(() => {
+    if (viewMode === "feed" && !requestedProjectSlug) {
+      setOpenProjectIndex(null);
+    }
+  }, [viewMode, requestedProjectSlug]);
 
   // Sync URL when openProjectIndex changes (auto-open or manual toggle)
   // Only include projectSlug for "skills" type
