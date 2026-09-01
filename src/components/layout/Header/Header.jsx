@@ -1,15 +1,17 @@
 import { useEffect, useRef, useState } from "react";
 import { useRotationAnimation, useStrudel } from "../../../utils/ui.jsx";
 import ViewToggle from "./ViewToggle.jsx";
+import DiscoBall3D from "./DiscoBall3D.jsx";
 
 export default function Header({ viewMode = "list", setViewMode }) {
   const [rave, toggleRave] = useStrudel();
   const buttonRef = useRef(null);
 
-  useEffect(() => {
-    if (!buttonRef.current) return;
-    return useRotationAnimation(buttonRef.current, rave);
-  }, [rave]);
+  // No longer using useRotationAnimation - 3D ball handles its own rotation
+  // useEffect(() => {
+  //   if (!buttonRef.current) return;
+  //   return useRotationAnimation(buttonRef.current, rave);
+  // }, [rave]);
 
   // Check if current page is About page
   const isAboutPage = typeof window !== 'undefined' &&
@@ -22,7 +24,7 @@ export default function Header({ viewMode = "list", setViewMode }) {
         <a href="/" className="text-3">
           <div className="header__link">Sketchbook</div>
         </a>
-        {!isAboutPage && <ViewToggle viewMode={viewMode} onViewChange={setViewMode} />}
+        {/* {!isAboutPage && <ViewToggle viewMode={viewMode} onViewChange={setViewMode} />} */}
       </div>
 
       {/* Center: Disco (grid centered) */}
@@ -35,7 +37,7 @@ export default function Header({ viewMode = "list", setViewMode }) {
           aria-label={rave ? "Stop disco" : "Start disco"}
           title={rave ? "Stop disco (esc)" : "Start disco"}
         >
-          🪩
+          <DiscoBall3D isRave={rave} />
         </button>
       </div>
 

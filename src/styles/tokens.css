@@ -68,6 +68,11 @@
   --line-dot-gap: 6px;
   --size-border-thin: 1.5px;
 
+  /* 🪩 DISCO BALL 3D */
+  --disco-detail-x: 12;
+  --disco-detail-y: 8;
+  --disco-line-width: 1;
+
   /* 💫 ANIMATIONS & TRANSITIONS */
   --transition-fast: 0.125s ease;
   --transition-smooth: 0.25s ease;
@@ -154,6 +159,7 @@
   --color-link: #ffffff;
   --color-bg-light: #1e1e1e;
   --color-timeline-hover: #766600;
+  --color-yellow: #766600;
   --color-hover-bg: #191919;
   --line-width: 1.5px;
    --size-border-thin: 1.0px;

@@ -405,24 +405,19 @@ img {
   justify-self: end;
 }
 
-/* Mobile: stack vertically, align top */
+/* Mobile: keep horizontal grid, align everything to top */
 @media (max-width: 768px) {
   .header {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: var(--space-2);
+    /* Keep grid layout on mobile */
+    grid-template-columns: 1fr auto 1fr;
+    align-items: start;
   }
 
   .header__left {
+    /* Stack Sketchbook and view toggle vertically */
     flex-direction: column;
     align-items: flex-start;
-    gap: 4px; /* smaller gap between list/feed buttons */
-  }
-
-  .header__center,
-  .header__right {
-    align-self: flex-start;
+    gap: 4px;
   }
 }
 
@@ -1241,6 +1236,7 @@ strong,
 /* Feed View */
 .feed-view {
   /* padding: var(--space-6); */
+  /* border-bottom: var(--line-width) solid var(--color-fg); */
 }
 
 .feed-view__header {
@@ -1252,7 +1248,7 @@ strong,
 .feed-view__grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  padding: 0 var(--space-6);
+  padding: var(--space-12) var(--space-6) 0 var(--space-6) ;
   gap: var(--space-6);
 }
 
@@ -1261,10 +1257,11 @@ strong,
   flex-direction: column;
   box-sizing: border-box;
   gap: var(--space-3);
+  padding: 0 0 var(--space-12) 0;
 }
 
 .feed-card .text-2 {
-  padding-top: var(--space-12);
+  /* padding-top: var(--space-12); */
 }
 
 .feed-card__image {
@@ -1280,7 +1277,7 @@ strong,
 }
 
 .feed-card__content {
-  padding-bottom: var(--space-12);
+  /* padding-bottom: var(--space-12); */
 }
 
 .feed-card__content p {
@@ -1296,6 +1293,7 @@ strong,
 @media (max-width: 1024px) {
   .feed-view__grid {
     grid-template-columns: repeat(2, 1fr);
+    gap: 0 var(--space-6);
   }
 }
 
