@@ -11,41 +11,40 @@ export default function Header({ viewMode = "list", setViewMode }) {
     return useRotationAnimation(buttonRef.current, rave);
   }, [rave]);
 
+  // Check if current page is About page
+  const isAboutPage = typeof window !== 'undefined' &&
+    (window.location.pathname === '/sarah-heitz' || window.location.pathname === '/about');
+
   return (
-    <header className="header" style={{ position: 'relative' }}>
+    <header className="header">
       {/* Left: Sketchbook + View Toggle */}
       <div className="header__left">
         <a href="/" className="text-3">
           <div className="header__link">Sketchbook</div>
         </a>
-        <ViewToggle viewMode={viewMode} onViewChange={setViewMode} />
+        {!isAboutPage && <ViewToggle viewMode={viewMode} onViewChange={setViewMode} />}
       </div>
 
-      {/* Middle: Disco (absolutely centered) */}
-      <button
-        ref={buttonRef}
-        className="header__disco"
-        onClick={toggleRave}
-        aria-pressed={rave}
-        aria-label={rave ? "Stop disco" : "Start disco"}
-        title={rave ? "Stop disco (esc)" : "Start disco"}
-        style={{
-          position: 'absolute',
-          left: '50%',
-          transform: 'translateX(-50%)',
-          zIndex: 10
-        }}
-      >
-        🪩
-      </button>
+      {/* Center: Disco (grid centered) */}
+      <div className="header__center">
+        <button
+          ref={buttonRef}
+          className="header__disco"
+          onClick={toggleRave}
+          aria-pressed={rave}
+          aria-label={rave ? "Stop disco" : "Start disco"}
+          title={rave ? "Stop disco (esc)" : "Start disco"}
+        >
+          🪩
+        </button>
+      </div>
 
       {/* Right: who dis? */}
-      <a
-        href="/sarah-heitz"
-        className="flex-1 text-3 axis-right"
-      >
-        <div className="header__link">who dis?</div>
-      </a>
+      <div className="header__right">
+        <a href="/sarah-heitz" className="text-3">
+          <div className="header__link">who dis?</div>
+        </a>
+      </div>
     </header>
   );
 }
