@@ -10,6 +10,8 @@ export default function DiscoBall3D({ isRave = false }) {
 
     const sketch = (p) => {
       let rotationY = 0;
+      let lastFullRotation = 0;
+      let flashIntensity = 0;
 
       p.setup = () => {
         const size = 26; // ~1.6rem in pixels
@@ -78,6 +80,20 @@ export default function DiscoBall3D({ isRave = false }) {
         } else {
           rotationY += 0.01; // Slow drift
         }
+
+        // Check for full rotation and trigger flash
+        const currentRotation = Math.floor(rotationY / p.TWO_PI);
+        if (currentRotation > lastFullRotation) {
+          lastFullRotation = currentRotation;
+          flashIntensity = 255; // Full white flash
+        }
+
+        // Fade out flash
+        if (flashIntensity > 0) {
+          flashIntensity *= 0.85; // Fast fade
+          if (flashIntensity < 1) flashIntensity = 0;
+        }
+
         p.rotateY(rotationY);
 
         // First: Draw solid sphere (background to hide back lines)
@@ -89,6 +105,15 @@ export default function DiscoBall3D({ isRave = false }) {
 
         // Second: Draw UV sphere grid on top
         drawUVSphere(10, detailY, detailX, fgColor, discoLineWidth);
+
+        // Third: Draw white flash in center when rotation completes
+        if (flashIntensity > 0) {
+          p.push();
+          p.fill(255, 255, 255, flashIntensity);
+          p.noStroke();
+          p.sphere(3); // Small sphere in the center
+          p.pop();
+        }
       };
     };
 
