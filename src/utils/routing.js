@@ -65,7 +65,7 @@ export function url_parse(pathname) {
  *   { filter: "skills", containerLabel: "Illustration", projectSlug: "my-project" } → /skills/illustration/my-project
  */
 export function url_build(state) {
-  const { filter = "skills", containerLabel = null, projectSlug = null } = state;
+  const { filter = "skills", containerLabel = null, projectSlug = null, view = null } = state;
 
   let url = `/${filter}`;
 
@@ -76,6 +76,11 @@ export function url_build(state) {
 
   if (projectSlug) {
     url += `/${projectSlug}`;
+  }
+
+  // Add view query parameter if specified
+  if (view) {
+    url += `?view=${view}`;
   }
 
   return url;

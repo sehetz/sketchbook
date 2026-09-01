@@ -19,7 +19,7 @@ import Intro from "../layout/Intro.jsx";
 import { url_push } from "../../utils/routing.js";
 import { useData } from "../../contexts/DataContext.jsx";
 
-export default function DataView({ urlState, currentPath }) {
+export default function DataView({ urlState, currentPath, viewMode = "list" }) {
   // ============================================
   // DATEN AUS CONTEXT HOLEN
   // ============================================
@@ -134,7 +134,14 @@ export default function DataView({ urlState, currentPath }) {
     setFilter(newFilter);
     setOpenContainerLabel(null);
     setRequestedProjectSlug(null);
-    url_push({ filter: newFilter });
+    // Preserve viewMode in URL when switching filters
+    const params = new URLSearchParams(window.location.search);
+    const currentView = params.get("view");
+    const state = { filter: newFilter };
+    if (currentView === "feed") {
+      state.view = "feed";
+    }
+    url_push(state);
   };
 
   const handleContainerToggle = (index) => {
@@ -175,6 +182,7 @@ export default function DataView({ urlState, currentPath }) {
             onToggle={() => handleContainerToggle(index)}
             onUpdateUrl={handleUrlUpdate}
             requestedProjectSlug={requestedProjectSlug}
+            viewMode={viewMode}
           />
         ))
       )}

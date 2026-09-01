@@ -1,0 +1,88 @@
+/**
+ * FeedView - Grid layout for projects (alternative to list view)
+ * Shows all projects as cards in a responsive grid
+ */
+
+import MasterMediaImage from "../../media/MasterMediaImage.jsx";
+import MasterMediaVideo from "../../media/MasterMediaVideo.jsx";
+
+export default function FeedView({ projects, groupLabel, filterType }) {
+  if (!projects || projects.length === 0) return null;
+
+  // Helper: Check if file is video based on extension
+  const isVideoFile = (file) => {
+    if (!file) return false;
+    const filename = file.name || file.title || "";
+    return /\.(mp4|webm|mov)$/i.test(filename);
+  };
+
+  return (
+    <div className="feed-view">
+      {/* Group Header */}
+      {groupLabel && (
+        <h2 className="feed-view__header text-1">
+          {projects.length} {groupLabel} project{projects.length !== 1 ? 's' : ''}
+        </h2>
+      )}
+
+      {/* Grid */}
+      <div className="feed-view__grid">
+        {projects.map((project, index) => {
+          const teaserEmbed = project.teaserEmbedUrl;
+          const teaserImage = project.teaserImageFile || project["Teaser-Image"]?.[0];
+          const description = project.description || "";
+          const title = project.Title || "";
+          const isVideo = isVideoFile(teaserImage);
+          const embedRatio = project.teaserEmbedRatio || "3x4";
+
+          return (
+            <div key={project.id || index} className="feed-card">
+              {/* Title above image */}
+              <h3 className="text-2">{title}</h3>
+
+              {/* Media: Embed, Video, or Image */}
+              <div className="feed-card__image">
+                {teaserEmbed ? (
+                  <iframe
+                    src={teaserEmbed}
+                    className="feed-card__img"
+                    title={title}
+                    loading="lazy"
+                  />
+                ) : teaserImage ? (
+                  isVideo ? (
+                    <MasterMediaVideo
+                      file={teaserImage}
+                      className="feed-card__img"
+                      autoPlay={true}
+                      loop={true}
+                      muted={true}
+                      playsInline={true}
+                    />
+                  ) : (
+                    <MasterMediaImage
+                      file={teaserImage}
+                      alt={title}
+                      className="feed-card__img"
+                      loading={index < 6 ? "eager" : "lazy"}
+                      decoding="async"
+                    />
+                  )
+                ) : (
+                  <div className="feed-card__img placeholder" />
+                )}
+              </div>
+
+              {/* Description */}
+              {description && (
+                <div className="feed-card__content">
+                  <p className="text-3">{description}</p>
+                </div>
+              )}
+            </div>
+          );
+        })}
+      </div>
+    </div>
+  );
+}

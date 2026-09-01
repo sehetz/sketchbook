@@ -23,7 +23,34 @@ function App() {
   const [currentPath, setCurrentPath] = useState(
     typeof window !== "undefined" ? window.location.pathname : "/"
   );
-  
+
+  // View mode: list or feed
+  const [viewMode, setViewMode] = useState(() => {
+    if (typeof window === "undefined") return "list";
+    const params = new URLSearchParams(window.location.search);
+    return params.get("view") === "feed" ? "feed" : "list";
+  });
+
+  // Sync viewMode with URL parameter
+  useEffect(() => {
+    const params = new URLSearchParams(window.location.search);
+    const newView = viewMode === "feed" ? "feed" : "list";
+    const currentView = params.get("view");
+
+    if (newView === "list" && currentView) {
+      params.delete("view");
+    } else if (newView === "feed" && currentView !== "feed") {
+      params.set("view", "feed");
+    }
+
+    const newSearch = params.toString();
+    const newUrl = `${window.location.pathname}${newSearch ? `?${newSearch}` : ""}`;
+
+    if (newUrl !== `${window.location.pathname}${window.location.search}`) {
+      window.history.replaceState(null, "", newUrl);
+    }
+  }, [viewMode]);
+
   // Initialize Google Analytics on mount
   useEffect(() => {
     initGA();
@@ -90,9 +117,9 @@ function App() {
   return (
     <DataProvider>
       {/* <Banner/> */}
-      <Header />
+      <Header viewMode={viewMode} setViewMode={setViewMode} />
       <main>
-          <DataView urlState={urlState} currentPath={currentPath} />
+          <DataView urlState={urlState} currentPath={currentPath} viewMode={viewMode} />
         </main>
       <Footer />
     </DataProvider>

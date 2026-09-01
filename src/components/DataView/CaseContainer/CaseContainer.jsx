@@ -6,6 +6,7 @@ import { useState, useEffect, useRef, useMemo } from "react";
 import CaseHeader from "./CaseComponents/CaseHeader.jsx";
 import Teaser from "./CaseComponents/Teaser.jsx";
 import CaseDetail from "./CaseComponents/CaseDetail.jsx";
+import FeedView from "../FeedView/FeedView.jsx";
 import { text_labelToSlug, url_build } from "../../../utils/routing.js";
 import { CLOSE_MS, TRANSITION_GAP_MS, DEFAULT_FIRST_OPEN_INDEX, timer_clear, timer_schedule } from "../../../utils/ui.jsx";
 
@@ -18,6 +19,7 @@ export default function CaseContainer({
   onToggle,
   onUpdateUrl,
   requestedProjectSlug,
+  viewMode = "list",
 }) {
   // ⭐ Initialize openProjectIndex eagerly from URL state to prevent CLS
   // If we wait for useEffect to set it, the container renders closed first,
@@ -149,6 +151,23 @@ export default function CaseContainer({
   };
 
   if (displayProjects.length === 0) return null;
+
+  // ============================================
+  // FEED VIEW (alternative to list view)
+  // ============================================
+  if (viewMode === "feed") {
+    return (
+      <FeedView
+        projects={displayProjects}
+        groupLabel={label}
+        filterType={type}
+      />
+    );
+  }
+
+  // ============================================
+  // LIST VIEW (default)
+  // ============================================
 
   const headerBaseHeight = 66; // 64px base + 2px bottom padding
   const closedHeight = headerBaseHeight + 32 * Math.max(displayProjects.length - 1, 0);
