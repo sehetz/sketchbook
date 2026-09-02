@@ -1244,7 +1244,7 @@ strong,
 .feed-view__header {
   display: flex;
   align-items: center;
-  height: 66px;
+  height: 67px;
   box-sizing: border-box;
   padding: 2px var(--space-6);
   border-top: var(--line-width) solid var(--color-fg);
@@ -1304,7 +1304,7 @@ strong,
 @media (max-width: 1024px) {
   .feed-view__grid {
     grid-template-columns: repeat(2, 1fr);
-    gap: 0 var(--space-6);
+    gap: 0 var(--space-3);
   }
 }
 
