@@ -24,12 +24,17 @@ export default function CaseContainer({
   // ⭐ Initialize openProjectIndex eagerly from URL state to prevent CLS
   // If we wait for useEffect to set it, the container renders closed first,
   // then expands – shifting all containers below it (CLS 0.417).
+  // Tracks whether the currently-open project was chosen automatically (default
+  // first project) rather than explicitly by the user, so the URL sync effect
+  // knows whether to append a project slug (see that effect below for why).
+  const isAutoOpenRef = useRef(false);
   const [openProjectIndex, setOpenProjectIndex] = useState(() => {
     if (!isOpen) return null;
     if (requestedProjectSlug && projects.length > 0) {
       const idx = projects.findIndex(p => text_labelToSlug(p.Title) === requestedProjectSlug);
       if (idx !== -1) return idx;
     }
+    isAutoOpenRef.current = true;
     return DEFAULT_FIRST_OPEN_INDEX;
   });
   const queuedProjectRef = useRef(null);
@@ -50,6 +55,7 @@ export default function CaseContainer({
   useEffect(() => {
     if (isOpen && openProjectIndex === null && viewMode === "list") {
       // Container just opened in list mode → open first project
+      isAutoOpenRef.current = true;
       setOpenProjectIndex(DEFAULT_FIRST_OPEN_INDEX);
     } else if (!isOpen) {
       // Container closed → clear project
@@ -65,7 +71,9 @@ export default function CaseContainer({
   }, [viewMode, requestedProjectSlug]);
 
   // Sync URL when openProjectIndex changes (auto-open or manual toggle)
-  // Only include projectSlug for "skills" type
+  // Only include projectSlug for "skills" type, and only when the project was
+  // explicitly chosen (auto-opened defaults shouldn't advance the URL further
+  // than the container itself — matches gears/teams which never add a slug).
   useEffect(() => {
     // Feed mode has no per-project URL to sync; skip so it can't fight
     // a view=feed navigation by pushing the list-mode project URL back.
@@ -73,14 +81,14 @@ export default function CaseContainer({
     if (isOpen && openProjectIndex !== null && openProjectIndex !== undefined) {
       const project = displayProjects?.[openProjectIndex];
       if (project && onUpdateUrl) {
-        // Only add projectSlug for skills; gears and teams only have container URL
-        if (type === "skills") {
+        if (type === "skills" && !isAutoOpenRef.current) {
           const projectSlug = text_labelToSlug(project.Title || "");
           onUpdateUrl({ filter: type, containerLabel: label, projectSlug });
         } else {
-          // For gears/teams: just container, no project slug
+          // For gears/teams, or an auto-opened default project: just container
           onUpdateUrl({ filter: type, containerLabel: label });
         }
+        isAutoOpenRef.current = false;
       }
     }
   }, [openProjectIndex, isOpen, displayProjects, type, label, onUpdateUrl, viewMode]);

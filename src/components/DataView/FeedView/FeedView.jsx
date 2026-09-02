@@ -40,11 +40,22 @@ export default function FeedView({ projects, groupLabel, filterType, isLast }) {
     window.dispatchEvent(new PopStateEvent("popstate"));
   };
 
+  // Handle header click - navigate to the container's list view
+  const handleHeaderClick = () => {
+    const url = `/${filterType}/${text_labelToSlug(groupLabel)}`;
+    window.history.pushState(null, "", url);
+    window.dispatchEvent(new PopStateEvent("popstate"));
+  };
+
   return (
     <div className="feed-view" style={{ borderBottom: isLast ? "var(--line-width) solid var(--color-fg)" : "none" }}>
       {/* Group Header */}
       {groupLabel && (
-        <h2 className="feed-view__header text-1">
+        <h2
+          className="feed-view__header text-1"
+          onClick={handleHeaderClick}
+          style={{ cursor: 'pointer' }}
+        >
           <span className="text-1 dice">{projects.length}</span>
           {groupLabel}
           <span className="text-1 project-s">{" "}project{projects.length !== 1 ? 's' : ''}</span>
