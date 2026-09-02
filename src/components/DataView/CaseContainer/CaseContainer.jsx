@@ -67,6 +67,9 @@ export default function CaseContainer({
   // Sync URL when openProjectIndex changes (auto-open or manual toggle)
   // Only include projectSlug for "skills" type
   useEffect(() => {
+    // Feed mode has no per-project URL to sync; skip so it can't fight
+    // a view=feed navigation by pushing the list-mode project URL back.
+    if (viewMode === "feed") return;
     if (isOpen && openProjectIndex !== null && openProjectIndex !== undefined) {
       const project = displayProjects?.[openProjectIndex];
       if (project && onUpdateUrl) {
@@ -80,7 +83,7 @@ export default function CaseContainer({
         }
       }
     }
-  }, [openProjectIndex, isOpen, displayProjects, type, label, onUpdateUrl]);
+  }, [openProjectIndex, isOpen, displayProjects, type, label, onUpdateUrl, viewMode]);
 
   // If URL has requestedProjectSlug, find and open matching project
   useEffect(() => {
