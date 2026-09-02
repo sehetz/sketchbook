@@ -1242,9 +1242,13 @@ strong,
 }
 
 .feed-view__header {
+  display: flex;
+  align-items: center;
+  height: 66px;
+  box-sizing: border-box;
+  padding: 2px var(--space-6);
   border-top: var(--line-width) solid var(--color-fg);
   border-bottom: var(--line-width) dotted var(--color-fg);
-  padding: var(--space-3) var(--space-6);
 }
 
 .feed-view__grid {

@@ -45,7 +45,9 @@ export default function FeedView({ projects, groupLabel, filterType, isLast }) {
       {/* Group Header */}
       {groupLabel && (
         <h2 className="feed-view__header text-1">
-          {projects.length} {groupLabel} project{projects.length !== 1 ? 's' : ''}
+          <span className="text-1 dice">{projects.length}</span>
+          {groupLabel}
+          <span className="text-1 project-s">{" "}project{projects.length !== 1 ? 's' : ''}</span>
         </h2>
       )}
 
