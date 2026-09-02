@@ -297,7 +297,7 @@ img {
 }
 
 .btn-text-2:hover {
-  background-color: var(--color-surface);
+  background-color: var(--color-interaction);
 }
 
 .btn-text-2 > div {
@@ -426,6 +426,9 @@ img {
 .header__link {
   color: var(--color-fg);
   text-decoration: none;
+  transition:
+    background-color var(--transition-smooth),
+    transform var(--transition-fast);
 }
 .header__link:hover {
   background-color: var(--color-hover-bg);
@@ -831,6 +834,9 @@ a.link-block__link {
   align-items: center;
   word-break: break-word;
   overflow-wrap: break-word;
+  transition:
+    background-color var(--transition-smooth),
+    transform var(--transition-fast);
 }
 
 a.link-block__link:hover .link-block__text {

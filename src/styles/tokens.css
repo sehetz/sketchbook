@@ -18,7 +18,7 @@
   --color-surface: rgba(0, 0, 0, 0.025);
   --color-link: #0f0f0f;
   --color-yellow: rgba(255, 251, 120, .25);
-  --color-interaction: rgba(210, 210, 255, 0.75);
+  --color-interaction: rgba(210, 210, 255, 0.4);
   --color-yellow-highlight: #fff243;
   --color-yellow-dark: #766600;
   --color-yellow-dark-highlight: #938000;
@@ -161,12 +161,13 @@
   --color-bg-light: #1e1e1e;
   --color-timeline-hover: #766600;
   --color-yellow: #766600;
-  --color-hover-bg: #191919;
+  --color-hover-bg:  rgba(210, 210, 255, 0.2);
   --line-width: 1.5px;
    --size-border-thin: 1.0px;
    --text-1-letter: 0.015em;
    --text-2-letter: 0.025em;
    --text-3-letter: 0.025em;
+   --color-interaction: rgba(210, 210, 255, 0.75);
   /* --size-border-thin: 0.8px; */
 
   /* 📊 TIMELINE COLORS – Dark Mode */
