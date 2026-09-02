@@ -69,7 +69,7 @@ export default function FeedView({ projects, groupLabel, filterType, isLast }) {
               style={{ cursor: 'pointer' }}
             >
               {/* Title above image */}
-              <h3 className="text-2">{title}</h3>
+              <h3 className="text-2"><span className="feed-card__title">{title}</span></h3>
 
               {/* Media: Embed, Video, or Image */}
               <div className="feed-card__image">

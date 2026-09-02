@@ -1270,6 +1270,15 @@ strong,
   /* font-size: calc(var(--text-2-size)*.75); */
 }
 
+.feed-card__title {
+  display: inline-block;
+  transition: background-color var(--transition-smooth);
+}
+
+.feed-card:hover .feed-card__title {
+  background-color: var(--color-hover-bg);
+}
+
 .feed-card .text-3 {
   line-height: 1.125;
   font-size: calc(var(--text-3-size)*.62x5);
