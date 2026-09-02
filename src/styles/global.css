@@ -428,7 +428,7 @@ img {
   text-decoration: none;
 }
 .header__link:hover {
-  background-color: var(--color-surface);
+  background-color: var(--color-hover-bg);
 }
 .header__spacer {
   display: flex;
@@ -487,11 +487,11 @@ img {
 }
 
 .view-toggle__btn:hover {
-  background-color: var(--color-yellow);
+  background-color: var(--color-hover-bg);
 }
 
 .view-toggle__btn--active {
-  background-color: var(--color-yellow);
+  background-color: var(--color-hover-bg);
 }
 
 /* Filter Navigation */

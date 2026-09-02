@@ -4,6 +4,7 @@ import p5 from 'p5';
 export default function DiscoBall3D({ isRave = false }) {
   const containerRef = useRef(null);
   const sketchRef = useRef(null);
+  const isHoveredRef = useRef(false);
 
   useEffect(() => {
     if (!containerRef.current) return;
@@ -75,10 +76,13 @@ export default function DiscoBall3D({ isRave = false }) {
         p.directionalLight(255, 255, 255, 0, 0, -1);
 
         // Rotation on Y-axis only
-        if (isRave) {
-          rotationY += 0.025; // Fast spin
+        // Hover swaps to the other mode's speed: light mode hover -> fast, dark mode hover -> slow
+        const fastSpeed = 0.025;
+        const slowSpeed = 0.01;
+        if (isHoveredRef.current) {
+          rotationY += isRave ? slowSpeed : fastSpeed;
         } else {
-          rotationY += 0.01; // Slow drift
+          rotationY += isRave ? fastSpeed : slowSpeed;
         }
 
         // Check for full rotation and trigger flash
@@ -129,6 +133,8 @@ export default function DiscoBall3D({ isRave = false }) {
   return (
     <div
       ref={containerRef}
+      onMouseEnter={() => { isHoveredRef.current = true; }}
+      onMouseLeave={() => { isHoveredRef.current = false; }}
       style={{
         width: '26px',
         height: '26px',

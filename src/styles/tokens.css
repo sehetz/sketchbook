@@ -14,10 +14,11 @@
 :root {
   /* 🎨 COLORS */ 
   --color-bg: #fff;
-  --color-fg: #0f0f0f;
+  --color-fg: rgba(0, 0, 10, 1.0);
   --color-surface: rgba(0, 0, 0, 0.025);
   --color-link: #0f0f0f;
-  --color-yellow: #FFFB78;
+  --color-yellow: rgba(255, 251, 120, .25);
+  --color-interaction: rgba(210, 210, 255, 0.75);
   --color-yellow-highlight: #fff243;
   --color-yellow-dark: #766600;
   --color-yellow-dark-highlight: #938000;
@@ -80,7 +81,7 @@
   --transition-interact: 0.2s ease;
 
   /* 🎨 INTERACTION COLORS */
-  --color-hover-bg: var(--color-surface);
+  --color-hover-bg: var(--color-interaction);
   --color-timeline-hover: #FFFB78;
   --color-stroke: var(--color-fg);
   --color-bg-light: #ffffff;
