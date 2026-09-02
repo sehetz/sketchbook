@@ -24,7 +24,7 @@ export default function Header({ viewMode = "list", setViewMode }) {
         <a href="/" className="text-3">
           <div className="header__link">Sketchbook</div>
         </a>
-        {/* {!isAboutPage && <ViewToggle viewMode={viewMode} onViewChange={setViewMode} />} */}
+        {!isAboutPage && <ViewToggle viewMode={viewMode} onViewChange={setViewMode} />}
       </div>
 
       {/* Center: Disco (grid centered) */}

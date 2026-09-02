@@ -1,5 +1,6 @@
 /**
  * ViewToggle - Switches between list and feed view
+ * Always uses URL as single source of truth
  */
 
 export default function ViewToggle({ viewMode, onViewChange }) {
@@ -9,29 +10,29 @@ export default function ViewToggle({ viewMode, onViewChange }) {
     // Get current URL parts
     const pathname = window.location.pathname;
     const segments = pathname.split('/').filter(Boolean);
+    const params = new URLSearchParams(window.location.search);
+
+    let newUrl = pathname;
 
     // If clicking "feed" and we're on a project page (3 segments), navigate to category level
     if (mode === 'feed' && segments.length === 3) {
       // Go up one level: /skills/foto/basel-harbour -> /skills/foto?view=feed
-      const categoryUrl = `/${segments[0]}/${segments[1]}?view=feed`;
-      window.history.pushState(null, "", categoryUrl);
-      window.dispatchEvent(new PopStateEvent("popstate"));
-      return; // Don't call onViewChange - popstate handler will update state
+      newUrl = `/${segments[0]}/${segments[1]}?view=feed`;
     }
-
+    // If clicking "feed" from list view, add query parameter
+    else if (mode === 'feed') {
+      params.set('view', 'feed');
+      newUrl = pathname + '?' + params.toString();
+    }
     // If clicking "list" from feed view, remove query parameter
-    if (mode === 'list' && viewMode === 'feed') {
-      // Keep current URL but remove ?view=feed
-      const currentSearch = new URLSearchParams(window.location.search);
-      currentSearch.delete('view');
-      const newUrl = pathname + (currentSearch.toString() ? `?${currentSearch.toString()}` : '');
-      window.history.pushState(null, "", newUrl);
-      window.dispatchEvent(new PopStateEvent("popstate"));
-      return; // Don't call onViewChange - popstate handler will update state
+    else if (mode === 'list') {
+      params.delete('view');
+      newUrl = pathname + (params.toString() ? '?' + params.toString() : '');
     }
 
-    // For other cases, just update the state
-    onViewChange(mode);
+    // Update URL and trigger navigation
+    window.history.pushState(null, "", newUrl);
+    window.dispatchEvent(new PopStateEvent("popstate"));
   };
 
   return (

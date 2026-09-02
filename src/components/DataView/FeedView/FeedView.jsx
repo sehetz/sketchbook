@@ -7,7 +7,7 @@ import MasterMediaImage from "../../media/MasterMediaImage.jsx";
 import MasterMediaVideo from "../../media/MasterMediaVideo.jsx";
 import { text_labelToSlug } from "../../../utils/routing.js";
 
-export default function FeedView({ projects, groupLabel, filterType }) {
+export default function FeedView({ projects, groupLabel, filterType, isLast }) {
   if (!projects || projects.length === 0) return null;
 
   // Helper: Check if file is video based on extension
@@ -41,7 +41,7 @@ export default function FeedView({ projects, groupLabel, filterType }) {
   };
 
   return (
-    <div className="feed-view">
+    <div className="feed-view" style={{ borderBottom: isLast ? "var(--line-width) solid var(--color-fg)" : "none" }}>
       {/* Group Header */}
       {groupLabel && (
         <h2 className="feed-view__header text-1">

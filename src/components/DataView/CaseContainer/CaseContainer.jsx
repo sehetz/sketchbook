@@ -168,6 +168,7 @@ export default function CaseContainer({
         projects={displayProjects}
         groupLabel={label}
         filterType={type}
+        isLast={isLast}
       />
     );
   }
