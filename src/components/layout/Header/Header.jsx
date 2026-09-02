@@ -14,8 +14,10 @@ export default function Header({ viewMode = "list", setViewMode }) {
   // }, [rave]);
 
   // Check if current page is About page
-  const isAboutPage = typeof window !== 'undefined' &&
-    (window.location.pathname === '/sarah-heitz' || window.location.pathname === '/about');
+  const currentPath = typeof window !== 'undefined'
+    ? window.location.pathname.replace(/\/$/, '')
+    : '';
+  const isAboutPage = currentPath === '/sarah-heitz' || currentPath === '/about';
 
   return (
     <header className="header">
