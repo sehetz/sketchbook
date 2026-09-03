@@ -1236,6 +1236,7 @@ strong,
   padding: 2px var(--space-6);
   border-top: var(--line-width) solid var(--color-fg);
   border-bottom: var(--line-width) dotted var(--color-fg);
+  white-space: nowrap;
 }
 
 .feed-view__header:hover {
