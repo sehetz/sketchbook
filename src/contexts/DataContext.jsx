@@ -67,6 +67,9 @@ export function DataProvider({ children }) {
   const [sehetz, setSehetz] = useState(() => {
     return readCache("sehetz-sehetz-cache-v1") || null;
   });
+  const [sehetzWorkspace, setSehetzWorkspace] = useState(() => {
+    return readCache("sehetz-workspace-cache-v1") || null;
+  });
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
 
@@ -89,6 +92,7 @@ export function DataProvider({ children }) {
     teams: "sehetz-teams-cache-v1",
     intro: "sehetz-intro-cache-v1",
     sehetz: "sehetz-sehetz-cache-v1",
+    sehetzWorkspace: "sehetz-workspace-cache-v1",
   };
 
   // ============================================
@@ -297,23 +301,36 @@ export function DataProvider({ children }) {
 
   async function loadSehetz(isInitialLoad = false) {
     let localData = null;
+    let localWorkspaceData = null;
 
     const cached = loadFromCache(CACHE_KEYS.sehetz);
     if (cached) {
       localData = cached;
       setSehetz(cached);
     }
+    const cachedWorkspace = loadFromCache(CACHE_KEYS.sehetzWorkspace);
+    if (cachedWorkspace) {
+      localWorkspaceData = cachedWorkspace;
+      setSehetzWorkspace(cachedWorkspace);
+    }
 
-    if (!localData) {
+    if (!localData || !localWorkspaceData) {
       try {
         const res = await fetch("/data/sehetz.json", { cache: "force-cache" });
         if (res.ok) {
           const json = await res.json();
-          const record = (json.list || [])[0] || null;
+          const list = json.list || [];
+          const record = list[0] || null;
+          const workspaceRecord = list[1] || null;
           if (record) {
             localData = record;
             setSehetz(record);
             saveToCache(CACHE_KEYS.sehetz, record);
+          }
+          if (workspaceRecord) {
+            localWorkspaceData = workspaceRecord;
+            setSehetzWorkspace(workspaceRecord);
+            saveToCache(CACHE_KEYS.sehetzWorkspace, workspaceRecord);
           }
         }
       } catch (err) {
@@ -322,17 +339,23 @@ export function DataProvider({ children }) {
     }
 
     try {
-      const url = `${NOCO_BASE}/api/v2/tables/${SEHETZ_TABLE_ID}/records?limit=1`;
+      const url = `${NOCO_BASE}/api/v2/tables/${SEHETZ_TABLE_ID}/records?limit=2`;
       const res = await fetch(url, {
         headers: { "xc-token": API_TOKEN },
         signal: AbortSignal.timeout(10000)
       });
       if (res.ok) {
         const json = await res.json();
-        const record = (json.list || [])[0] || null;
+        const list = json.list || [];
+        const record = list[0] || null;
+        const workspaceRecord = list[1] || null;
         if (record && JSON.stringify(record) !== JSON.stringify(localData)) {
           setSehetz(record);
           saveToCache(CACHE_KEYS.sehetz, record);
+        }
+        if (workspaceRecord && JSON.stringify(workspaceRecord) !== JSON.stringify(localWorkspaceData)) {
+          setSehetzWorkspace(workspaceRecord);
+          saveToCache(CACHE_KEYS.sehetzWorkspace, workspaceRecord);
         }
       }
     } catch (err) {
@@ -381,7 +404,8 @@ export function DataProvider({ children }) {
     teams,
     introTexts,
     sehetz,
-    
+    sehetzWorkspace,
+
     // Status
     isLoading,
     error,

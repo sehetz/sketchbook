@@ -11,6 +11,7 @@ export default function About() {
       <Intro page="about" />
       <TimelineViz />
       <SehetzTeaser />
+      <SehetzTeaser variant="workspace" />
       <Footer />
     </main>
   );

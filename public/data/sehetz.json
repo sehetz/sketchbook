@@ -3,7 +3,7 @@
     {
       "Id": 1,
       "CreatedAt": "2025-12-20 13:21:35+00:00",
-      "UpdatedAt": "2026-06-04 07:55:31+00:00",
+      "UpdatedAt": "2026-09-13 14:07:47+00:00",
       "title": "Sarah Heitz",
       "description": "If you skipped the site tour and landed straight here in the hidden section below the visualization: Congratulations and welcome! I'm Sarah, a graphic designer and illustrator, and I've done nothing else my entire professional life (wow!). ",
       "image": [
@@ -17,29 +17,51 @@
           "height": 2880,
           "thumbnails": {
             "tiny": {
-              "signedPath": "dltemp/VUvDjaguFPym69eQ/1789044000000/thumbnails/noco/pv3c5ekh1fjoihu/m34cva2ry5iiyro/chlpuggdhb12gak/Sarah-Heitz-sehetz_c0YoU.jpg/tiny.jpg"
+              "signedPath": "dltemp/94IE4rNReq0YIA76/1789317000000/thumbnails/noco/pv3c5ekh1fjoihu/m34cva2ry5iiyro/chlpuggdhb12gak/Sarah-Heitz-sehetz_c0YoU.jpg/tiny.jpg"
             },
             "small": {
-              "signedPath": "dltemp/vHggl0n1maRX8FUc/1789044000000/thumbnails/noco/pv3c5ekh1fjoihu/m34cva2ry5iiyro/chlpuggdhb12gak/Sarah-Heitz-sehetz_c0YoU.jpg/small.jpg"
+              "signedPath": "dltemp/KJ6qpN4YUjTSCx-f/1789317000000/thumbnails/noco/pv3c5ekh1fjoihu/m34cva2ry5iiyro/chlpuggdhb12gak/Sarah-Heitz-sehetz_c0YoU.jpg/small.jpg"
             },
             "card_cover": {
-              "signedPath": "dltemp/R2--kSI2fs5YCutB/1789044000000/thumbnails/noco/pv3c5ekh1fjoihu/m34cva2ry5iiyro/chlpuggdhb12gak/Sarah-Heitz-sehetz_c0YoU.jpg/card_cover.jpg"
+              "signedPath": "dltemp/Y7VVWyqjCbo-BNaG/1789317000000/thumbnails/noco/pv3c5ekh1fjoihu/m34cva2ry5iiyro/chlpuggdhb12gak/Sarah-Heitz-sehetz_c0YoU.jpg/card_cover.jpg"
             }
           },
-          "signedPath": "dltemp/x19sGIJPzS2-Frjm/1789044000000/noco/pv3c5ekh1fjoihu/m34cva2ry5iiyro/chlpuggdhb12gak/Sarah-Heitz-sehetz_c0YoU.jpg"
+          "signedPath": "dltemp/wZ4MMWIUlcDVTQ52/1789317000000/noco/pv3c5ekh1fjoihu/m34cva2ry5iiyro/chlpuggdhb12gak/Sarah-Heitz-sehetz_c0YoU.jpg"
         }
       ],
-      "Achievment_1": "As a part of Superdot I was able to teach Information Design at HSLU Lucerne.",
-      "Achievment_2": "I am an active member of the Comic Crew BS / BL",
-      "Achievment_3": "My Concept art is featured in the Documentary Endlich Tacheles."
+      "Achievment_1": "",
+      "Achievment_2": null,
+      "Achievment_3": null
     },
     {
       "Id": 2,
       "CreatedAt": "2026-06-04 07:27:56+00:00",
-      "UpdatedAt": "2026-09-02 13:18:06+00:00",
-      "title": "Workspace",
-      "description": "2026 bin ich in eine Ateliergemeinschaft eingezogen",
-      "image": null,
+      "UpdatedAt": "2026-09-13 14:23:47+00:00",
+      "title": "Atelier",
+      "description": "I work from a shared studio in Basel, inside a creative toolbox and inspired by the projects of my colleagues. The space is set in an old courtyard workshop typical for Basel, where we experiment, collaborate, draw, code, print, and organize events.",
+      "image": [
+        {
+          "path": "download/noco/pv3c5ekh1fjoihu/m34cva2ry5iiyro/chlpuggdhb12gak/Atelier-sehetz_26zVx.jpg",
+          "title": "Atelier-sehetz.jpg",
+          "mimetype": "image/jpeg",
+          "size": 1291622,
+          "width": 1440,
+          "height": 1920,
+          "id": "atpf6anx93zpoal2",
+          "thumbnails": {
+            "tiny": {
+              "signedPath": "dltemp/b7FOX96iuWu9_xyh/1789317000000/thumbnails/noco/pv3c5ekh1fjoihu/m34cva2ry5iiyro/chlpuggdhb12gak/Atelier-sehetz_26zVx.jpg/tiny.jpg"
+            },
+            "small": {
+              "signedPath": "dltemp/_mXfdLU1PVVUZOB0/1789317000000/thumbnails/noco/pv3c5ekh1fjoihu/m34cva2ry5iiyro/chlpuggdhb12gak/Atelier-sehetz_26zVx.jpg/small.jpg"
+            },
+            "card_cover": {
+              "signedPath": "dltemp/knrKFYMkncktE_H7/1789317000000/thumbnails/noco/pv3c5ekh1fjoihu/m34cva2ry5iiyro/chlpuggdhb12gak/Atelier-sehetz_26zVx.jpg/card_cover.jpg"
+            }
+          },
+          "signedPath": "dltemp/VVOyfCpBVyivYfg_/1789317000000/noco/pv3c5ekh1fjoihu/m34cva2ry5iiyro/chlpuggdhb12gak/Atelier-sehetz_26zVx.jpg"
+        }
+      ],
       "Achievment_1": null,
       "Achievment_2": null,
       "Achievment_3": null
