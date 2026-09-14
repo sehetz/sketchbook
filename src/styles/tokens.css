@@ -138,7 +138,7 @@
   --timeline-year-padding-left-desktop: 20px;
   --timeline-year-padding-left-mobile: 12px;
   --timeline-label-safety-gap-mobile: 12px;
-  --color-timeline-dot:#2848f9;
+  --color-timeline-dot:rgba(210, 210, 255, 01.0);
 
   /* 📐 LAYOUT DIMENSIONS */
   --layout-image-grid-minmax: 200px;
