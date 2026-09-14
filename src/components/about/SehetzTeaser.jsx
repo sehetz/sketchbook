@@ -1,14 +1,14 @@
 
 import { useData } from "../../contexts/DataContext.jsx";
-import MasterMediaImage from "../media/MasterMediaImage.jsx";
 
 export default function SehetzTeaser({ variant = "sehetz" }) {
   const { sehetz, sehetzWorkspace } = useData();
   const data = variant === "workspace" ? sehetzWorkspace : sehetz;
 
-  const imageFile = data?.image?.[0];
-  const useStaticPortrait = variant === "sehetz";
-  const staticImageUrl = "/media/Sarah-Heitz-sehetz.jpg";
+  const staticImageUrl =
+    variant === "workspace"
+      ? "/media/Atelier-sehetz.jpg"
+      : "/media/Sarah-Heitz-sehetz.jpg";
   const altDescription =
     variant === "workspace"
       ? "Sarah Heitz' Atelier"
@@ -30,23 +30,12 @@ export default function SehetzTeaser({ variant = "sehetz" }) {
             </div>
           </div>
         </div>
-        {useStaticPortrait ? (
-          <img
-            src={staticImageUrl}
-            alt={altDescription}
-            className="teaser__image sehetz-teaser__image"
-            loading="lazy"
-          />
-        ) : imageFile ? (
-          <MasterMediaImage
-            file={imageFile}
-            alt={altDescription}
-            className="teaser__image sehetz-teaser__image"
-            loading="lazy"
-          />
-        ) : (
-          <div className="teaser__image sehetz-teaser__image placeholder" />
-        )}
+        <img
+          src={staticImageUrl}
+          alt={altDescription}
+          className="teaser__image sehetz-teaser__image"
+          loading="lazy"
+        />
       </div>
     </div>
   );
