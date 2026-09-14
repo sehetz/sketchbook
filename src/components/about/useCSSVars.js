@@ -23,7 +23,9 @@ export function useCSSVars() {
       // Colors
       colorFg: getCSSVar("--color-fg", root),
       colorBg: getCSSVar("--color-bg", root),
+      colorDot: getCSSVar("--color-timeline-dot", root),
       colorCircle: getCSSVar("--color-timeline-circle", root),
+      colorInteraction: getCSSVar("--color-interaction", root),
       colorGradientStart: getCSSVar("--color-timeline-gradient-start", root),
       colorGradientEnd: getCSSVar("--color-timeline-gradient-end", root),
       // Dimensions
@@ -54,6 +56,8 @@ export function useCSSVars() {
       tooltipHeight: parseCSSValueInPx("--timeline-tooltip-height", root),
       tooltipHeightMobile: parseCSSValueInPx("--timeline-tooltip-height-mobile", root),
       tooltipPaddingTop: parseCSSValueInPx("--timeline-tooltip-padding-top", root),
+      tooltipPaddingTopMobile: parseCSSValueInPx("--timeline-tooltip-padding-top-mobile", root),
+      labelSafetyGapMobile: parseCSSValueInPx("--timeline-label-safety-gap-mobile", root),
       mobileHeaderMargin: parseCSSValueInPx("--timeline-mobile-header-margin", root),
       paddingTop: parseCSSValueInPx("--timeline-padding-top", root),
       paddingRight: parseCSSValueInPx("--timeline-padding-right", root),

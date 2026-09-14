@@ -25,10 +25,11 @@ export function useTimelineData() {
     const validTeams = extracted
       .filter((t) => Number.isInteger(t.start))
       .sort((a, b) => {
-        if (a.end === null && b.end === null) return b.start - a.start;
+        if (a.end === null && b.end === null) return a.start - b.start;
         if (a.end === null) return -1;
         if (b.end === null) return 1;
-        return b.end - a.end;
+        if (a.end !== b.end) return b.end - a.end;
+        return a.start - b.start;
       });
 
     setTeams(validTeams);

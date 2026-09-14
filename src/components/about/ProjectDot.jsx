@@ -1,23 +1,19 @@
 import { useTimeline } from "./TimelineContext.jsx";
+import { measureTextWidth } from "./timelineUtils.js";
 
 function ProjectTooltip({ x, y, title }) {
   const { cssVars, tooltipHeight } = useTimeline();
-  const tooltipWidth = Math.max(
-    80,
-    Math.min(220, title.length * 7 + cssVars.tooltipPadding * 2),
-  );
+  const font = `${cssVars.projectLabelFontSize}px ${cssVars.fontSans}`;
+  const tooltipWidth = measureTextWidth(title, font) + cssVars.tooltipPadding * 1;
   return (
     <rect
       className="project-tooltip-bg"
-      x={x}
+      x={x - tooltipWidth / 2}
       y={y - tooltipHeight / 2 - cssVars.tooltipPaddingTop}
       width={tooltipWidth}
       height={tooltipHeight}
-      rx={tooltipHeight / 2}
-      ry={tooltipHeight / 2}
-      fill={cssVars.colorBg}
+      fill={cssVars.colorInteraction}
       stroke="none"
-      opacity={1}
     />
   );
 }
@@ -27,13 +23,11 @@ export default function ProjectDot({ x, y, title, teamIdx, slug, skillSlug }) {
     cssVars,
     isMobile,
     dotRadius,
-    tooltipOffsetX,
     hoveredProjectId,
     setHoveredProjectId,
   } = useTimeline();
 
   const projectId = `${teamIdx}-${x}-${y}-${title}`;
-  const tx = x + tooltipOffsetX - cssVars.tooltipPadding;
 
   const handleClick = (e) => {
     e.stopPropagation();
@@ -61,18 +55,18 @@ export default function ProjectDot({ x, y, title, teamIdx, slug, skillSlug }) {
         cx={x}
         cy={y}
         r={dotRadius}
-        fill={cssVars.colorFg}
+        fill={cssVars.colorDot}
         className="project-dot"
       />
       {!isMobile && (
         <>
-          <ProjectTooltip x={tx} y={y} title={title} />
+          <ProjectTooltip x={x} y={y} title={title} />
           <text
-            x={tx + cssVars.tooltipPadding}
+            x={x}
             y={y - cssVars.tooltipPaddingTop + 5}
             fontSize={cssVars.projectLabelFontSize}
             fontFamily={cssVars.fontSans}
-            textAnchor="start"
+            textAnchor="middle"
             fill={cssVars.colorFg}
             className="project-title"
             style={{ pointerEvents: "none" }}

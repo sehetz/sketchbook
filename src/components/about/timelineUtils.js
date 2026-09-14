@@ -20,6 +20,23 @@ export function parseYear(val) {
   return null;
 }
 
+let measureCtx = null;
+const measureCache = new Map();
+
+export function measureTextWidth(text, font) {
+  if (!text) return 0;
+  const cacheKey = `${font}::${text}`;
+  if (measureCache.has(cacheKey)) return measureCache.get(cacheKey);
+  if (!measureCtx) {
+    measureCtx = document.createElement("canvas").getContext("2d");
+  }
+  if (!measureCtx) return 0;
+  measureCtx.font = font;
+  const width = measureCtx.measureText(text).width;
+  measureCache.set(cacheKey, width);
+  return width;
+}
+
 export function generateSlug(title) {
   return title
     .toLowerCase()

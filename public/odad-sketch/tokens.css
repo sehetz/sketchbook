@@ -15,12 +15,6 @@
   /* 🎨 COLORS */
   --color-bg: #fff;
   --color-fg: #0f0f0f;
-  --color-surface: rgba(0, 0, 0, 0.025);
-  --color-link: #0f0f0f;
-  --color-yellow: #fffb78;
-  --color-yellow-highlight: #fff243;
-  --color-yellow-dark: #766600;
-  --color-yellow-dark-highlight: #938000;
 
   /* 🧱 SPACING SCALE */
   --space-1: 0.25rem; /* 4px */
